@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-30T06:30:58.701Z",
-  "total_models": 6,
+  "generated_at": "2026-03-30T20:09:15.001Z",
+  "total_models": 7,
   "rankings": [
     {
       "model_id": "minimax/minimax-m2.7-original",
@@ -91,6 +91,36 @@
       "long_context_quality": 55,
       "avg_speed_ms": 1851,
       "last_tested": "2026-03-23T21:44:48.328Z"
+    },
+    {
+      "model_id": "kwaipilot/kat-coder-pro-v2",
+      "model_label": "Kat Coder Pro v2",
+      "overall_adherence": 93.6,
+      "overall_quality": 74.7,
+      "categories_tested": 10,
+      "categories_failed": 0,
+      "social_media_posts_adherence": 94,
+      "social_media_posts_quality": 68,
+      "linkedin_article_adherence": 100,
+      "linkedin_article_quality": 82,
+      "html_salespage_adherence": 75,
+      "html_salespage_quality": 62,
+      "backend_code_adherence": 96,
+      "backend_code_quality": 85,
+      "email_copywriting_adherence": 95,
+      "email_copywriting_quality": 82,
+      "youtube_summary_adherence": 97,
+      "youtube_summary_quality": 85,
+      "editing_adherence": 84,
+      "editing_quality": 70,
+      "brainstorming_adherence": 95,
+      "brainstorming_quality": 88,
+      "reasoning_analysis_adherence": 100,
+      "reasoning_analysis_quality": 90,
+      "long_context_adherence": 100,
+      "long_context_quality": 35,
+      "avg_speed_ms": 1853,
+      "last_tested": "2026-03-30T18:20:53.804Z"
     },
     {
       "model_id": "minimax/minimax-m2.7",
