@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-03-30T06:20:58.105Z",
+  "total_models": 1,
+  "rankings": [
+    {
+      "model_id": "nvidia/nemotron-3-super-120b-a12b:free",
+      "model_label": "Nemotron Super 120B",
+      "overall_adherence": 85.6,
+      "overall_quality": 66.4,
+      "categories_tested": 10,
+      "categories_failed": 0,
+      "social_media_posts_adherence": 98,
+      "social_media_posts_quality": 78,
+      "linkedin_article_adherence": 90,
+      "linkedin_article_quality": 55,
+      "html_salespage_adherence": 69,
+      "html_salespage_quality": 35,
+      "backend_code_adherence": 93,
+      "backend_code_quality": 78,
+      "email_copywriting_adherence": 92,
+      "email_copywriting_quality": 68,
+      "youtube_summary_adherence": 97,
+      "youtube_summary_quality": 85,
+      "editing_adherence": 81,
+      "editing_quality": 62,
+      "brainstorming_adherence": 90,
+      "brainstorming_quality": 88,
+      "reasoning_analysis_adherence": 56,
+      "reasoning_analysis_quality": 85,
+      "long_context_adherence": 90,
+      "long_context_quality": 30,
+      "avg_speed_ms": 1249,
+      "last_tested": "2026-03-25T10:38:20.783Z"
+    }
+  ]
+}
