@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-31T19:48:38.340Z",
+  "generated_at": "2026-03-31T21:02:29.498Z",
   "total_models": 8,
   "rankings": [
     {
@@ -36,7 +36,7 @@
       "model_id": "qwen/qwen3.6-plus-preview:free",
       "model_label": "Qwen3.6 Plus Preview",
       "overall_adherence": 94.1,
-      "overall_quality": 78.5,
+      "overall_quality": 78.9,
       "categories_tested": 10,
       "categories_failed": 0,
       "social_media_posts_adherence": 99,
@@ -44,7 +44,7 @@
       "linkedin_article_adherence": 100,
       "linkedin_article_quality": 88,
       "html_salespage_adherence": 82,
-      "html_salespage_quality": 68,
+      "html_salespage_quality": 72,
       "backend_code_adherence": 93,
       "backend_code_quality": 82,
       "email_copywriting_adherence": 98,
@@ -156,7 +156,7 @@
       "model_id": "xiaomi/mimo-v2-pro",
       "model_label": "Xiaomi-MiMo-v2-Pro",
       "overall_adherence": 94.8,
-      "overall_quality": 68.1,
+      "overall_quality": 67.5,
       "categories_tested": 10,
       "categories_failed": 0,
       "social_media_posts_adherence": 99,
@@ -176,7 +176,7 @@
       "brainstorming_adherence": 95,
       "brainstorming_quality": 80,
       "reasoning_analysis_adherence": 100,
-      "reasoning_analysis_quality": 78,
+      "reasoning_analysis_quality": 72,
       "long_context_adherence": 100,
       "long_context_quality": 30,
       "avg_speed_ms": 1851,
