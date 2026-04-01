@@ -104,10 +104,11 @@
   .arena-header {
     background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-mid) 40%, var(--purple-light) 100%);
     color: white;
-    padding: 40px 24px 48px;
+    padding: 40px 24px 24px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    margin-bottom: 0;
   }
   .arena-header::before {
     content: '';
@@ -173,11 +174,320 @@
   .footer-tagline { font-size: 0.9rem; opacity: 0.8; margin-bottom: 8px; }
   .footer-copy { font-size: 0.75rem; opacity: 0.4; }
 
+    
+  /* Breakout sections */
+  .breakout-section {
+    margin: 16px 0;
+  }
+  .breakout-title {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--purple-mid);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  /* Platform cards grid (social media) */
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .platform-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .platform-header {
+    background: var(--purple-dark);
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .platform-icon {
+    font-size: 1rem;
+    width: 24px;
+    text-align: center;
+  }
+  .platform-body {
+    padding: 12px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  /* Callout boxes */
+  .callout-box {
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .callout-box.info {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+  }
+  .callout-box.creative {
+    background: #faf5ff;
+    border: 1px solid #e9d5ff;
+  }
+  .callout-box.changelog {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .callout-box.section {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+  }
+  .callout-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+    margin-bottom: 6px;
+  }
+
+  /* Feature list */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .feature-list li {
+    padding: 3px 0 3px 20px;
+    position: relative;
+    font-size: 0.85rem;
+  }
+  .feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  /* Email preview */
+  .email-preview {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.9rem;
+  }
+  .email-subject {
+    background: #f1f5f9;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+  }
+  .email-preview-text {
+    padding: 8px 16px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+  .email-body {
+    padding: 16px;
+    line-height: 1.7;
+  }
+  .email-body p { margin-bottom: 12px; }
+  .email-signature {
+    padding: 8px 16px;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+  .email-ps {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.88rem;
+  }
+
+  /* Code display */
+  .code-display {
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 8px 0;
+  }
+  .code-lang-tag {
+    background: var(--blue);
+    color: white;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin: 8px 0 0 8px;
+    border-radius: 4px;
+  }
+  .code-display pre {
+    padding: 16px;
+    color: #e2e8f0;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  /* Article preview */
+  .article-preview {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .article-headline {
+    padding: 16px 20px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--purple-dark);
+    border-bottom: 2px solid var(--magenta);
+    line-height: 1.3;
+  }
+  .article-section {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .article-section:last-child { border-bottom: none; }
+  .article-section-title {
+    font-weight: 700;
+    color: var(--purple-mid);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+  .article-section-body {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Edited text box */
+  .edited-text-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .edited-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+  }
+  .edited-text p { margin-bottom: 10px; }
+  .changelog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .changelog-list li {
+    padding: 4px 0 4px 20px;
+    position: relative;
+    font-size: 0.83rem;
+    line-height: 1.5;
+  }
+  .changelog-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
+
+  /* Strategy cards */
+  .strategy-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .strategy-card {
+    display: flex;
+    gap: 14px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    align-items: flex-start;
+  }
+  .strategy-num {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--purple-mid);
+    min-width: 32px;
+    text-align: center;
+    line-height: 1;
+  }
+  .strategy-title {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .strategy-preview {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Answers grid (long context) */
+  .answers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .answer-card {
+    display: flex;
+    gap: 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    align-items: center;
+  }
+  .answer-num {
+    font-weight: 800;
+    color: var(--purple-mid);
+    font-size: 1.1rem;
+    min-width: 24px;
+  }
+  .answer-text {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .platform-grid { grid-template-columns: 1fr; }
+    .answers-grid { grid-template-columns: 1fr; }
+  }
+
 
     /* Report-specific styles */
     .report-container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
 
-    /* Hero scores */
+    /* Hero scores — using Poppins for number clarity */
     .hero-scores {
       display: flex;
       justify-content: center;
@@ -187,19 +497,22 @@
     }
     .hero-score { text-align: center; }
     .hero-number {
-      font-family: var(--font-display);
+      font-family: var(--font-body);
+      font-weight: 800;
       font-size: 4.5rem;
       line-height: 1;
       letter-spacing: 0.02em;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.3);
     }
     .hero-number.primary { color: var(--green); }
-    .hero-number.secondary { color: rgba(255,255,255,0.4); font-size: 2.8rem; }
+    .hero-number.secondary { color: rgba(255,255,255,0.6); font-size: 2.8rem; }
     .hero-label {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-top: 4px;
-      opacity: 0.7;
+      margin-top: 6px;
+      opacity: 0.8;
     }
 
     /* Tier badge in header */
@@ -451,8 +764,8 @@
     </div>
   </header>
 
-<!-- Hero scores inside header -->
-<div style="background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-mid) 100%); padding: 0 24px 40px; margin-top: -1px;">
+<!-- Hero scores inside header — no gap -->
+<div style="background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-mid) 100%); padding: 0 24px 40px; margin-top: -2px; border-top: none;">
   <div class="hero-scores">
     <div class="hero-score">
       <div class="hero-number primary">86.4</div>
@@ -665,7 +978,9 @@
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
           <p>Original raw output lost during data import. Score preserved from original evaluation.</p>
-        </div>
+        </div><div class="breakout-section">
+    <h4 class="breakout-title">Article Preview</h4>
+    <div class="article-preview"><div class="article-headline">[imported from tallahassee report]</div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>[imported from tallahassee report]</pre></div>
@@ -693,7 +1008,13 @@
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
           <p>Original raw output lost during data import. Score preserved from original evaluation.</p>
-        </div>
+        </div><div class="breakout-section">
+    <h4 class="breakout-title">Code Analysis</h4>
+    <div class="code-display">
+      <div class="code-lang-tag">TypeScript</div>
+      <pre><code>[imported from tallahassee report]</code></pre>
+    </div>
+  </div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>[imported from tallahassee report]</pre></div>
@@ -763,7 +1084,8 @@
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
           <p>Original raw output lost during data import. Score preserved from original evaluation.</p>
-        </div>
+        </div><div class="breakout-section">
+    <h4 class="breakout-title">Analysis Highlights</h4></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>[imported from tallahassee report]</pre></div>
@@ -777,7 +1099,9 @@
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
           <p>Original raw output lost during data import. Score preserved from original evaluation.</p>
-        </div>
+        </div><div class="breakout-section">
+    <h4 class="breakout-title">Answers (1 questions)</h4>
+    <div class="answers-grid"></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>[imported from tallahassee report]</pre></div>
