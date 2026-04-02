@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-01T04:27:15.098Z",
-  "total_models": 8,
+  "generated_at": "2026-04-02T02:54:14.041Z",
+  "total_models": 9,
   "rankings": [
     {
       "model_id": "minimax/minimax-m2.7-original",
@@ -31,6 +31,36 @@
       "long_context_quality": 95,
       "avg_speed_ms": null,
       "last_tested": "2026-03-23"
+    },
+    {
+      "model_id": "MiniMaxAI/MiniMax-M2.5-TEE",
+      "model_label": "MiniMax-M2.5-TEE",
+      "overall_adherence": 92.9,
+      "overall_quality": 86,
+      "categories_tested": 10,
+      "categories_failed": 0,
+      "social_media_posts_adherence": 100,
+      "social_media_posts_quality": 90,
+      "linkedin_article_adherence": 95,
+      "linkedin_article_quality": 88,
+      "html_salespage_adherence": 77,
+      "html_salespage_quality": 82,
+      "backend_code_adherence": 100,
+      "backend_code_quality": 92,
+      "email_copywriting_adherence": 88,
+      "email_copywriting_quality": 78,
+      "youtube_summary_adherence": 97,
+      "youtube_summary_quality": 85,
+      "editing_adherence": 84,
+      "editing_quality": 75,
+      "brainstorming_adherence": 88,
+      "brainstorming_quality": 85,
+      "reasoning_analysis_adherence": 100,
+      "reasoning_analysis_quality": 90,
+      "long_context_adherence": 100,
+      "long_context_quality": 95,
+      "avg_speed_ms": 22829,
+      "last_tested": "2026-04-01T18:47:40.537Z"
     },
     {
       "model_id": "qwen/qwen3.6-plus-preview:free",
