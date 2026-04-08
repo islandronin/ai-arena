@@ -6,7 +6,7 @@
   <title>Nemotron Super 120B — The AI Arena Report</title>
   <meta name="description" content="Quality-first evaluation of Nemotron Super 120B across 10 real-world tasks. Score: 66.4/100.">
   <meta property="og:title" content="Nemotron Super 120B — The AI Arena">
-  <meta property="og:description" content="Quality Score: 66.4 | Adherence: 85.6 | 10 categories tested">
+  <meta property="og:description" content="Quality Score: 66.4 | Adherence: 88.3 | 10 categories tested">
   <meta property="og:type" content="article">
   <link rel="canonical" href="https://servenomaster.com/ai-arena/ai-arena/reports/nvidia-nemotron-3-super-120b-a12b-free">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -759,7 +759,7 @@
     <div class="header-series">THE AI ARENA</div>
     <h1 class="header-title">NEMOTRON SUPER 120B</h1>
     <p class="header-subtitle">Quality-First Model Evaluation Report</p>
-    <p class="header-date">Evaluated March 25, 2026</p>
+    <p class="header-date">Evaluated April 8, 2026</p>
 
     <div class="hero-scores">
       <div class="hero-score">
@@ -767,7 +767,7 @@
         <div class="hero-label">Quality Score</div>
       </div>
       <div class="hero-score">
-        <div class="hero-number secondary">85.6</div>
+        <div class="hero-number secondary">88.3</div>
         <div class="hero-label">Adherence</div>
       </div>
     </div>
@@ -789,7 +789,7 @@
       <div class="stat-label">Categories</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">1.2s avg</div>
+      <div class="stat-value">4.0s avg</div>
       <div class="stat-label">Avg Speed</div>
     </div>
     <div class="stat-card">
@@ -851,7 +851,7 @@
       <div class="score-card">
         <div class="card-label">Reasoning & Analysis</div>
         <div class="card-score" style="color: #10b981">85.0</div>
-        <div class="card-adherence">Adherence: 56.0</div>
+        <div class="card-adherence">Adherence: 83.0</div>
       </div>
       <div class="score-card">
         <div class="card-label">Long Context</div>
@@ -934,8 +934,8 @@
       <tr>
         <td class="cat-name-cell">Reasoning & Analysis</td>
         <td class="score-cell" style="color: #10b981">85.0</td>
-        <td class="score-cell" style="color: #0ea5e9">56.0</td>
-        <td class="score-cell gap-warning">29.0</td>
+        <td class="score-cell" style="color: #f59e0b">83.0</td>
+        <td class="score-cell ">2.0</td>
       </tr>
       <tr>
         <td class="cat-name-cell">Long Context</td>
@@ -1937,240 +1937,224 @@ If you try one, track: *How many prospects named a specific, painful task* (not 
         <h3 class="detail-title">Reasoning & Analysis</h3>
         <div class="detail-scores">
           <span class="detail-badge" style="background: #10b981">Quality: 85.0</span>
-          <span class="detail-badge" style="background: #0ea5e9">Adherence: 56.0</span>
+          <span class="detail-badge" style="background: #f59e0b">Adherence: 83.0</span>
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>Score 85. Thorough math with clear notation table. LTV formula: 'LTV = P/r = 49/0.08 = 612.5 dollars.' Month-by-month MRR to 6 decimal precision: 'MRR_t = C₀ × Ret^t × P.' Correctly identifies: 'cash-flow positive for months 0-3 (4 months) and then turns negative.' Clear tabular MRR &gt; Burn? column. Output truncated at 'Proposed P' but analysis up to that point is rigorous.</p>
+          <p>structured analysis, quantitative, thorough</p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Analysis Highlights</h4>
       <div class="callout-box info">
         <div class="callout-label">KEY FINDINGS</div>
-        <ul class="feature-list"><li>Recommendation: <strong>Choose Proposed Plan A (\$79/month, 15% launch‑customer loss, churn = 5%).</strong></li></ul>
+        <ul class="feature-list"><li>Customer LTV: $79</li><li>Launch MRR: $0</li><li>Recommendation: we compare the remaining financial metrics:</li></ul>
       </div>
       <div class="callout-box section">
         <div class="callout-label">OPTIONS ANALYZED</div>
-        <ul class="feature-list"><li>Plan A  
-
-*Price* \(P = \$79\)  *Launch‑customer loss* 15 % → \(C_0 = 2\,400 \times (1-0.15) = 2\,040\)</li><li>Plan A **meets the requirement of being cash‑flow positive for at least 8 months**.</li><li>Plan B  
-
-*Price* \(P = \$39\)  *Launch‑customer gain* 20 % → \(C_0 = 2\,400 \times 1.20 = 2\,880\)</li><li>Plan B is cash‑flow positive for months 0‑3 (4 months) only; after month 4 the MRR falls below the burn rate.</li><li>Plan A** | \$79 | 2 040 | 0.05 | **1 580** | 8.778 | 138 174.5550 | 118 467.4091 | 87 084.4317 | 0‑12 (13 months) |</li></ul>
+        <ul class="feature-list"><li>Plan A | Plan B |</li><li>planation of the results**</li><li>Plan A: **$1 580** (highest)</li><li>Plan B: $487.5</li><li>Plan A: **5 %** (lowest)</li></ul>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
-          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>**Assumptions &amp; notation**
+          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>[CONTENT]
+**Step‑by‑step calculations**
 
-| Symbol | Meaning |
-|--------|---------|
-| \(P\) | monthly price (ARPU) |
-| \(C_0\) | paying customers at launch (month 0) |
-| \(r\) | monthly churn rate (fraction lost each month) |
-| \(Ret = 1-r\) | monthly retention |
-| \(MRR_t\) | Monthly Recurring Revenue at the **end** of month t (i.e., after churn for that month has been applied) |
-| \(LTV = \dfrac{P}{r}\) | Customer‑Lifetime Value (as requested) |
-| Burn = \$85 000 / month (operating cash outflow) |
-| Starting cash = \$400 000 |
+| Item | Current Plan | Plan A | Plan B |
+|------|--------------|--------|--------|
+| **Price per user (ARPU)** | $49 /mo | $79 /mo | $39 /mo |
+| **Starting paying customers** | 2 400 | 2 400 × (1‑0.15)=2 040 | 2 400 × (1+0.20)=2 880 |
+| **Monthly Recurring Revenue (MRR₀)** | 49 × 2 400 = **$117,600** | 79 × 2 040 = **$161,160** | 39 × 2 880 = **$112,320** |
+| **Monthly churn rate** | 8 % = 0.08 | 5 % = 0.05 | 8 % = 0.08 |
+| **Customer Lifetime Value (LTV = ARPU/churn)** | 49 / 0.08 = **$612.50** | 79 / 0.05 = **$1 580.00** | 39 / 0.08 = **$487.50** |
+| **MRR after 3 mo** (MRR₀·(1‑c)³) | 117 600·0.92³ ≈ **$91,574** | 161 160·0.95³ ≈ **$138,200** | 112 320·0.92³ ≈ **$87,460** |
+| **MRR after 6 mo** (MRR₀·(1‑c)⁶) | 117 600·0.92⁶ ≈ **$71,300** | 161 160·0.95⁶ ≈ **$118,500** | 112 320·0.92⁶ ≈ **$68,100** |
+| **MRR after 12 mo** (MRR₀·(1‑c)¹²) | 117 600·0.92¹² ≈ **$43,200** | 161 160·0.95¹² ≈ **$87,000** | 112 320·0.92¹² ≈ **$41,300** |
+| **Net cash per month = MRR – burn ($85 K)** | 117 600‑85 000 = **+$32,600** | 161 160‑85 000 = **+$76,160** | 112 320‑85 000 = **+$27,320** |
+| **Cumulative cash after n months** = $400 K + n·(MRR‑85 K) |  |  |  |
+| **Smallest n (≤8) with cumulative cash ≥ 0** | Since MRR‑85 K &gt; 0, n = **1 month** | n = **1 month** | n = **1 month** |
 
-The company must **stay cash‑flow positive (MRR &gt; Burn) for at least 8 consecutive months** after launch – otherwise it would run out of cash before becoming self‑sustaining.  
-If MRR ever falls ≤ Burn, the monthly net cash flow becomes negative and the cash runway is eroded.
+**Explanation of the results**
 
-All calculations are carried out **without rounding** until the final summary.
+* All three proposals generate a monthly recurring revenue far above the $85 K monthly burn, so the net cash each month is already positive. Consequently, the cumulative cash becomes non‑negative in the very first month ( n = 1 ) for every option – the “time to cash‑flow positive” is 1 month for all cases.
 
----
+* To choose the best option we compare the remaining financial metrics:
 
-## 1. Current plan (baseline)
+  * **LTV** – higher is better (more revenue per customer over the lifetime).  
+    * Plan A: **$1 580** (highest)  
+    * Plan B: $487.5  
+    * Current: $612.5  
 
-*Price* \(P = \$49\)  
-*Customers* \(C_0 = 2\,400\)  
-*Churn* \(r = 0.08\) → \(Ret = 0.92\)
+  * **Churn** – lower is better (less revenue lost each month).  
+    * Plan A: **5 %** (lowest)  
+    * Current &amp; Plan B: 8 %  
 
-### 1.1 LTV
-\[
-LTV = \frac{P}{r}= \frac{49}{0.08}= 612.5\;\text{dollars}
-\]
+  * **MRR₀** – higher starting cash flow is preferable.  
+    * Plan A: **$161 160** (highest)  
+    * Current: $117 600  
+    * Plan B: $112 320  
 
-### 1.2 MRR over time  
+* Plan A simultaneously offers the **highest LTV**, the **lowest churn**, and the **highest initial MRR**. It dominates on all three key dimensions, making it the most attractive choice.
 
-\(MRR_t = C_0 \times Ret^{t} \times P\)
+**Recommendation**
 
-| month (t) | Customers \(C_t = C_0\;Ret^{t}\) | MRR\(_t\) = \(C_t\times P\) |
-|-----------|----------------------------------|----------------------------|
-|0| \(2\,400\) | \(2\,400\times49 = 117\,600.000000\) |
-|1| \(2\,400\times0.92 = 2\,208.000000\) | \(2\,208\times49 = 108\,192.000000\) |
-|2| \(2\,208\times0.92 = 2\,031.360000\) | \(2\,031.36\times49 = 99\,536.640000\) |
-|3| \(2\,031.36\times0.92 = 1\,868.851200\) | \(1\,868.8512\times49 = 91\,573.708800\) |
-|4| \(1\,868.8512\times0.92 = 1\,719.343104\) | \(1\,719.343104\times49 = 84\,247.812096\) |
-|5| \(1\,719.343104\times0.92 = 1\,581.795656\) | \(1\,581.795656\times49 = 77\,507.987128\) |
-|6| \(1\,581.795656\times0.92 = 1\,455.252003\) | \(1\,455.252003\times49 = 71\,307.348158\) |
-|7| \(1\,455.252003\times0.92 = 1\,338.831843\) | \(1\,338.831843\times49 = 65\,602.760305\) |
-|8| \(1\,338.831843\times0.92 = 1\,231.725296\) | \(1\,231.725296\times49 = 60\,354.539481\) |
-|9| \(1\,231.725296\times0.92 = 1\,133.187272\) | \(1\,133.187272\times49 = 55\,526.176322\) |
-|10| \(1\,133.187272\times0.92 = 1\,042.532290\) | \(1\,042.532290\times49 = 51\,084.082217\) |
-|11| \(1\,042.532290\times0.92 = 959.129707\) | \(959.129707\times49 = 46\,997.355639\) |
-|12| \(959.129707\times0.92 = 882.399330\) | \(882.399330\times49 = 43\,237.567188\) |
+&gt; **Choose Plan A** – it delivers the greatest customer lifetime value, the lowest churn, and the largest starting monthly recurring revenue, while still achieving cash‑flow positivity in the first month.  
 
-**Projected MRR**
+--- 
 
-* 3 mo: **\$91 573.708800**  
-* 6 mo: **\$71 307.348158**  
-*12 mo: **\$43 237.567188**
+*All calculations are shown above; no intermediate steps were omitted.*
 
-### 1.3 Cash‑flow positivity
+[REASONING]
+We need to parse the problem. We have a SaaS company pricing strategy.
 
-Burn = \$85 000.
+Given:
 
-| month | MRR | MRR &gt; Burn? |
-|-------|-----|-------------|
-|0|117 600|Yes|
-|1|108 192|Yes|
-|2| 99 536.64|Yes|
-|3| 91 573.71|Yes|
-|4| 84 247.81|**No**|
+- Current plan: $49/month, 2,400 paying customers, 8% monthly churn.
 
-The company is cash‑flow positive for months 0‑3 (4 months) and then turns negative.  
-**Time to first cash‑flow positive month = 0** (immediate), but it **fails to stay positive for 8 consecutive months**.
+- Proposed Plan A: $79/month (projected 15% customer loss at launch, churn drops to 5%)
 
----
+- Proposed Plan B: $39/month (projected 20% customer gain at launch, churn stays at 8%)
 
-## 2. Proposed Plan A  
+- Customer acquisition cost: $180.
 
-*Price* \(P = \$79\)  *Launch‑customer loss* 15 % → \(C_0 = 2\,400 \times (1-0.15) = 2\,040\)  
-*Churn* \(r = 0.05\) → \(Ret = 0.95\)
+- The company has $400K in the bank and burns $85K/month on operations.
 
-### 2.1 LTV
-\[
-LTV = \frac{79}{0.05}= 1\,580\;\text{dollars}
-\]
+- They need to be cash-flow positive within 8 months.
 
-### 2.2 MRR over time  
+We need to analyze all three options (Current, Plan A, Plan B). For each option, calculate and show:
 
-| month (t) | Customers \(C_t = 2\,040\times0.95^{t}\) | MRR\(_t\) |
-|-----------|------------------------------------------|-----------|
-|0| 2 040.000000 | 2 040 × 79 = **161 160.000000** |
-|1| 2 040 × 0.95 = 1 938.000000 | 1 938 × 79 = **153 102.000000** |
-|2| 1 938 × 0.95 = 1 841.100000 | 1 841.1 × 79 = **145 446.900000** |
-|3| 1 841.1 × 0.95 = 1 749.045000 | 1 749.045 × 79 = **138 174.555000** |
-|4| 1 749.045 × 0.95 = 1 661.592750 | 1 661.59275 × 79 = **131 265.827250** |
-|5| 1 661.59275 × 0.95 = 1 578.513113 | 1 578.513113 × 79 = **124 702.535888** |
-|6| 1 578.513113 × 0.95 = 1 499.587457 | 1 499.587457 × 79 = **118 467.409093** |
-|7| 1 499.587457 × 0.95 = 1 424.608084 | 1 424.608084 × 79 = **112 544.038638** |
-|8| 1 424.608084 × 0.95 = 1 353.377680 | 1 353.377680 × 79 = **106 916.836707** |
-|9| 1 353.377680 × 0.95 = 1 285.708796 | 1 285.708796 × 79 = **101 570.994871** |
-|10|1 285.708796 × 0.95 = 1 221.423356 | 1 221.423356 × 79 = **96 492.445128** |
-|11|1 221.423356 × 0.95 = 1 160.352188 | 1 160.352188 × 79 = **91 667.822871** |
-|12|1 160.352188 × 0.95 = 1 102.334579 | 1 102.334579 × 79 = **87 084.431728** |
-|13|1 102.334579 × 0.95 = 1 047.217850 | 1 047.217850 × 79 = **82 730.210141** |
+1. Monthly Recurring Revenue (MRR) at launch.
 
-**Projected MRR**
+2. Customer Lifetime Value (LTV) using formula LTV = ARPU / churn_rate.
 
-* 3 mo: **\$138 174.555000**  
-* 6 mo: **\$118 467.409093**  
-*12 mo: **\$87 084.431728**
+3. Projected MRR at 3 months, 6 months, and 12 months (accounting for ongoing churn each month — do NOT just use static MRR). This means we need to project MRR forward adjusting for churn each month.
 
-### 2.3 Cash‑flow positivity
+4. Time to cash-flow positive (month where MRR exceeds $85K burn rate, starting from $400K runway).
 
-| month | MRR | MRR &gt; Burn? |
-|-------|-----|-------------|
-|0|161 160|Yes|
-|1|153 102|Yes|
-|2|145 447|Yes|
-|3|138 175|Yes|
-|4|131 266|Yes|
-|5|124 703|Yes|
-|6|118 467|Yes|
-|7|112 544|Yes|
-|8|106 917|Yes|
-|9|101 571|Yes|
-|10|96 492|Yes|
-|11|91 668|Yes|
-|12|87 084|Yes|
-|13|82 730|**No**|
+Then recommend best option and explain why.
 
-The MRR stays **above the \$85 k burn for months 0‑12 (13 consecutive months)**.  
-Thus Plan A **meets the requirement of being cash‑flow positive for at least 8 months**.  
-Time to first cash‑flow positive month = 0 (immediate) and the positive cash‑flow streak lasts 13 months.
+We need to compute for each option: MRR at launch = price per month * number of paying customers.
 
----
+Then LTV = ARPU / churn_rate. ARPU = average revenue per user per month? Usually ARPU = price per month (since each paying customer yields that revenue per month). So ARPU = price per month. Then LTV = price per month / churn_rate (as decimal). Eg churn 8% =&gt; 0.08.
 
-## 3. Proposed Plan B  
+Projected MRR at 3 months, 6 months, 12 months: need to account for ongoing churn each month. Starting MRR0 = initial MRR. Each month, MRR_t = MRR_{t-1} * (1 - churn_rate). Because churn reduces number of paying customers (or revenue) each month by churn rate. So MRR after n months = MRR0 * (1 - churn)^n.
 
-*Price* \(P = \$39\)  *Launch‑customer gain* 20 % → \(C_0 = 2\,400 \times 1.20 = 2\,880\)  
-*Churn* \(r = 0.08\) → \(Ret = 0.92\) (same as baseline)
+Thus compute for n=3,6,12.
 
-### 3.1 LTV
-\[
-LTV = \frac{39}{0.08}= 487.5\;\text{dollars}
-\]
+Time to cash-flow positive: we have initial cash $400K. Burn rate $85K/month (operations expense). Need month where cumulative MRR (maybe net cash flow?) exceeds burn rate? Actually they say: &quot;Time to cash-flow positive (month where MRR exceeds $85K burn rate, starting from $400K runway)&quot;. Means we start with $400K in bank. Each month we add MRR (revenue) and subtract burn? Actually &quot;burns $85K/month on operations&quot; means each month they have an expense of $85K. So net cash flow each month = MRR - 85K. Starting cash $400K. We need month when cumulative net cash flow &gt;=0? Or when MRR exceeds burn rate? The phrase &quot;MRR exceeds $85K burn rate&quot; suggests we compare MRR to burn rate directly, not net. Starting from $400K runway maybe means we need to cover the initial $400K deficit before becoming cash flow positive? Let's interpret: They have $400K in the bank (cash). They burn $85K/month on operations (expense). They need to be cash-flow positive within 8 months. So we need to see when the cumulative cash flow (starting from $400K) becomes positive (i.e., net cash &gt;=0) within 8 months. Equivalent to: each month net cash = MRR - 85K. Starting cash $400K. After n months, total cash = 400K + n*(MRR - 85K). Want smallest n such that total cash &gt;=0 and n &lt;=8? Actually &quot;within 8 months&quot; means we need to achieve cash-flow positive by month 8 at latest. So compute month when cumulative cash &gt;=0, if not by month 8 then fails.
 
-### 3.2 MRR over time  
+Thus we find n where 400K + n*(MRR - 85K) &gt;= 0. Solve for n minimal integer.
 
-| month (t) | Customers \(C_t = 2\,880\times0.92^{t}\) | MRR\(_t\) |
-|-----------|------------------------------------------|-----------|
-|0| 2 880.000000 | 2 880 × 39 = **112 320.000000** |
-|1| 2 880 × 0.92 = 2 649.600000 | 2 649.6 × 39 = **103 334.400000** |
-|2| 2 649.6 × 0.92 = 2 437.632000 | 2 437.632 × 39 = **95 067.648000** |
-|3| 2 437.632 × 0.92 = 2 242.621440 | 2 242.62144 × 39 = **87 462.236160** |
-|4| 2 242.62144 × 0.92 = 2 063.211725 | 2 063.211725 × 39 = **80 465.257267** |
-|5| 2 063.211725 × 0.92 = 1 898.154787 | 1 898.154787 × 39 = **74 028.036686** |
-|6| 1 898.154787 × 0.92 = 1 746.302404 | 1 746.302404 × 39 = **68 105.793751** |
-|7| 1 746.302404 × 0.92 = 1 606.598212 | 1 606.598212 × 39 = **62 657.330251** |
-|8| 1 606.598212 × 0.92 = 1 478.070355 | 1 478.070355 × 39 = **57 644.743831** |
-|9| 1 478.070355 × 0.92 = 1 359.824726 | 1 359.824726 × 39 = **53 033.164324** |
-|10|1 359.824726 × 0.92 = 1 251.038748 | 1 251.038748 × 39 = **48 790.511178** |
-|11|1 251.038748 × 0.92 = 1 150.955648 | 1 150.955648 × 39 = **44 887.270284** |
-|12|1 150.955648 × 0.92 = 1 058.879196 | 1 058.879196 × 39 = **41 296.288661** |
+If MRR - 85K is negative (i.e., MRR &lt; burn), then cash decreases each month, never becomes positive. If MRR - 85K positive, then eventually cash increases.
 
-**Projected MRR**
+We'll compute for each option.
 
-* 3 mo: **\$87 462.236160**  
-* 6 mo: **\$68 105.793751**  
-*12 mo: **\$41 296.288661**
+Now compute values.
 
-### 3.3 Cash‑flow positivity
+Current plan:
 
-| month | MRR | MRR &gt; Burn? |
-|-------|-----|-------------|
-|0|112 320|Yes|
-|1|103 334|Yes|
-|2| 95 067.65|Yes|
-|3| 87 462.24|Yes|
-|4| 80 465.26|**No**|
+Price $49, customers 2400 =&gt; MRR0 = 49 * 2400 = 117,600? Let's compute: 50*2400=120,000 minus 1*2400=2,400 =&gt; 117,600. Yes.
 
-Plan B is cash‑flow positive for months 0‑3 (4 months) only; after month 4 the MRR falls below the burn rate.
+Churn rate = 8% = 0.08.
 
----
+ARPU = price per month = $49.
 
-## 4. Summary of key metrics  
+LTV = ARPU / churn = 49 / 0.08 = 612.5? Actually 49 / 0.08 = 612.5. Yes.
 
-| Option | Price | \(C_0\) | Churn \(r\) | LTV = \(P/r\) | LTV / CAC (CAC = \$180) | MRR @ 3 mo | MRR @ 6 mo | MRR @ 12 mo | Months with MRR &gt; \$85k |
-|--------|-------|---------|-------------|---------------|------------------------|------------|------------|-------------|--------------------------|
-| **Current** | \$49 | 2 400 | 0.08 | **612.5** | 3.403 | 91 573.7088 | 71 307.3482 | 43 237.5672 | 0‑3 (4 months) |
-| **Plan A** | \$79 | 2 040 | 0.05 | **1 580** | 8.778 | 138 174.5550 | 118 467.4091 | 87 084.4317 | 0‑12 (13 months) |
-| **Plan B** | \$39 | 2 880 | 0.08 | **487.5** | 2.708 | 87 462.2362 | 68 105.7938 | 41 296.2887 | 0‑3 (4 months) |
+Projected MRR:
 
-*All MRR values are shown to the nearest 0.000001 $ (no rounding until the final summary).*
+At 3 months: MRR3 = MRR0 * (1 - 0.08)^3.
 
-### Cash‑flow positivity requirement (≥ 8 consecutive months)
+Compute (1 - 0.08) = 0.92. 0.92^3 = 0.92^2 *0.92 = 0.8464 *0.92 = 0.778688? Let's compute precisely: 0.92^2 = 0.8464. Multiply by 0.92 =&gt; 0.778688. So MRR3 = 117,600 * 0.778688 = approx 91,540? Compute: 117,600 *0.778688 = 117,600*0.78 - 117,600*0.001312? Let's do: 117,600*0.78 = 91,728. Subtract 117,600*0.001312 = 154.3 approx. So 91,728 -154.3 = 91,573.7. Slight difference. Let's compute more accurately: 117,600 *0.778688 = 117,600 * (0.778688) = (117,600*0.778) + (117,600*0.000688). 117,600*0.778 = 91,492.8. 117,600*0.000688 = 80.9. Sum = 91,573.7. Good.
 
-* **Current plan** – fails (only 4 months).  * **Plan A** – satisfies (13 consecutive months).  
-* **Plan B** – fails (only 4 months).
+So MRR3 ≈ $91,574.
 
----
+At 6 months: factor (0.92)^6. Compute (0.92)^6 = (0.92^3)^2. We have 0.92^3 = 0.778688. Square =&gt; 0.778688^2 = approx 0.6063? Let's compute: 0.778688^2 = 0.778688*0.778688. 0.78^2 ≈0.6084, adjust small. Let's do precise: 0.778688*0.778688 = (0.778688*0.778) + (0.778688*0.000688). 0.778688*0.778 = 0.605... Actually 0.778688*0.778 = 0.605... compute: 0.778688*0.778 = 0.605... let's multiply: 778688*778 =? Too messy. Let's approximate: 0.778688^2 ≈0.6063. Then MRR6 = 117,600 *0.6063 = 71,300? Compute: 117,600*0.6=70,560; plus 117,600*0.0063=741. approx =&gt; 71,301. So MRR6 ≈ $71,300.
 
-## 5. Recommendation  
+At 12 months: factor (0.92)^12 = (0.92^6)^2. We have 0.92^6 ≈0.6063. Square =&gt; 0.6063^2 ≈0.3676. Then MRR12 = 117,600 *0.3676 = 43,200? Compute: 117,600*0.36=42,336; plus 117,600*0.0076=894. approx =&gt; 43,230. So MRR12 ≈ $43,200.
 
-**Choose Proposed Plan A (\$79/month, 15% launch‑customer loss, churn = 5%).**
+Now Plan A:
 
-**Why Plan A is superior**
+Price $79, projected 15% customer loss at launch. Means they lose 15% of customers at launch? So starting customers = 2400 * (1 - 0.15) = 2400 *0.85 = 2040. So MRR0_A = 79 * 2040 = compute: 80*2040=163,200 minus 1*2040=2,040 =&gt; 161,160. Wait check: 79*2000=158,000; plus 79*40=3,160 =&gt; total 161,160. Yes.
 
-1. **Highest LTV** – \$1 580 per customer, more than double the baseline and over three times Plan B’s LTV.  2. **Best LTV:CAC ratio** – 8.78 vs 3.40 (baseline) and 2.71 (Plan B), indicating far greater return on acquisition spend.  
-3. **Strong MRR trajectory** – Even after a 15% launch dip, MRR starts at \$161 160 and stays above the \$85 k burn for **13 straight months**, comfortably meeting the 8‑month cash‑flow positivity target.  
-4. **Financial safety** – With the initial \$400 k runway, the company would actually **accumulate cash** (net inflow) each month for over a year, eliminating the risk of running out of funds before becoming self‑sustaining.  
-5. **Strategic positioning** – The higher price point signals a premium offering, which can support better product development, support, and potential upsell/cross‑sell opportunities.
+Churn drops to 5% =&gt; churn rate = 0.05.
 
-In contrast, the baseline and Plan B both fall short of the required 8‑month cash‑flow positivity window, leaving the company dependent on additional financing or renewed customer acquisition to survive beyond month 4.
+ARPU = price per month = $79.
 
-**Therefore, Plan A is the only option that satisfies the company’s cash‑flow goal while delivering the strongest long‑term unit economics.**</pre></div>
+LTV = 79 / 0.05 = 1,580.
+
+Projected MRR for A: MRR_t = MRR0_A * (1 - 0.05)^t.
+
+Compute factor (0.95)^n.
+
+At 3 months: (0.95)^3 = 0.95^2 *0.95. 0.95^2=0.9025; *0.95 =0.857375. So MRR3_A = 161,160 *0.857375 = approx 138,200? Compute: 161,160*0.85=136,986; plus 161,160*0.007375=1,188? Actually 161,160*0.007 =1,128; plus 161,160*0.000375=60.4 =&gt; total ~138,174. Let's approximate 138,200.
+
+At 6 months: (0.95)^6 = (0.95^3)^2. We have 0.95^3 =0.857375. Square =&gt;0.857375^2 ≈0.7351? Compute: 0.857375*0.857375. 0.8575^2≈0.7353. So approx 0.735. Then MRR6_A =161,160*0.735 ≈118,500? Compute: 161,160*0.7=112,812; plus 161,160*0.035=5,640.6 =&gt;118,452.6. So ~118,500.
+
+At 12 months: (0.95)^12 = (0.95^6)^2. We have 0.95^6≈0.735. Square =&gt;0.735^2≈0.540. Then MRR12_A =161,160*0.540≈87,000? Compute: 161,160*0.5=80,580; plus 161,160*0.04=6,446.4 =&gt;87,026.4. So ~87,000.
+
+Now Plan B:
+
+Price $39, projected 20% customer gain at launch. Means they gain 20% more customers at launch. So starting customers = 2400 * (1 + 0.20) = 2400*1.20 = 2,880. MRR0_B = 39 * 2,880 = compute: 40*2,880=115,200 minus 1*2,880=2,880 =&gt;112,320. Wait check: 39*2000=78,000; plus 39*800=31,200 =&gt;109,200; plus 39*80=3,120 =&gt;112,320. Yes.
+
+Churn stays at 8% =&gt; churn rate =0.08.
+
+ARPU = price per month = $39.
+
+LTV = 39 / 0.08 = 487.5.
+
+Projected MRR for B: MRR_t = MRR0_B * (1 - 0.08)^t, same factor as current.
+
+Thus MRR3_B = MRR0_B *0.92^3 = 112,320 *0.778688 = approx 87,400? Compute: 112,320*0.78=87,609.6 minus 112,320*0.001312=147.4 =&gt;87,462.2. Actually let's compute: 112,320*0.778688 = 112,320*0.778 =87,382. approx plus 112,320*0.000688=77.3 =&gt;87,459.3. So ~87,460.
+
+MRR6_B = MRR0_B *0.92^6 =112,320*0.6063 ≈68,100? Compute:112,320*0.6=67,392; plus 112,320*0.0063=707.6 =&gt;68,099.6. So ~68,100.
+
+MRR12_B = MRR0_B *0.92^12 =112,320*0.3676 ≈41,300? Compute:112,320*0.36=40,435.2; plus 112,320*0.0076=853.6 =&gt;41,288.8. So ~41,300.
+
+Now compute LTV values we already did.
+
+Now compute time to cash-flow positive.
+
+We need month n where cumulative cash &gt;=0: Starting cash $400K. Each month net cash = MRR - burn ($85K). So after n months total cash = 400K + n*(MRR - 85K). Want smallest n (&lt;=8) where total cash &gt;=0.
+
+If MRR -85K &lt;=0 then net cash never increases; total cash will decrease; cannot become positive within 8 months. So if MRR &lt;=85K then not possible.
+
+If MRR &gt;85K then net cash positive each month, so cumulative will increase; we can find n such that 400K + n*(MRR-85K) &gt;=0.
+
+Solve n &gt;= (-400K)/(MRR-85K). Since denominator positive. Compute n_min = ceil( -400K / (MRR-85K) ). But note -400K negative, dividing by positive yields negative; ceiling of a negative number yields maybe 0 or negative? Actually we want n such that total cash &gt;=0. Since starting cash is positive 400K, we need to offset any initial deficit? Wait think: If MRR &gt;85K, net cash each month positive, so adding each month increases total cash. Starting at 400K, we already positive, so we are cash-flow positive from month 0? Actually they say need to be cash-flow positive within 8 months, maybe they consider that they need to achieve net cash &gt;=0 after starting from $400K in the bank (maybe they consider they have an initial debt of $400K? Actually they have $400K in the bank (cash). They burn $85K/month on operations (expense). So net cash each month = MRR - 85K. Starting cash $400K is like a reserve. They need to be cash-flow positive within 8 months meaning that after some months, the cumulative cash (starting from $400K) becomes &gt;=0? But if they start with $400K, they already have positive cash. So maybe they consider that they have an initial debt of $400K? Actually phrase: &quot;The company has $400K in the bank and burns $85K/month on operations.&quot; Could interpret that they have $400K of cash, but they also have a monthly burn of $85K (expense). So net cash each month = MRR - 85K. They need to be cash-flow positive within 8 months meaning that the cumulative net cash (starting from zero?) becomes positive within 8 months. But they have initial cash $400K, so maybe they need to cover that initial cash? Actually they'd be cash-flow positive when net cash + initial cash &gt;=0? This is confusing.
+
+Simplify: Let's define net cash each month = MRR - 85K. Starting cash = $400K (maybe considered as initial reserve). Cumulative cash after n months = starting cash + n*(MRR - 85K). They need cumulative cash &gt;=0 within 8 months. Since starting cash is positive, we already have cumulative cash &gt;=0 at n=0. So trivially satisfied. So maybe they meant they have a debt of $400K (i.e., they owe $400K). Then they have cash in bank? Actually &quot;has $400K in the bank&quot; suggests asset, not liability. But they need to be cash-flow positive meaning net income &gt;0? Usually cash-flow positive means operating cash flow &gt;0. Starting cash maybe not relevant. I'd interpret that they need to achieve net cash flow (MRR - 85K) &gt;0 within 8 months, ignoring initial cash. So we just need MRR -85K &gt;0 within 8 months (i.e., MRR must exceed burn rate). That matches phrase: &quot;Time to cash-flow positive (month where MRR exceeds $85K burn rate, starting from $400K runway)&quot;. So they want month where MRR &gt;85K. Starting from $400K runway maybe just a phrase. So we compute n where MRR &gt;85K. If MRR &lt;=85K then never cash-flow positive. So time to cash-flow positive is infinite or not possible. But they said need to be cash-flow positive within 8 months, so if MRR &gt;85K then month 1 already satisfies? Actually if MRR &gt;85K, then at month 1 MRR exceeds burn, so time to cash-flow positive is month 1. So answer would be 1 month. But they said within 8 months, maybe they'd accept if it occurs by month &lt;=8. So if MRR &gt;85K then answer is 1. If MRR &lt;=85K then not possible within 8 months =&gt; maybe they need more than 8 months? But they said within 8 months, so if not achieved by month 8 then fail.
+
+Thus we compute: If MRR &gt;85K then time = 1 month. If MRR &lt;=85K then not possible (or &gt;8 months). We'll state that.
+
+Now compute MRR for each option and compare to 85K.
+
+Current MRR0 = 117,600 &gt;85K obviously. So time =1 month.
+
+Plan A MRR0_A =161,160 &gt;85K =&gt; time=1 month.
+
+Plan B MRR0_B =112,320 &gt;85K =&gt; time=1 month.
+
+Thus all options exceed burn rate massively, so time to cash-flow positive =1 month for all.
+
+But maybe they want to consider cumulative effect? But given huge MRR, obviously immediate.
+
+Thus answer: All options achieve cash-flow positive in month 1. But we need to pick best option based on other criteria like LTV, MRR stability, etc.
+
+We should compare LTV: higher LTV better (more value per customer). Also maybe lower churn better. Also maybe higher MRR growth? Let's compute.
+
+Current: LTV=612.5, churn 8%, MRR0=117,600.
+
+Plan A: LTV=1,580, churn 5%, MRR0=161,160.
+
+Plan B: LTV=487.5, churn 8%, MRR0=112,320.
+
+We see Plan A has highest LTV (1580) and lowest churn (5%) but also highest MRR0 (161,160). Plan B LTV 487.5 lower than current but higher than Plan A? Actually Plan A LTV 1580 &gt; Plan B 487.5 &gt; Current 612.5. So Plan A best LTV. Also churn lowest (5%) which is good. MRR highest (161,160) also good. So Plan A dominates.
+
+Thus recommend Plan A.
+
+We need to show math for everything. Provide calculations.
+
+Let's craft final answer with steps.
+
+</pre></div>
         </details></div>
       <div class="category-detail" id="cat-long_context">
         <h3 class="detail-title">Long Context</h3>
@@ -2237,42 +2221,37 @@ In contrast, the baseline and Plan B both fall short of the required 8‑month
   
     <div class="section">
       <h2 class="section-title">Leaderboard Context</h2>
-      <p class="section-desc">Ranked #9 of 11 models tested</p>
+      <p class="section-desc">Ranked #23 of 24 models tested</p>
       <table class="breakdown-table">
         <thead>
           <tr><th>Rank</th><th>Model</th><th>Quality</th><th>Adherence</th></tr>
         </thead>
         <tbody>
           <tr class="">
-              <td class="rank-cell">6</td>
+              <td class="rank-cell">20</td>
               <td>GLM-5-Turbo</td>
               <td class="score-cell" style="color: #f59e0b">71.9</td>
               <td class="score-cell" style="color: #10b981">93.5</td>
             </tr><tr class="">
-              <td class="rank-cell">7</td>
+              <td class="rank-cell">21</td>
               <td>gemma-4-26b-a4b-it</td>
               <td class="score-cell" style="color: #f59e0b">70.0</td>
               <td class="score-cell" style="color: #10b981">92.3</td>
             </tr><tr class="">
-              <td class="rank-cell">8</td>
+              <td class="rank-cell">22</td>
               <td>Xiaomi-MiMo-v2-Pro</td>
               <td class="score-cell" style="color: #0ea5e9">67.5</td>
               <td class="score-cell" style="color: #10b981">94.8</td>
             </tr><tr class="highlight-row">
-              <td class="rank-cell">9</td>
+              <td class="rank-cell">23</td>
               <td>Nemotron Super 120B</td>
               <td class="score-cell" style="color: #0ea5e9">66.4</td>
-              <td class="score-cell" style="color: #10b981">85.6</td>
+              <td class="score-cell" style="color: #10b981">88.3</td>
             </tr><tr class="">
-              <td class="rank-cell">10</td>
+              <td class="rank-cell">24</td>
               <td>Xiaomi-MiMo-v2-Omni</td>
               <td class="score-cell" style="color: #0ea5e9">65.3</td>
               <td class="score-cell" style="color: #10b981">91.9</td>
-            </tr><tr class="">
-              <td class="rank-cell">11</td>
-              <td>gemma-4-31b-it</td>
-              <td class="score-cell" style="color: #94a3b8">-</td>
-              <td class="score-cell" style="color: #10b981">98.0</td>
             </tr>
         </tbody>
       </table>
@@ -2328,7 +2307,7 @@ new Chart(ctx, {
       },
       {
         label: 'Adherence',
-        data: [98,90,69,93,92,97,81,90,56,90],
+        data: [98,90,69,93,92,97,81,90,83,90],
         borderColor: 'rgba(148, 163, 184, 0.6)',
         backgroundColor: 'rgba(148, 163, 184, 0.08)',
         borderWidth: 1,
