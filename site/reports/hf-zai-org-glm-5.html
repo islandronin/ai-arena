@@ -2913,10 +2913,6 @@ P.S. The power went out three times while I wrote this. Island life means learni
         <p>This video demonstrates Claude Code controlling multiple Chrome browsers in parallel via Chrome Developer Protocol (CDP) to automate complex multi-step tasks: Amazon product research, CAPTCHA solving, and Reddit account creation with temp emails. The parallel sub-agent approach is genuinely interesting and works, but the automation is slow on first runs and required human intervention for edge cases.</p>
       </div>
       <div class="callout-box section">
-        <div class="callout-label">1. TLDR</div>
-        <p>This video demonstrates Claude Code controlling multiple Chrome browsers in parallel via Chrome Developer Protocol (CDP) to automate complex multi-step tasks: Amazon product research, CAPTCHA solving, and Reddit account creation with temp emails. The parallel sub-agent approach is genuinely interesting and works, but the automation is slow on first runs and required human intervention for edge cases.</p>
-      </div>
-      <div class="callout-box section">
         <div class="callout-label">2. WHAT WAS DEMONSTRATED</div>
         <p><li><strong>Amazon Parallel Shopping Pipeline</strong>: Spawned 4+ parallel browser tabs with sub-agents to search for Scandinavian-style furniture (chair, table, couch, curtains) within a $3,000 budget. <strong>Worked</strong> — found items totaling ~$1,300, generated visualization comparison. Table was missing from final visualization (partially worked).</li></p><p><li><strong>CAPTCHA Solving Tool</strong>: Used a pre-built &quot;capture skill&quot; to solve Google reCAPTCHA challenges (traffic lights, buses). <strong>Worked</strong> — solved multiple challenges quickly. The tool was created in a previous session through iterative testing.</li></p><p><li><strong>Temp Mail → Reddit Account Creation</strong>: Used tempmail.lol to generate disposable email, created Reddit account via old.reddit.com, generated a meme with &quot;Nano Banana,&quot; and posted to r/programmerhumor. <strong>Partially worked</strong> — account creation succeeded with no email confirmation required (surprising), but posting required human intervention to fix title that violated subreddit rules.</li><br></p>
       </div>
@@ -2927,6 +2923,10 @@ P.S. The power went out three times while I wrote this. Island life means learni
       <div class="callout-box section">
         <div class="callout-label">5. LIMITATIONS &AMP; CAVEATS</div>
         <p><li><strong>Amazon visualization was imperfect</strong> — the table was missing from the final room rendering</li><br><li><strong>CAPTCHA tool required pre-building</strong> — this wasn't built live; Claude spent &quot;a lot of time&quot; figuring it out in a prior session (not shown)</li><br><li><strong>Reddit posting required human help</strong> — the creator manually intervened to tell Claude to read subreddit rules and fix the title</li><br><li><strong>First-run is slow</strong> — the Reddit task took significant back-and-forth; only becomes fast after saving learnings to skills</li><br><li><strong>Reddit required no email confirmation</strong> — this was unexpected and may not work consistently</li><br><li><strong>Subreddit blocked AI-generated content</strong> — the automation initially failed because r/programmerhumor has rules against AI-generated content in titles</li></p>
+      </div>
+      <div class="callout-box section">
+        <div class="callout-label">6. BOTTOM LINE</div>
+        <p>Worth watching if you're building browser automation agents and want to see how parallel sub-agents can speed up workflows. Skip if you're looking for production-ready solutions — this is experimental, slow on first runs, and required human intervention for edge cases. The creator is upfront about limitations.</p>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>

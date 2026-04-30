@@ -2515,10 +2515,6 @@ PS The rooster outside my office just started crowing at 5:47 AM again. I think 
         <p>This video demonstrates browser automation using Claude Code with Chrome DevTools Protocol (CDP), showcasing parallel AI agents for Amazon shopping, CAPTCHA solving via self-built tools, and automated Reddit account creation + posting. The parallel execution and tool-building capabilities are genuinely interesting, but the demonstrations are slow, occasionally require manual intervention, and gloss over reliability concerns. Watch only if you're specifically researching AI-driven browser automation patterns.</p>
       </div>
       <div class="callout-box section">
-        <div class="callout-label">1. TLDR</div>
-        <p>This video demonstrates browser automation using Claude Code with Chrome DevTools Protocol (CDP), showcasing parallel AI agents for Amazon shopping, CAPTCHA solving via self-built tools, and automated Reddit account creation + posting. The parallel execution and tool-building capabilities are genuinely interesting, but the demonstrations are slow, occasionally require manual intervention, and gloss over reliability concerns. Watch only if you're specifically researching AI-driven browser automation patterns.</p>
-      </div>
-      <div class="callout-box section">
         <div class="callout-label">2. WHAT WAS DEMONSTRATED</div>
         <p><li><strong>Parallel Amazon furniture search &amp; room visualization</strong></li><br>  - <em>Worked</em>: Spawned multiple browser tabs/agents to search for a chair, table, couch, and curtains simultaneously on Amazon. Generated a visualization of the items in a living room using FAL AI and Nano Banana. Final cost: $1,300 (under $3,000 budget).<br>  - <em>Partially worked</em>: The visualization missed the table; the system noted it wasn't perfect.</p><p><li><strong>CAPTCHA solving with a self-built skill</strong></li><br>  - <em>Worked</em>: Claude created a &quot;capture solver&quot; tool that uses high-resolution screenshots and coordinate clicking to solve Google reCAPTCHA challenges (e.g., selecting traffic lights, buses). Solved two challenges quickly after the tool was built.</p>
       </div>
@@ -2529,6 +2525,10 @@ PS The rooster outside my office just started crowing at 5:47 AM again. I think 
       <div class="callout-box section">
         <div class="callout-label">4. WHAT'S ACTUALLY NEW OR INTERESTING</div>
         <p><li><strong>Parallel browser agents</strong>: Running multiple sub-agents in separate tabs to speed up multi-step automation is a clever efficiency gain over sequential execution.</li><br><li><strong>Self-building tools</strong>: Claude autonomously created a CAPTCHA-solving tool during a prior session, demonstrating emergent tool-building capability.</li><br><li><strong>End-to-end automation</strong>: The system handled a complex workflow (email → account → content creation → posting) with minimal human input.</li></p><p><em>Not new</em>: Basic browser automation with AI agents is already being explored by many; CAPTCHA solving via computer vision is a known approach.</p>
+      </div>
+      <div class="callout-box section">
+        <div class="callout-label">5. LIMITATIONS &AMP; CAVEATS</div>
+        <p><li><strong>Speed</strong>: The demonstrations were slow, with many back-and-forth operations. The creator admitted inefficiency.</li><br><li><strong>Manual intervention required</strong>: The Reddit post title had to be fixed by the user after the system failed to read subreddit rules.</li><br><li><strong>Reliability</strong>: The visualization missed an item; CAPTCHA solving required retries; temp-mail account creation lacked email confirmation initially.</li><br><li><strong>Scalability concerns</strong>: Running 6-7 browser instances simultaneously is resource-intensive; no discussion of error handling or recovery.</li><br><li><strong>Ethical/policy issues</strong>: Automated account creation and posting may violate terms of service (Reddit, Amazon). CAPTCHA bypassing is legally/tos gray area.</li><br><li><strong>Reproducibility</strong>: The CAPTCHA tool was built in a prior session; the video only shows the polished result, not the trial-and-error process.</li></p>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
