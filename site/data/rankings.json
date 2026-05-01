@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T05:44:41.679Z",
+  "generated_at": "2026-05-01T05:56:18.715Z",
   "total_models": 27,
   "rankings": [
     {
@@ -576,7 +576,7 @@
       "model_id": "openrouter/owl-alpha",
       "model_label": "owl-alpha",
       "overall_adherence": 92.5,
-      "overall_quality": 80.5,
+      "overall_quality": 79.8,
       "categories_tested": 10,
       "categories_failed": 0,
       "social_media_posts_adherence": 90,
@@ -584,7 +584,7 @@
       "linkedin_article_adherence": 100,
       "linkedin_article_quality": 72,
       "html_salespage_adherence": 67,
-      "html_salespage_quality": 82,
+      "html_salespage_quality": 75,
       "backend_code_adherence": 96,
       "backend_code_quality": 90,
       "email_copywriting_adherence": 95,
