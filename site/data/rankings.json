@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-20T18:01:22.006Z",
-  "total_models": 30,
+  "generated_at": "2026-05-22T17:41:39.920Z",
+  "total_models": 31,
   "rankings": [
     {
       "model_id": "anthropic/claude-opus-4.7",
@@ -151,6 +151,36 @@
       "long_context_quality": 74,
       "avg_speed_ms": 2354,
       "last_tested": "2026-03-24T03:20:06.995Z"
+    },
+    {
+      "model_id": "qwen/qwen3.7-max",
+      "model_label": "qwen3.7-max",
+      "overall_adherence": 95,
+      "overall_quality": 84.9,
+      "categories_tested": 10,
+      "categories_failed": 0,
+      "social_media_posts_adherence": 98,
+      "social_media_posts_quality": 82,
+      "linkedin_article_adherence": 100,
+      "linkedin_article_quality": 72,
+      "html_salespage_adherence": 82,
+      "html_salespage_quality": 90,
+      "backend_code_adherence": 93,
+      "backend_code_quality": 89,
+      "email_copywriting_adherence": 95,
+      "email_copywriting_quality": 72,
+      "youtube_summary_adherence": 97,
+      "youtube_summary_quality": 90,
+      "editing_adherence": 87,
+      "editing_quality": 90,
+      "brainstorming_adherence": 98,
+      "brainstorming_quality": 92,
+      "reasoning_analysis_adherence": 100,
+      "reasoning_analysis_quality": 94,
+      "long_context_adherence": 100,
+      "long_context_quality": 78,
+      "avg_speed_ms": 1337,
+      "last_tested": "2026-05-22T04:53:20.982Z"
     },
     {
       "model_id": "xiaomi/mimo-v2.5-pro",
