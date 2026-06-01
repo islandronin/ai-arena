@@ -531,6 +531,33 @@
     .tier-weak { background: var(--red); color: white; }
     .tier-none { background: var(--text-muted); color: white; }
 
+    /* Featured video (optional — only present when youtube_url is set) */
+    .report-video { margin: 0 0 8px; }
+    .video-eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .video-frame {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;   /* 16:9 */
+      border-radius: 12px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
     /* Quick stats row */
     .stats-row {
       display: flex;
@@ -781,6 +808,16 @@
 </header>
 
 <div class="report-container">
+
+  
+  <!-- Featured video (above the stats row — the hook, with the data below as proof) -->
+  <section class="report-video">
+    <div class="video-eyebrow">▶ Watch the full evaluation</div>
+    <div class="video-frame">
+      <iframe src="https://www.youtube.com/embed/5VbMBc5Znm4" title="qwen3.7-max — full evaluation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </section>
+  
 
   <!-- Quick Stats -->
   <div class="stats-row">
