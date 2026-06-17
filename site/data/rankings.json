@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-06-13T08:45:59.408Z",
-  "total_models": 37,
+  "generated_at": "2026-06-17T01:08:17.456Z",
+  "total_models": 38,
   "rankings": [
     {
       "model_id": "anthropic/claude-fable-5",
@@ -151,6 +151,36 @@
       "long_context_quality": 76,
       "avg_speed_ms": 1745,
       "last_tested": "2026-06-13T02:26:19.979Z"
+    },
+    {
+      "model_id": "z-ai/glm-5.2",
+      "model_label": "glm-5.2",
+      "overall_adherence": 95.4,
+      "overall_quality": 87.6,
+      "categories_tested": 10,
+      "categories_failed": 0,
+      "social_media_posts_adherence": 100,
+      "social_media_posts_quality": 93,
+      "linkedin_article_adherence": 100,
+      "linkedin_article_quality": 78,
+      "html_salespage_adherence": 82,
+      "html_salespage_quality": 90,
+      "backend_code_adherence": 100,
+      "backend_code_quality": 93,
+      "email_copywriting_adherence": 98,
+      "email_copywriting_quality": 88,
+      "youtube_summary_adherence": 100,
+      "youtube_summary_quality": 87,
+      "editing_adherence": 84,
+      "editing_quality": 79,
+      "brainstorming_adherence": 90,
+      "brainstorming_quality": 95,
+      "reasoning_analysis_adherence": 100,
+      "reasoning_analysis_quality": 91,
+      "long_context_adherence": 100,
+      "long_context_quality": 82,
+      "avg_speed_ms": 2535,
+      "last_tested": "2026-06-16T23:19:58.660Z"
     },
     {
       "model_id": "nvidia/nemotron-3-ultra-550b-a55b",
