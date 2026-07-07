@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-07-06T01:44:55.030Z",
-  "total_models": 39,
+  "generated_at": "2026-07-07T21:04:31.656Z",
+  "total_models": 40,
   "rankings": [
     {
       "model_id": "anthropic/claude-sonnet-5",
@@ -151,6 +151,36 @@
       "long_context_quality": 82,
       "avg_speed_ms": 1101,
       "last_tested": "2026-06-07T11:58:43.175Z"
+    },
+    {
+      "model_id": "tencent/hy3:free",
+      "model_label": "Tencent HY3",
+      "overall_adherence": 91.9,
+      "overall_quality": 88.7,
+      "categories_tested": 10,
+      "categories_failed": 0,
+      "social_media_posts_adherence": 97,
+      "social_media_posts_quality": 89,
+      "linkedin_article_adherence": 100,
+      "linkedin_article_quality": 88,
+      "html_salespage_adherence": 77,
+      "html_salespage_quality": 94,
+      "backend_code_adherence": 93,
+      "backend_code_quality": 93,
+      "email_copywriting_adherence": 98,
+      "email_copywriting_quality": 89,
+      "youtube_summary_adherence": 97,
+      "youtube_summary_quality": 96,
+      "editing_adherence": 87,
+      "editing_quality": 87,
+      "brainstorming_adherence": 94,
+      "brainstorming_quality": 96,
+      "reasoning_analysis_adherence": 76,
+      "reasoning_analysis_quality": 73,
+      "long_context_adherence": 100,
+      "long_context_quality": 82,
+      "avg_speed_ms": 1993,
+      "last_tested": "2026-07-07T04:49:55.498Z"
     },
     {
       "model_id": "moonshotai/kimi-k2.7-code",
