@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T07:49:51.702Z",
+  "generated_at": "2026-07-18T14:40:05.961Z",
   "total_models": 48,
   "rankings": [
     {
@@ -35,16 +35,16 @@
     {
       "model_id": "kimi-k3",
       "model_label": "Kimi K3",
-      "overall_adherence": 93.3,
-      "overall_quality": 91.8,
+      "overall_adherence": 93.1,
+      "overall_quality": 92.3,
       "categories_tested": 10,
       "categories_failed": 0,
       "social_media_posts_adherence": 99,
       "social_media_posts_quality": 91,
       "linkedin_article_adherence": 100,
       "linkedin_article_quality": 91,
-      "html_salespage_adherence": 77,
-      "html_salespage_quality": 96,
+      "html_salespage_adherence": 78,
+      "html_salespage_quality": 93,
       "backend_code_adherence": 100,
       "backend_code_quality": 96,
       "email_copywriting_adherence": 98,
@@ -55,12 +55,12 @@
       "editing_quality": 87,
       "brainstorming_adherence": 88,
       "brainstorming_quality": 96,
-      "reasoning_analysis_adherence": 100,
-      "reasoning_analysis_quality": 84,
+      "reasoning_analysis_adherence": 97,
+      "reasoning_analysis_quality": 92,
       "long_context_adherence": 100,
       "long_context_quality": 91,
-      "avg_speed_ms": 318546,
-      "last_tested": "2026-07-17T06:46:45.204Z"
+      "avg_speed_ms": 308101,
+      "last_tested": "2026-07-18T09:00:20.034Z"
     },
     {
       "model_id": "anthropic/claude-fable-5",
