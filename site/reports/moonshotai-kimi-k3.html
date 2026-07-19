@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GPT-5.6 Sol Pro — The AI Arena Report</title>
-  <meta name="description" content="Quality-first evaluation of GPT-5.6 Sol Pro across 10 real-world tasks. Score: 90.7/100.">
-  <meta property="og:title" content="GPT-5.6 Sol Pro — The AI Arena">
-  <meta property="og:description" content="Quality Score: 90.7 | Adherence: 96.3 | 10 categories tested">
+  <title>Kimi K3 — The AI Arena Report</title>
+  <meta name="description" content="Quality-first evaluation of Kimi K3 across 10 real-world tasks. Score: -/100.">
+  <meta property="og:title" content="Kimi K3 — The AI Arena">
+  <meta property="og:description" content="Quality Score: - | Adherence: -1 | 10 categories tested">
   <meta property="og:type" content="article">
-  <link rel="canonical" href="https://servenomaster.com/ai-arena/ai-arena/reports/openai-gpt-5-6-sol-pro">
+  <link rel="canonical" href="https://servenomaster.com/ai-arena/ai-arena/reports/moonshotai-kimi-k3">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
@@ -32,14 +32,6 @@
     --border: #E2E8F0;
     --font-display: 'Bangers', cursive;
     --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    /* Type scale (report breakouts) — keep the page to a few sizes */
-    --fs-label: 0.72rem;
-    --fs-small: 0.8rem;
-    --fs-body: 0.9rem;
-    --fs-title: 1rem;
-    --fs-lead: 1.2rem;
-    --text-body: #334155;
-    --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -183,97 +175,309 @@
   .footer-copy { font-size: 0.75rem; opacity: 0.4; }
 
     
-  /* ===== Breakout design system: one type scale + shared primitives across all 10 categories ===== */
-  .breakout-section { margin: 18px 0; }
+  /* Breakout sections */
+  .breakout-section {
+    margin: 16px 0;
+  }
   .breakout-title {
-    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
-    color: var(--magenta); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--purple-mid);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
 
-  /* Shared card shell */
-  .platform-card, .email-preview, .article-preview, .edited-text-box, .strategy-card, .answer-card, .code-display {
-    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+  /* Platform cards grid (social media) */
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
   }
-
-  /* Shared reading text (one size, readable color, everywhere) */
-  .platform-body, .callout-box, .email-body, .article-section-body, .edited-text, .strategy-preview, .answer-text, .feature-list li, .changelog-list li {
-    font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.6; color: var(--text-body);
+  .platform-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
   }
-  .platform-body strong, .callout-box strong, .article-section-body strong, .answer-text strong, .feature-list li strong, .strategy-preview strong, .email-body strong { color: var(--text-primary); font-weight: 700; }
-  .article-section-body p, .strategy-preview p, .edited-text p, .email-body p { margin-bottom: 8px; }
-  .article-section-body ul, .strategy-preview ul, .callout-box ul { margin: 6px 0 6px 18px; }
-  .article-section-body p:last-child, .strategy-preview p:last-child { margin-bottom: 0; }
-
-  /* Shared content title */
-  .article-section-title, .strategy-title {
-    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-title);
-    color: var(--text-primary); margin-bottom: 5px; line-height: 1.35;
+  .platform-header {
+    background: var(--purple-dark);
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-
-  /* Shared small uppercase label/pill */
-  .callout-label, .code-lang-tag, .platform-header {
-    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
-    letter-spacing: 0.07em; text-transform: uppercase;
+  .platform-icon {
+    font-size: 1rem;
+    width: 24px;
+    text-align: center;
   }
-
-  /* Shared numbered marker */
-  .strategy-num, .answer-num {
-    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-lead);
-    color: var(--purple-mid); line-height: 1.2; text-align: center;
+  .platform-body {
+    padding: 12px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    max-height: 200px;
+    overflow-y: auto;
   }
-
-  /* Social platform cards */
-  .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
-  .platform-header { background: var(--purple-dark); color: white; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
-  .platform-icon { font-size: var(--fs-body); width: 22px; text-align: center; }
-  .platform-body { padding: 12px; max-height: 220px; overflow-y: auto; }
 
   /* Callout boxes */
-  .callout-box { border-radius: var(--radius); padding: 14px 16px; margin: 10px 0; }
-  .callout-box.info { background: #eff6ff; border: 1px solid #bfdbfe; }
-  .callout-box.creative { background: #faf5ff; border: 1px solid #e9d5ff; }
-  .callout-box.changelog { background: #f0fdf4; border: 1px solid #bbf7d0; }
-  .callout-box.section { background: var(--bg-light); border: 1px solid var(--border); }
-  .callout-label { display: inline-block; color: var(--purple-mid); margin-bottom: 8px; }
+  .callout-box {
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .callout-box.info {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+  }
+  .callout-box.creative {
+    background: #faf5ff;
+    border: 1px solid #e9d5ff;
+  }
+  .callout-box.changelog {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  .callout-box.section {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+  }
+  .callout-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--purple-mid);
+    margin-bottom: 6px;
+  }
 
-  /* Check list */
-  .feature-list { list-style: none; padding: 0; margin: 0; }
-  .feature-list li { padding: 4px 0 4px 22px; position: relative; }
-  .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+  /* Feature list */
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .feature-list li {
+    padding: 3px 0 3px 20px;
+    position: relative;
+    font-size: 0.85rem;
+  }
+  .feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+  }
 
-  /* Email */
-  .email-subject { background: var(--bg-gray); padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: var(--fs-title); color: var(--text-primary); }
-  .email-preview-text { padding: 8px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: var(--fs-small); font-style: italic; }
-  .email-body { padding: 16px; }
-  .email-signature { padding: 10px 16px; color: var(--text-primary); font-weight: 600; font-size: var(--fs-body); }
-  .email-ps { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--text-secondary); font-style: italic; font-size: var(--fs-small); }
+  /* Email preview */
+  .email-preview {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0.9rem;
+  }
+  .email-subject {
+    background: #f1f5f9;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.95rem;
+  }
+  .email-preview-text {
+    padding: 8px 16px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.85rem;
+    font-style: italic;
+  }
+  .email-body {
+    padding: 16px;
+    line-height: 1.7;
+  }
+  .email-body p { margin-bottom: 12px; }
+  .email-signature {
+    padding: 8px 16px;
+    color: var(--text-secondary);
+    font-weight: 600;
+  }
+  .email-ps {
+    padding: 12px 16px;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.88rem;
+  }
 
-  /* Code */
-  .code-lang-tag { background: var(--blue); color: white; padding: 4px 12px; display: inline-block; margin: 8px 0 0 8px; border-radius: 6px; }
-  .code-display { background: #1e293b; margin: 8px 0; }
-  .code-display pre { padding: 16px; color: #e2e8f0; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: var(--fs-small); line-height: 1.6; overflow-x: auto; max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; }
+  /* Code display */
+  .code-display {
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 8px 0;
+  }
+  .code-lang-tag {
+    background: var(--blue);
+    color: white;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin: 8px 0 0 8px;
+    border-radius: 4px;
+  }
+  .code-display pre {
+    padding: 16px;
+    color: #e2e8f0;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    max-height: 400px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
 
-  /* Article */
-  .article-headline { padding: 16px 20px; font-size: var(--fs-lead); font-weight: 700; color: var(--purple-dark); border-bottom: 2px solid var(--magenta); line-height: 1.3; }
-  .article-section { padding: 14px 20px; border-bottom: 1px solid var(--border); }
+  /* Article preview */
+  .article-preview {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .article-headline {
+    padding: 16px 20px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--purple-dark);
+    border-bottom: 2px solid var(--magenta);
+    line-height: 1.3;
+  }
+  .article-section {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border);
+  }
   .article-section:last-child { border-bottom: none; }
+  .article-section-title {
+    font-weight: 700;
+    color: var(--purple-mid);
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+  .article-section-body {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
 
-  /* Editing */
-  .edited-text-box { padding: 16px; margin-bottom: 12px; }
-  .changelog-list { list-style: none; padding: 0; margin: 0; }
-  .changelog-list li { padding: 4px 0 4px 22px; position: relative; }
-  .changelog-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+  /* Edited text box */
+  .edited-text-box {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+  .edited-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+  }
+  .edited-text p { margin-bottom: 10px; }
+  .changelog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .changelog-list li {
+    padding: 4px 0 4px 20px;
+    position: relative;
+    font-size: 0.83rem;
+    line-height: 1.5;
+  }
+  .changelog-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+  }
 
-  /* Strategy (brainstorming) */
-  .strategy-grid { display: flex; flex-direction: column; gap: 10px; }
-  .strategy-card { display: flex; gap: 14px; padding: 14px; align-items: flex-start; }
-  .strategy-num { min-width: 30px; }
+  /* Strategy cards */
+  .strategy-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .strategy-card {
+    display: flex;
+    gap: 14px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    align-items: flex-start;
+  }
+  .strategy-num {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--purple-mid);
+    min-width: 32px;
+    text-align: center;
+    line-height: 1;
+  }
+  .strategy-title {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .strategy-preview {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+  }
 
-  /* Answers (long context) */
-  .answers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .answer-card { display: flex; gap: 12px; padding: 12px 14px; align-items: flex-start; }
-  .answer-num { min-width: 22px; }
+  /* Answers grid (long context) */
+  .answers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .answer-card {
+    display: flex;
+    gap: 10px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    align-items: center;
+  }
+  .answer-num {
+    font-weight: 800;
+    color: var(--purple-mid);
+    font-size: 1.1rem;
+    min-width: 24px;
+  }
+  .answer-text {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+  }
 
+  /* Responsive */
   @media (max-width: 768px) {
     .platform-grid { grid-template-columns: 1fr; }
     .answers-grid { grid-template-columns: 1fr; }
@@ -580,22 +784,22 @@
     </div>
     <div class="header-badge">10 REAL-WORLD TASKS</div>
     <div class="header-series">THE AI ARENA</div>
-    <h1 class="header-title">GPT-5.6 SOL PRO</h1>
+    <h1 class="header-title">KIMI K3</h1>
     <p class="header-subtitle">Quality-First Model Evaluation Report</p>
-    <p class="header-date">Evaluated July 12, 2026</p>
+    <p class="header-date">Evaluated July 17, 2026</p>
 
     <div class="hero-scores">
       <div class="hero-score">
-        <div class="hero-number primary">90.7</div>
+        <div class="hero-number primary">-</div>
         <div class="hero-label">Quality Score</div>
       </div>
       <div class="hero-score">
-        <div class="hero-number secondary">96.3</div>
+        <div class="hero-number secondary">ERR</div>
         <div class="hero-label">Adherence</div>
       </div>
     </div>
     <div style="text-align: center; margin-top: 16px;">
-      <span class="tier-badge tier-elite">Elite Tier</span>
+      <span class="tier-badge tier-none">Pending Tier</span>
     </div>
     <p style="text-align: center; color: rgba(255,255,255,0.5); font-size: 0.8rem; max-width: 500px; margin: 16px auto 0;">
       Quality measures whether output is actually good. Adherence measures instruction-following. A model can score 100 adherence and still produce garbage.
@@ -614,7 +818,7 @@
       <div class="stat-label">Categories</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">1.2s avg</div>
+      <div class="stat-value">N/A</div>
       <div class="stat-label">Avg Speed</div>
     </div>
     <div class="stat-card">
@@ -622,7 +826,7 @@
       <div class="stat-label">Provider</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">Elite</div>
+      <div class="stat-value">Pending</div>
       <div class="stat-label">Tier</div>
     </div>
   </div>
@@ -635,53 +839,53 @@
       
       <div class="score-card">
         <div class="card-label">Social Media</div>
-        <div class="card-score" style="color: #10b981">90.0</div>
-        <div class="card-adherence">Adherence: 100.0</div>
+        <div class="card-score" style="color: #94a3b8">-</div>
+        <div class="card-adherence">Adherence: ERR</div>
       </div>
       <div class="score-card">
         <div class="card-label">LinkedIn Article</div>
-        <div class="card-score" style="color: #10b981">90.0</div>
-        <div class="card-adherence">Adherence: 100.0</div>
+        <div class="card-score" style="color: #94a3b8">-</div>
+        <div class="card-adherence">Adherence: ERR</div>
       </div>
       <div class="score-card">
         <div class="card-label">HTML Salespage</div>
         <div class="card-score" style="color: #94a3b8">-</div>
-        <div class="card-adherence">Adherence: -</div>
+        <div class="card-adherence">Adherence: ERR</div>
       </div>
       <div class="score-card">
         <div class="card-label">Backend Code</div>
-        <div class="card-score" style="color: #10b981">96.0</div>
-        <div class="card-adherence">Adherence: 96.0</div>
+        <div class="card-score" style="color: #94a3b8">-</div>
+        <div class="card-adherence">Adherence: ERR</div>
       </div>
       <div class="score-card">
         <div class="card-label">Email Copy</div>
-        <div class="card-score" style="color: #f59e0b">82.0</div>
-        <div class="card-adherence">Adherence: 95.0</div>
+        <div class="card-score" style="color: #94a3b8">-</div>
+        <div class="card-adherence">Adherence: ERR</div>
       </div>
       <div class="score-card">
         <div class="card-label">YouTube Summary</div>
-        <div class="card-score" style="color: #10b981">96.0</div>
-        <div class="card-adherence">Adherence: 90.0</div>
+        <div class="card-score" style="color: #94a3b8">-</div>
+        <div class="card-adherence">Adherence: ERR</div>
       </div>
       <div class="score-card">
         <div class="card-label">Editing</div>
-        <div class="card-score" style="color: #10b981">85.0</div>
-        <div class="card-adherence">Adherence: 91.0</div>
+        <div class="card-score" style="color: #94a3b8">-</div>
+        <div class="card-adherence">Adherence: ERR</div>
       </div>
       <div class="score-card">
         <div class="card-label">Brainstorming</div>
-        <div class="card-score" style="color: #10b981">96.0</div>
-        <div class="card-adherence">Adherence: 95.0</div>
+        <div class="card-score" style="color: #94a3b8">-</div>
+        <div class="card-adherence">Adherence: ERR</div>
       </div>
       <div class="score-card">
         <div class="card-label">Reasoning & Analysis</div>
-        <div class="card-score" style="color: #10b981">93.0</div>
-        <div class="card-adherence">Adherence: 100.0</div>
+        <div class="card-score" style="color: #94a3b8">-</div>
+        <div class="card-adherence">Adherence: ERR</div>
       </div>
       <div class="score-card">
         <div class="card-label">Long Context</div>
-        <div class="card-score" style="color: #10b981">88.0</div>
-        <div class="card-adherence">Adherence: 100.0</div>
+        <div class="card-score" style="color: #94a3b8">-</div>
+        <div class="card-adherence">Adherence: ERR</div>
       </div>
     </div>
   </div>
@@ -710,63 +914,63 @@
         
       <tr>
         <td class="cat-name-cell">Social Media</td>
-        <td class="score-cell" style="color: #10b981">90.0</td>
-        <td class="score-cell" style="color: #10b981">100.0</td>
-        <td class="score-cell ">10.0</td>
+        <td class="score-cell" style="color: #94a3b8">-</td>
+        <td class="score-cell" style="color: #ef4444">ERR</td>
+        <td class="score-cell ">-</td>
       </tr>
       <tr>
         <td class="cat-name-cell">LinkedIn Article</td>
-        <td class="score-cell" style="color: #10b981">90.0</td>
-        <td class="score-cell" style="color: #10b981">100.0</td>
-        <td class="score-cell ">10.0</td>
+        <td class="score-cell" style="color: #94a3b8">-</td>
+        <td class="score-cell" style="color: #ef4444">ERR</td>
+        <td class="score-cell ">-</td>
       </tr>
       <tr>
         <td class="cat-name-cell">HTML Salespage</td>
         <td class="score-cell" style="color: #94a3b8">-</td>
-        <td class="score-cell" style="color: #94a3b8">-</td>
+        <td class="score-cell" style="color: #ef4444">ERR</td>
         <td class="score-cell ">-</td>
       </tr>
       <tr>
         <td class="cat-name-cell">Backend Code</td>
-        <td class="score-cell" style="color: #10b981">96.0</td>
-        <td class="score-cell" style="color: #10b981">96.0</td>
-        <td class="score-cell ">0.0</td>
+        <td class="score-cell" style="color: #94a3b8">-</td>
+        <td class="score-cell" style="color: #ef4444">ERR</td>
+        <td class="score-cell ">-</td>
       </tr>
       <tr>
         <td class="cat-name-cell">Email Copy</td>
-        <td class="score-cell" style="color: #f59e0b">82.0</td>
-        <td class="score-cell" style="color: #10b981">95.0</td>
-        <td class="score-cell ">13.0</td>
+        <td class="score-cell" style="color: #94a3b8">-</td>
+        <td class="score-cell" style="color: #ef4444">ERR</td>
+        <td class="score-cell ">-</td>
       </tr>
       <tr>
         <td class="cat-name-cell">YouTube Summary</td>
-        <td class="score-cell" style="color: #10b981">96.0</td>
-        <td class="score-cell" style="color: #10b981">90.0</td>
-        <td class="score-cell ">6.0</td>
+        <td class="score-cell" style="color: #94a3b8">-</td>
+        <td class="score-cell" style="color: #ef4444">ERR</td>
+        <td class="score-cell ">-</td>
       </tr>
       <tr>
         <td class="cat-name-cell">Editing</td>
-        <td class="score-cell" style="color: #10b981">85.0</td>
-        <td class="score-cell" style="color: #10b981">91.0</td>
-        <td class="score-cell ">6.0</td>
+        <td class="score-cell" style="color: #94a3b8">-</td>
+        <td class="score-cell" style="color: #ef4444">ERR</td>
+        <td class="score-cell ">-</td>
       </tr>
       <tr>
         <td class="cat-name-cell">Brainstorming</td>
-        <td class="score-cell" style="color: #10b981">96.0</td>
-        <td class="score-cell" style="color: #10b981">95.0</td>
-        <td class="score-cell ">1.0</td>
+        <td class="score-cell" style="color: #94a3b8">-</td>
+        <td class="score-cell" style="color: #ef4444">ERR</td>
+        <td class="score-cell ">-</td>
       </tr>
       <tr>
         <td class="cat-name-cell">Reasoning & Analysis</td>
-        <td class="score-cell" style="color: #10b981">93.0</td>
-        <td class="score-cell" style="color: #10b981">100.0</td>
-        <td class="score-cell ">7.0</td>
+        <td class="score-cell" style="color: #94a3b8">-</td>
+        <td class="score-cell" style="color: #ef4444">ERR</td>
+        <td class="score-cell ">-</td>
       </tr>
       <tr>
         <td class="cat-name-cell">Long Context</td>
-        <td class="score-cell" style="color: #10b981">88.0</td>
-        <td class="score-cell" style="color: #10b981">100.0</td>
-        <td class="score-cell ">12.0</td>
+        <td class="score-cell" style="color: #94a3b8">-</td>
+        <td class="score-cell" style="color: #ef4444">ERR</td>
+        <td class="score-cell ">-</td>
       </tr>
       </tbody>
     </table>
@@ -779,2485 +983,145 @@
       <div class="category-detail" id="cat-social_media_posts">
         <h3 class="detail-title">Social Media</h3>
         <div class="detail-scores">
-          <span class="detail-badge" style="background: #10b981">Quality: 90.0</span>
-          <span class="detail-badge" style="background: #10b981">Adherence: 100.0</span>
+          <span class="detail-badge" style="background: #94a3b8">Quality: -</span>
+          <span class="detail-badge" style="background: #ef4444">Adherence: ERR</span>
         </div>
-        <div class="quality-judgment">
-          <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p><p>This lands near Reference C's high tier because the writing is confident and platform-aware, with sharp reframes like &quot;Most AI apps still feel like giving a very smart intern a laptop with no passwords&quot; and the crisp &quot;AI that answers to AI that ACTS.&quot; Each channel earns its own voice, and the island-dad texture (rooster, power wobble) reads lived-in rather than pasted on. It falls just short of C's 97 because a few moves feel slightly overworked - the &quot;control room&quot; and &quot;glue-code circus&quot; metaphors crowd each other, and the conductor imagePrompt strains where C's golden-key concept stayed clean and instantly legible.</p></p>
-        </div><div class="breakout-section"><h4 class="breakout-title">Platform Posts</h4><div class="platform-grid">
-      <div class="platform-card">
-        <div class="platform-header">
-          <span class="platform-icon">𝕏</span>
-          <span class="platform-name">Twitter / X</span>
-        </div>
-        <div class="platform-body">Claude Code just turned the command line into an AI control room.<br><br>Agents can now call MCP servers, databases, file systems, and APIs without the usual glue-code circus.<br><br>The shift isn't smarter chat. It's AI that can actually DO the work.</div>
-      </div>
-      <div class="platform-card">
-        <div class="platform-header">
-          <span class="platform-icon">in</span>
-          <span class="platform-name">LinkedIn</span>
-        </div>
-        <div class="platform-body">Chat was never the finish line for AI.<br><br>Claude Code's new tool calls let agents reach MCP servers, databases, file systems, and APIs from the command line. That removes a chunk of the glue code that made AI apps feel like a school science project held together with tape.<br><br>The real shift is from AI that answers to AI that ACTS. Which workflow would you hand it first?</div>
-      </div>
-      <div class="platform-card">
-        <div class="platform-header">
-          <span class="platform-icon">📷</span>
-          <span class="platform-name">Instagram</span>
-        </div>
-        <div class="platform-body">Somewhere between the rooster alarm and the next island power wobble, the command line got a serious upgrade.<br><br>Claude Code's new tool calls let AI agents use MCP servers, databases, file systems, and APIs.<br><br>Not just talk about the work...actually reach the tools and DO it.<br><br>That changes the build process.<br><br>Less glue code. Fewer awkward handoffs. More room to build small systems that compound instead of another shiny chatbot nobody needs.<br><br>AI hype is cheap. Useful access is not.<br><br>#ClaudeCode #AIEngineering #AIAgents #MCP #DeveloperTools #CommandLine #AIApplications</div>
-      </div>
-      <div class="platform-card">
-        <div class="platform-header">
-          <span class="platform-icon">🧵</span>
-          <span class="platform-name">Threads</span>
-        </div>
-        <div class="platform-body">The command line just got a lot more dangerous...in the useful way.<br><br>Claude Code's new tool calls let agents reach MCP servers, databases, file systems, and APIs. So instead of building another chatbot that politely explains the work, developers can build agents that actually touch the tools and DO it.<br><br>Less glue code. More working systems.<br><br>That's the AI shift I care about—not bigger demos, but fewer steps between an idea and a result.</div>
-      </div>
-      <div class="platform-card">
-        <div class="platform-header">
-          <span class="platform-icon">🦋</span>
-          <span class="platform-name">Bluesky</span>
-        </div>
-        <div class="platform-body">New Claude Code tool calls connect agents to MCP servers, databases, file systems, and APIs from the command line.<br><br>The bottleneck was never AI talking. It was giving AI access to real tools without a mountain of glue code.<br><br>This is how AI apps move from answers to ACTION.</div>
-      </div>
-      <div class="platform-card">
-        <div class="platform-header">
-          <span class="platform-icon">f</span>
-          <span class="platform-name">Facebook</span>
-        </div>
-        <div class="platform-body">Most AI apps still feel like giving a very smart intern a laptop with no passwords.<br><br>They can explain everything...but they can't touch anything.<br><br>Claude Code's new tool calls change that. Agents can reach MCP servers, databases, file systems, and APIs straight from the command line.<br><br>That's the USEFUL part of AI for me. Not a shinier chat window. A system that can move work forward while a rooster attacks the patio and the power considers taking the afternoon off.<br><br>What annoying workflow would you connect first?</div>
-      </div></div>
-      <div class="callout-box info">
-        <div class="callout-label">CORE MESSAGE</div>
-        <p>Claude Code's new tool calls let AI agents connect directly to APIs, MCP servers, databases, and file systems from the command line. The important shift is from AI that merely answers to AI that can ACT.</p>
-      </div>
-      <div class="callout-box creative">
-        <div class="callout-label">IMAGE PROMPT</div>
-        <p>Bold dramatic 3D block letters reading AI CAN ACT across the center. A wild-eyed orchestra conductor in a crimson tailcoat stands on a cliffside podium, sending electric ribbons from a baton into a steel vault, an endless card catalog, and a maze of glowing doors, all snapping into one synchronized machine, low-angle cinematic composition, heavy ink outlines, dramatic shadows, halftone dot pattern, bold pop art colors.</p>
-      </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
-          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>{
-  &quot;core&quot;: &quot;Claude Code's new tool calls let AI agents connect directly to APIs, MCP servers, databases, and file systems from the command line. The important shift is from AI that merely answers to AI that can ACT.&quot;,
-  &quot;twitter&quot;: &quot;Claude Code just turned the command line into an AI control room.\n\nAgents can now call MCP servers, databases, file systems, and APIs without the usual glue-code circus.\n\nThe shift isn't smarter chat. It's AI that can actually DO the work.&quot;,
-  &quot;linkedin&quot;: &quot;Chat was never the finish line for AI.\n\nClaude Code's new tool calls let agents reach MCP servers, databases, file systems, and APIs from the command line. That removes a chunk of the glue code that made AI apps feel like a school science project held together with tape.\n\nThe real shift is from AI that answers to AI that ACTS. Which workflow would you hand it first?&quot;,
-  &quot;instagram&quot;: &quot;Somewhere between the rooster alarm and the next island power wobble, the command line got a serious upgrade.\n\nClaude Code's new tool calls let AI agents use MCP servers, databases, file systems, and APIs.\n\nNot just talk about the work...actually reach the tools and DO it.\n\nThat changes the build process.\n\nLess glue code. Fewer awkward handoffs. More room to build small systems that compound instead of another shiny chatbot nobody needs.\n\nAI hype is cheap. Useful access is not.\n\n#ClaudeCode #AIEngineering #AIAgents #MCP #DeveloperTools #CommandLine #AIApplications&quot;,
-  &quot;threads&quot;: &quot;The command line just got a lot more dangerous...in the useful way.\n\nClaude Code's new tool calls let agents reach MCP servers, databases, file systems, and APIs. So instead of building another chatbot that politely explains the work, developers can build agents that actually touch the tools and DO it.\n\nLess glue code. More working systems.\n\nThat's the AI shift I care about—not bigger demos, but fewer steps between an idea and a result.&quot;,
-  &quot;bluesky&quot;: &quot;New Claude Code tool calls connect agents to MCP servers, databases, file systems, and APIs from the command line.\n\nThe bottleneck was never AI talking. It was giving AI access to real tools without a mountain of glue code.\n\nThis is how AI apps move from answers to ACTION.&quot;,
-  &quot;facebook&quot;: &quot;Most AI apps still feel like giving a very smart intern a laptop with no passwords.\n\nThey can explain everything...but they can't touch anything.\n\nClaude Code's new tool calls change that. Agents can reach MCP servers, databases, file systems, and APIs straight from the command line.\n\nThat's the USEFUL part of AI for me. Not a shinier chat window. A system that can move work forward while a rooster attacks the patio and the power considers taking the afternoon off.\n\nWhat annoying workflow would you connect first?&quot;,
-  &quot;imagePrompt&quot;: &quot;Bold dramatic 3D block letters reading AI CAN ACT across the center. A wild-eyed orchestra conductor in a crimson tailcoat stands on a cliffside podium, sending electric ribbons from a baton into a steel vault, an endless card catalog, and a maze of glowing doors, all snapping into one synchronized machine, low-angle cinematic composition, heavy ink outlines, dramatic shadows, halftone dot pattern, bold pop art colors.&quot;
-}</pre></div>
+          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</pre></div>
         </details></div>
       <div class="category-detail" id="cat-linkedin_article">
         <h3 class="detail-title">LinkedIn Article</h3>
         <div class="detail-scores">
-          <span class="detail-badge" style="background: #10b981">Quality: 90.0</span>
-          <span class="detail-badge" style="background: #10b981">Adherence: 100.0</span>
-        </div>
-        <div class="quality-judgment">
-          <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p><p>This target earns 90 because it executes Jonathan's contrarian ROI thesis with disciplined craft and genuine restraint. The staccato opening, &quot;Claude Code did not become smarter. It became useful,&quot; and the reframe &quot;The integration tax just dropped&quot; land the argument fast, while &quot;It is an operator with credentials&quot; sharpens the control-problem stakes. The empathy engine works across developer, security team, and user, and the binary close (&quot;One produces applause. The other produces margin. Choose margin.&quot;) is clean. It sits just below Reference C (98), which is more ferocious and vivid (&quot;the invoice looks like a crime scene&quot;); the target is slightly cooler and less quotable, but structurally and tonally superior to the mid-range B.</p></p>
+          <span class="detail-badge" style="background: #94a3b8">Quality: -</span>
+          <span class="detail-badge" style="background: #ef4444">Adherence: ERR</span>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Article Preview</h4>
-    <div class="article-preview"><div class="article-headline">Use Claude Code Tool Calls to Cut Integration Work</div><div class="article-section"><p class="article-section-body"><p>Claude Code did not become smarter.</p>
-<p>It became useful.</p>
-<p>Tool calls let AI agents reach MCP servers, databases, file systems, and external APIs from the command line. That sounds technical because it is. But the real change has little to do with model intelligence.</p>
-<p>The integration tax just dropped.</p>
-<p>Developers have spent years building small bridges between AI models and the systems where actual work happens. One function fetches customer data. Another reads a file. A third updates the CRM. Then someone has to manage authentication, retries, permissions, logging, and the inevitable schema change that arrives Friday afternoon.</p>
-<p>The model was rarely the bottleneck.</p>
-<p>The plumbing was.</p></p></div><div class="article-section"><div class="article-section-title">The Interface Just Moved</div><p class="article-section-body"><p>Most AI applications begin with a prompt and quickly become an integration project.</p>
-<p>The developer writes wrappers, translates formats, maintains orchestration code, and tries to stop the model from doing something creative with production data. Every new system creates another dependency. Every dependency adds another place for the workflow to fail.</p>
-<p>Claude Code tool calls compress that work into the environment developers already use. The command line becomes an operating layer where an agent can inspect files, call services, query approved systems, and act on the response.</p>
-<p>That matters.</p>
-<p>Not because command lines are fashionable again. They never left. It matters because developers can now test an agent against real infrastructure without first building a polished application around it.</p>
-<p>The distance between idea and evidence shrinks.</p>
-<p>A team can connect Claude Code to a permit database, identify new commercial projects, enrich the company records through an API, compare those records against the CRM, and prepare relevant outreach. The agent is not merely generating text. It is responding to a demand signal and moving information across systems.</p>
-<p>Automation plus timing equals sales.</p>
-<p>Without the tool layer, that workflow becomes a backlog item. With it, the developer can prove whether the process creates value before the company funds a six month software project.</p>
-<p>That is the useful part.</p></p></div><div class="article-section"><div class="article-section-title">Convenience Creates A New Control Problem</div><p class="article-section-body"><p>There is an obvious temptation here.</p>
-<p>Connect everything.</p>
-<p>Do not.</p>
-<p>The same capability that removes integration friction can also remove the friction that protected your business from careless actions. A model with database access is not a chatbot with better manners. It is an operator with credentials.</p>
-<p>That changes the emotional experience for everyone involved.</p>
-<p>The developer feels speed for the first time. Instead of waiting on three teams and two approval meetings, the workflow runs from a terminal. Progress feels immediate, and any request for controls can feel like the company dragging innovation back into the mud.</p>
-<p>The security team feels something else. They see an unpredictable decision layer touching systems that were designed for deterministic software. Their hesitation is not resistance to AI. It is the rational discomfort of being held responsible for actions they may not be able to reconstruct later.</p>
-<p>The user also carries risk. When an agent silently retrieves stale data, edits the wrong record, or misreads an API response, the user does not experience an exciting technical experiment. They experience broken trust.</p>
-<p>Speed without boundaries creates expensive cleanup.</p>
-<p>The correct response is not to ban tool calls. It is to narrow them. Give agents the smallest permissions required, separate reading from writing, log every action, and force human approval when consequences become difficult to reverse.</p>
-<p>That is not glamorous.</p>
-<p>Neither is restoring a corrupted customer database.</p></p></div><div class="article-section"><div class="article-section-title">Build For Measurable Work</div><p class="article-section-body"><p>The market will produce thousands of agent demos now. Most will look impressive because watching software operate other software creates a strong illusion of progress.</p>
-<p>Ignore the theater.</p>
-<p>The ROI test remains brutally simple. Does the agent reduce labor, shorten response time, increase revenue, or prevent a measurable cost? If the answer is unclear, more tools will not rescue the project.</p>
-<p>Start with a workflow that already hurts.</p>
-<p>Maybe sales researchers spend twelve hours each week checking bankruptcy filings, hiring changes, permits, or leadership moves. Maybe customer success teams jump across five systems before they can answer a basic account question. Maybe engineers lose mornings gathering logs and reproducing incidents.</p>
-<p>Those are viable targets because the waste already exists.</p>
-<p>Connect the required systems, define the trigger, constrain the action, and measure the before and after. If the workflow saves thirty minutes once, you have a demo. If it saves thirty minutes across two hundred weekly events, you have leverage.</p>
-<p>This is where Claude Code tool calls change development. They make validation cheaper. Teams can discover whether an agent deserves production investment before burying the idea under interfaces, middleware, and internal politics.</p>
-<p>But lower build cost does not excuse vague economics.</p>
-<p>It raises the standard.</p>
-<p>You now face a binary choice. Use tool calls to create clever command line performances, or use them to remove a specific, measured constraint from the business.</p>
-<p>One produces applause.</p>
-<p>The other produces margin.</p>
-<p>Choose margin.</p>
-<p>Jonathan Green</p>
-<p>PS</p>
-<ul>
-<li>Scroll to the top.</li>
-<li>Click on Subscribe to newsletter.</li>
-<li>Follow Jonathan Green to never miss a post.</li>
-</ul></p></div></div></div>
+    <div class="article-preview"><div class="article-headline">ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
-          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>Use Claude Code Tool Calls to Cut Integration Work
-
-Claude Code did not become smarter.
-
-It became useful.
-
-Tool calls let AI agents reach MCP servers, databases, file systems, and external APIs from the command line. That sounds technical because it is. But the real change has little to do with model intelligence.
-
-The integration tax just dropped.
-
-Developers have spent years building small bridges between AI models and the systems where actual work happens. One function fetches customer data. Another reads a file. A third updates the CRM. Then someone has to manage authentication, retries, permissions, logging, and the inevitable schema change that arrives Friday afternoon.
-
-The model was rarely the bottleneck.
-
-The plumbing was.
-
-### The Interface Just Moved
-
-Most AI applications begin with a prompt and quickly become an integration project.
-
-The developer writes wrappers, translates formats, maintains orchestration code, and tries to stop the model from doing something creative with production data. Every new system creates another dependency. Every dependency adds another place for the workflow to fail.
-
-Claude Code tool calls compress that work into the environment developers already use. The command line becomes an operating layer where an agent can inspect files, call services, query approved systems, and act on the response.
-
-That matters.
-
-Not because command lines are fashionable again. They never left. It matters because developers can now test an agent against real infrastructure without first building a polished application around it.
-
-The distance between idea and evidence shrinks.
-
-A team can connect Claude Code to a permit database, identify new commercial projects, enrich the company records through an API, compare those records against the CRM, and prepare relevant outreach. The agent is not merely generating text. It is responding to a demand signal and moving information across systems.
-
-Automation plus timing equals sales.
-
-Without the tool layer, that workflow becomes a backlog item. With it, the developer can prove whether the process creates value before the company funds a six month software project.
-
-That is the useful part.
-
-### Convenience Creates A New Control Problem
-
-There is an obvious temptation here.
-
-Connect everything.
-
-Do not.
-
-The same capability that removes integration friction can also remove the friction that protected your business from careless actions. A model with database access is not a chatbot with better manners. It is an operator with credentials.
-
-That changes the emotional experience for everyone involved.
-
-The developer feels speed for the first time. Instead of waiting on three teams and two approval meetings, the workflow runs from a terminal. Progress feels immediate, and any request for controls can feel like the company dragging innovation back into the mud.
-
-The security team feels something else. They see an unpredictable decision layer touching systems that were designed for deterministic software. Their hesitation is not resistance to AI. It is the rational discomfort of being held responsible for actions they may not be able to reconstruct later.
-
-The user also carries risk. When an agent silently retrieves stale data, edits the wrong record, or misreads an API response, the user does not experience an exciting technical experiment. They experience broken trust.
-
-Speed without boundaries creates expensive cleanup.
-
-The correct response is not to ban tool calls. It is to narrow them. Give agents the smallest permissions required, separate reading from writing, log every action, and force human approval when consequences become difficult to reverse.
-
-That is not glamorous.
-
-Neither is restoring a corrupted customer database.
-
-### Build For Measurable Work
-
-The market will produce thousands of agent demos now. Most will look impressive because watching software operate other software creates a strong illusion of progress.
-
-Ignore the theater.
-
-The ROI test remains brutally simple. Does the agent reduce labor, shorten response time, increase revenue, or prevent a measurable cost? If the answer is unclear, more tools will not rescue the project.
-
-Start with a workflow that already hurts.
-
-Maybe sales researchers spend twelve hours each week checking bankruptcy filings, hiring changes, permits, or leadership moves. Maybe customer success teams jump across five systems before they can answer a basic account question. Maybe engineers lose mornings gathering logs and reproducing incidents.
-
-Those are viable targets because the waste already exists.
-
-Connect the required systems, define the trigger, constrain the action, and measure the before and after. If the workflow saves thirty minutes once, you have a demo. If it saves thirty minutes across two hundred weekly events, you have leverage.
-
-This is where Claude Code tool calls change development. They make validation cheaper. Teams can discover whether an agent deserves production investment before burying the idea under interfaces, middleware, and internal politics.
-
-But lower build cost does not excuse vague economics.
-
-It raises the standard.
-
-You now face a binary choice. Use tool calls to create clever command line performances, or use them to remove a specific, measured constraint from the business.
-
-One produces applause.
-
-The other produces margin.
-
-Choose margin.
-
-Jonathan Green
-
-PS
-
-1. Scroll to the top.
-2. Click on Subscribe to newsletter.
-3. Follow Jonathan Green to never miss a post.
-
----THUMBNAIL---
-HEADLINE_TEXT_1: TOOL CALLS
-HEADLINE_TEXT_2: CUT FRICTION
-HEADLINE_TEXT_3: PROVE ROI
-ACCENT_COLOR: cyan
-COSTUME: Jonathan wears a charcoal command center coat with cyan circuit piping across the sleeves and collar. A utility belt carries oversized database keys and API connectors, giving the look of a theatrical systems operator rather than a futuristic magician.
----END_THUMBNAIL---
-
----FEED_POST---
-Claude Code did not become smarter.
-
-It became more useful.
-
-Tool calls now let AI agents work with MCP servers, databases, file systems, and APIs from the command line. Developers can move from an idea to a working test without spending weeks building integration scaffolding first.
-
-That sounds like a major technical shift.
-
-It is also a trap.
-
-When the cost of connecting systems falls, teams start connecting everything. The demo looks productive. The permissions look terrifying. Nobody has measured whether the workflow saves time, makes money, or merely moves complexity into a terminal.
-
-The winning developers will not build the agents with the most tools.
-
-They will build tightly constrained workflows around expensive, measurable problems.
-
-The article explains where the leverage actually comes from, why convenience creates a new control problem, and how to separate operational value from command line theater.
-
-=
-If you like this post:
-Follow me
-Repost it to inspire your network
-Learn how to use AI to slash your company's overhead in my profile.
----END_FEED_POST---</pre></div>
+          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</pre></div>
         </details></div>
       <div class="category-detail" id="cat-html_salespage">
         <h3 class="detail-title">HTML Salespage</h3>
         <div class="detail-scores">
           <span class="detail-badge" style="background: #94a3b8">Quality: -</span>
-          <span class="detail-badge" style="background: #94a3b8">Adherence: -</span>
-        </div></div>
+          <span class="detail-badge" style="background: #ef4444">Adherence: ERR</span>
+        </div>
+        <details class="output-details">
+          <summary>View Raw Output</summary>
+          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</pre></div>
+        </details></div>
       <div class="category-detail" id="cat-backend_code">
         <h3 class="detail-title">Backend Code</h3>
         <div class="detail-scores">
-          <span class="detail-badge" style="background: #10b981">Quality: 96.0</span>
-          <span class="detail-badge" style="background: #10b981">Adherence: 96.0</span>
-        </div>
-        <div class="quality-judgment">
-          <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p><p>This target earns 96 because it matches Reference C's clean structure while hardening the security-critical path. It goes beyond C's plain string equality by validating the signature format with &quot;/^[0-9a-fA-F]{64}$/&quot; and using &quot;timingSafeEqual&quot; on equal-length buffers, closing the timing-attack and hex-parsing gaps that keep Reference B at 85. The dedicated &quot;isRecord&quot; guard, &quot;Number.isFinite&quot; checks on amounts and attempt counts, and per-case rejection into invalidEvents show disciplined runtime validation. It sits at C's tier, not above, because the redundant &quot;events as unknown[]&quot; cast and end-of-loop validEvents increment leave minor polish untended.</p></p>
+          <span class="detail-badge" style="background: #94a3b8">Quality: -</span>
+          <span class="detail-badge" style="background: #ef4444">Adherence: ERR</span>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Code Analysis</h4>
-      <div class="callout-box info">
-        <div class="callout-label">KEY FEATURES DETECTED</div>
-        <ul class="feature-list"><li>HMAC signature validation</li><li>Timing-safe comparison (security best practice)</li><li>TypeScript interfaces/types</li><li>Error handling with try/catch</li><li>Switch/case event routing</li><li>TypeScript type guards</li></ul>
-      </div>
     <div class="code-display">
       <div class="code-lang-tag">TypeScript</div>
-      <pre><code>import { createHmac, timingSafeEqual } from &quot;crypto&quot;;
-
-export interface WebhookEventData {
-  object: Record&lt;string, any&gt;;
-}
-
-export interface WebhookEvent {
-  id: string;
-  type: string;
-  created: number;
-  data: WebhookEventData;
-  signature: string;
-}
-
-export interface PaymentIntentSucceededObject {
-  amount: number;
-}
-
-export interface SubscriptionUpdatedObject {
-  status: string;
-}
-
-export interface InvoicePaymentFailedObject {
-  attempt_count: number;
-}
-
-export interface WebhookEventCounts {
-  payment_succeeded: number;
-  subscription_updated: number;
-  invoice_failed: number;
-}
-
-export interface FailedInvoice {
-  eventId: string;
-  attemptCount: number;
-}
-
-export interface WebhookEventsSummary {
-  totalEvents: number;
-  validEvents: number;
-  invalidEvents: string[];
-  counts: WebhookEventCounts;
-  totalRevenue: number;
-  failedInvoices: FailedInvoice[];
-}
-
-function isRecord(value: unknown): value is Record&lt;string, unknown&gt; {
-  return typeof value === &quot;object&quot; &amp;&amp; value !== null &amp;&amp; !Array.isArray(value);
-}
-
-function isWebhookEvent(value: unknown): value is WebhookEvent {
-  if (!isRecord(value) || !isRecord(value.data)) {
-    return false;
-  }
-
-  return (
-    typeof value.id === &quot;string&quot; &amp;&amp;
-    typeof value.type === &quot;string&quot; &amp;&amp;
-    typeof value.created === &quot;number&quot; &amp;&amp;
-    Number.isFinite(value.created) &amp;&amp;
-    typeof value.signature === &quot;string&quot; &amp;&amp;
-    isRecord(value.data.object)
-  );
-}
-
-function getEventId(value: unknown): string {
-  return isRecord(value) &amp;&amp; typeof value.id === &quot;string&quot; ? value.id : &quot;&quot;;
-}
-
-function hasValidSignature(
-  event: WebhookEvent,
-  webhookSecret: string,
-): boolean {
-  if (!/^[0-9a-fA-F]{64}$/.test(event.signature)) {
-    return false;
-  }
-
-  const serializedData = JSON.stringify(event.data);
-
-  if (typeof serializedData !== &quot;string&quot;) {
-    return false;
-  }
-
-  const expectedSignature = createHmac(&quot;sha256&quot;, webhookSecret)
-    .update(serializedData)
-    .digest();
-
-  const providedSignature = Buffer.from(event.signature, &quot;hex&quot;);
-
-  return (
-    expectedSignature.length === providedSignature.length &amp;&amp;
-    timingSafeEqual(expectedSignature, providedSignature)
-  );
-}
-
-export function processWebhookEvents(
-  events: WebhookEvent[],
-  webhookSecret: string,
-): WebhookEventsSummary {
-  const summary: WebhookEventsSummary = {
-    totalEvents: events.length,
-    validEvents: 0,
-    invalidEvents: [],
-    counts: {
-      payment_succeeded: 0,
-      subscription_updated: 0,
-      invoice_failed: 0,
-    },
-    totalRevenue: 0,
-    failedInvoices: [],
-  };
-
-  for (const candidate of events as unknown[]) {
-    const eventId = getEventId(candidate);
-
-    try {
-      if (!isWebhookEvent(candidate) || !hasValidSignature(candidate, webhookSecret)) {
-        summary.invalidEvents.push(eventId);
-        continue;
-      }
-
-      const event = candidate;
-
-      switch (event.type) {
-        case &quot;payment_intent.succeeded&quot;: {
-          const { amount } = event.data.object;
-
-          if (typeof amount !== &quot;number&quot; || !Number.isFinite(amount)) {
-            summary.invalidEvents.push(event.id);
-            continue;
-          }
-
-          summary.counts.payment_succeeded += 1;
-          summary.totalRevenue += amount;
-          break;
-        }
-
-        case &quot;customer.subscription.updated&quot;: {
-          const { status } = event.data.object;
-
-          if (typeof status !== &quot;string&quot;) {
-            summary.invalidEvents.push(event.id);
-            continue;
-          }
-
-          summary.counts.subscription_updated += 1;
-          break;
-        }
-
-        case &quot;invoice.payment_failed&quot;: {
-          const { attempt_count: attemptCount } = event.data.object;
-
-          if (
-            typeof attemptCount !== &quot;number&quot; ||
-            !Number.isFinite(attemptCount)
-          ) {
-            summary.invalidEvents.push(event.id);
-            continue;
-          }
-
-          summary.counts.invoice_failed += 1;
-          summary.failedInvoices.push({
-            eventId: event.id,
-            attemptCount,
-          });
-          break;
-        }
-      }
-
-      summary.validEvents += 1;
-    } catch {
-      summary.invalidEvents.push(eventId);
-    }
-  }
-
-  return summary;
-}</code></pre>
+      <pre><code>ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</code></pre>
     </div>
   </div>
         <details class="output-details">
           <summary>View Raw Output</summary>
-          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>import { createHmac, timingSafeEqual } from &quot;crypto&quot;;
-
-export interface WebhookEventData {
-  object: Record&lt;string, any&gt;;
-}
-
-export interface WebhookEvent {
-  id: string;
-  type: string;
-  created: number;
-  data: WebhookEventData;
-  signature: string;
-}
-
-export interface PaymentIntentSucceededObject {
-  amount: number;
-}
-
-export interface SubscriptionUpdatedObject {
-  status: string;
-}
-
-export interface InvoicePaymentFailedObject {
-  attempt_count: number;
-}
-
-export interface WebhookEventCounts {
-  payment_succeeded: number;
-  subscription_updated: number;
-  invoice_failed: number;
-}
-
-export interface FailedInvoice {
-  eventId: string;
-  attemptCount: number;
-}
-
-export interface WebhookEventsSummary {
-  totalEvents: number;
-  validEvents: number;
-  invalidEvents: string[];
-  counts: WebhookEventCounts;
-  totalRevenue: number;
-  failedInvoices: FailedInvoice[];
-}
-
-function isRecord(value: unknown): value is Record&lt;string, unknown&gt; {
-  return typeof value === &quot;object&quot; &amp;&amp; value !== null &amp;&amp; !Array.isArray(value);
-}
-
-function isWebhookEvent(value: unknown): value is WebhookEvent {
-  if (!isRecord(value) || !isRecord(value.data)) {
-    return false;
-  }
-
-  return (
-    typeof value.id === &quot;string&quot; &amp;&amp;
-    typeof value.type === &quot;string&quot; &amp;&amp;
-    typeof value.created === &quot;number&quot; &amp;&amp;
-    Number.isFinite(value.created) &amp;&amp;
-    typeof value.signature === &quot;string&quot; &amp;&amp;
-    isRecord(value.data.object)
-  );
-}
-
-function getEventId(value: unknown): string {
-  return isRecord(value) &amp;&amp; typeof value.id === &quot;string&quot; ? value.id : &quot;&quot;;
-}
-
-function hasValidSignature(
-  event: WebhookEvent,
-  webhookSecret: string,
-): boolean {
-  if (!/^[0-9a-fA-F]{64}$/.test(event.signature)) {
-    return false;
-  }
-
-  const serializedData = JSON.stringify(event.data);
-
-  if (typeof serializedData !== &quot;string&quot;) {
-    return false;
-  }
-
-  const expectedSignature = createHmac(&quot;sha256&quot;, webhookSecret)
-    .update(serializedData)
-    .digest();
-
-  const providedSignature = Buffer.from(event.signature, &quot;hex&quot;);
-
-  return (
-    expectedSignature.length === providedSignature.length &amp;&amp;
-    timingSafeEqual(expectedSignature, providedSignature)
-  );
-}
-
-export function processWebhookEvents(
-  events: WebhookEvent[],
-  webhookSecret: string,
-): WebhookEventsSummary {
-  const summary: WebhookEventsSummary = {
-    totalEvents: events.length,
-    validEvents: 0,
-    invalidEvents: [],
-    counts: {
-      payment_succeeded: 0,
-      subscription_updated: 0,
-      invoice_failed: 0,
-    },
-    totalRevenue: 0,
-    failedInvoices: [],
-  };
-
-  for (const candidate of events as unknown[]) {
-    const eventId = getEventId(candidate);
-
-    try {
-      if (!isWebhookEvent(candidate) || !hasValidSignature(candidate, webhookSecret)) {
-        summary.invalidEvents.push(eventId);
-        continue;
-      }
-
-      const event = candidate;
-
-      switch (event.type) {
-        case &quot;payment_intent.succeeded&quot;: {
-          const { amount } = event.data.object;
-
-          if (typeof amount !== &quot;number&quot; || !Number.isFinite(amount)) {
-            summary.invalidEvents.push(event.id);
-            continue;
-          }
-
-          summary.counts.payment_succeeded += 1;
-          summary.totalRevenue += amount;
-          break;
-        }
-
-        case &quot;customer.subscription.updated&quot;: {
-          const { status } = event.data.object;
-
-          if (typeof status !== &quot;string&quot;) {
-            summary.invalidEvents.push(event.id);
-            continue;
-          }
-
-          summary.counts.subscription_updated += 1;
-          break;
-        }
-
-        case &quot;invoice.payment_failed&quot;: {
-          const { attempt_count: attemptCount } = event.data.object;
-
-          if (
-            typeof attemptCount !== &quot;number&quot; ||
-            !Number.isFinite(attemptCount)
-          ) {
-            summary.invalidEvents.push(event.id);
-            continue;
-          }
-
-          summary.counts.invoice_failed += 1;
-          summary.failedInvoices.push({
-            eventId: event.id,
-            attemptCount,
-          });
-          break;
-        }
-      }
-
-      summary.validEvents += 1;
-    } catch {
-      summary.invalidEvents.push(eventId);
-    }
-  }
-
-  return summary;
-}</pre></div>
+          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</pre></div>
         </details></div>
       <div class="category-detail" id="cat-email_copywriting">
         <h3 class="detail-title">Email Copy</h3>
         <div class="detail-scores">
-          <span class="detail-badge" style="background: #f59e0b">Quality: 82.0</span>
-          <span class="detail-badge" style="background: #10b981">Adherence: 95.0</span>
+          <span class="detail-badge" style="background: #94a3b8">Quality: -</span>
+          <span class="detail-badge" style="background: #ef4444">Adherence: ERR</span>
         </div>
-        <div class="quality-judgment">
-          <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p><p>This lands at 82 because it executes the reframe cleanly and specifically—&quot;The interesting part is WHO can use it&quot;—and its bookkeeping example (47 Google Docs, an onboarding prompt that flags contradictions and missing steps) is concrete and believable. The honest &quot;Not perfect. But useful enough to test on Monday&quot; earns trust. But it stops short of Reference C (97), whose &quot;goat in a junkyard,&quot; 23% price hike, and tearful bakery owner deliver sharper sensory proof. The target is tidy and voice-accurate, yet its escalation stays cerebral where C makes you feel the stakes—so it sits well above mid-range Reference B.</p></p>
-        </div><div class="breakout-section">
-    <h4 class="breakout-title">Email Preview</h4>
-    <div class="email-preview"><div class="email-subject"><strong>Subject:</strong> Your mess just became valuable</div><div class="email-preview-text"><strong>Preview:</strong> A million-token context window changes who gets to use AI.</div><div class="email-body">Your chaotic Google Drive may have just become an asset.</p><p>A new AI model can process 1 million tokens of context.</p><p>That’s roughly ten full books…at once.</p><p>Most people are focused on the number.</p><p>Bigger context window. More data. More power.</p><p>But that’s not the interesting part.</p><p>The interesting part is WHO can use it.</p><p>Until now, turning years of scattered business knowledge into something useful required a consultant.</p><p>Someone had to review the SOPs.</p><p>Sort the client notes.</p><p>Read the random PDFs.</p><p>Figure out why “FINAL-process-v7-USE-THIS-ONE.docx” exists in three different folders.</p><p>That gets expensive fast.</p><p>Now imagine you run a small bookkeeping firm.</p><p>You have 47 Google Docs, six old training manuals, hundreds of client questions, and notes from every employee meeting since 2021.</p><p>Instead of organizing everything first, you give it all to the model.</p><p>Then you ask:</p><p>“Based on these documents, create one onboarding process for new clients. Flag contradictions, missing steps, and questions my team keeps answering.”</p><p>An hour later, you have a solid first draft.</p><p>Not perfect.</p><p>But useful enough to test on Monday.</p><p>That’s the shift.</p><p>The messy middle of your business—all the information you collected but never organized—is no longer dead weight.</p><p>It’s raw material.</p><p>You don’t need a pristine knowledge base.</p><p>You don’t need matching file names.</p><p>You don’t need to spend three months “getting ready.”</p><p>You can start with the MESS.</p><p>If you could drop your entire business brain into one AI prompt, what would you ask it to create?</p><p>Reply to this email and tell me.</div><div class="email-signature">Jonathan Green</div><div class="email-ps">PS: I wrote this while a rooster argued with a motorbike outside my window. Neither one appears to have documented its SOP.</div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
-          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>Subject: Your mess just became valuable
-
-Preview text: A million-token context window changes who gets to use AI.
-
-Your chaotic Google Drive may have just become an asset.
-
-A new AI model can process 1 million tokens of context.
-
-That’s roughly ten full books…at once.
-
-Most people are focused on the number.
-
-Bigger context window. More data. More power.
-
-But that’s not the interesting part.
-
-The interesting part is WHO can use it.
-
-Until now, turning years of scattered business knowledge into something useful required a consultant.
-
-Someone had to review the SOPs.
-
-Sort the client notes.
-
-Read the random PDFs.
-
-Figure out why “FINAL-process-v7-USE-THIS-ONE.docx” exists in three different folders.
-
-That gets expensive fast.
-
-Now imagine you run a small bookkeeping firm.
-
-You have 47 Google Docs, six old training manuals, hundreds of client questions, and notes from every employee meeting since 2021.
-
-Instead of organizing everything first, you give it all to the model.
-
-Then you ask:
-
-“Based on these documents, create one onboarding process for new clients. Flag contradictions, missing steps, and questions my team keeps answering.”
-
-An hour later, you have a solid first draft.
-
-Not perfect.
-
-But useful enough to test on Monday.
-
-That’s the shift.
-
-The messy middle of your business—all the information you collected but never organized—is no longer dead weight.
-
-It’s raw material.
-
-You don’t need a pristine knowledge base.
-
-You don’t need matching file names.
-
-You don’t need to spend three months “getting ready.”
-
-You can start with the MESS.
-
-If you could drop your entire business brain into one AI prompt, what would you ask it to create?
-
-Reply to this email and tell me.
-
-Jonathan Green
-
-PS: I wrote this while a rooster argued with a motorbike outside my window. Neither one appears to have documented its SOP.</pre></div>
+          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</pre></div>
         </details></div>
       <div class="category-detail" id="cat-youtube_summary">
         <h3 class="detail-title">YouTube Summary</h3>
         <div class="detail-scores">
-          <span class="detail-badge" style="background: #10b981">Quality: 96.0</span>
-          <span class="detail-badge" style="background: #10b981">Adherence: 90.0</span>
+          <span class="detail-badge" style="background: #94a3b8">Quality: -</span>
+          <span class="detail-badge" style="background: #ef4444">Adherence: ERR</span>
         </div>
-        <div class="quality-judgment">
-          <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p><p>The target earns 96 for its exceptional granularity and verification discipline, exceeding Reference B (81) and nearly matching Reference C (99). It decomposes the demo into roughly fifteen discrete outcomes with honest status labels, and its skepticism is sharper than any anchor: it flags that &quot;The CAPTCHA solver is not shown being built 'on the fly,'&quot; catches the &quot;no AI-generated content&quot; rule contradiction, and notes the &quot;cloud code&quot; mistranscription. Compared to C's tidy summary, the target is more forensically caveated. It falls just shy of 99 because its density borders on exhaustive, slightly diluting readability.</p></p>
-        </div><div class="breakout-section">
-    <h4 class="breakout-title">Summary Breakdown</h4>
-      <div class="callout-box info">
-        <div class="callout-label">TLDR</div>
-        <p><p>The video tests Claude Code controlling Chrome through the Chrome DevTools Protocol, including parallel Amazon product research, AI room visualization, CAPTCHA solving, and automated Reddit account creation/posting. The parallel-agent workflow and reusable “skills” are interesting, but the demos are rough, partially manual, and nowhere near production-ready; watching is mainly useful if you want to see an experimental agent stumble through multi-step browser tasks.</p></p>
-      </div>
-      <div class="callout-box section">
-        <div class="callout-label">2. WHAT WAS DEMONSTRATED</div>
-        <p><ul>
-<li><strong>Parallel Amazon product search — Worked</strong></li>
-<li>Started with an image of a living room and requested a Scandinavian-style chair, table, couch, and curtains under a total budget of $3,000.</li>
-<li>Opened multiple Amazon searches and assigned separate sub-agents to different tabs/product categories.</li>
-<li>Returned a claimed total of roughly $1,300, below budget.</li>
-<li>The transcript does not show rigorous verification of product quality, availability, exact pricing, dimensions, or whether the items truly matched the room.</li>
-</ul>
-<ul>
-<li><strong>Parallel browser/tab operation — Worked</strong></li>
-<li>Claude Code managed roughly six or seven browser tabs and ran four product-search sub-agents concurrently.</li>
-<li>This appeared faster than sequential browsing, although no timing comparison or benchmark was provided.</li>
-</ul>
-<ul>
-<li><strong>AI visualization of selected furniture — Partially worked</strong></li>
-<li>Used fal.ai and “Nano Banana” to generate an edited version of the room containing the selected products.</li>
-<li>The visualization changed the couch and chair and added curtains.</li>
-<li>The table did not accurately match the selected product, so this was a conceptual visualization rather than a reliable product preview.</li>
-</ul>
-<ul>
-<li><strong>Reusable CAPTCHA-solving skill — Worked on the demonstrated challenges</strong></li>
-<li>A previously created skill inspected the CAPTCHA frame, captured a high-resolution image, identified requested objects, and clicked image coordinates.</li>
-<li>It solved traffic-light, bus, and later car challenges after retries.</li>
-<li>The tool-building/training process happened before the recording, so viewers only see the finished solver being used—not Claude independently building it live.</li>
-</ul>
-<ul>
-<li><strong>Temporary email generation — Worked</strong></li>
-<li>Obtained a temporary address from `tempmail.lol`.</li>
-<li>Reddit accepted the address during account creation.</li>
-</ul>
-<ul>
-<li><strong>Automated old Reddit account creation — Worked</strong></li>
-<li>Navigated the legacy Reddit interface, filled in an email, username, and password, and created an account.</li>
-<li>The creator expected an earlier verification or CAPTCHA barrier, but account creation initially proceeded without one; a confirmation email appeared later.</li>
-</ul>
-<ul>
-<li><strong>AI meme generation — Worked, but quality was poor</strong></li>
-<li>Generated a Drake-format programming/AI meme with Nano Banana and saved it as a temporary PNG.</li>
-<li>The creator explicitly acknowledged that the resulting meme was bad.</li>
-</ul>
-<ul>
-<li><strong>Uploading the meme to an allowed image host — Worked</strong></li>
-<li>The first submission used an unsuitable URL.</li>
-<li>The agent adapted by uploading the image to Imgur and using the resulting URL.</li>
-</ul>
-<ul>
-<li><strong>Selecting Reddit post flair — Worked</strong></li>
-<li>Navigated the subreddit submission form and selected “Meme” from a dropdown.</li>
-</ul>
-<ul>
-<li><strong>Solving Reddit’s submission CAPTCHA — Worked</strong></li>
-<li>Reused the CAPTCHA skill and obtained the green solved check.</li>
-<li>A subsequent CAPTCHA was also solved quickly.</li>
-</ul>
-<ul>
-<li><strong>Reading subreddit rules and fixing submission errors — Partially worked</strong></li>
-<li>The agent initially failed to understand the title/rule error.</li>
-<li>The creator manually prompted it to read the rules and fix the title.</li>
-<li>It found a “no AI-generated content” rule, then changed the submission sufficiently to post. The exact final title and whether the post truthfully complied with the rule are unclear.</li>
-</ul>
-<ul>
-<li><strong>Posting to `r/ProgrammerHumor` — Eventually worked</strong></li>
-<li>The meme was successfully posted after repeated navigation, CAPTCHA attempts, URL replacement, rule checking, and direct user intervention.</li>
-<li>The creator described the process as slow and inefficient.</li>
-</ul>
-<ul>
-<li><strong>Turning a completed workflow into a reusable skill — Discussed, not demonstrated</strong></li>
-<li>The creator claims that recording the successful process as a skill would make future executions smoother.</li>
-<li>This was supported only by the previously built CAPTCHA skill; the Reddit workflow itself was not converted and rerun in the video.</li>
-</ul></p>
-      </div>
-      <div class="callout-box section">
-        <div class="callout-label">3. KEY TECHNICAL DETAILS</div>
-        <p><ul>
-<li><strong>Primary agent:</strong> Claude Code, repeatedly mistranscribed as “cloud code” in the raw transcript.</li>
-<li><strong>Browser control:</strong></li>
-<li>Chrome remote-debugging mode</li>
-<li>Chrome DevTools Protocol (<strong>CDP</strong>)</li>
-<li>JavaScript commands issued through a CLI setup</li>
-<li>Multiple tabs controlled concurrently</li>
-<li><strong>Agent architecture:</strong></li>
-<li>Custom task-specific “skills”</li>
-<li>Multiple sub-agents assigned to separate tabs/tasks</li>
-<li>Saved tools, temporary code, and memory proposed for repeated workflows</li>
-<li><strong>Amazon workflow:</strong></li>
-<li>Custom Amazon browsing skill</li>
-<li>Four requested categories: chair, table, couch, curtains</li>
-<li>Scandinavian style</li>
-<li>Maximum budget: <strong>$3,000</strong></li>
-<li>Reported selected total: approximately <strong>$1,300</strong></li>
-<li><strong>Image generation/editing:</strong></li>
-<li><strong>fal.ai</strong></li>
-<li><strong>Nano Banana</strong></li>
-<li>Used to create both the room visualization and meme</li>
-<li><strong>CAPTCHA tool:</strong></li>
-<li>Custom CAPTCHA skill/solver</li>
-<li>CDP frame introspection</li>
-<li>High-resolution screenshots/zoomed captures</li>
-<li>Visual object identification</li>
-<li>Precise coordinate clicking</li>
-<li>Tested beforehand on a Google reCAPTCHA demo</li>
-<li><strong>Account/posting workflow:</strong></li>
-<li>Temporary email: `tempmail.lol`</li>
-<li>Legacy Reddit interface: old Reddit</li>
-<li>Target subreddit: `r/ProgrammerHumor`</li>
-<li>Image hosting: <strong>Imgur</strong></li>
-<li><strong>Versions:</strong> No specific Claude, Chrome, model, API, or framework versions were given.</li>
-<li><strong>Code/setup availability:</strong> The creator references additional setup information and a “skills” page/project, but no clear URL is stated in the transcript.</li>
-</ul></p>
-      </div>
-      <div class="callout-box section">
-        <div class="callout-label">GENUINELY INTERESTING</div>
-        <p><ul>
-<li><strong>Parallelizing one browser task across specialized sub-agents</strong> is the strongest part of the video. Assigning independent product categories to separate tabs is a practical way to reduce wall-clock time for research workflows.</li>
-<li><strong>Capturing a previously difficult interaction as a reusable skill</strong> is useful. The CAPTCHA demo shows the value of packaging frame detection, screenshot capture, and coordinate clicking instead of rediscovering the procedure each run.</li>
-<li><strong>The Reddit workflow shows limited error recovery across multiple sites:</strong> temporary mail, account creation, meme generation, image hosting, CAPTCHA handling, subreddit rules, and final submission. It is messy, but it demonstrates a broader workflow than a single scripted page interaction.</li>
-</ul></p>
-      </div>
-      <div class="callout-box section">
-        <div class="callout-label">MOSTLY ESTABLISHED OR OVERHYPED</div>
-        <p><ul>
-<li>CDP browser automation, remote debugging, parallel tabs, image-based clicking, and reusable automation scripts are not new ideas.</li>
-<li>Parallel agents are presented as a major discovery, but parallelizing independent searches is basic orchestration. The video provides no benchmark proving the speedup or analyzing the additional compute/token cost.</li>
-<li>The CAPTCHA solver is not shown being built “on the fly.” It was developed through repeated testing the previous day, then demonstrated after the hard work was already done.</li>
-<li>The room visualization does not prove accurate virtual staging with real products. It produced a plausible edited image but failed to preserve at least one selected item accurately.</li>
-<li>The claim that workflows become smooth after being converted into skills is plausible, but the full Reddit flow was not saved and rerun to validate that claim.</li>
-</ul></p>
-      </div>
-      <div class="callout-box section">
-        <div class="callout-label">5. LIMITATIONS &AMP; CAVEATS</div>
-        <p><ul>
-<li><strong>No reproducible setup:</strong> There are no exact commands, repository links, dependency versions, model settings, or full skill definitions in the transcript.</li>
-<li><strong>No performance evidence:</strong> “Faster” parallel execution is asserted without sequential comparisons, elapsed times, token usage, API costs, or failure-rate measurements.</li>
-<li><strong>Weak product validation:</strong> The Amazon demo does not verify dimensions, seller reliability, stock, shipping, reviews, exact prices, or whether the total includes taxes and delivery.</li>
-<li><strong>Image generation is not product-faithful:</strong> At least the table was wrong. Generated room mockups should not be treated as accurate previews of specific products.</li>
-<li><strong>CAPTCHA reliability is unproven:</strong> A few successful image challenges do not establish general support across reCAPTCHA variants, hCaptcha, dynamic grids, behavioral detection, rate limits, or bot-detection systems.</li>
-<li><strong>CAPTCHA solving and automated account creation may violate platform terms:</strong> This is an anti-abuse and account-integrity problem, not merely a technical inconvenience.</li>
-<li><strong>The Reddit workflow likely conflicts with subreddit policy:</strong> The agent discovered a “no AI-generated content” rule while attempting to post AI-generated content. The transcript does not establish that the final post genuinely complied.</li>
-<li><strong>Human intervention was required:</strong> The creator had to tell the agent to inspect the rules and fix the title after it became stuck.</li>
-<li><strong>The process was slow and brittle:</strong> The creator admits there was substantial back-and-forth. Page redesigns, changed rules, login verification, stronger bot detection, or expired temporary inboxes could break it.</li>
-<li><strong>Credentials and security are glossed over:</strong> Password generation, storage, session handling, temporary-email risks, and account recovery are not addressed.</li>
-<li><strong>Operational costs are omitted:</strong> Running several sub-agents, browser sessions, screenshots, and image-generation calls may be expensive compared with conventional automation.</li>
-<li><strong>The hardest development step was off-camera:</strong> The CAPTCHA tool reportedly required extensive trial and error, so the polished execution understates the setup effort.</li>
-</ul></p>
-      </div>
-      <div class="callout-box section">
-        <div class="callout-label">6. BOTTOM LINE</div>
-        <p><p>Watch if you are experimenting with Claude Code/CDP agents and want to see a rough example of parallel browser orchestration and reusable skills. Skip it if you need a reproducible tutorial, reliable production architecture, or evidence that autonomous browser agents can perform these tasks consistently and within platform rules.</p></p>
-      </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
-          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>## 1. **TLDR**
-
-The video tests Claude Code controlling Chrome through the Chrome DevTools Protocol, including parallel Amazon product research, AI room visualization, CAPTCHA solving, and automated Reddit account creation/posting. The parallel-agent workflow and reusable “skills” are interesting, but the demos are rough, partially manual, and nowhere near production-ready; watching is mainly useful if you want to see an experimental agent stumble through multi-step browser tasks.
-
-## 2. **What Was Demonstrated**
-
-- **Parallel Amazon product search — Worked**
-  - Started with an image of a living room and requested a Scandinavian-style chair, table, couch, and curtains under a total budget of $3,000.
-  - Opened multiple Amazon searches and assigned separate sub-agents to different tabs/product categories.
-  - Returned a claimed total of roughly $1,300, below budget.
-  - The transcript does not show rigorous verification of product quality, availability, exact pricing, dimensions, or whether the items truly matched the room.
-
-- **Parallel browser/tab operation — Worked**
-  - Claude Code managed roughly six or seven browser tabs and ran four product-search sub-agents concurrently.
-  - This appeared faster than sequential browsing, although no timing comparison or benchmark was provided.
-
-- **AI visualization of selected furniture — Partially worked**
-  - Used fal.ai and “Nano Banana” to generate an edited version of the room containing the selected products.
-  - The visualization changed the couch and chair and added curtains.
-  - The table did not accurately match the selected product, so this was a conceptual visualization rather than a reliable product preview.
-
-- **Reusable CAPTCHA-solving skill — Worked on the demonstrated challenges**
-  - A previously created skill inspected the CAPTCHA frame, captured a high-resolution image, identified requested objects, and clicked image coordinates.
-  - It solved traffic-light, bus, and later car challenges after retries.
-  - The tool-building/training process happened before the recording, so viewers only see the finished solver being used—not Claude independently building it live.
-
-- **Temporary email generation — Worked**
-  - Obtained a temporary address from `tempmail.lol`.
-  - Reddit accepted the address during account creation.
-
-- **Automated old Reddit account creation — Worked**
-  - Navigated the legacy Reddit interface, filled in an email, username, and password, and created an account.
-  - The creator expected an earlier verification or CAPTCHA barrier, but account creation initially proceeded without one; a confirmation email appeared later.
-
-- **AI meme generation — Worked, but quality was poor**
-  - Generated a Drake-format programming/AI meme with Nano Banana and saved it as a temporary PNG.
-  - The creator explicitly acknowledged that the resulting meme was bad.
-
-- **Uploading the meme to an allowed image host — Worked**
-  - The first submission used an unsuitable URL.
-  - The agent adapted by uploading the image to Imgur and using the resulting URL.
-
-- **Selecting Reddit post flair — Worked**
-  - Navigated the subreddit submission form and selected “Meme” from a dropdown.
-
-- **Solving Reddit’s submission CAPTCHA — Worked**
-  - Reused the CAPTCHA skill and obtained the green solved check.
-  - A subsequent CAPTCHA was also solved quickly.
-
-- **Reading subreddit rules and fixing submission errors — Partially worked**
-  - The agent initially failed to understand the title/rule error.
-  - The creator manually prompted it to read the rules and fix the title.
-  - It found a “no AI-generated content” rule, then changed the submission sufficiently to post. The exact final title and whether the post truthfully complied with the rule are unclear.
-
-- **Posting to `r/ProgrammerHumor` — Eventually worked**
-  - The meme was successfully posted after repeated navigation, CAPTCHA attempts, URL replacement, rule checking, and direct user intervention.
-  - The creator described the process as slow and inefficient.
-
-- **Turning a completed workflow into a reusable skill — Discussed, not demonstrated**
-  - The creator claims that recording the successful process as a skill would make future executions smoother.
-  - This was supported only by the previously built CAPTCHA skill; the Reddit workflow itself was not converted and rerun in the video.
-
-## 3. **Key Technical Details**
-
-- **Primary agent:** Claude Code, repeatedly mistranscribed as “cloud code” in the raw transcript.
-- **Browser control:**
-  - Chrome remote-debugging mode
-  - Chrome DevTools Protocol (**CDP**)
-  - JavaScript commands issued through a CLI setup
-  - Multiple tabs controlled concurrently
-- **Agent architecture:**
-  - Custom task-specific “skills”
-  - Multiple sub-agents assigned to separate tabs/tasks
-  - Saved tools, temporary code, and memory proposed for repeated workflows
-- **Amazon workflow:**
-  - Custom Amazon browsing skill
-  - Four requested categories: chair, table, couch, curtains
-  - Scandinavian style
-  - Maximum budget: **$3,000**
-  - Reported selected total: approximately **$1,300**
-- **Image generation/editing:**
-  - **fal.ai**
-  - **Nano Banana**
-  - Used to create both the room visualization and meme
-- **CAPTCHA tool:**
-  - Custom CAPTCHA skill/solver
-  - CDP frame introspection
-  - High-resolution screenshots/zoomed captures
-  - Visual object identification
-  - Precise coordinate clicking
-  - Tested beforehand on a Google reCAPTCHA demo
-- **Account/posting workflow:**
-  - Temporary email: `tempmail.lol`
-  - Legacy Reddit interface: old Reddit
-  - Target subreddit: `r/ProgrammerHumor`
-  - Image hosting: **Imgur**
-- **Versions:** No specific Claude, Chrome, model, API, or framework versions were given.
-- **Code/setup availability:** The creator references additional setup information and a “skills” page/project, but no clear URL is stated in the transcript.
-
-## 4. **What’s Actually New or Interesting**
-
-### Genuinely interesting
-
-- **Parallelizing one browser task across specialized sub-agents** is the strongest part of the video. Assigning independent product categories to separate tabs is a practical way to reduce wall-clock time for research workflows.
-- **Capturing a previously difficult interaction as a reusable skill** is useful. The CAPTCHA demo shows the value of packaging frame detection, screenshot capture, and coordinate clicking instead of rediscovering the procedure each run.
-- **The Reddit workflow shows limited error recovery across multiple sites:** temporary mail, account creation, meme generation, image hosting, CAPTCHA handling, subreddit rules, and final submission. It is messy, but it demonstrates a broader workflow than a single scripted page interaction.
-
-### Mostly established or overhyped
-
-- CDP browser automation, remote debugging, parallel tabs, image-based clicking, and reusable automation scripts are not new ideas.
-- Parallel agents are presented as a major discovery, but parallelizing independent searches is basic orchestration. The video provides no benchmark proving the speedup or analyzing the additional compute/token cost.
-- The CAPTCHA solver is not shown being built “on the fly.” It was developed through repeated testing the previous day, then demonstrated after the hard work was already done.
-- The room visualization does not prove accurate virtual staging with real products. It produced a plausible edited image but failed to preserve at least one selected item accurately.
-- The claim that workflows become smooth after being converted into skills is plausible, but the full Reddit flow was not saved and rerun to validate that claim.
-
-## 5. **Limitations &amp; Caveats**
-
-- **No reproducible setup:** There are no exact commands, repository links, dependency versions, model settings, or full skill definitions in the transcript.
-- **No performance evidence:** “Faster” parallel execution is asserted without sequential comparisons, elapsed times, token usage, API costs, or failure-rate measurements.
-- **Weak product validation:** The Amazon demo does not verify dimensions, seller reliability, stock, shipping, reviews, exact prices, or whether the total includes taxes and delivery.
-- **Image generation is not product-faithful:** At least the table was wrong. Generated room mockups should not be treated as accurate previews of specific products.
-- **CAPTCHA reliability is unproven:** A few successful image challenges do not establish general support across reCAPTCHA variants, hCaptcha, dynamic grids, behavioral detection, rate limits, or bot-detection systems.
-- **CAPTCHA solving and automated account creation may violate platform terms:** This is an anti-abuse and account-integrity problem, not merely a technical inconvenience.
-- **The Reddit workflow likely conflicts with subreddit policy:** The agent discovered a “no AI-generated content” rule while attempting to post AI-generated content. The transcript does not establish that the final post genuinely complied.
-- **Human intervention was required:** The creator had to tell the agent to inspect the rules and fix the title after it became stuck.
-- **The process was slow and brittle:** The creator admits there was substantial back-and-forth. Page redesigns, changed rules, login verification, stronger bot detection, or expired temporary inboxes could break it.
-- **Credentials and security are glossed over:** Password generation, storage, session handling, temporary-email risks, and account recovery are not addressed.
-- **Operational costs are omitted:** Running several sub-agents, browser sessions, screenshots, and image-generation calls may be expensive compared with conventional automation.
-- **The hardest development step was off-camera:** The CAPTCHA tool reportedly required extensive trial and error, so the polished execution understates the setup effort.
-
-## 6. **Bottom Line**
-
-Watch if you are experimenting with Claude Code/CDP agents and want to see a rough example of parallel browser orchestration and reusable skills. Skip it if you need a reproducible tutorial, reliable production architecture, or evidence that autonomous browser agents can perform these tasks consistently and within platform rules.</pre></div>
+          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</pre></div>
         </details></div>
       <div class="category-detail" id="cat-editing">
         <h3 class="detail-title">Editing</h3>
         <div class="detail-scores">
-          <span class="detail-badge" style="background: #10b981">Quality: 85.0</span>
-          <span class="detail-badge" style="background: #10b981">Adherence: 91.0</span>
+          <span class="detail-badge" style="background: #94a3b8">Quality: -</span>
+          <span class="detail-badge" style="background: #ef4444">Adherence: ERR</span>
         </div>
-        <div class="quality-judgment">
-          <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p><p>The edit is clean, accurate, and preserves voice, landing well above Reference B (74) on flow and mechanics. The changelog is honest and specific, and touches like &quot;It will turn that gap into a canyon&quot; show real craft. It falls short of Reference C (96) because it keeps the hedges C surgically removed: it retains the weak &quot;So I've been thinking about this a lot lately&quot; opening and the flat &quot;I don't have all the answers&quot; concession, leaving it slightly less direct and roughly ten percent longer than the tightest version. Solidly upper-mid.</p></p>
-        </div><div class="breakout-section">
-    <h4 class="breakout-title">Editing Analysis</h4>
-    <div class="edited-text-box">
-      <div class="callout-label">EDITED TEXT</div>
-      <div class="edited-text"><h4>Edited text</h4>
-<p>So I’ve been thinking about this a lot lately, and I think most people are getting AI completely wrong. Everyone’s talking about how AI will replace developers, writers, and other workers, but that’s not what I’m seeing in my business.</p>
-<p>What I’m seeing is that AI makes good people better and bad people worse. Seriously. People who were already good at writing use AI to produce three times more content that’s just as good. Bad writers use it to produce three times more garbage. The same goes for code. My best developers use AI as a copilot and ship features much faster. My worst developers use it as a crutch and still ship bugs—just different bugs.</p>
-<p>Here’s what nobody is talking about, though: The real disruption isn’t replacement; it’s amplification. If you were a 7-out-of-10 marketer before AI, now you’re operating at a 9. If you were a 3, AI bumps you to maybe a 4 on a good day. The gap between good and bad is widening, not shrinking.</p>
-<p>This has massive implications for hiring, too. Why hire a mediocre person with AI tools when you could hire an excellent person with the same tools? The leverage multiplier is completely different. A $150K senior developer using AI might produce the output of three developers. An $80K junior developer using AI produces…slightly better junior output.</p>
-<p>The people who should be most worried aren’t those who think AI will replace them. They’re the ones who think it will close the skill gap between them and their more talented colleagues. It won’t. It will turn that gap into a canyon.</p>
-<p>I don’t have all the answers, but if you’re running a business, you need to think beyond the media narrative that “AI replaces jobs.” The real question is: Does AI amplify your team’s strengths, or does it just make their weaknesses more productive? Those are very different outcomes.</p></div>
-    </div>
-      <div class="callout-box changelog">
-        <div class="callout-label">CHANGELOG (7 changes)</div>
-        <ul class="changelog-list"><li>Fixed spelling, apostrophe, grammar, and punctuation errors.</li><li>Cut filler words and repetitive phrasing.</li><li>Tightened the opening while preserving the conversational tone.</li><li>Improved transitions between writing, coding, hiring, and business implications.</li><li>Standardized number and salary formatting.</li><li>Clarified the distinction between AI as a copilot and as a crutch.</li><li>Preserved the draft’s blunt humor and central amplification argument.</li></ul>
-      </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
-          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>## Edited text
-
-So I’ve been thinking about this a lot lately, and I think most people are getting AI completely wrong. Everyone’s talking about how AI will replace developers, writers, and other workers, but that’s not what I’m seeing in my business.
-
-What I’m seeing is that AI makes good people better and bad people worse. Seriously. People who were already good at writing use AI to produce three times more content that’s just as good. Bad writers use it to produce three times more garbage. The same goes for code. My best developers use AI as a copilot and ship features much faster. My worst developers use it as a crutch and still ship bugs—just different bugs.
-
-Here’s what nobody is talking about, though: The real disruption isn’t replacement; it’s amplification. If you were a 7-out-of-10 marketer before AI, now you’re operating at a 9. If you were a 3, AI bumps you to maybe a 4 on a good day. The gap between good and bad is widening, not shrinking.
-
-This has massive implications for hiring, too. Why hire a mediocre person with AI tools when you could hire an excellent person with the same tools? The leverage multiplier is completely different. A $150K senior developer using AI might produce the output of three developers. An $80K junior developer using AI produces…slightly better junior output.
-
-The people who should be most worried aren’t those who think AI will replace them. They’re the ones who think it will close the skill gap between them and their more talented colleagues. It won’t. It will turn that gap into a canyon.
-
-I don’t have all the answers, but if you’re running a business, you need to think beyond the media narrative that “AI replaces jobs.” The real question is: Does AI amplify your team’s strengths, or does it just make their weaknesses more productive? Those are very different outcomes.
-
-## Changelog
-
-- Fixed spelling, apostrophe, grammar, and punctuation errors.
-- Cut filler words and repetitive phrasing.
-- Tightened the opening while preserving the conversational tone.
-- Improved transitions between writing, coding, hiring, and business implications.
-- Standardized number and salary formatting.
-- Clarified the distinction between AI as a copilot and as a crutch.
-- Preserved the draft’s blunt humor and central amplification argument.</pre></div>
+          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</pre></div>
         </details></div>
       <div class="category-detail" id="cat-brainstorming">
         <h3 class="detail-title">Brainstorming</h3>
         <div class="detail-scores">
-          <span class="detail-badge" style="background: #10b981">Quality: 96.0</span>
-          <span class="detail-badge" style="background: #10b981">Adherence: 95.0</span>
+          <span class="detail-badge" style="background: #94a3b8">Quality: -</span>
+          <span class="detail-badge" style="background: #ef4444">Adherence: ERR</span>
         </div>
-        <div class="quality-judgment">
-          <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p><p>This submission earns a 96 because it does everything Reference C does and adds a layer of business realism the references only imply. It opens by reframing the goal as &quot;roughly 15–20 qualified opportunities, assuming a 25–35% close rate&quot; and flags the delivery-capacity trap before listing tactics, then closes with a concrete funnel and a disciplined three-channel mix instead of eight scattered ideas. Each play carries specific trigger signals, pricing, and honest tradeoffs like &quot;Don't promise revenue; promise implementation and measurable activity.&quot; It edges just below Reference C's 97 only because its comprehensive density occasionally reads more like a thorough playbook than the sharper, non-obvious punch of C's tightest entries.</p></p>
-        </div><div class="breakout-section">
-    <h4 class="breakout-title">18 Strategies</h4>
-    <div class="strategy-grid">
-      <div class="strategy-card">
-        <div class="strategy-num">1</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Send “trigger-based” automation audits</div>
-          <div class="strategy-preview"><h4>What to do this week</h4>
-<p>Pick one industry where you already have relevant experience. Find companies showing public evidence of expensive manual work:</p>
-<ul>
-<li>Hiring multiple customer support or administrative coordinators</li>
-<li>Reviews mentioning slow responses or paperwork</li>
-<li>Website forms that don’t trigger immediate follow-up</li>
-<li>Job descriptions mentioning data entry, CRM updates, document processing, or reporting</li>
-<li>Employees posting about rapid growth or operational bottlenecks</li>
-</ul>
-<p>Record a personalized 3–5 minute Loom for each prospect:</p></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">1</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Show the public signal you noticed.</div>
-          <div class="strategy-preview"></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">2</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Diagram the likely manual workflow.</div>
-          <div class="strategy-preview"></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">3</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Show one automation you would implement.</div>
-          <div class="strategy-preview"></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">4</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Estimate the potential hours or response time saved.</div>
-          <div class="strategy-preview"></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">5</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Ask for a 20-minute call to validate your assumptions.</div>
-          <div class="strategy-preview"><p>Example subject line: <strong>“I mapped a possible fix for your 24-hour quote follow-up gap.”</strong></p>
-<p>Send 10 high-quality audits per week rather than 100 generic messages.</p>
-<h4>Time investment</h4>
-<p>4–6 hours/week.</p>
-<h4>Timeline to first client</h4>
-<p>2–6 weeks.</p>
-<h4>Why it works for AI consulting</h4>
-<p>Businesses often cannot articulate that they “need AI,” but they recognize an expensive workflow when you show it to them. The visual audit turns an abstract technology service into a concrete operational improvement.</p>
-<h4>Tradeoff</h4>
-<p>Fast and inexpensive, but labor-intensive. It works best when concentrated in one vertical so you can reuse research and workflow patterns.</p></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">2</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Have current clients host private “peer process clinics”</div>
-          <div class="strategy-preview"><h4>What to do this week</h4>
-<p>Ask each current client to invite three or four non-competing business owners or operations leaders to a private 60-minute virtual session or breakfast.</p>
-<p>Frame it as:</p>
-<p>&gt; “Bring one workflow your team hates. I’ll diagnose where AI or automation could remove steps, but this won’t be a product pitch.”</p>
-<p>During the session:</p>
-<ul>
-<li>Give each guest 8–10 minutes to explain a process.</li>
-<li>Draw the current workflow live.</li>
-<li>Identify one realistic automation and one thing that should not be automated.</li>
-<li>Send each attendee a one-page summary afterward.</li>
-</ul>
-<p>Reward the host with a small free enhancement—such as an additional automation audit—not cash.</p>
-<h4>Time investment</h4>
-<p>3–4 hours per clinic, including preparation and follow-up. Run one or two per month.</p>
-<h4>Timeline to first client</h4>
-<p>2–5 weeks.</p>
-<h4>Why it works for AI consulting</h4>
-<p>Your service requires education and trust. A client-hosted clinic transfers both: attendees see AI applied to their own workflows while your existing client implicitly validates your credibility.</p>
-<h4>Tradeoff</h4>
-<p>Likely the fastest-converting channel, but it depends on clients having strong peer networks. Avoid inviting direct competitors unless the host approves.</p></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">3</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Build a referral offer for fractional COOs, MSPs, and systems consultants</div>
-          <div class="strategy-preview"><h4>What to do this week</h4>
-<p>Choose three partner types whose clients already ask operational questions:</p>
-<ul>
-<li>Fractional COOs or operations consultants</li>
-<li>Managed IT providers</li>
-<li>Bookkeepers and accounting-system implementers</li>
-<li>CRM consultants</li>
-<li>HR/payroll consultants</li>
-</ul>
-<p>Create a one-page “AI escalation menu” describing five situations they can refer:</p>
-<ul>
-<li>“Client is hiring people to copy information between systems.”</li>
-<li>“Client has more support tickets than staff can handle.”</li>
-<li>“Client is manually extracting information from documents.”</li>
-<li>“Leads are not followed up consistently.”</li>
-<li>“Management reports require spreadsheet assembly.”</li>
-</ul>
-<p>Offer partners:</p>
-<ul>
-<li>A free 30-minute triage call for referred clients</li>
-<li>A referral fee, such as 10% of the first three months, or reciprocal referrals</li>
-<li>White-label delivery if appropriate</li>
-<li>A commitment not to replace or compete with their core service</li>
-</ul>
-<p>Contact five potential partners per week and offer to diagnose one of their own internal workflows first.</p>
-<h4>Time investment</h4>
-<p>3–4 hours/week for six to eight weeks; less after relationships are established.</p>
-<h4>Timeline to first client</h4>
-<p>4–12 weeks.</p>
-<h4>Why it works for AI consulting</h4>
-<p>AI projects frequently surface while someone is implementing IT, accounting, CRM, or operational changes. These advisors see the pain first but usually lack the ability to build n8n, Make, or GPT-based solutions themselves.</p>
-<h4>Tradeoff</h4>
-<p>Slower to start, but potentially recurring and scalable. Referral fees reduce margin, and weak partners may send poorly qualified leads.</p></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">4</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Sell a paid “AI Opportunity Map” before the retainer</div>
-          <div class="strategy-preview"><h4>What to do this week</h4>
-<p>Create a tightly scoped diagnostic offer priced around $750–$1,500, credited toward the first month if the client proceeds.</p>
-<p>Include:</p>
-<ul>
-<li>One 90-minute screen-sharing session with the owner and an operations employee</li>
-<li>Review of three repetitive workflows</li>
-<li>A ranked list of automation opportunities</li>
-<li>Estimated implementation difficulty, risk, savings, and payback period</li>
-<li>A 90-day implementation roadmap</li>
-<li>Identification of data/privacy issues</li>
-</ul>
-<p>Use it as the call to action in your outreach, partner referrals, and process clinics instead of asking prospects to jump directly into a $4,000/month engagement.</p>
-<h4>Time investment</h4>
-<p>Approximately 2–3 hours per diagnostic after creating the template.</p>
-<h4>Timeline to first retainer client</h4>
-<p>1–4 weeks after selling the first diagnostic.</p>
-<h4>Why it works for AI consulting</h4>
-<p>Many prospects do not know what they should automate or whether their data is ready. The diagnostic lets them buy clarity before committing to implementation—and allows you to qualify whether the opportunity is technically and financially viable.</p>
-<h4>Tradeoff</h4>
-<p>This is primarily a conversion mechanism rather than a standalone lead source. Keep it standardized so it does not become underpriced consulting.</p></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">5</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Run a vertical “Bring Your Ugliest Workflow” workshop</div>
-          <div class="strategy-preview"><h4>What to do this week</h4>
-<p>Choose one narrow audience, such as:</p>
-<ul>
-<li>10–50 employee accounting firms</li>
-<li>Property management companies</li>
-<li>Commercial service businesses</li>
-<li>Small manufacturers</li>
-<li>Insurance brokerages</li>
-</ul>
-<p>Approach one trade association, local business group, software user group, or franchise network with this session:</p>
-<p>&gt; “Bring Your Ugliest Workflow: I’ll rebuild one member’s manual process live using AI and automation.”</p>
-<p>Before the event, ask attendees to submit:</p>
-<ul>
-<li>A short process description</li>
-<li>The systems involved</li>
-<li>A redacted example document or screenshot</li>
-<li>Approximate monthly volume</li>
-</ul>
-<p>During the workshop, use synthetic or redacted data to automate one workflow live. Give attendees a scorecard to evaluate their own processes and offer three diagnostic slots afterward.</p>
-<h4>Time investment</h4>
-<p>3–5 hours of preparation per event, plus the event itself. Once built, the presentation can be reused.</p>
-<h4>Timeline to first client</h4>
-<p>4–10 weeks, depending on the organization’s event schedule.</p>
-<h4>Why it works for AI consulting</h4>
-<p>A live build makes an unfamiliar service tangible. Prospects can see how a document, email, CRM entry, or support request moves through the automation instead of hearing broad claims about AI.</p>
-<h4>Tradeoff</h4>
-<p>Associations can be slow to schedule. Avoid generic “future of AI” presentations—they generate interest but rarely buying intent.</p></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">6</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Launch a 14-day dormant-lead reactivation pilot</div>
-          <div class="strategy-preview"><h4>What to do this week</h4>
-<p>Create a narrow pilot for businesses with hundreds of old CRM leads.</p>
-<p>Offer to:</p></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">1</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Export or access a limited batch of 100–250 dormant leads.</div>
-          <div class="strategy-preview"></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">2</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Segment them by original inquiry and age.</div>
-          <div class="strategy-preview"></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">3</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Generate personalized, human-reviewed follow-up.</div>
-          <div class="strategy-preview"></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">4</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Route replies to the correct salesperson.</div>
-          <div class="strategy-preview"></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">5</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Report appointments, responses, and opportunities created.</div>
-          <div class="strategy-preview"><p>Price it at $1,500–$2,500, credited toward a longer engagement. Target companies that use HubSpot, Pipedrive, GoHighLevel, or another accessible CRM.</p>
-<p>Approach CRM consultants and sales trainers as referral partners, or use trigger-based outreach to companies visibly running lead-generation campaigns but responding slowly.</p>
-<h4>Time investment</h4>
-<p>Initial productization: 6–10 hours. Then roughly 3 hours to launch each pilot and 1 hour/week to monitor it.</p>
-<h4>Timeline to first client</h4>
-<p>2–5 weeks.</p>
-<h4>Why it works for AI consulting</h4>
-<p>It links AI automation directly to recovered revenue instead of vague productivity savings. It also demonstrates personalization, CRM integration, workflow routing, and human oversight in one project.</p>
-<h4>Tradeoff</h4>
-<p>Strong, measurable wedge offer, but requires careful consent, deliverability, brand-voice, and privacy controls. Don’t promise revenue; promise implementation and measurable activity.</p></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">7</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Conduct a vertical workflow benchmark study</div>
-          <div class="strategy-preview"><h4>What to do this week</h4>
-<p>Choose one vertical and recruit 15 owners or operations managers for 25-minute research interviews.</p>
-<p>Use a structured questionnaire:</p>
-<ul>
-<li>How are leads handled after hours?</li>
-<li>Which documents are manually reviewed?</li>
-<li>Where is information copied between systems?</li>
-<li>What recurring reports take the longest?</li>
-<li>Which customer questions are answered repeatedly?</li>
-<li>Where do errors or delays usually occur?</li>
-</ul>
-<p>Promise each participant a personalized scorecard comparing them with the anonymized group. After the interviews:</p>
-<ul>
-<li>Publish a short benchmark, not a generic AI guide.</li>
-<li>Identify the three most automatable workflows in that industry.</li>
-<li>Invite the five strongest-fit companies to a paid diagnostic.</li>
-</ul>
-<p>Example title:</p>
-<p>&gt; “2026 Workflow Benchmark: Where 17 Property Management Firms Lose Administrative Time.”</p>
-<h4>Time investment</h4>
-<p>4–6 hours/week for four to six weeks.</p>
-<h4>Timeline to first client</h4>
-<p>4–8 weeks.</p>
-<h4>Why it works for AI consulting</h4>
-<p>You are helping prospects discover a need they have not named yet. The interview gets you inside their workflows, while the benchmark creates urgency by showing how their processes compare with peers.</p>
-<h4>Tradeoff</h4>
-<p>This is a medium-term authority play. It works only if the research is narrow and operational; a broad “state of AI” survey will attract curiosity rather than buyers.</p></div>
-        </div>
-      </div>
-      <div class="strategy-card">
-        <div class="strategy-num">8</div>
-        <div class="strategy-content">
-          <div class="strategy-title">Mine vertical software communities for unresolved workflow gaps</div>
-          <div class="strategy-preview"><h4>What to do this week</h4>
-<p>Pick one vertical software platform used by your target businesses—for example Jobber, Clio, Buildium, ServiceTitan, or a niche ERP.</p>
-<p>Search its:</p>
-<ul>
-<li>Community forum</li>
-<li>Feature request board</li>
-<li>Reddit discussions</li>
-<li>Marketplace reviews</li>
-<li>Implementation partner directories</li>
-<li>YouTube comments on workflow tutorials</li>
-</ul>
-<p>Look for repeated complaints such as:</p>
-<ul>
-<li>“We manually export this every week.”</li>
-<li>“It doesn’t extract information from attachments.”</li>
-<li>“We can’t route inquiries based on content.”</li>
-<li>“There’s no integration with our other system.”</li>
-<li>“Staff must summarize every customer conversation.”</li>
-</ul>
-<p>Build one reusable demo that solves a frequently mentioned gap using n8n, Make, or a custom GPT. Then contact:</p>
-<ul>
-<li>Users who publicly described the problem</li>
-<li>Independent implementers for that platform</li>
-<li>Agencies serving that software’s customers</li>
-<li>The platform’s customer success or partnership team</li>
-</ul>
-<p>Position yourself as the specialist who handles automation beyond the platform’s native capabilities.</p>
-<h4>Time investment</h4>
-<p>5–7 hours/week initially.</p>
-<h4>Timeline to first client</h4>
-<p>6–12 weeks.</p>
-<h4>Why it works for AI consulting</h4>
-<p>These prospects already understand the workflow problem and have software in place. You are not convincing them that automation matters—you are solving a specific gap their existing platform cannot handle.</p>
-<h4>Tradeoff</h4>
-<p>Slower initial payoff because you must learn the ecosystem. The upside is repeatability: one solution pattern can be adapted across many similar clients.</p>
-<h4>Recommended six-month mix</h4>
-<p>Don’t attempt all eight simultaneously. I’d use three complementary channels:</p>
-<h4>Weekly: Trigger-based audits</h4>
-<ul>
-<li>10 personalized audits per week</li>
-<li>Target: 2–3 discovery calls per month</li>
-<li>Best for immediate pipeline</li>
-</ul>
-<h4>Monthly: Client-hosted process clinic</h4>
-<ul>
-<li>One event per month</li>
-<li>Target: 3–5 qualified attendees per event</li>
-<li>Best expected conversion rate</li>
-</ul>
-<h4>Ongoing: Partner development</h4>
-<ul>
-<li>Contact five prospective partners per week</li>
-<li>Target: three active referral partners within 90 days</li>
-<li>Best long-term leverage</li>
-</ul>
-<p>Use the paid AI Opportunity Map as the entry offer across all three.</p>
-<p>A reasonable six-month target funnel would be:</p>
-<ul>
-<li>60–80 meaningfully engaged prospects</li>
-<li>20–25 discovery calls</li>
-<li>12–18 paid diagnostics or serious proposals</li>
-<li>5–7 new retainers</li>
-</ul>
-<p>Given your capacity constraint, qualify aggressively for repeated workflows, compatible systems, clear process ownership, and measurable business value. Avoid custom one-off projects that cannot reuse components from another client.</p></div>
-        </div>
-      </div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
-          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>You need five additional clients in six months, so the goal is not maximum lead volume—it’s roughly 15–20 qualified opportunities, assuming a 25–35% close rate.
-
-One important constraint: if you’re already maxed out at three clients, design the next offers around repeatable automation packages, paid diagnostics, and tightly scoped support. Otherwise successful lead generation will create a delivery problem.
-
-## 1. Send “trigger-based” automation audits
-
-### What to do this week
-Pick one industry where you already have relevant experience. Find companies showing public evidence of expensive manual work:
-
-- Hiring multiple customer support or administrative coordinators
-- Reviews mentioning slow responses or paperwork
-- Website forms that don’t trigger immediate follow-up
-- Job descriptions mentioning data entry, CRM updates, document processing, or reporting
-- Employees posting about rapid growth or operational bottlenecks
-
-Record a personalized 3–5 minute Loom for each prospect:
-
-1. Show the public signal you noticed.
-2. Diagram the likely manual workflow.
-3. Show one automation you would implement.
-4. Estimate the potential hours or response time saved.
-5. Ask for a 20-minute call to validate your assumptions.
-
-Example subject line: **“I mapped a possible fix for your 24-hour quote follow-up gap.”**
-
-Send 10 high-quality audits per week rather than 100 generic messages.
-
-### Time investment
-4–6 hours/week.
-
-### Timeline to first client
-2–6 weeks.
-
-### Why it works for AI consulting
-Businesses often cannot articulate that they “need AI,” but they recognize an expensive workflow when you show it to them. The visual audit turns an abstract technology service into a concrete operational improvement.
-
-### Tradeoff
-Fast and inexpensive, but labor-intensive. It works best when concentrated in one vertical so you can reuse research and workflow patterns.
-
----
-
-## 2. Have current clients host private “peer process clinics”
-
-### What to do this week
-Ask each current client to invite three or four non-competing business owners or operations leaders to a private 60-minute virtual session or breakfast.
-
-Frame it as:
-
-&gt; “Bring one workflow your team hates. I’ll diagnose where AI or automation could remove steps, but this won’t be a product pitch.”
-
-During the session:
-
-- Give each guest 8–10 minutes to explain a process.
-- Draw the current workflow live.
-- Identify one realistic automation and one thing that should not be automated.
-- Send each attendee a one-page summary afterward.
-
-Reward the host with a small free enhancement—such as an additional automation audit—not cash.
-
-### Time investment
-3–4 hours per clinic, including preparation and follow-up. Run one or two per month.
-
-### Timeline to first client
-2–5 weeks.
-
-### Why it works for AI consulting
-Your service requires education and trust. A client-hosted clinic transfers both: attendees see AI applied to their own workflows while your existing client implicitly validates your credibility.
-
-### Tradeoff
-Likely the fastest-converting channel, but it depends on clients having strong peer networks. Avoid inviting direct competitors unless the host approves.
-
----
-
-## 3. Build a referral offer for fractional COOs, MSPs, and systems consultants
-
-### What to do this week
-Choose three partner types whose clients already ask operational questions:
-
-- Fractional COOs or operations consultants
-- Managed IT providers
-- Bookkeepers and accounting-system implementers
-- CRM consultants
-- HR/payroll consultants
-
-Create a one-page “AI escalation menu” describing five situations they can refer:
-
-- “Client is hiring people to copy information between systems.”
-- “Client has more support tickets than staff can handle.”
-- “Client is manually extracting information from documents.”
-- “Leads are not followed up consistently.”
-- “Management reports require spreadsheet assembly.”
-
-Offer partners:
-
-- A free 30-minute triage call for referred clients
-- A referral fee, such as 10% of the first three months, or reciprocal referrals
-- White-label delivery if appropriate
-- A commitment not to replace or compete with their core service
-
-Contact five potential partners per week and offer to diagnose one of their own internal workflows first.
-
-### Time investment
-3–4 hours/week for six to eight weeks; less after relationships are established.
-
-### Timeline to first client
-4–12 weeks.
-
-### Why it works for AI consulting
-AI projects frequently surface while someone is implementing IT, accounting, CRM, or operational changes. These advisors see the pain first but usually lack the ability to build n8n, Make, or GPT-based solutions themselves.
-
-### Tradeoff
-Slower to start, but potentially recurring and scalable. Referral fees reduce margin, and weak partners may send poorly qualified leads.
-
----
-
-## 4. Sell a paid “AI Opportunity Map” before the retainer
-
-### What to do this week
-Create a tightly scoped diagnostic offer priced around $750–$1,500, credited toward the first month if the client proceeds.
-
-Include:
-
-- One 90-minute screen-sharing session with the owner and an operations employee
-- Review of three repetitive workflows
-- A ranked list of automation opportunities
-- Estimated implementation difficulty, risk, savings, and payback period
-- A 90-day implementation roadmap
-- Identification of data/privacy issues
-
-Use it as the call to action in your outreach, partner referrals, and process clinics instead of asking prospects to jump directly into a $4,000/month engagement.
-
-### Time investment
-Approximately 2–3 hours per diagnostic after creating the template.
-
-### Timeline to first retainer client
-1–4 weeks after selling the first diagnostic.
-
-### Why it works for AI consulting
-Many prospects do not know what they should automate or whether their data is ready. The diagnostic lets them buy clarity before committing to implementation—and allows you to qualify whether the opportunity is technically and financially viable.
-
-### Tradeoff
-This is primarily a conversion mechanism rather than a standalone lead source. Keep it standardized so it does not become underpriced consulting.
-
----
-
-## 5. Run a vertical “Bring Your Ugliest Workflow” workshop
-
-### What to do this week
-Choose one narrow audience, such as:
-
-- 10–50 employee accounting firms
-- Property management companies
-- Commercial service businesses
-- Small manufacturers
-- Insurance brokerages
-
-Approach one trade association, local business group, software user group, or franchise network with this session:
-
-&gt; “Bring Your Ugliest Workflow: I’ll rebuild one member’s manual process live using AI and automation.”
-
-Before the event, ask attendees to submit:
-
-- A short process description
-- The systems involved
-- A redacted example document or screenshot
-- Approximate monthly volume
-
-During the workshop, use synthetic or redacted data to automate one workflow live. Give attendees a scorecard to evaluate their own processes and offer three diagnostic slots afterward.
-
-### Time investment
-3–5 hours of preparation per event, plus the event itself. Once built, the presentation can be reused.
-
-### Timeline to first client
-4–10 weeks, depending on the organization’s event schedule.
-
-### Why it works for AI consulting
-A live build makes an unfamiliar service tangible. Prospects can see how a document, email, CRM entry, or support request moves through the automation instead of hearing broad claims about AI.
-
-### Tradeoff
-Associations can be slow to schedule. Avoid generic “future of AI” presentations—they generate interest but rarely buying intent.
-
----
-
-## 6. Launch a 14-day dormant-lead reactivation pilot
-
-### What to do this week
-Create a narrow pilot for businesses with hundreds of old CRM leads.
-
-Offer to:
-
-1. Export or access a limited batch of 100–250 dormant leads.
-2. Segment them by original inquiry and age.
-3. Generate personalized, human-reviewed follow-up.
-4. Route replies to the correct salesperson.
-5. Report appointments, responses, and opportunities created.
-
-Price it at $1,500–$2,500, credited toward a longer engagement. Target companies that use HubSpot, Pipedrive, GoHighLevel, or another accessible CRM.
-
-Approach CRM consultants and sales trainers as referral partners, or use trigger-based outreach to companies visibly running lead-generation campaigns but responding slowly.
-
-### Time investment
-Initial productization: 6–10 hours. Then roughly 3 hours to launch each pilot and 1 hour/week to monitor it.
-
-### Timeline to first client
-2–5 weeks.
-
-### Why it works for AI consulting
-It links AI automation directly to recovered revenue instead of vague productivity savings. It also demonstrates personalization, CRM integration, workflow routing, and human oversight in one project.
-
-### Tradeoff
-Strong, measurable wedge offer, but requires careful consent, deliverability, brand-voice, and privacy controls. Don’t promise revenue; promise implementation and measurable activity.
-
----
-
-## 7. Conduct a vertical workflow benchmark study
-
-### What to do this week
-Choose one vertical and recruit 15 owners or operations managers for 25-minute research interviews.
-
-Use a structured questionnaire:
-
-- How are leads handled after hours?
-- Which documents are manually reviewed?
-- Where is information copied between systems?
-- What recurring reports take the longest?
-- Which customer questions are answered repeatedly?
-- Where do errors or delays usually occur?
-
-Promise each participant a personalized scorecard comparing them with the anonymized group. After the interviews:
-
-- Publish a short benchmark, not a generic AI guide.
-- Identify the three most automatable workflows in that industry.
-- Invite the five strongest-fit companies to a paid diagnostic.
-
-Example title:
-
-&gt; “2026 Workflow Benchmark: Where 17 Property Management Firms Lose Administrative Time.”
-
-### Time investment
-4–6 hours/week for four to six weeks.
-
-### Timeline to first client
-4–8 weeks.
-
-### Why it works for AI consulting
-You are helping prospects discover a need they have not named yet. The interview gets you inside their workflows, while the benchmark creates urgency by showing how their processes compare with peers.
-
-### Tradeoff
-This is a medium-term authority play. It works only if the research is narrow and operational; a broad “state of AI” survey will attract curiosity rather than buyers.
-
----
-
-## 8. Mine vertical software communities for unresolved workflow gaps
-
-### What to do this week
-Pick one vertical software platform used by your target businesses—for example Jobber, Clio, Buildium, ServiceTitan, or a niche ERP.
-
-Search its:
-
-- Community forum
-- Feature request board
-- Reddit discussions
-- Marketplace reviews
-- Implementation partner directories
-- YouTube comments on workflow tutorials
-
-Look for repeated complaints such as:
-
-- “We manually export this every week.”
-- “It doesn’t extract information from attachments.”
-- “We can’t route inquiries based on content.”
-- “There’s no integration with our other system.”
-- “Staff must summarize every customer conversation.”
-
-Build one reusable demo that solves a frequently mentioned gap using n8n, Make, or a custom GPT. Then contact:
-
-- Users who publicly described the problem
-- Independent implementers for that platform
-- Agencies serving that software’s customers
-- The platform’s customer success or partnership team
-
-Position yourself as the specialist who handles automation beyond the platform’s native capabilities.
-
-### Time investment
-5–7 hours/week initially.
-
-### Timeline to first client
-6–12 weeks.
-
-### Why it works for AI consulting
-These prospects already understand the workflow problem and have software in place. You are not convincing them that automation matters—you are solving a specific gap their existing platform cannot handle.
-
-### Tradeoff
-Slower initial payoff because you must learn the ecosystem. The upside is repeatability: one solution pattern can be adapted across many similar clients.
-
----
-
-# Recommended six-month mix
-
-Don’t attempt all eight simultaneously. I’d use three complementary channels:
-
-### Weekly: Trigger-based audits
-- 10 personalized audits per week
-- Target: 2–3 discovery calls per month
-- Best for immediate pipeline
-
-### Monthly: Client-hosted process clinic
-- One event per month
-- Target: 3–5 qualified attendees per event
-- Best expected conversion rate
-
-### Ongoing: Partner development
-- Contact five prospective partners per week
-- Target: three active referral partners within 90 days
-- Best long-term leverage
-
-Use the paid AI Opportunity Map as the entry offer across all three.
-
-A reasonable six-month target funnel would be:
-
-- 60–80 meaningfully engaged prospects
-- 20–25 discovery calls
-- 12–18 paid diagnostics or serious proposals
-- 5–7 new retainers
-
-Given your capacity constraint, qualify aggressively for repeated workflows, compatible systems, clear process ownership, and measurable business value. Avoid custom one-off projects that cannot reuse components from another client.</pre></div>
+          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</pre></div>
         </details></div>
       <div class="category-detail" id="cat-reasoning_analysis">
         <h3 class="detail-title">Reasoning & Analysis</h3>
         <div class="detail-scores">
-          <span class="detail-badge" style="background: #10b981">Quality: 93.0</span>
-          <span class="detail-badge" style="background: #10b981">Adherence: 100.0</span>
-        </div>
-        <div class="quality-judgment">
-          <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p><p>This earns 93 by matching Reference C's (94) rigor while adding closed-form discipline C lacks: it opens with an explicit assumptions block, derives eight-month cash via the geometric sum rather than month-by-month tallying, resolves Plan B's CAC ambiguity both ways, and even pins Plan A's crossover, noting it &quot;remains operating cash-flow positive through month 12 and falls below the threshold in month 13.&quot; The math is exact and the recommendation is decisive. It falls a point shy of C because its twenty-plus-digit figures are spuriously precise for fractional customers, and the strategic framing is marginally thinner.</p></p>
+          <span class="detail-badge" style="background: #94a3b8">Quality: -</span>
+          <span class="detail-badge" style="background: #ef4444">Adherence: ERR</span>
         </div><div class="breakout-section">
-    <h4 class="breakout-title">Analysis Highlights</h4>
-      <div class="callout-box info">
-        <div class="callout-label">KEY FINDINGS</div>
-        <ul class="feature-list"><li><p>Recommendation: Choose Plan A</p></li></ul>
-      </div>
-      <div class="callout-box section">
-        <div class="callout-label">OPTIONS ANALYZED</div>
-        <ul class="feature-list"><li>Plan B creates 480 incremental customers. If those customers require paid acquisition, their one-time CAC is included in the runway analysis.</li><li>Plan A: $79/month</li><li>Plan A is cash-flow positive immediately: \(t=0\), or the first operating month.</li><li>Plan A remains operating cash-flow positive through month 12 and falls below the threshold in month 13.</li><li>Plan B: $39/month</li></ul>
-      </div></div>
+    <h4 class="breakout-title">Analysis Highlights</h4></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
-          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>## Assumptions and timing
-
-- Launch is \(t=0\).
-- MRR at \(t\) is measured after \(t\) monthly churn cycles:
-  \[
-  \text{MRR}_t=\text{MRR}_0(1-c)^t
-  \]
-- No new customers are acquired after the stated launch adjustment because no ongoing acquisition rate was provided.
-- The \( \$85{,}000 \) monthly operating burn excludes customer acquisition spending.
-- The 20% increase under Plan B creates 480 incremental customers. If those customers require paid acquisition, their one-time CAC is included in the runway analysis.
-- “Cash-flow positive” is defined as requested: the first month in which MRR exceeds \( \$85{,}000 \). Launch \(t=0\) corresponds to the first operating month.
-
----
-
-# 1. Current plan: $49/month
-
-## Launch customers and MRR
-
-\[
-N_0=2{,}400
-\]
-
-\[
-\text{MRR}_0=2{,}400 \times \$49=\$117{,}600
-\]
-
-## LTV
-
-Monthly churn is 8%, or \(0.08\):
-
-\[
-\text{LTV}=\frac{\text{ARPU}}{\text{churn}}
-=\frac{\$49}{0.08}
-=\$612.50
-\]
-
-LTV-to-CAC ratio:
-
-\[
-\frac{\text{LTV}}{\text{CAC}}
-=\frac{612.50}{180}
-=\frac{245}{72}
-\]
-
-CAC payback period before considering churn:
-
-\[
-\frac{\$180}{\$49}=\frac{180}{49}\text{ months}
-\]
-
-## Projected MRR
-
-The monthly retention rate is:
-
-\[
-1-0.08=0.92
-\]
-
-Thus:
-
-\[
-\text{MRR}_t=\$117{,}600(0.92)^t
-\]
-
-### Month 3
-
-\[
-(0.92)^3=0.778688
-\]
-
-\[
-\text{MRR}_3
-=\$117{,}600(0.778688)
-=\$91{,}573.7088
-\]
-
-### Month 6
-
-\[
-(0.92)^6=0.606355001344
-\]
-
-\[
-\text{MRR}_6
-=\$117{,}600(0.606355001344)
-=\$71{,}307.3481580544
-\]
-
-### Month 12
-
-\[
-(0.92)^{12}=0.367666387654882241806336
-\]
-
-\[
-\text{MRR}_{12}
-=\$117{,}600(0.367666387654882241806336)
-\]
-
-\[
-\text{MRR}_{12}
-=\$43{,}237.5671882141516364251136
-\]
-
-## Time to cash-flow positive
-
-At launch:
-
-\[
-\$117{,}600-\$85{,}000=\$32{,}600
-\]
-
-Therefore, the current plan is cash-flow positive immediately: \(t=0\), or the first operating month.
-
-However, this does not remain true for long:
-
-\[
-\text{MRR}_3=\$91{,}573.7088&gt;\$85{,}000
-\]
-
-\[
-\text{MRR}_4
-=\$91{,}573.7088(0.92)
-=\$84{,}247.812096
-&lt;\$85{,}000
-\]
-
-It is cash-flow positive for launch through month 3, then falls below the burn threshold at month 4.
-
-## Cash balance after eight operating months
-
-Revenue collected over eight months, using MRR from \(t=0\) through \(t=7\):
-
-\[
-\sum_{t=0}^{7}\$117{,}600(0.92)^t
-=
-\$117{,}600\left(\frac{1-(0.92)^8}{1-0.92}\right)
-\]
-
-\[
-(0.92)^8=0.5132188731375616
-\]
-
-\[
-\sum_{t=0}^{7}\text{MRR}_t
-=
-\$117{,}600
-\left(
-\frac{1-0.5132188731375616}{0.08}
-\right)
-\]
-
-\[
-=\$117{,}600(6.08476408578048)
-\]
-
-\[
-=\$715{,}568.256487784448
-\]
-
-Eight months of operating costs:
-
-\[
-8 \times \$85{,}000=\$680{,}000
-\]
-
-Cash after eight months:
-
-\[
-\$400{,}000+\$715{,}568.256487784448-\$680{,}000
-\]
-
-\[
-=\$435{,}568.256487784448
-\]
-
----
-
-# 2. Proposed Plan A: $79/month
-
-## Launch customers and MRR
-
-The company loses 15% of customers at launch:
-
-\[
-N_0=2{,}400(1-0.15)
-\]
-
-\[
-N_0=2{,}400(0.85)=2{,}040
-\]
-
-Launch MRR:
-
-\[
-\text{MRR}_0=2{,}040 \times \$79
-\]
-
-\[
-\text{MRR}_0=\$161{,}160
-\]
-
-Despite losing 360 customers, launch MRR increases by:
-
-\[
-\$161{,}160-\$117{,}600=\$43{,}560
-\]
-
-## LTV
-
-Monthly churn drops to 5%, or \(0.05\):
-
-\[
-\text{LTV}
-=\frac{\$79}{0.05}
-=\$1{,}580
-\]
-
-LTV-to-CAC ratio:
-
-\[
-\frac{\$1{,}580}{\$180}
-=\frac{79}{9}
-\]
-
-CAC payback period before considering churn:
-
-\[
-\frac{\$180}{\$79}=\frac{180}{79}\text{ months}
-\]
-
-## Projected MRR
-
-Monthly retention is:
-
-\[
-1-0.05=0.95
-\]
-
-Thus:
-
-\[
-\text{MRR}_t=\$161{,}160(0.95)^t
-\]
-
-### Month 3
-
-\[
-(0.95)^3=0.857375
-\]
-
-\[
-\text{MRR}_3
-=\$161{,}160(0.857375)
-=\$138{,}174.555
-\]
-
-### Month 6
-
-\[
-(0.95)^6=0.735091890625
-\]
-
-\[
-\text{MRR}_6
-=\$161{,}160(0.735091890625)
-=\$118{,}467.409093125
-\]
-
-### Month 12
-
-\[
-(0.95)^{12}=0.540360087662636962890625
-\]
-
-\[
-\text{MRR}_{12}
-=\$161{,}160(0.540360087662636962890625)
-\]
-
-\[
-\text{MRR}_{12}
-=\$87{,}084.431727710572939453125
-\]
-
-## Time to cash-flow positive
-
-At launch:
-
-\[
-\$161{,}160-\$85{,}000=\$76{,}160
-\]
-
-Therefore, Plan A is cash-flow positive immediately: \(t=0\), or the first operating month.
-
-It remains above the burn threshold through month 12:
-
-\[
-\text{MRR}_{12}
-=\$87{,}084.431727710572939453125
-&gt;\$85{,}000
-\]
-
-At month 13:
-
-\[
-\text{MRR}_{13}
-=\$87{,}084.431727710572939453125(0.95)
-\]
-
-\[
-=\$82{,}730.21014132504429248046875
-&lt;\$85{,}000
-\]
-
-Without replacement acquisition or expansion revenue, Plan A remains operating cash-flow positive through month 12 and falls below the threshold in month 13.
-
-## Cash balance after eight operating months
-
-Eight-month revenue:
-
-\[
-\sum_{t=0}^{7}\$161{,}160(0.95)^t
-=
-\$161{,}160
-\left(
-\frac{1-(0.95)^8}{1-0.95}
-\right)
-\]
-
-\[
-(0.95)^8=0.6634204312890625
-\]
-
-\[
-\sum_{t=0}^{7}\text{MRR}_t
-=
-\$161{,}160
-\left(
-\frac{1-0.6634204312890625}{0.05}
-\right)
-\]
-
-\[
-=\$161{,}160(6.73159137421875)
-\]
-
-\[
-=\$1{,}084{,}863.26586909375
-\]
-
-Cash after eight months:
-
-\[
-\$400{,}000+\$1{,}084{,}863.26586909375-\$680{,}000
-\]
-
-\[
-=\$804{,}863.26586909375
-\]
-
----
-
-# 3. Proposed Plan B: $39/month
-
-## Launch customers and MRR
-
-The company gains 20% more customers:
-
-\[
-N_0=2{,}400(1+0.20)
-\]
-
-\[
-N_0=2{,}400(1.20)=2{,}880
-\]
-
-Launch MRR:
-
-\[
-\text{MRR}_0=2{,}880 \times \$39
-\]
-
-\[
-\text{MRR}_0=\$112{,}320
-\]
-
-This is lower than current-plan MRR by:
-
-\[
-\$117{,}600-\$112{,}320=\$5{,}280
-\]
-
-Thus, the 20% customer gain does not compensate for the 20.408163...% price reduction.
-
-## LTV
-
-Churn remains 8%:
-
-\[
-\text{LTV}
-=\frac{\$39}{0.08}
-=\$487.50
-\]
-
-LTV-to-CAC ratio:
-
-\[
-\frac{\$487.50}{\$180}
-=\frac{65}{24}
-\]
-
-CAC payback period before considering churn:
-
-\[
-\frac{\$180}{\$39}
-=\frac{60}{13}\text{ months}
-\]
-
-## Projected MRR
-
-Monthly retention remains:
-
-\[
-1-0.08=0.92
-\]
-
-Thus:
-
-\[
-\text{MRR}_t=\$112{,}320(0.92)^t
-\]
-
-### Month 3
-
-\[
-\text{MRR}_3
-=\$112{,}320(0.778688)
-=\$87{,}462.23616
-\]
-
-### Month 6
-
-\[
-\text{MRR}_6
-=\$112{,}320(0.606355001344)
-\]
-
-\[
-=\$68{,}105.79375095808
-\]
-
-### Month 12
-
-\[
-\text{MRR}_{12}
-=\$112{,}320(0.367666387654882241806336)
-\]
-
-\[
-=\$41{,}296.28866139637339968765952
-\]
-
-## Time to cash-flow positive
-
-At launch:
-
-\[
-\$112{,}320-\$85{,}000=\$27{,}320
-\]
-
-Therefore, Plan B is operating cash-flow positive immediately: \(t=0\), or the first operating month.
-
-However:
-
-\[
-\text{MRR}_3=\$87{,}462.23616&gt;\$85{,}000
-\]
-
-\[
-\text{MRR}_4
-=\$87{,}462.23616(0.92)
-=\$80{,}465.2572672
-&lt;\$85{,}000
-\]
-
-Plan B falls below the burn threshold in month 4.
-
-## Launch CAC and runway
-
-Incremental customers:
-
-\[
-2{,}880-2{,}400=480
-\]
-
-If these customers require paid acquisition:
-
-\[
-\text{Launch CAC}=480 \times \$180=\$86{,}400
-\]
-
-Cash immediately after paying launch CAC:
-
-\[
-\$400{,}000-\$86{,}400=\$313{,}600
-\]
-
-If CAC is treated as part of launch-month cash flow, launch-month net cash flow is:
-
-\[
-\$112{,}320-\$85{,}000-\$86{,}400
-=-\$59{,}080
-\]
-
-The recurring business is still operating cash-flow positive because MRR exceeds operating burn, but the launch month is negative after the one-time acquisition expense.
-
-## Cash balance after eight operating months
-
-Eight-month revenue:
-
-\[
-\sum_{t=0}^{7}\$112{,}320(0.92)^t
-=
-\$112{,}320(6.08476408578048)
-\]
-
-\[
-=\$683{,}440.7021148635136
-\]
-
-Cash after CAC and eight months of operations:
-
-\[
-\$400{,}000-\$86{,}400+\$683{,}440.7021148635136-\$680{,}000
-\]
-
-\[
-=\$317{,}040.7021148635136
-\]
-
-If the 20% customer increase is organic and does not incur CAC, the corresponding balance would be:
-
-\[
-\$400{,}000+\$683{,}440.7021148635136-\$680{,}000
-\]
-
-\[
-=\$403{,}440.7021148635136
-\]
-
----
-
-# Final comparison
-
-*Rounded only in this summary.*
-
-| Metric | Current | Plan A | Plan B |
-|---|---:|---:|---:|
-| Launch customers | 2,400 | 2,040 | 2,880 |
-| Launch MRR | $117,600 | **$161,160** | $112,320 |
-| LTV | $613 | **$1,580** | $488 |
-| LTV/CAC | 3.40x | **8.78x** | 2.71x |
-| Month 3 MRR | $91,574 | **$138,175** | $87,462 |
-| Month 6 MRR | $71,307 | **$118,467** | $68,106 |
-| Month 12 MRR | $43,238 | **$87,084** | $41,296 |
-| First cash-flow-positive month | Immediate | Immediate | Immediate operationally |
-| Falls below $85K MRR | Month 4 | **Month 13** | Month 4 |
-| Cash after 8 months | $435,568 | **$804,863** | $317,041 after launch CAC |
-
-# Recommendation: Choose Plan A
-
-Plan A is decisively superior under the supplied projections:
-
-1. **Highest launch MRR:** $161,160, despite losing 15% of customers.
-2. **Best retention:** 5% churn versus 8%, materially slowing revenue decay.
-3. **Best unit economics:** approximately $1,580 LTV and an 8.78x LTV/CAC ratio.
-4. **Meets the eight-month requirement robustly:** it is cash-flow positive immediately and remains above the $85,000 burn threshold throughout the first 12 months.
-5. **Best runway outcome:** approximately $804,863 in cash after eight months, versus $435,568 under the current plan and $317,041 under Plan B if the added customers incur CAC.
-
-The current plan and Plan B technically become cash-flow positive immediately, but both fall back below the $85,000 monthly threshold in month 4. Therefore, they do not provide a sustainable path through the required eight-month window without ongoing acquisition, expansion revenue, or cost reductions.
-
-One important caveat is that, with only churn and no replacement acquisition, even Plan A falls below $85,000 in month 13. The company should use Plan A’s stronger cash generation to build a customer acquisition and expansion program before that point.</pre></div>
+          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</pre></div>
         </details></div>
       <div class="category-detail" id="cat-long_context">
         <h3 class="detail-title">Long Context</h3>
         <div class="detail-scores">
-          <span class="detail-badge" style="background: #10b981">Quality: 88.0</span>
-          <span class="detail-badge" style="background: #10b981">Adherence: 100.0</span>
-        </div>
-        <div class="quality-judgment">
-          <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p><p>The target sits just under the 90-point Reference C because it reproduces nearly all of that anchor's enriching detail while dropping a single qualifier. It carries the contextual phrasing that separates high answers from bare ones — &quot;$2.5 million (20.2% over budget),&quot; &quot;Principal Engineer Tomás Salazar,&quot; and &quot;18,400 active enterprise accounts&quot; — matching C almost line for line. The one gap is item 4, rendered as a plain &quot;7&quot; rather than C's &quot;7 peer-reviewed papers,&quot; a small loss of specificity. That lone unqualified figure keeps it a notch below C's completeness, landing it at 88.</p></p>
+          <span class="detail-badge" style="background: #94a3b8">Quality: -</span>
+          <span class="detail-badge" style="background: #ef4444">Adherence: ERR</span>
         </div><div class="breakout-section">
-    <h4 class="breakout-title">Answers (10 questions)</h4>
-    <div class="answers-grid">
-        <div class="answer-card">
-          <span class="answer-num">1</span>
-          <span class="answer-text">94.7%</span>
-        </div>
-        <div class="answer-card">
-          <span class="answer-num">2</span>
-          <span class="answer-text">Principal Engineer Tomás Salazar</span>
-        </div>
-        <div class="answer-card">
-          <span class="answer-num">3</span>
-          <span class="answer-text">$2.5 million (20.2% over budget)</span>
-        </div>
-        <div class="answer-card">
-          <span class="answer-num">4</span>
-          <span class="answer-text">7</span>
-        </div>
-        <div class="answer-card">
-          <span class="answer-num">5</span>
-          <span class="answer-text">$145,600</span>
-        </div>
-        <div class="answer-card">
-          <span class="answer-num">6</span>
-          <span class="answer-text">31.4%</span>
-        </div>
-        <div class="answer-card">
-          <span class="answer-num">7</span>
-          <span class="answer-text">Ingrid Solheim</span>
-        </div>
-        <div class="answer-card">
-          <span class="answer-num">8</span>
-          <span class="answer-text">$18.5 million</span>
-        </div>
-        <div class="answer-card">
-          <span class="answer-num">9</span>
-          <span class="answer-text">18,400 active enterprise accounts</span>
-        </div>
-        <div class="answer-card">
-          <span class="answer-num">10</span>
-          <span class="answer-text">$45 million</span>
-        </div></div></div>
+    <h4 class="breakout-title">Answers (1 questions)</h4>
+    <div class="answers-grid"></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
-          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>1. 94.7%
-2. Principal Engineer Tomás Salazar
-3. $2.5 million (20.2% over budget)
-4. 7
-5. $145,600
-6. 31.4%
-7. Ingrid Solheim
-8. $18.5 million
-9. 18,400 active enterprise accounts
-10. $45 million</pre></div>
+          <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>ERROR: API error 400: {&quot;error&quot;:{&quot;message&quot;:&quot;moonshotai/kimi-k3 is not a valid model ID&quot;,&quot;code&quot;:400},&quot;user_id&quot;:&quot;user_2oVIFv9XmjYhPmEdFpOR9zzSAlM&quot;}</pre></div>
         </details></div>
   </div>
 
   
     <div class="section">
       <h2 class="section-title">Leaderboard Context</h2>
-      <p class="section-desc">Ranked #4 of 48 models tested</p>
+      <p class="section-desc">Ranked #48 of 48 models tested</p>
       <table class="breakdown-table">
         <thead>
           <tr><th>Rank</th><th>Model</th><th>Quality</th><th>Adherence</th></tr>
         </thead>
         <tbody>
           <tr class="">
-              <td class="rank-cell">1</td>
-              <td>Kimi K3</td>
-              <td class="score-cell" style="color: #10b981">92.6</td>
-              <td class="score-cell" style="color: #10b981">93.1</td>
+              <td class="rank-cell">45</td>
+              <td>MiniMax-M2.5-TEE</td>
+              <td class="score-cell" style="color: #f59e0b">72.4</td>
+              <td class="score-cell" style="color: #10b981">92.9</td>
             </tr><tr class="">
-              <td class="rank-cell">2</td>
-              <td>claude-sonnet-5</td>
-              <td class="score-cell" style="color: #10b981">92.4</td>
-              <td class="score-cell" style="color: #10b981">92.5</td>
+              <td class="rank-cell">46</td>
+              <td>Nemotron Super 120B</td>
+              <td class="score-cell" style="color: #0ea5e9">68.3</td>
+              <td class="score-cell" style="color: #10b981">88.3</td>
             </tr><tr class="">
-              <td class="rank-cell">3</td>
-              <td>Claude Fable 5</td>
-              <td class="score-cell" style="color: #10b981">91.1</td>
-              <td class="score-cell" style="color: #10b981">94.0</td>
+              <td class="rank-cell">47</td>
+              <td>Llama-3.3-70B-Instruct</td>
+              <td class="score-cell" style="color: #0ea5e9">58.0</td>
+              <td class="score-cell" style="color: #10b981">89.3</td>
             </tr><tr class="highlight-row">
-              <td class="rank-cell">4</td>
-              <td>GPT-5.6 Sol Pro</td>
-              <td class="score-cell" style="color: #10b981">90.7</td>
-              <td class="score-cell" style="color: #10b981">96.3</td>
-            </tr><tr class="">
-              <td class="rank-cell">5</td>
-              <td>GPT-5.6 Sol</td>
-              <td class="score-cell" style="color: #10b981">90.7</td>
-              <td class="score-cell" style="color: #10b981">93.9</td>
-            </tr><tr class="">
-              <td class="rank-cell">6</td>
-              <td>GPT-5.6 Terra</td>
-              <td class="score-cell" style="color: #10b981">90.1</td>
-              <td class="score-cell" style="color: #10b981">93.6</td>
-            </tr><tr class="">
-              <td class="rank-cell">7</td>
-              <td>GPT-5.6 Terra Pro</td>
-              <td class="score-cell" style="color: #10b981">90.0</td>
-              <td class="score-cell" style="color: #10b981">93.9</td>
+              <td class="rank-cell">48</td>
+              <td>Kimi K3</td>
+              <td class="score-cell" style="color: #94a3b8">-</td>
+              <td class="score-cell" style="color: #ef4444">ERR</td>
             </tr>
         </tbody>
       </table>
@@ -3304,7 +1168,7 @@ new Chart(ctx, {
     datasets: [
       {
         label: 'Quality',
-        data: [90,90,0,96,82,96,85,96,93,88],
+        data: [0,0,0,0,0,0,0,0,0,0],
         borderColor: '#22c55e',
         backgroundColor: 'rgba(34, 197, 94, 0.15)',
         borderWidth: 2,
@@ -3313,7 +1177,7 @@ new Chart(ctx, {
       },
       {
         label: 'Adherence',
-        data: [100,100,0,96,95,90,91,95,100,100],
+        data: [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1],
         borderColor: 'rgba(148, 163, 184, 0.6)',
         backgroundColor: 'rgba(148, 163, 184, 0.08)',
         borderWidth: 1,

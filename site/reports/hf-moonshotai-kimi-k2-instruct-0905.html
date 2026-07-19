@@ -32,6 +32,14 @@
     --border: #E2E8F0;
     --font-display: 'Bangers', cursive;
     --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Type scale (report breakouts) — keep the page to a few sizes */
+    --fs-label: 0.72rem;
+    --fs-small: 0.8rem;
+    --fs-body: 0.9rem;
+    --fs-title: 1rem;
+    --fs-lead: 1.2rem;
+    --text-body: #334155;
+    --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -175,309 +183,97 @@
   .footer-copy { font-size: 0.75rem; opacity: 0.4; }
 
     
-  /* Breakout sections */
-  .breakout-section {
-    margin: 16px 0;
-  }
+  /* ===== Breakout design system: one type scale + shared primitives across all 10 categories ===== */
+  .breakout-section { margin: 18px 0; }
   .breakout-title {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--purple-mid);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    color: var(--magenta); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;
   }
 
-  /* Platform cards grid (social media) */
-  .platform-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 16px;
+  /* Shared card shell */
+  .platform-card, .email-preview, .article-preview, .edited-text-box, .strategy-card, .answer-card, .code-display {
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
   }
-  .platform-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
+
+  /* Shared reading text (one size, readable color, everywhere) */
+  .platform-body, .callout-box, .email-body, .article-section-body, .edited-text, .strategy-preview, .answer-text, .feature-list li, .changelog-list li {
+    font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.6; color: var(--text-body);
   }
-  .platform-header {
-    background: var(--purple-dark);
-    color: white;
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .platform-body strong, .callout-box strong, .article-section-body strong, .answer-text strong, .feature-list li strong, .strategy-preview strong, .email-body strong { color: var(--text-primary); font-weight: 700; }
+  .article-section-body p, .strategy-preview p, .edited-text p, .email-body p { margin-bottom: 8px; }
+  .article-section-body ul, .strategy-preview ul, .callout-box ul { margin: 6px 0 6px 18px; }
+  .article-section-body p:last-child, .strategy-preview p:last-child { margin-bottom: 0; }
+
+  /* Shared content title */
+  .article-section-title, .strategy-title {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-title);
+    color: var(--text-primary); margin-bottom: 5px; line-height: 1.35;
   }
-  .platform-icon {
-    font-size: 1rem;
-    width: 24px;
-    text-align: center;
+
+  /* Shared small uppercase label/pill */
+  .callout-label, .code-lang-tag, .platform-header {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    letter-spacing: 0.07em; text-transform: uppercase;
   }
-  .platform-body {
-    padding: 12px;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--text-primary);
-    max-height: 200px;
-    overflow-y: auto;
+
+  /* Shared numbered marker */
+  .strategy-num, .answer-num {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-lead);
+    color: var(--purple-mid); line-height: 1.2; text-align: center;
   }
+
+  /* Social platform cards */
+  .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .platform-header { background: var(--purple-dark); color: white; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
+  .platform-icon { font-size: var(--fs-body); width: 22px; text-align: center; }
+  .platform-body { padding: 12px; max-height: 220px; overflow-y: auto; }
 
   /* Callout boxes */
-  .callout-box {
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin: 10px 0;
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-  .callout-box.info {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-  }
-  .callout-box.creative {
-    background: #faf5ff;
-    border: 1px solid #e9d5ff;
-  }
-  .callout-box.changelog {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-  }
-  .callout-box.section {
-    background: #f8fafc;
-    border: 1px solid var(--border);
-  }
-  .callout-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--purple-mid);
-    margin-bottom: 6px;
-  }
+  .callout-box { border-radius: var(--radius); padding: 14px 16px; margin: 10px 0; }
+  .callout-box.info { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .callout-box.creative { background: #faf5ff; border: 1px solid #e9d5ff; }
+  .callout-box.changelog { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .callout-box.section { background: var(--bg-light); border: 1px solid var(--border); }
+  .callout-label { display: inline-block; color: var(--purple-mid); margin-bottom: 8px; }
 
-  /* Feature list */
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .feature-list li {
-    padding: 3px 0 3px 20px;
-    position: relative;
-    font-size: 0.85rem;
-  }
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--green);
-    font-weight: 700;
-  }
+  /* Check list */
+  .feature-list { list-style: none; padding: 0; margin: 0; }
+  .feature-list li { padding: 4px 0 4px 22px; position: relative; }
+  .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
-  /* Email preview */
-  .email-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 0.9rem;
-  }
-  .email-subject {
-    background: #f1f5f9;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-  .email-preview-text {
-    padding: 8px 16px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
-    font-style: italic;
-  }
-  .email-body {
-    padding: 16px;
-    line-height: 1.7;
-  }
-  .email-body p { margin-bottom: 12px; }
-  .email-signature {
-    padding: 8px 16px;
-    color: var(--text-secondary);
-    font-weight: 600;
-  }
-  .email-ps {
-    padding: 12px 16px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-style: italic;
-    font-size: 0.88rem;
-  }
+  /* Email */
+  .email-subject { background: var(--bg-gray); padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: var(--fs-title); color: var(--text-primary); }
+  .email-preview-text { padding: 8px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: var(--fs-small); font-style: italic; }
+  .email-body { padding: 16px; }
+  .email-signature { padding: 10px 16px; color: var(--text-primary); font-weight: 600; font-size: var(--fs-body); }
+  .email-ps { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--text-secondary); font-style: italic; font-size: var(--fs-small); }
 
-  /* Code display */
-  .code-display {
-    background: #1e293b;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 8px 0;
-  }
-  .code-lang-tag {
-    background: var(--blue);
-    color: white;
-    padding: 4px 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    margin: 8px 0 0 8px;
-    border-radius: 4px;
-  }
-  .code-display pre {
-    padding: 16px;
-    color: #e2e8f0;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.78rem;
-    line-height: 1.6;
-    overflow-x: auto;
-    max-height: 400px;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+  /* Code */
+  .code-lang-tag { background: var(--blue); color: white; padding: 4px 12px; display: inline-block; margin: 8px 0 0 8px; border-radius: 6px; }
+  .code-display { background: #1e293b; margin: 8px 0; }
+  .code-display pre { padding: 16px; color: #e2e8f0; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: var(--fs-small); line-height: 1.6; overflow-x: auto; max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; }
 
-  /* Article preview */
-  .article-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .article-headline {
-    padding: 16px 20px;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--purple-dark);
-    border-bottom: 2px solid var(--magenta);
-    line-height: 1.3;
-  }
-  .article-section {
-    padding: 12px 20px;
-    border-bottom: 1px solid var(--border);
-  }
+  /* Article */
+  .article-headline { padding: 16px 20px; font-size: var(--fs-lead); font-weight: 700; color: var(--purple-dark); border-bottom: 2px solid var(--magenta); line-height: 1.3; }
+  .article-section { padding: 14px 20px; border-bottom: 1px solid var(--border); }
   .article-section:last-child { border-bottom: none; }
-  .article-section-title {
-    font-weight: 700;
-    color: var(--purple-mid);
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-  }
-  .article-section-body {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
 
-  /* Edited text box */
-  .edited-text-box {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-  .edited-text {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--text-primary);
-  }
-  .edited-text p { margin-bottom: 10px; }
-  .changelog-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .changelog-list li {
-    padding: 4px 0 4px 20px;
-    position: relative;
-    font-size: 0.83rem;
-    line-height: 1.5;
-  }
-  .changelog-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-    font-weight: 700;
-  }
+  /* Editing */
+  .edited-text-box { padding: 16px; margin-bottom: 12px; }
+  .changelog-list { list-style: none; padding: 0; margin: 0; }
+  .changelog-list li { padding: 4px 0 4px 22px; position: relative; }
+  .changelog-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 
-  /* Strategy cards */
-  .strategy-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .strategy-card {
-    display: flex;
-    gap: 14px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
-    align-items: flex-start;
-  }
-  .strategy-num {
-    font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--purple-mid);
-    min-width: 32px;
-    text-align: center;
-    line-height: 1;
-  }
-  .strategy-title {
-    font-weight: 700;
-    font-size: 0.92rem;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-  .strategy-preview {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-    margin: 0;
-  }
+  /* Strategy (brainstorming) */
+  .strategy-grid { display: flex; flex-direction: column; gap: 10px; }
+  .strategy-card { display: flex; gap: 14px; padding: 14px; align-items: flex-start; }
+  .strategy-num { min-width: 30px; }
 
-  /* Answers grid (long context) */
-  .answers-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-  .answer-card {
-    display: flex;
-    gap: 10px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    align-items: center;
-  }
-  .answer-num {
-    font-weight: 800;
-    color: var(--purple-mid);
-    font-size: 1.1rem;
-    min-width: 24px;
-  }
-  .answer-text {
-    font-size: 0.88rem;
-    color: var(--text-primary);
-  }
+  /* Answers (long context) */
+  .answers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .answer-card { display: flex; gap: 12px; padding: 12px 14px; align-items: flex-start; }
+  .answer-num { min-width: 22px; }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .platform-grid { grid-template-columns: 1fr; }
     .answers-grid { grid-template-columns: 1fr; }
@@ -1056,7 +852,17 @@
           <span class="detail-badge" style="background: #10b981">Adherence: 92.0</span>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Article Preview</h4>
-    <div class="article-preview"><div class="article-headline">Claude Code Tool Calls Turn Every Developer Into A Revenue Engineer</div><div class="article-section"><p class="article-section-body">The API economy just got a new apex predator. While most AI tools promise faster coding, Claude Code shipped something nastier: the ability to turn any API into an obedient revenue servant without writing a scrap of frontend. Database writes, Slack blasts, invoice generation, permit lookups — all triggered from a single chat window. The demo looks like magic. The business model underneath is surgical.</p></div><div class="article-section"><div class="article-section-title">Why Every SaaS Moat Just Sprung A Leak</div><p class="article-section-body">Yesterday you needed three engineers, two sprints, and a prayer to stitch together Stripe, Snowflake, and Salesforce. Today one product manager with a terminal can wire those systems in fifteen minutes. The connector is no longer the product; the sequence is. That flips the value stack upside down. Incumbents who spent years polishing their proprietary integrations now watch indie hackers replicate entire workflows before lunch. The barrier moved from technical to strategic: do you know which data trigger prints money?</p><p>I tested it on a bankrupt retail chain list. Twelve lines of natural language, one API call to the court system, another to LinkedIn, a third to Clearbit. The agent returned a CSV of every store closing this quarter paired with the VP of Real Estate who needs to dump leases fast. Manual effort: zero. Time: four minutes. Old way: three VAs and a week. The output is not a feature; it is a market.</p></div><div class="article-section"><div class="article-section-title">The Conversation Your Buyer Is Already Having</div><p class="article-section-body">Picture the mid-market CFO at 9:12 pm. Her board meeting is tomorrow. She needs to show cost cuts but cannot hire consultants because the last ones billed 80k for a deck. She Googles automation. She is not searching for Claude Code. She is typing “how to fire three data-entry temps without missing invoices.” If your homepage leads with our stack, you lose. If you lead with tomorrow she can cut OPEX by 42k next quarter, you get the call. The tool is irrelevant; the internal relief is the product. Claude Code simply makes that relief reproducible at scale.</p><p>That CFO does not care about your MCP server. She cares that her staff will stop emailing her PDFs at midnight. Position the sequence correctly and you become the aspirin for her specific headache. Position wrongly and you are another noisy vendor pitching futuristic vitamins.</p></div><div class="article-section"><div class="article-section-title">Build A Revenue Robot Or Become One</div><p class="article-section-body">Two types of companies emerge this quarter. The first grabs the new toolchain, identifies one painful data loop, and productizes it. They sell outcomes, not access. The second keeps polishing their dashboard, hoping the buyer will connect the dots. They become the cost center the first group automates away. Binary choice: you either package leverage and sell it, or someone else packages you. There is no middle seat on this flight.</p><p>Pick one process your client pays 5k a month to endure. Chain the APIs that handle it. Wrap it in a fixed-price offer. Deliver the result, not the login. Do that once and you have a case study. Do it three times and you have a category. Wait for permission and you become the case study for your competitor’s pitch deck.</p><p>Jonathan Green<br></p></div></div></div>
+    <div class="article-preview"><div class="article-headline">Claude Code Tool Calls Turn Every Developer Into A Revenue Engineer</div><div class="article-section"><p class="article-section-body"><p>The API economy just got a new apex predator. While most AI tools promise faster coding, Claude Code shipped something nastier: the ability to turn any API into an obedient revenue servant without writing a scrap of frontend. Database writes, Slack blasts, invoice generation, permit lookups — all triggered from a single chat window. The demo looks like magic. The business model underneath is surgical.</p></p></div><div class="article-section"><div class="article-section-title">Why Every SaaS Moat Just Sprung A Leak</div><p class="article-section-body"><p>Yesterday you needed three engineers, two sprints, and a prayer to stitch together Stripe, Snowflake, and Salesforce. Today one product manager with a terminal can wire those systems in fifteen minutes. The connector is no longer the product; the sequence is. That flips the value stack upside down. Incumbents who spent years polishing their proprietary integrations now watch indie hackers replicate entire workflows before lunch. The barrier moved from technical to strategic: do you know which data trigger prints money?</p>
+<p>I tested it on a bankrupt retail chain list. Twelve lines of natural language, one API call to the court system, another to LinkedIn, a third to Clearbit. The agent returned a CSV of every store closing this quarter paired with the VP of Real Estate who needs to dump leases fast. Manual effort: zero. Time: four minutes. Old way: three VAs and a week. The output is not a feature; it is a market.</p></p></div><div class="article-section"><div class="article-section-title">The Conversation Your Buyer Is Already Having</div><p class="article-section-body"><p>Picture the mid-market CFO at 9:12 pm. Her board meeting is tomorrow. She needs to show cost cuts but cannot hire consultants because the last ones billed 80k for a deck. She Googles automation. She is not searching for Claude Code. She is typing “how to fire three data-entry temps without missing invoices.” If your homepage leads with our stack, you lose. If you lead with tomorrow she can cut OPEX by 42k next quarter, you get the call. The tool is irrelevant; the internal relief is the product. Claude Code simply makes that relief reproducible at scale.</p>
+<p>That CFO does not care about your MCP server. She cares that her staff will stop emailing her PDFs at midnight. Position the sequence correctly and you become the aspirin for her specific headache. Position wrongly and you are another noisy vendor pitching futuristic vitamins.</p></p></div><div class="article-section"><div class="article-section-title">Build A Revenue Robot Or Become One</div><p class="article-section-body"><p>Two types of companies emerge this quarter. The first grabs the new toolchain, identifies one painful data loop, and productizes it. They sell outcomes, not access. The second keeps polishing their dashboard, hoping the buyer will connect the dots. They become the cost center the first group automates away. Binary choice: you either package leverage and sell it, or someone else packages you. There is no middle seat on this flight.</p>
+<p>Pick one process your client pays 5k a month to endure. Chain the APIs that handle it. Wrap it in a fixed-price offer. Deliver the result, not the login. Do that once and you have a case study. Do it three times and you have a category. Wait for permission and you become the case study for your competitor’s pitch deck.</p>
+<p>Jonathan Green</p>
+<p>PS</p>
+<ul>
+<li>Scroll to the top.</li>
+<li>Click on Subscribe to newsletter.</li>
+<li>Follow Jonathan Green to never miss a post.</li>
+</ul></p></div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>Claude Code Tool Calls Turn Every Developer Into A Revenue Engineer
@@ -2181,23 +1987,55 @@ PS - My rooster just learned to imitate my notification sound. Nothing quite lik
     <h4 class="breakout-title">Summary Breakdown</h4>
       <div class="callout-box info">
         <div class="callout-label">TLDR</div>
-        <p>Creator wired Claude Code to a Chrome-Dev-Tools-based browser-automation stack and ran three “let’s-see-if-it-works” experiments. The only genuinely new bit is running four browser tabs in parallel with separate sub-agents; the rest is incremental or flaky. Watch only if you want a proof-of-concept, not a production recipe.</p>
+        <p><p>Creator wired Claude Code to a Chrome-Dev-Tools-based browser-automation stack and ran three “let’s-see-if-it-works” experiments. The only genuinely new bit is running four browser tabs in parallel with separate sub-agents; the rest is incremental or flaky. Watch only if you want a proof-of-concept, not a production recipe.</p></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">WHAT WAS DEMONSTRATED</div>
-        <p><li><strong>Amazon “room-furnishing” pipeline</strong> – 4 parallel Amazon searches (chair, table, sofa, curtains) under a $3k budget, then composite image via Fal.ai + Nano Banana.  </li><br>  Status: ✔ worked, $1.3k cart returned, final render mostly matched items (table was wrong).  <br><li><strong>reCAPTCHA solver</strong> – custom CDP screenshot + click tool.  </li><br>  Status: ✔ solved two challenges (traffic-lights → buses) on Google’s demo page.  <br><li><strong>Reddit account creation + meme post</strong> – temp-mail address, old.reddit sign-up, Fal.ai Drake meme, Imgur upload, subreddit post via r/ProgrammerHumor.  </li><br>  Status: ⚠️ partial; succeeded only after manual prompt to fix “AI-generated” title, slow back-and-forth, no e-mail verification handled automatically.</p>
+        <p><ul>
+<li><strong>Amazon “room-furnishing” pipeline</strong> – 4 parallel Amazon searches (chair, table, sofa, curtains) under a $3k budget, then composite image via Fal.ai + Nano Banana.</li>
+</ul>
+<p>Status: ✔ worked, $1.3k cart returned, final render mostly matched items (table was wrong).</p>
+<ul>
+<li><strong>reCAPTCHA solver</strong> – custom CDP screenshot + click tool.</li>
+</ul>
+<p>Status: ✔ solved two challenges (traffic-lights → buses) on Google’s demo page.</p>
+<ul>
+<li><strong>Reddit account creation + meme post</strong> – temp-mail address, old.reddit sign-up, Fal.ai Drake meme, Imgur upload, subreddit post via r/ProgrammerHumor.</li>
+</ul>
+<p>Status: ⚠️ partial; succeeded only after manual prompt to fix “AI-generated” title, slow back-and-forth, no e-mail verification handled automatically.</p></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">KEY TECHNICAL DETAILS</div>
-        <p><li>Stack: Claude Code CLI + Chrome launched with `--remote-debugging-port`, controlled via Chrome DevTools Protocol (CDP).  </li><br><li>Parallelism: explicit “spawn 4 sub-agents” inside Claude prompt; each agent gets its own tab.  </li><br><li>Vision / image gen: Fal.ai API (exact model not stated) and “Nano Banana” (assumed img2img or composite utility).  </li><br><li>Captcha tool: CDP `Page.captureScreenshot` → high-res crop → vision model → CSS selector + `Runtime.evaluate` click.  </li><br><li>Temp-mail: tempmail.lol (no API, just DOM scraping).  </li><br><li>Imgur upload: anonymous endpoint used to replace URL rejected by subreddit rules.</li></p>
+        <p><ul>
+<li>Stack: Claude Code CLI + Chrome launched with `--remote-debugging-port`, controlled via Chrome DevTools Protocol (CDP).</li>
+<li>Parallelism: explicit “spawn 4 sub-agents” inside Claude prompt; each agent gets its own tab.</li>
+<li>Vision / image gen: Fal.ai API (exact model not stated) and “Nano Banana” (assumed img2img or composite utility).</li>
+<li>Captcha tool: CDP `Page.captureScreenshot` → high-res crop → vision model → CSS selector + `Runtime.evaluate` click.</li>
+<li>Temp-mail: tempmail.lol (no API, just DOM scraping).</li>
+<li>Imgur upload: anonymous endpoint used to replace URL rejected by subreddit rules.</li>
+</ul></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">WHAT’S ACTUALLY NEW OR INTERESTING</div>
-        <p><li>Parallel sub-agents per browser tab—gives a ~4× speed-up for embarrassingly parallel scraping tasks.  </li><br><li>Self-written CDP captcha solver that survives at least one image-cycle; most demos stop at “it clicked”.  </li><br>Everything else (Amazon scraping, Fal.ai rendering, temp-mail, Reddit posting) is existing technique glued together.</p>
+        <p><ul>
+<li>Parallel sub-agents per browser tab—gives a ~4× speed-up for embarrassingly parallel scraping tasks.</li>
+<li>Self-written CDP captcha solver that survives at least one image-cycle; most demos stop at “it clicked”.</li>
+</ul>
+<p>Everything else (Amazon scraping, Fal.ai rendering, temp-mail, Reddit posting) is existing technique glued together.</p></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">LIMITATIONS &AMP; CAVEATS</div>
-        <p><li>No error handling: table mismatch never retried, budget not enforced per item.  </li><br><li>CDP captcha brittle—works only on classic reCAPTCHA with no rate-limit or bot-guard; will break under enterprise captcha, hCaptcha, or when iframe origin changes.  </li><br><li>Reddit automation skipped e-mail verification step; would be blocked by real security checks or shadow-banning of temp-mail domains.  </li><br><li>Parallelism scale unclear—memory usage, WebSocket limits, and context switching overhead not measured beyond 6-7 tabs.  </li><br><li>No retry, queue, or idempotency logic—failures require human nudges.</li></p>
+        <p><ul>
+<li>No error handling: table mismatch never retried, budget not enforced per item.</li>
+<li>CDP captcha brittle—works only on classic reCAPTCHA with no rate-limit or bot-guard; will break under enterprise captcha, hCaptcha, or when iframe origin changes.</li>
+<li>Reddit automation skipped e-mail verification step; would be blocked by real security checks or shadow-banning of temp-mail domains.</li>
+<li>Parallelism scale unclear—memory usage, WebSocket limits, and context switching overhead not measured beyond 6-7 tabs.</li>
+<li>No retry, queue, or idempotency logic—failures require human nudges.</li>
+</ul></p>
+      </div>
+      <div class="callout-box section">
+        <div class="callout-label">BOTTOM LINE</div>
+        <p><p>Good for builders who want a quick peek at “Claude driving multiple browser tabs” and a workable captcha clicker. Skip if you need a robust, production-grade scraping or posting framework; this is weekend-hack level, not bullet-proof.</p></p>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -2244,7 +2082,11 @@ Good for builders who want a quick peek at “Claude driving multiple browser ta
     <h4 class="breakout-title">Editing Analysis</h4>
     <div class="edited-text-box">
       <div class="callout-label">EDITED TEXT</div>
-      <div class="edited-text">Everyone's getting AI wrong. They're obsessing over replacement—how AI will steal developer jobs, eliminate writers, automate everything. But that's not what I'm seeing in my business.</p><p>What I see is amplification: AI makes good people better and bad people worse. My strong writers now produce 3× more content that's just as sharp. My weak writers? They produce 3× more slop, faster. Same with code. Top devs pair with AI and ship features in record time. Bottom devs lean on it and ship the same volume of bugs—just new flavors.</p><p>The dirty secret: AI widens the gap. A 7/10 marketer becomes a 9; a 3/10 crawls to a 4—maybe. The distance between excellent and mediocre isn’t shrinking, it’s turning into a canyon.</p><p>That flips hiring math upside-down. Why pay for an average employee plus AI when the star performer plus AI delivers triple the value? One senior dev with a copilot can outproduce three juniors, and the juniors-with-AI still ship junior-grade work.</p><p>So if you’re worried about AI, don’t fear replacement—favor amplification. Ask whether it magnifies your team’s strengths or just accelerates their weaknesses. The answer determines whether AI becomes your unfair advantage or your expensive mistake.</div>
+      <div class="edited-text"><p>Everyone's getting AI wrong. They're obsessing over replacement—how AI will steal developer jobs, eliminate writers, automate everything. But that's not what I'm seeing in my business.</p>
+<p>What I see is amplification: AI makes good people better and bad people worse. My strong writers now produce 3× more content that's just as sharp. My weak writers? They produce 3× more slop, faster. Same with code. Top devs pair with AI and ship features in record time. Bottom devs lean on it and ship the same volume of bugs—just new flavors.</p>
+<p>The dirty secret: AI widens the gap. A 7/10 marketer becomes a 9; a 3/10 crawls to a 4—maybe. The distance between excellent and mediocre isn’t shrinking, it’s turning into a canyon.</p>
+<p>That flips hiring math upside-down. Why pay for an average employee plus AI when the star performer plus AI delivers triple the value? One senior dev with a copilot can outproduce three juniors, and the juniors-with-AI still ship junior-grade work.</p>
+<p>So if you’re worried about AI, don’t fear replacement—favor amplification. Ask whether it magnifies your team’s strengths or just accelerates their weaknesses. The answer determines whether AI becomes your unfair advantage or your expensive mistake.</p></div>
     </div>
       <div class="callout-box changelog">
         <div class="callout-label">CHANGELOG (6 changes)</div>
@@ -2284,56 +2126,63 @@ Changelog
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">Audit &amp; Win-Back Campaign</div>
-          <p class="strategy-preview">**What you do:** Pick 30 local businesses you actually buy from (coffee roaster, dentist, gym, etc.). Spend 20 minutes on their website testing one repeatable task—e.g., fill the “Get a Quote” form an...</p>
+          <div class="strategy-preview"><p><strong>What you do:</strong> Pick 30 local businesses you actually buy from (coffee roaster, dentist, gym, etc.). Spend 20 minutes on their website testing one repeatable task—e.g., fill the “Get a Quote” form and wait to see how long before a human answers. Screen-record the lag, then email the owner a 90-second Loom: “Here’s how an AI follow-up cuts your response time from 14 hrs to 2 min; reply ‘AI’ and I’ll build the first version free next Tuesday.”<br><strong>Time/week:</strong> 3 hrs (1 hr picking/testing, 1 hr recording, 1 hr sending).<br><strong>First client:</strong> 3-6 weeks (local owners open emails from customers).<br><strong>Why it works:</strong> You’re not selling “AI,” you’re selling the pain they feel every day but never measure. Free pilot gets you in the door; one quick win turns into $3k/mo retainer.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">Partner the “Boring Software” Resellers</div>
-          <p class="strategy-preview">**What you do:** Identify 5 regional resellers of ERP/CRM products that serve 10-50-employee firms (think Zoho, Jobber, DEAR Systems). Offer to co-write a “2025 AI add-on stack” PDF they can give exis...</p>
+          <div class="strategy-preview"><p><strong>What you do:</strong> Identify 5 regional resellers of ERP/CRM products that serve 10-50-employee firms (think Zoho, Jobber, DEAR Systems). Offer to co-write a “2025 AI add-on stack” PDF they can give existing users. You supply the expertise, they supply 800 opted-in email addresses. Run a single 30-min webinar together; your CTA is “3 free automation hours for the first 7 companies that book.”<br><strong>Time/week:</strong> 4 hrs (1 hr outreach, 2 hr deck, 1 hr live webinar).<br><strong>First client:</strong> 2-4 weeks (you’re fishing in a stocked pond).<br><strong>Why it works:</strong> Those resellers have zero AI story; you become it. Their customers already spend on tech, so $3k/mo is incremental, not a new budget fight.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">Buy a “Zombie” Newsletter</div>
-          <p class="strategy-preview">**What you do:** On Substack, find 10 newsletters about small-business ops that haven’t posted in 6+ months but still show 1k–3k free subscribers. DM the author: “I’ll take over content &amp; sponsorship ...</p>
+          <div class="strategy-preview"><p><strong>What you do:</strong> On Substack, find 10 newsletters about small-business ops that haven’t posted in 6+ months but still show 1k–3k free subscribers. DM the author: “I’ll take over content &amp; sponsorship revenue; you keep the back-issue brand.” Revive with one AI tip/week plus one “workflow teardown” case study; your byline links to a Calendly that offers a $99 “AI quick-map” call (applied to first month if they sign).<br><strong>Time/week:</strong> 2 hrs writing + 30 min teardown.<br><strong>First client:</strong> 6-8 weeks (need list to warm up).<br><strong>Why it works:</strong> Acquired trust is faster than building it; teardowns prove you can do, not just teach. $99 call filters dreamers and funds ad spend elsewhere.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">Embedded “Exit-Intent” Demo for SaaS You Already Use</div>
-          <p class="strategy-preview">**What you do:** Build a tiny n8n scenario that watches when someone hovers to close a tab on your own site. Fire a pop-up: “See an AI bot answer 5 real customer questions in 38 seconds—enter your pho...</p>
+          <div class="strategy-preview"><p><strong>What you do:</strong> Build a tiny n8n scenario that watches when someone hovers to close a tab on your own site. Fire a pop-up: “See an AI bot answer 5 real customer questions in 38 seconds—enter your phone, get the demo via WhatsApp now.” Use their publicly listed FAQ; return the audio + transcript within 10 min. End of demo message: “Want this running on your site tomorrow? Reply YES.”<br><strong>Time/week:</strong> 1 hr build once, 30 min weekly to refresh FAQ list.<br><strong>First client:</strong> 1-3 weeks (traffic you already have converts higher).<br><strong>Why it works:</strong> Most AI agencies describe; you immediately prove. WhatsApp feels personal and keeps the thread alive until close.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">Private Slack/Discord Channel for COOs</div>
-          <p class="strategy-preview">**What you do:** Create “OpsLeads50” Slack workspace; manually DM 2nd-degree LinkedIn COO/founder contacts (10–50 staff) with invite: “No vendors, just peers sharing GPT prompts &amp; SOPs—first 50 only.”...</p>
+          <div class="strategy-preview"><p><strong>What you do:</strong> Create “OpsLeads50” Slack workspace; manually DM 2nd-degree LinkedIn COO/founder contacts (10–50 staff) with invite: “No vendors, just peers sharing GPT prompts &amp; SOPs—first 50 only.” Post daily: one prompt, one automation GIF, one job post. After 3 weeks, drop: “I’m compiling a benchmark report—need 7 volunteers for a free 30-min automation audit; results anonymised in report.”<br><strong>Time/week:</strong> 3 hrs (DMs, moderation, audit).<br><strong>First client:</strong> 4-5 weeks (trust compounds in closed community).<br><strong>Why it works:</strong> COOs rarely get vendor-free spaces; you’re the facilitator first, vendor second. Audits give you their actual KPIs—proposal writes itself.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">6</div>
         <div class="strategy-content">
           <div class="strategy-title">Acquire a Fiverr “Top-Rated Seller” Gig</div>
-          <p class="strategy-preview">**What you do:** Search Fiverr for “Zapier/Make automation” gigs with 200+ 5-star reviews but seller is inactive (no delivery in 45 days). Offer $500 to transfer login &amp; ongoing revenue. Raise prices ...</p>
+          <div class="strategy-preview"><p><strong>What you do:</strong> Search Fiverr for “Zapier/Make automation” gigs with 200+ 5-star reviews but seller is inactive (no delivery in 45 days). Offer $500 to transfer login &amp; ongoing revenue. Raise prices 3× and change description to “Enterprise Make/n8n workflows for 10–50-employee businesses.” Upsell every buyer to a $3k/mo managed service instead of one-off $300 build.<br><strong>Time/week:</strong> 2 hrs (support tickets) once migrated.<br><strong>First client:</strong> 0-2 weeks (orders already coming).<br><strong>Why it works:</strong> You shortcut Fiverr’s algo sandbox and inherit search rank. Cheap buyers self-identify; upsell is easy because their $300 gig never includes monitoring/maintenance.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">7</div>
         <div class="strategy-content">
           <div class="strategy-title">Local Manufacturing Meetup “Machine-to-Email” Stunt</div>
-          <p class="strategy-preview">**What you do:** At the next SME manufacturing meetup, bring a 3-ft stack of printed job cards. Tell the room: “I bet I can scan these and email each customer a quote before you find the Excel file.” ...</p>
+          <div class="strategy-preview"><p><strong>What you do:</strong> At the next SME manufacturing meetup, bring a 3-ft stack of printed job cards. Tell the room: “I bet I can scan these and email each customer a quote before you find the Excel file.” Run the stack through a $120 portable scanner + n8n OCR flow; audience watches quotes hit inboxes live. Close with: “Free pilot on your shop floor—who’s shipping &gt;50 orders/week and wants the slot?”<br><strong>Time/week:</strong> 1 event per month (prep + 3 hrs evening).<br><strong>First client:</strong> Same night (competitive audience, immediate proof).<br><strong>Why it works:</strong> Manufacturers get measurable ROI on throughput; spectacle + metric makes you the after-party topic. Only cost is scanner and a few pizzas.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">8</div>
         <div class="strategy-content">
           <div class="strategy-title">Podcast “Sponsor” That Isn’t a Sponsor</div>
-          <p class="strategy-preview">**What you do:** Pick 3 niche podcasts (e.g., “Small Builders Mastermind,” “Dentist Owners Club”) with 2k–5k downloads/ep. Instead of $500 ad spot, propose trading a custom AI voice assistant for thei...</p>
+          <div class="strategy-preview"><p><strong>What you do:</strong> Pick 3 niche podcasts (e.g., “Small Builders Mastermind,” “Dentist Owners Club”) with 2k–5k downloads/ep. Instead of $500 ad spot, propose trading a custom AI voice assistant for their show: answers FAQs, timestamps episodes, sends resource links. You build it free; they mention you for 8 weeks straight. CTA: “Text ‘AUTOMATE’ to 55555 for a free workflow map.”<br><strong>Time/week:</strong> 2 hrs build + 30 min weekly analytics.<br><strong>First client:</strong> 5-7 weeks (podcast audiences trust host endorsements).<br><strong>Why it works:</strong> Host gets cool tech, you get recurring shout-outs plus SMS list of qualified owners who already consume long-form content (high LTV).</p>
+<p><strong>Quick reference:</strong></p>
+<ul>
+<li>Fastest payback: #1, #4, #6</li>
+<li>Most scalable: #2, #3, #8</li>
+<li>Most experimental: #3, #8</li>
+<li>Cheapest: #1, #4</li>
+</ul></div>
         </div>
       </div></div></div>
         <details class="output-details">
@@ -2401,7 +2250,7 @@ Changelog
     <h4 class="breakout-title">Analysis Highlights</h4>
       <div class="callout-box info">
         <div class="callout-label">KEY FINDINGS</div>
-        <ul class="feature-list"><li>Recommendation: Choose Plan B ($39/month).</li></ul>
+        <ul class="feature-list"><li><p>Recommendation: Choose Plan B ($39/month).</p></li></ul>
       </div>
       <div class="callout-box section">
         <div class="callout-label">OPTIONS ANALYZED</div>
@@ -2516,39 +2365,39 @@ Choose Plan B ($39/month).
     <div class="answers-grid">
         <div class="answer-card">
           <span class="answer-num">1</span>
-          <span class="answer-text">94.7%  </span>
+          <span class="answer-text">94.7%</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">2</span>
-          <span class="answer-text">Tomás Salazar  </span>
+          <span class="answer-text">Tomás Salazar</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">3</span>
-          <span class="answer-text">$2.5 million  </span>
+          <span class="answer-text">$2.5 million</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">4</span>
-          <span class="answer-text">7  </span>
+          <span class="answer-text">7</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">5</span>
-          <span class="answer-text">$145,600  </span>
+          <span class="answer-text">$145,600</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">6</span>
-          <span class="answer-text">31.4%  </span>
+          <span class="answer-text">31.4%</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">7</span>
-          <span class="answer-text">Ingrid Solheim  </span>
+          <span class="answer-text">Ingrid Solheim</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">8</span>
-          <span class="answer-text">$18.5 million  </span>
+          <span class="answer-text">$18.5 million</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">9</span>
-          <span class="answer-text">18,400  </span>
+          <span class="answer-text">18,400</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">10</span>

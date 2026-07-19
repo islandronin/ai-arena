@@ -32,6 +32,14 @@
     --border: #E2E8F0;
     --font-display: 'Bangers', cursive;
     --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Type scale (report breakouts) — keep the page to a few sizes */
+    --fs-label: 0.72rem;
+    --fs-small: 0.8rem;
+    --fs-body: 0.9rem;
+    --fs-title: 1rem;
+    --fs-lead: 1.2rem;
+    --text-body: #334155;
+    --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -175,309 +183,97 @@
   .footer-copy { font-size: 0.75rem; opacity: 0.4; }
 
     
-  /* Breakout sections */
-  .breakout-section {
-    margin: 16px 0;
-  }
+  /* ===== Breakout design system: one type scale + shared primitives across all 10 categories ===== */
+  .breakout-section { margin: 18px 0; }
   .breakout-title {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--purple-mid);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    color: var(--magenta); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;
   }
 
-  /* Platform cards grid (social media) */
-  .platform-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 16px;
+  /* Shared card shell */
+  .platform-card, .email-preview, .article-preview, .edited-text-box, .strategy-card, .answer-card, .code-display {
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
   }
-  .platform-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
+
+  /* Shared reading text (one size, readable color, everywhere) */
+  .platform-body, .callout-box, .email-body, .article-section-body, .edited-text, .strategy-preview, .answer-text, .feature-list li, .changelog-list li {
+    font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.6; color: var(--text-body);
   }
-  .platform-header {
-    background: var(--purple-dark);
-    color: white;
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .platform-body strong, .callout-box strong, .article-section-body strong, .answer-text strong, .feature-list li strong, .strategy-preview strong, .email-body strong { color: var(--text-primary); font-weight: 700; }
+  .article-section-body p, .strategy-preview p, .edited-text p, .email-body p { margin-bottom: 8px; }
+  .article-section-body ul, .strategy-preview ul, .callout-box ul { margin: 6px 0 6px 18px; }
+  .article-section-body p:last-child, .strategy-preview p:last-child { margin-bottom: 0; }
+
+  /* Shared content title */
+  .article-section-title, .strategy-title {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-title);
+    color: var(--text-primary); margin-bottom: 5px; line-height: 1.35;
   }
-  .platform-icon {
-    font-size: 1rem;
-    width: 24px;
-    text-align: center;
+
+  /* Shared small uppercase label/pill */
+  .callout-label, .code-lang-tag, .platform-header {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    letter-spacing: 0.07em; text-transform: uppercase;
   }
-  .platform-body {
-    padding: 12px;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--text-primary);
-    max-height: 200px;
-    overflow-y: auto;
+
+  /* Shared numbered marker */
+  .strategy-num, .answer-num {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-lead);
+    color: var(--purple-mid); line-height: 1.2; text-align: center;
   }
+
+  /* Social platform cards */
+  .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .platform-header { background: var(--purple-dark); color: white; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
+  .platform-icon { font-size: var(--fs-body); width: 22px; text-align: center; }
+  .platform-body { padding: 12px; max-height: 220px; overflow-y: auto; }
 
   /* Callout boxes */
-  .callout-box {
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin: 10px 0;
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-  .callout-box.info {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-  }
-  .callout-box.creative {
-    background: #faf5ff;
-    border: 1px solid #e9d5ff;
-  }
-  .callout-box.changelog {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-  }
-  .callout-box.section {
-    background: #f8fafc;
-    border: 1px solid var(--border);
-  }
-  .callout-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--purple-mid);
-    margin-bottom: 6px;
-  }
+  .callout-box { border-radius: var(--radius); padding: 14px 16px; margin: 10px 0; }
+  .callout-box.info { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .callout-box.creative { background: #faf5ff; border: 1px solid #e9d5ff; }
+  .callout-box.changelog { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .callout-box.section { background: var(--bg-light); border: 1px solid var(--border); }
+  .callout-label { display: inline-block; color: var(--purple-mid); margin-bottom: 8px; }
 
-  /* Feature list */
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .feature-list li {
-    padding: 3px 0 3px 20px;
-    position: relative;
-    font-size: 0.85rem;
-  }
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--green);
-    font-weight: 700;
-  }
+  /* Check list */
+  .feature-list { list-style: none; padding: 0; margin: 0; }
+  .feature-list li { padding: 4px 0 4px 22px; position: relative; }
+  .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
-  /* Email preview */
-  .email-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 0.9rem;
-  }
-  .email-subject {
-    background: #f1f5f9;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-  .email-preview-text {
-    padding: 8px 16px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
-    font-style: italic;
-  }
-  .email-body {
-    padding: 16px;
-    line-height: 1.7;
-  }
-  .email-body p { margin-bottom: 12px; }
-  .email-signature {
-    padding: 8px 16px;
-    color: var(--text-secondary);
-    font-weight: 600;
-  }
-  .email-ps {
-    padding: 12px 16px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-style: italic;
-    font-size: 0.88rem;
-  }
+  /* Email */
+  .email-subject { background: var(--bg-gray); padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: var(--fs-title); color: var(--text-primary); }
+  .email-preview-text { padding: 8px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: var(--fs-small); font-style: italic; }
+  .email-body { padding: 16px; }
+  .email-signature { padding: 10px 16px; color: var(--text-primary); font-weight: 600; font-size: var(--fs-body); }
+  .email-ps { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--text-secondary); font-style: italic; font-size: var(--fs-small); }
 
-  /* Code display */
-  .code-display {
-    background: #1e293b;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 8px 0;
-  }
-  .code-lang-tag {
-    background: var(--blue);
-    color: white;
-    padding: 4px 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    margin: 8px 0 0 8px;
-    border-radius: 4px;
-  }
-  .code-display pre {
-    padding: 16px;
-    color: #e2e8f0;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.78rem;
-    line-height: 1.6;
-    overflow-x: auto;
-    max-height: 400px;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+  /* Code */
+  .code-lang-tag { background: var(--blue); color: white; padding: 4px 12px; display: inline-block; margin: 8px 0 0 8px; border-radius: 6px; }
+  .code-display { background: #1e293b; margin: 8px 0; }
+  .code-display pre { padding: 16px; color: #e2e8f0; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: var(--fs-small); line-height: 1.6; overflow-x: auto; max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; }
 
-  /* Article preview */
-  .article-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .article-headline {
-    padding: 16px 20px;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--purple-dark);
-    border-bottom: 2px solid var(--magenta);
-    line-height: 1.3;
-  }
-  .article-section {
-    padding: 12px 20px;
-    border-bottom: 1px solid var(--border);
-  }
+  /* Article */
+  .article-headline { padding: 16px 20px; font-size: var(--fs-lead); font-weight: 700; color: var(--purple-dark); border-bottom: 2px solid var(--magenta); line-height: 1.3; }
+  .article-section { padding: 14px 20px; border-bottom: 1px solid var(--border); }
   .article-section:last-child { border-bottom: none; }
-  .article-section-title {
-    font-weight: 700;
-    color: var(--purple-mid);
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-  }
-  .article-section-body {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
 
-  /* Edited text box */
-  .edited-text-box {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-  .edited-text {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--text-primary);
-  }
-  .edited-text p { margin-bottom: 10px; }
-  .changelog-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .changelog-list li {
-    padding: 4px 0 4px 20px;
-    position: relative;
-    font-size: 0.83rem;
-    line-height: 1.5;
-  }
-  .changelog-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-    font-weight: 700;
-  }
+  /* Editing */
+  .edited-text-box { padding: 16px; margin-bottom: 12px; }
+  .changelog-list { list-style: none; padding: 0; margin: 0; }
+  .changelog-list li { padding: 4px 0 4px 22px; position: relative; }
+  .changelog-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 
-  /* Strategy cards */
-  .strategy-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .strategy-card {
-    display: flex;
-    gap: 14px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
-    align-items: flex-start;
-  }
-  .strategy-num {
-    font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--purple-mid);
-    min-width: 32px;
-    text-align: center;
-    line-height: 1;
-  }
-  .strategy-title {
-    font-weight: 700;
-    font-size: 0.92rem;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-  .strategy-preview {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-    margin: 0;
-  }
+  /* Strategy (brainstorming) */
+  .strategy-grid { display: flex; flex-direction: column; gap: 10px; }
+  .strategy-card { display: flex; gap: 14px; padding: 14px; align-items: flex-start; }
+  .strategy-num { min-width: 30px; }
 
-  /* Answers grid (long context) */
-  .answers-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-  .answer-card {
-    display: flex;
-    gap: 10px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    align-items: center;
-  }
-  .answer-num {
-    font-weight: 800;
-    color: var(--purple-mid);
-    font-size: 1.1rem;
-    min-width: 24px;
-  }
-  .answer-text {
-    font-size: 0.88rem;
-    color: var(--text-primary);
-  }
+  /* Answers (long context) */
+  .answers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .answer-card { display: flex; gap: 12px; padding: 12px 14px; align-items: flex-start; }
+  .answer-num { min-width: 22px; }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .platform-grid { grid-template-columns: 1fr; }
     .answers-grid { grid-template-columns: 1fr; }
@@ -988,7 +784,7 @@
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>Target sits between Reference B (68) and C (97), closer to B. Voice attempts emerge in Instagram (&quot;My wife just woke up the toddler. Again.&quot;) and Facebook (&quot;We had a power outage yesterday. The router died.&quot;) but the personal anchors feel tacked on rather than integrated into the argument. Critical weakness: the phrase &quot;It's not just text generation. It's execution&quot; repeats near-verbatim across five of seven platforms — minimal platform-specific tailoring. Agreed with votes 72, 77, 78 (calibrated mid-high B-to-C range). Discarded 56 (under-credits the voice attempts) and 81 (over-credits despite copy-paste repetition).</p>
+          <p><p>Target sits between Reference B (68) and C (97), closer to B. Voice attempts emerge in Instagram (&quot;My wife just woke up the toddler. Again.&quot;) and Facebook (&quot;We had a power outage yesterday. The router died.&quot;) but the personal anchors feel tacked on rather than integrated into the argument. Critical weakness: the phrase &quot;It's not just text generation. It's execution&quot; repeats near-verbatim across five of seven platforms — minimal platform-specific tailoring. Agreed with votes 72, 77, 78 (calibrated mid-high B-to-C range). Discarded 56 (under-credits the voice attempts) and 81 (over-credits despite copy-paste repetition).</p></p>
         </div><div class="breakout-section"><h4 class="breakout-title">Platform Posts</h4><div class="platform-grid">
       <div class="platform-card">
         <div class="platform-header">
@@ -1009,7 +805,7 @@
           <span class="platform-icon">📷</span>
           <span class="platform-name">Instagram</span>
         </div>
-        <div class="platform-body">My wife just woke up the toddler. Again. But I had to share this. Claude Code just shipped tool calls. AI agents can now use APIs, MCP servers, and file systems from the CLI. This finally bridges the gap between 'talking' to an AI and actually *using* it. It’s no longer just text generation. It’s execution.</div>
+        <div class="platform-body">My wife just woke up the toddler. Again. But I had to share this. Claude Code just shipped tool calls. AI agents can now use APIs, MCP servers, and file systems from the CLI. This finally bridges the gap between 'talking' to an AI and actually <em>using</em> it. It’s no longer just text generation. It’s execution.</div>
       </div>
       <div class="platform-card">
         <div class="platform-header">
@@ -1061,10 +857,20 @@
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>Target sits just above Reference A (19) but well below B (59). Structure is intact (three H3s, binary choice, signature) and Jonathan vocabulary surfaces (&quot;You stop hunting for clients and start farming results&quot;), which is what the 72 voter caught. But the article runs roughly 520 words — a hard FAIL against the 700-850 requirement — and the empathy passage targets the developer themselves rather than a counter-party, violating the Empathy Engine rule. Thumbnail headline 3 also breaks the 1-3 word cap. I agreed with the 28/22/34 cluster, discarded 72 (overweighted voice tells, missed length failure) and 12 (too harsh given working structure).</p>
+          <p><p>Target sits just above Reference A (19) but well below B (59). Structure is intact (three H3s, binary choice, signature) and Jonathan vocabulary surfaces (&quot;You stop hunting for clients and start farming results&quot;), which is what the 72 voter caught. But the article runs roughly 520 words — a hard FAIL against the 700-850 requirement — and the empathy passage targets the developer themselves rather than a counter-party, violating the Empathy Engine rule. Thumbnail headline 3 also breaks the 1-3 word cap. I agreed with the 28/22/34 cluster, discarded 72 (overweighted voice tells, missed length failure) and 12 (too harsh given working structure).</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Article Preview</h4>
-    <div class="article-preview"><div class="article-headline">Claude Code Tool Calls End Manual API Wrapping</div><div class="article-section"><p class="article-section-body">The noise around agentic AI is deafening. Most developers are building wrappers. They think they are automating tasks, but they are merely accelerating manual labor. Claude Code changed the math with tool calls that let agents access databases and file systems directly.</p></div><div class="article-section"><div class="article-section-title">The Wrapper Trap</div><p class="article-section-body">The industry treats building AI applications as a breakthrough process. In reality, most workflows are just repetitive loops of manual translation. A developer asks a question. The model provides a text response. The developer then writes a script to send that text to an API. The script fails. The developer edits the parameters. They send the request. The model hallucinates an endpoint. The developer debugs the syntax. This is not automation. This is assembly line work.</p><p>We treat this repetition as innovation when it is simply bureaucracy. The overhead is massive. Every single transfer of information adds latency. Every single handoff introduces the potential for human error. The developer spends more time managing the connection between the model and the database than they do thinking about the business logic. This creates a dependency on human interpretation at every single step of the pipeline. It is a fragile architecture built on top of fragile wrappers.</p></div><div class="article-section"><div class="article-section-title">The Friction of Translation</div><p class="article-section-body">Consider the developer staring at a screen at 2 AM. They have a clear vision for the project, but the tool forces them to act as a troubleshooter. They have to convert their intent into complex JSON parameters. They have to memorize exact curl commands. They feel the rising tension of the bridge between the model and the machine. They are not a creator. They are a mechanic for a system they do not fully control. The cognitive load drains their energy. They feel the frustration of being trapped in a syntax loop. They want to build, but the tool demands they debug.</p><p>The human cost of this friction is high. It kills momentum. It destroys the psychological satisfaction of building something new. You cannot feel like a visionary if you are spending your days fixing indentation errors and escaping quotes. The leverage collapses under the weight of the manual steps required to keep the machine running.</p></div><div class="article-section"><div class="article-section-title">Infinite Leverage</div><p class="article-section-body">Claude Code removes the middle man. It allows direct access to the file system and APIs through tool calls. This is a binary choice. You either automate the workflow by removing the manual translation layer, or you accept the friction of the wrapper. There is no middle ground.</p><p>This shift changes how developers build apps. They stop fighting the abstraction layer. They stop treating the AI model as a black box that can only speak in text. They treat it as a processor that can read and write. When you combine this direct access with data triggers like bank filings or hiring spikes, you solve the math problem of revenue efficiency. You stop hunting for clients and start farming results. The tool does the work. The developer provides the direction.</p><p>Jonathan Green<br></p></div></div></div>
+    <div class="article-preview"><div class="article-headline">Claude Code Tool Calls End Manual API Wrapping</div><div class="article-section"><p class="article-section-body"><p>The noise around agentic AI is deafening. Most developers are building wrappers. They think they are automating tasks, but they are merely accelerating manual labor. Claude Code changed the math with tool calls that let agents access databases and file systems directly.</p></p></div><div class="article-section"><div class="article-section-title">The Wrapper Trap</div><p class="article-section-body"><p>The industry treats building AI applications as a breakthrough process. In reality, most workflows are just repetitive loops of manual translation. A developer asks a question. The model provides a text response. The developer then writes a script to send that text to an API. The script fails. The developer edits the parameters. They send the request. The model hallucinates an endpoint. The developer debugs the syntax. This is not automation. This is assembly line work.</p>
+<p>We treat this repetition as innovation when it is simply bureaucracy. The overhead is massive. Every single transfer of information adds latency. Every single handoff introduces the potential for human error. The developer spends more time managing the connection between the model and the database than they do thinking about the business logic. This creates a dependency on human interpretation at every single step of the pipeline. It is a fragile architecture built on top of fragile wrappers.</p></p></div><div class="article-section"><div class="article-section-title">The Friction of Translation</div><p class="article-section-body"><p>Consider the developer staring at a screen at 2 AM. They have a clear vision for the project, but the tool forces them to act as a troubleshooter. They have to convert their intent into complex JSON parameters. They have to memorize exact curl commands. They feel the rising tension of the bridge between the model and the machine. They are not a creator. They are a mechanic for a system they do not fully control. The cognitive load drains their energy. They feel the frustration of being trapped in a syntax loop. They want to build, but the tool demands they debug.</p>
+<p>The human cost of this friction is high. It kills momentum. It destroys the psychological satisfaction of building something new. You cannot feel like a visionary if you are spending your days fixing indentation errors and escaping quotes. The leverage collapses under the weight of the manual steps required to keep the machine running.</p></p></div><div class="article-section"><div class="article-section-title">Infinite Leverage</div><p class="article-section-body"><p>Claude Code removes the middle man. It allows direct access to the file system and APIs through tool calls. This is a binary choice. You either automate the workflow by removing the manual translation layer, or you accept the friction of the wrapper. There is no middle ground.</p>
+<p>This shift changes how developers build apps. They stop fighting the abstraction layer. They stop treating the AI model as a black box that can only speak in text. They treat it as a processor that can read and write. When you combine this direct access with data triggers like bank filings or hiring spikes, you solve the math problem of revenue efficiency. You stop hunting for clients and start farming results. The tool does the work. The developer provides the direction.</p>
+<p>Jonathan Green</p>
+<p>PS</p>
+<ul>
+<li>Scroll to the top.</li>
+<li>Click on Subscribe to newsletter.</li>
+<li>Follow Jonathan Green to never miss a post.</li>
+</ul></p></div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>Claude Code Tool Calls End Manual API Wrapping
@@ -1959,7 +1765,7 @@ Learn how to use AI to slash your company's overhead in my profile.
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>TARGET sits between Reference B (85) and Reference C (96) on validation rigor but trails B on signature comparison safety. It validates payload shape (&quot;if (!event.id || !event.signature || !event.data?.object)&quot;) and uses crypto.timingSafeEqual, but compares raw-byte buffers of hex strings without length-checking, so timingSafeEqual will throw on length mismatch and is caught silently — a real bug B avoids. Per-case type guards (&quot;if (typeof event.data.object.amount === 'number')&quot;) match C's discipline. totalEvents is incremented only for valid events, deviating from refs. I agreed with the 78/80/78 cluster; discarded the 89 (overrates given the timingSafeEqual length bug) and the 72 (underrates the type guards and structural checks).</p>
+          <p><p>TARGET sits between Reference B (85) and Reference C (96) on validation rigor but trails B on signature comparison safety. It validates payload shape (&quot;if (!event.id || !event.signature || !event.data?.object)&quot;) and uses crypto.timingSafeEqual, but compares raw-byte buffers of hex strings without length-checking, so timingSafeEqual will throw on length mismatch and is caught silently — a real bug B avoids. Per-case type guards (&quot;if (typeof event.data.object.amount === 'number')&quot;) match C's discipline. totalEvents is incremented only for valid events, deviating from refs. I agreed with the 78/80/78 cluster; discarded the 89 (overrates given the timingSafeEqual length bug) and the 72 (underrates the type guards and structural checks).</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Code Analysis</h4>
       <div class="callout-box info">
@@ -2181,7 +1987,8 @@ export function processWebhookEvents(events: WebhookEvent[], webhookSecret: stri
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>TARGET hits the same big-idea beat as the references (&quot;That 'messy middle' of business—those scattered notes, those random PDFs—just became an asset instead of a liability&quot;) and uses a concrete vignette (freelancer with &quot;Stuff&quot; folder), but the example is hypothetical and thin compared to Reference C's specific numbers and Reference B's richer scene. The PS is functional but flat: &quot;My power just went out. The generator's chugging along... or so I hope.&quot; Solidly above Reference B (59), well below Reference C (97). I agreed with the three 68–73 votes (clustered cleanly above B) and discarded the 52 outlier (too harsh — clearly above mid-anchor) and the 73 (slightly generous given thin proof).</p><p>DONE</p>
+          <p><p>TARGET hits the same big-idea beat as the references (&quot;That 'messy middle' of business—those scattered notes, those random PDFs—just became an asset instead of a liability&quot;) and uses a concrete vignette (freelancer with &quot;Stuff&quot; folder), but the example is hypothetical and thin compared to Reference C's specific numbers and Reference B's richer scene. The PS is functional but flat: &quot;My power just went out. The generator's chugging along... or so I hope.&quot; Solidly above Reference B (59), well below Reference C (97). I agreed with the three 68–73 votes (clustered cleanly above B) and discarded the 52 outlier (too harsh — clearly above mid-anchor) and the 73 (slightly generous given thin proof).</p>
+<p>DONE</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Email Preview</h4>
     <div class="email-preview"><div class="email-subject"><strong>Subject:</strong> Your messy desk just became an asset</div><div class="email-preview-text"><strong>Preview:</strong> It’s not about raw power. It’s about who finally gets to use it.</div><div class="email-body">Most people are drooling over the &quot;one million tokens&quot; headline. I’m not.</p><p>That number? It’s just a statistic.</p><p>The REAL story is WHO it changes.</p><p>Until now, if you didn’t have a team of expensive consultants to organize your Google Docs, your SOPs, and your client notes, AI was useless to you.</p><p>Now? That changes.</p><p>You don't need to clean up your data first. You just need to dump it all in.</p><p>Imagine a freelancer who’s been keeping her process in a chaotic folder named &quot;Stuff.&quot; She could never get ChatGPT to understand her workflow.</p><p>Now? She just pastes the folder.</p><p>She asks, &quot;What’s my standard color palette?&quot; and gets the answer instantly.</p><p>That &quot;messy middle&quot; of business—those scattered notes, those random PDFs—just became an asset instead of a liability.</p><p>Reply to this email and tell me: What’s the one pile of unorganized information in your business you wish you could turn into answers?</div><div class="email-signature">Jonathan Green</div><div class="email-ps">PS. My power just went out. The generator’s chugging along... or so I hope.</div></div></div>
@@ -2225,7 +2032,7 @@ PS. My power just went out. The generator’s chugging along... or so I hope.</p
     <h4 class="breakout-title">Summary Breakdown</h4>
       <div class="callout-box info">
         <div class="callout-label">TLDR</div>
-        <p>The creator demonstrates a complex browser automation workflow using Claude Code, focusing on running multiple sub-agents in parallel. The session successfully finds furniture within a budget and solves CAPTCHAs on the fly, but the final goal of posting a Reddit meme fails at the last step due to community rule requirements.</p>
+        <p><p>The creator demonstrates a complex browser automation workflow using Claude Code, focusing on running multiple sub-agents in parallel. The session successfully finds furniture within a budget and solves CAPTCHAs on the fly, but the final goal of posting a Reddit meme fails at the last step due to community rule requirements.</p></p>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -2263,7 +2070,13 @@ Watch if you are interested in the mechanics of controlling browsers via CDP and
     <h4 class="breakout-title">Editing Analysis</h4>
     <div class="edited-text-box">
       <div class="callout-label">EDITED TEXT</div>
-      <div class="edited-text">I’ve been thinking about AI a lot lately, and I think most people get it completely wrong. Everyone talks about AI replacing developers and writers, but that’s not what I’m seeing in my business.</p><p>What I actually see is that AI makes good people better and bad people worse. Seriously. The good writers use AI to crank out three times more content that’s just as good. The bad writers use it to produce three times more garbage. Same goes for code. My best devs use AI as a copilot to ship features faster. My worst devs use it as a crutch, still shipping bugs—just different ones.</p><p>Here’s what nobody is talking about though. The real disruption isn’t replacement; it’s amplification. If you were a 7/10 marketer before AI, now you’re a 9/10. If you were a 3/10, AI bumps you to a 4 on a good day. The gap between good and bad is actually widening, not shrinking.</p><p>This has huge implications for hiring. Why hire a mediocre person with AI tools when you could hire an excellent person with the same tools? The leverage multiplier is completely different. A $150k senior dev with AI might match three devs. A $80k junior dev produces… slightly better junior output.</p><p>The people who should be worried aren’t the ones who think they’ll be replaced by AI. It’s the ones who think AI will close the skill gap with their talented colleagues. It won’t. It will make that gap a canyon.</p><p>I don’t have all the answers, but if you’re running a business, you need to look past the media narrative of “AI replacing jobs.” The real question is: does AI amplify your team’s strengths, or does it just make their weaknesses more productive? Those are very different outcomes.</p><p>**</div>
+      <div class="edited-text"><p>I’ve been thinking about AI a lot lately, and I think most people get it completely wrong. Everyone talks about AI replacing developers and writers, but that’s not what I’m seeing in my business.</p>
+<p>What I actually see is that AI makes good people better and bad people worse. Seriously. The good writers use AI to crank out three times more content that’s just as good. The bad writers use it to produce three times more garbage. Same goes for code. My best devs use AI as a copilot to ship features faster. My worst devs use it as a crutch, still shipping bugs—just different ones.</p>
+<p>Here’s what nobody is talking about though. The real disruption isn’t replacement; it’s amplification. If you were a 7/10 marketer before AI, now you’re a 9/10. If you were a 3/10, AI bumps you to a 4 on a good day. The gap between good and bad is actually widening, not shrinking.</p>
+<p>This has huge implications for hiring. Why hire a mediocre person with AI tools when you could hire an excellent person with the same tools? The leverage multiplier is completely different. A $150k senior dev with AI might match three devs. A $80k junior dev produces… slightly better junior output.</p>
+<p>The people who should be worried aren’t the ones who think they’ll be replaced by AI. It’s the ones who think AI will close the skill gap with their talented colleagues. It won’t. It will make that gap a canyon.</p>
+<p>I don’t have all the answers, but if you’re running a business, you need to look past the media narrative of “AI replacing jobs.” The real question is: does AI amplify your team’s strengths, or does it just make their weaknesses more productive? Those are very different outcomes.</p>
+<p>**</p></div>
     </div>
       <div class="callout-box changelog">
         <div class="callout-label">CHANGELOG (5 changes)</div>
@@ -2302,49 +2115,84 @@ I don’t have all the answers, but if you’re running a business, you need to 
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Ghost&quot; Audit (Partnership Play)</div>
-          <p class="strategy-preview">**Concept:** Small businesses with 10-50 employees usually have a payroll/accountant, but no &quot;Ops Manager.&quot; The Accountant or Employer is your gatekeeper. **What you would do:** Create a 3-page PDF ti...</p>
+          <div class="strategy-preview"><p><strong>Concept:</strong> Small businesses with 10-50 employees usually have a payroll/accountant, but no &quot;Ops Manager.&quot; The Accountant or Employer is your gatekeeper.<br><strong>What you would do:</strong> Create a 3-page PDF titled <em>&quot;The Hidden Operations Audit&quot;</em> that analyzes how a business handles data entry between two specific systems (e.g., their CRM and their email). Write a short introduction: <em>&quot;Most accountants see this as a data entry issue. I see it as an AI opportunity.&quot;</em> Send this PDF to Accountants or Employers who serve 10-50 employee firms. Offer to run a 15-minute audit for <em>their</em> clients for free, in exchange for permission to pitch them on the full automation implementation.</p>
+<ul>
+<li><strong>Time Investment:</strong> 5 hours to create PDF, 2 hours/week outreach.</li>
+<li><strong>Timeline to First Client:</strong> 3–4 weeks (depends on partner response).</li>
+<li><strong>Why it works:</strong> You are leveraging the trust Accountants already have with their clients. You are solving a &quot;sanity&quot; problem for the business owner (saving them from data entry hell) that the Accountant doesn't have time to solve.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Paperless&quot; Challenge (Live Demo)</div>
-          <p class="strategy-preview">**Concept:** People love seeing something &quot;magical&quot; happen in real-time. Don't sell the *consulting*; sell the *transformation*. **What you would do:** Post on LinkedIn: *&quot;I will automate your paperwo...</p>
+          <div class="strategy-preview"><p><strong>Concept:</strong> People love seeing something &quot;magical&quot; happen in real-time. Don't sell the <em>consulting</em>; sell the <em>transformation</em>.<br><strong>What you would do:</strong> Post on LinkedIn: <em>&quot;I will automate your paperwork live on Zoom. Send me your most annoying document stack (contracts, invoices, applications). I will build a GPT/Make workflow to process 10 of them live, and you can keep the code.&quot;</em> Record these sessions. Use the results as case studies later.</p>
+<ul>
+<li><strong>Time Investment:</strong> 2 hours prep (formatting docs), 1 hour live demo, 1 hour post-processing.</li>
+<li><strong>Timeline to First Client:</strong> 1 week (if you post today).</li>
+<li><strong>Why it works:</strong> It proves your competency without a word of fluff. It shifts the conversation from &quot;I can do AI&quot; to &quot;Look at this thing I just built that does your job.&quot;</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Role Displacement&quot; Video Series (Pain Point)</div>
-          <p class="strategy-preview">**Concept:** AI is scary to some, exciting to others. Focus on the excitement of efficiency. Target specific job titles, not just business owners. **What you would do:** Create a 90-second video: *&quot;Is...</p>
+          <div class="strategy-preview"><p><strong>Concept:</strong> AI is scary to some, exciting to others. Focus on the excitement of efficiency. Target specific job titles, not just business owners.<br><strong>What you would do:</strong> Create a 90-second video: <em>&quot;Is your Customer Service Rep at risk? Here is a GPT that answers 80% of your tickets in 2 seconds.&quot;</em> Don't target the business owner. Target the <em>managers</em> of the departments being automated. Send this specific video to the Manager of Customer Success at 10-50 employee firms.</p>
+<ul>
+<li><strong>Time Investment:</strong> 3 hours to script and film one video.</li>
+<li><strong>Timeline to First Client:</strong> 1–2 weeks (cold DM/Email to managers).</li>
+<li><strong>Why it works:</strong> You aren't selling to the boss; you're selling to the person doing the grunt work. They will be the ones begging their boss to hire you to save their job.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Internal AI Champion&quot; Upsell (Client Retention)</div>
-          <p class="strategy-preview">**Concept:** You are maxed out. Sell your *time* to someone else's time. **What you would do:** Approach your current 3 clients. Offer an add-on service: *&quot;I will train your internal Operations Manage...</p>
+          <div class="strategy-preview"><p><strong>Concept:</strong> You are maxed out. Sell your <em>time</em> to someone else's time.<br><strong>What you would do:</strong> Approach your current 3 clients. Offer an add-on service: <em>&quot;I will train your internal Operations Manager to use Make and n8n so they can maintain the automations I build for you.&quot;</em> Charge a retainer of $500/month for this training and support.</p>
+<ul>
+<li><strong>Time Investment:</strong> 4 hours per client per month (training + support).</li>
+<li><strong>Timeline to First Client:</strong> 3 weeks (start with current clients).</li>
+<li><strong>Why it works:</strong> It’s a quick win (upsell) that builds long-term value. It also creates a &quot;gatekeeper&quot; inside their company who now knows how to use AI, potentially referring you to other departments.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Vertical Workshop&quot; (Niche Down)</div>
-          <p class="strategy-preview">**Concept:** &quot;AI&quot; is too broad. &quot;AI for Inventory Management&quot; is specific. **What you would do:** Pick one industry that fits your 10-50 employee sweet spot (e.g., HVAC, Real Estate, Legal). Host a fr...</p>
+          <div class="strategy-preview"><p><strong>Concept:</strong> &quot;AI&quot; is too broad. &quot;AI for Inventory Management&quot; is specific.<br><strong>What you would do:</strong> Pick one industry that fits your 10-50 employee sweet spot (e.g., HVAC, Real Estate, Legal). Host a free 30-minute Zoom: <em>&quot;AI for HVAC: Automating the scheduling and dispatching chaos.&quot;</em> During the demo, show a Make workflow that pulls data from a Google Calendar and sends it to a WhatsApp message automatically.</p>
+<ul>
+<li><strong>Time Investment:</strong> 2 hours prep (finding specific workflow), 1 hour workshop + Q&amp;A.</li>
+<li><strong>Timeline to First Client:</strong> 4–6 weeks (after 3-4 workshops).</li>
+<li><strong>Why it works:</strong> It filters out non-qualified leads instantly. When you talk about &quot;dispatching,&quot; you only attract people in that industry who have dispatching headaches.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">6</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Competitor Disruption&quot; PDF (Fear/Motivation)</div>
-          <p class="strategy-preview">**Concept:** Business owners are competitive. They hate losing deals. **What you would do:** Create a one-pager: *&quot;How 3 of your top competitors are using AI to follow up with leads 24/7 while you sle...</p>
+          <div class="strategy-preview"><p><strong>Concept:</strong> Business owners are competitive. They hate losing deals.<br><strong>What you would do:</strong> Create a one-pager: <em>&quot;How 3 of your top competitors are using AI to follow up with leads 24/7 while you sleep.&quot;</em> Attach it to a polite cold email to 50 prospective businesses. (Be careful not to name-drop competitors who might sue, or just generalize: <em>&quot;Competitors in your industry&quot;</em>).</p>
+<ul>
+<li><strong>Time Investment:</strong> 3 hours to create visual and write copy.</li>
+<li><strong>Timeline to First Client:</strong> 2 weeks.</li>
+<li><strong>Why it works:</strong> It triggers a &quot;fear of missing out&quot; (FOMO) response. It frames your service as a competitive necessity, not a luxury.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">7</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Vendor Vetting&quot; Checklist (Productized Service)</div>
-          <p class="strategy-preview">**Concept:** Small businesses are often paying for software they don't use. **What you would do:** Create a checklist: *&quot;Are you overpaying for your CRM?&quot;* Analyze their current tools (Slack, HubSpot,...</p>
+          <div class="strategy-preview"><p><strong>Concept:</strong> Small businesses are often paying for software they don't use.<br><strong>What you would do:</strong> Create a checklist: <em>&quot;Are you overpaying for your CRM?&quot;</em> Analyze their current tools (Slack, HubSpot, Salesforce, etc.) and identify where the &quot;friction&quot; is—the one button they have to click that costs them 5 minutes a day. Offer a &quot;Vendor Friction Audit.&quot;</p>
+<ul>
+<li><strong>Time Investment:</strong> 5 hours to build the audit tool/template.</li>
+<li><strong>Timeline to First Client:</strong> 2 weeks.</li>
+<li><strong>Why it works:</strong> It positions you as an efficiency auditor. You aren't just an &quot;AI guy&quot;; you are a &quot;Business Efficiency Auditor,&quot; which is a more prestigious and expensive title.</li>
+</ul></div>
         </div>
       </div></div></div>
         <details class="output-details">
@@ -2408,16 +2256,16 @@ I don’t have all the answers, but if you’re running a business, you need to 
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>TARGET is well-structured with correct MRR projections and correct recommendation, but contains a critical LTV formula error: it computes &quot;LTV: $\frac{\$161,160}{0.05} = \mathbf{\$3,223,200}$&quot; using MRR instead of ARPU (Reference A/B correctly yield $1,580). It also botches Time-to-CFP by declaring all three options &quot;immediately cash flow positive&quot; because launch MRR exceeds burn — missing the 8-month sustainability question entirely. Two major analytical errors in a reasoning category drag it slightly below Reference B (74). I agreed with votes 71 and 65; discarded 78, 82, and 88 as overweighting clean formatting over analytical correctness.</p>
+          <p><p>TARGET is well-structured with correct MRR projections and correct recommendation, but contains a critical LTV formula error: it computes &quot;LTV: $\frac{\$161,160}{0.05} = \mathbf{\$3,223,200}$&quot; using MRR instead of ARPU (Reference A/B correctly yield $1,580). It also botches Time-to-CFP by declaring all three options &quot;immediately cash flow positive&quot; because launch MRR exceeds burn — missing the 8-month sustainability question entirely. Two major analytical errors in a reasoning category drag it slightly below Reference B (74). I agreed with votes 71 and 65; discarded 78, 82, and 88 as overweighting clean formatting over analytical correctness.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Analysis Highlights</h4>
       <div class="callout-box info">
         <div class="callout-label">KEY FINDINGS</div>
-        <ul class="feature-list"><li>Launch MRR: $2,040</li><li>Recommendation: Option A**</li></ul>
+        <ul class="feature-list"><li><p>Launch MRR: $2,040</p></li><li><p>Recommendation: Option A**</p></li></ul>
       </div>
       <div class="callout-box section">
         <div class="callout-label">OPTIONS ANALYZED</div>
-        <ul class="feature-list"><li>Option A:** A one-time loss of 15% of the existing 2,400 customers. The remaining customer base pays the new price.</li><li>Option B:** A one-time gain of 20% of the existing 2,400 customers (net additions). The churn rate remains 8% immediately.</li><li>Option A: Upsell ($79/month)**</li><li>Option B: Downsell ($39/month)**</li><li>Option A (Upsell) | Option B (Downsell) |</li></ul>
+        <ul class="feature-list"><li>Option A: A one-time loss of 15% of the existing 2,400 customers. The remaining customer base pays the new price.</li><li>Option B: A one-time gain of 20% of the existing 2,400 customers (net additions). The churn rate remains 8% immediately.</li><li>Option A: Upsell ($79/month)</li><li>Option B: Downsell ($39/month)</li><li>Option A is the superior strategy:</li></ul>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>

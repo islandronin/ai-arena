@@ -32,6 +32,14 @@
     --border: #E2E8F0;
     --font-display: 'Bangers', cursive;
     --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Type scale (report breakouts) — keep the page to a few sizes */
+    --fs-label: 0.72rem;
+    --fs-small: 0.8rem;
+    --fs-body: 0.9rem;
+    --fs-title: 1rem;
+    --fs-lead: 1.2rem;
+    --text-body: #334155;
+    --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -175,309 +183,97 @@
   .footer-copy { font-size: 0.75rem; opacity: 0.4; }
 
     
-  /* Breakout sections */
-  .breakout-section {
-    margin: 16px 0;
-  }
+  /* ===== Breakout design system: one type scale + shared primitives across all 10 categories ===== */
+  .breakout-section { margin: 18px 0; }
   .breakout-title {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--purple-mid);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    color: var(--magenta); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;
   }
 
-  /* Platform cards grid (social media) */
-  .platform-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 16px;
+  /* Shared card shell */
+  .platform-card, .email-preview, .article-preview, .edited-text-box, .strategy-card, .answer-card, .code-display {
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
   }
-  .platform-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
+
+  /* Shared reading text (one size, readable color, everywhere) */
+  .platform-body, .callout-box, .email-body, .article-section-body, .edited-text, .strategy-preview, .answer-text, .feature-list li, .changelog-list li {
+    font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.6; color: var(--text-body);
   }
-  .platform-header {
-    background: var(--purple-dark);
-    color: white;
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .platform-body strong, .callout-box strong, .article-section-body strong, .answer-text strong, .feature-list li strong, .strategy-preview strong, .email-body strong { color: var(--text-primary); font-weight: 700; }
+  .article-section-body p, .strategy-preview p, .edited-text p, .email-body p { margin-bottom: 8px; }
+  .article-section-body ul, .strategy-preview ul, .callout-box ul { margin: 6px 0 6px 18px; }
+  .article-section-body p:last-child, .strategy-preview p:last-child { margin-bottom: 0; }
+
+  /* Shared content title */
+  .article-section-title, .strategy-title {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-title);
+    color: var(--text-primary); margin-bottom: 5px; line-height: 1.35;
   }
-  .platform-icon {
-    font-size: 1rem;
-    width: 24px;
-    text-align: center;
+
+  /* Shared small uppercase label/pill */
+  .callout-label, .code-lang-tag, .platform-header {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    letter-spacing: 0.07em; text-transform: uppercase;
   }
-  .platform-body {
-    padding: 12px;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--text-primary);
-    max-height: 200px;
-    overflow-y: auto;
+
+  /* Shared numbered marker */
+  .strategy-num, .answer-num {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-lead);
+    color: var(--purple-mid); line-height: 1.2; text-align: center;
   }
+
+  /* Social platform cards */
+  .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .platform-header { background: var(--purple-dark); color: white; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
+  .platform-icon { font-size: var(--fs-body); width: 22px; text-align: center; }
+  .platform-body { padding: 12px; max-height: 220px; overflow-y: auto; }
 
   /* Callout boxes */
-  .callout-box {
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin: 10px 0;
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-  .callout-box.info {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-  }
-  .callout-box.creative {
-    background: #faf5ff;
-    border: 1px solid #e9d5ff;
-  }
-  .callout-box.changelog {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-  }
-  .callout-box.section {
-    background: #f8fafc;
-    border: 1px solid var(--border);
-  }
-  .callout-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--purple-mid);
-    margin-bottom: 6px;
-  }
+  .callout-box { border-radius: var(--radius); padding: 14px 16px; margin: 10px 0; }
+  .callout-box.info { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .callout-box.creative { background: #faf5ff; border: 1px solid #e9d5ff; }
+  .callout-box.changelog { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .callout-box.section { background: var(--bg-light); border: 1px solid var(--border); }
+  .callout-label { display: inline-block; color: var(--purple-mid); margin-bottom: 8px; }
 
-  /* Feature list */
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .feature-list li {
-    padding: 3px 0 3px 20px;
-    position: relative;
-    font-size: 0.85rem;
-  }
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--green);
-    font-weight: 700;
-  }
+  /* Check list */
+  .feature-list { list-style: none; padding: 0; margin: 0; }
+  .feature-list li { padding: 4px 0 4px 22px; position: relative; }
+  .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
-  /* Email preview */
-  .email-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 0.9rem;
-  }
-  .email-subject {
-    background: #f1f5f9;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-  .email-preview-text {
-    padding: 8px 16px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
-    font-style: italic;
-  }
-  .email-body {
-    padding: 16px;
-    line-height: 1.7;
-  }
-  .email-body p { margin-bottom: 12px; }
-  .email-signature {
-    padding: 8px 16px;
-    color: var(--text-secondary);
-    font-weight: 600;
-  }
-  .email-ps {
-    padding: 12px 16px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-style: italic;
-    font-size: 0.88rem;
-  }
+  /* Email */
+  .email-subject { background: var(--bg-gray); padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: var(--fs-title); color: var(--text-primary); }
+  .email-preview-text { padding: 8px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: var(--fs-small); font-style: italic; }
+  .email-body { padding: 16px; }
+  .email-signature { padding: 10px 16px; color: var(--text-primary); font-weight: 600; font-size: var(--fs-body); }
+  .email-ps { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--text-secondary); font-style: italic; font-size: var(--fs-small); }
 
-  /* Code display */
-  .code-display {
-    background: #1e293b;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 8px 0;
-  }
-  .code-lang-tag {
-    background: var(--blue);
-    color: white;
-    padding: 4px 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    margin: 8px 0 0 8px;
-    border-radius: 4px;
-  }
-  .code-display pre {
-    padding: 16px;
-    color: #e2e8f0;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.78rem;
-    line-height: 1.6;
-    overflow-x: auto;
-    max-height: 400px;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+  /* Code */
+  .code-lang-tag { background: var(--blue); color: white; padding: 4px 12px; display: inline-block; margin: 8px 0 0 8px; border-radius: 6px; }
+  .code-display { background: #1e293b; margin: 8px 0; }
+  .code-display pre { padding: 16px; color: #e2e8f0; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: var(--fs-small); line-height: 1.6; overflow-x: auto; max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; }
 
-  /* Article preview */
-  .article-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .article-headline {
-    padding: 16px 20px;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--purple-dark);
-    border-bottom: 2px solid var(--magenta);
-    line-height: 1.3;
-  }
-  .article-section {
-    padding: 12px 20px;
-    border-bottom: 1px solid var(--border);
-  }
+  /* Article */
+  .article-headline { padding: 16px 20px; font-size: var(--fs-lead); font-weight: 700; color: var(--purple-dark); border-bottom: 2px solid var(--magenta); line-height: 1.3; }
+  .article-section { padding: 14px 20px; border-bottom: 1px solid var(--border); }
   .article-section:last-child { border-bottom: none; }
-  .article-section-title {
-    font-weight: 700;
-    color: var(--purple-mid);
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-  }
-  .article-section-body {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
 
-  /* Edited text box */
-  .edited-text-box {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-  .edited-text {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--text-primary);
-  }
-  .edited-text p { margin-bottom: 10px; }
-  .changelog-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .changelog-list li {
-    padding: 4px 0 4px 20px;
-    position: relative;
-    font-size: 0.83rem;
-    line-height: 1.5;
-  }
-  .changelog-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-    font-weight: 700;
-  }
+  /* Editing */
+  .edited-text-box { padding: 16px; margin-bottom: 12px; }
+  .changelog-list { list-style: none; padding: 0; margin: 0; }
+  .changelog-list li { padding: 4px 0 4px 22px; position: relative; }
+  .changelog-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 
-  /* Strategy cards */
-  .strategy-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .strategy-card {
-    display: flex;
-    gap: 14px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
-    align-items: flex-start;
-  }
-  .strategy-num {
-    font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--purple-mid);
-    min-width: 32px;
-    text-align: center;
-    line-height: 1;
-  }
-  .strategy-title {
-    font-weight: 700;
-    font-size: 0.92rem;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-  .strategy-preview {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-    margin: 0;
-  }
+  /* Strategy (brainstorming) */
+  .strategy-grid { display: flex; flex-direction: column; gap: 10px; }
+  .strategy-card { display: flex; gap: 14px; padding: 14px; align-items: flex-start; }
+  .strategy-num { min-width: 30px; }
 
-  /* Answers grid (long context) */
-  .answers-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-  .answer-card {
-    display: flex;
-    gap: 10px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    align-items: center;
-  }
-  .answer-num {
-    font-weight: 800;
-    color: var(--purple-mid);
-    font-size: 1.1rem;
-    min-width: 24px;
-  }
-  .answer-text {
-    font-size: 0.88rem;
-    color: var(--text-primary);
-  }
+  /* Answers (long context) */
+  .answers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .answer-card { display: flex; gap: 12px; padding: 12px 14px; align-items: flex-start; }
+  .answer-num { min-width: 22px; }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .platform-grid { grid-template-columns: 1fr; }
     .answers-grid { grid-template-columns: 1fr; }
@@ -996,7 +792,7 @@
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET lands at 82 because it clearly outperforms Reference B's flat, generic delivery while falling short of Reference C's tighter craft. It earns voice points with lived-in island texture like &quot;The roosters were screaming at 5am today&quot; and the power-outage Threads opener, plus muscular CTAs such as &quot;Stop playing with toys and start building infrastructure.&quot; The thesis is sharp and the platform variants are differentiated. But the Twitter post leans on tired framing (&quot;AI hype&quot;), Instagram bloats into nine hashtags, and &quot;Systems over genius&quot; is lifted verbatim from Reference C. Closer to C than B, but the borrowed phrasing and uneven Twitter keep it from the 90s.</p>
+          <p><p>The TARGET lands at 82 because it clearly outperforms Reference B's flat, generic delivery while falling short of Reference C's tighter craft. It earns voice points with lived-in island texture like &quot;The roosters were screaming at 5am today&quot; and the power-outage Threads opener, plus muscular CTAs such as &quot;Stop playing with toys and start building infrastructure.&quot; The thesis is sharp and the platform variants are differentiated. But the Twitter post leans on tired framing (&quot;AI hype&quot;), Instagram bloats into nine hashtags, and &quot;Systems over genius&quot; is lifted verbatim from Reference C. Closer to C than B, but the borrowed phrasing and uneven Twitter keep it from the 90s.</p></p>
         </div><div class="breakout-section"><h4 class="breakout-title">Platform Posts</h4><div class="platform-grid">
       <div class="platform-card">
         <div class="platform-header">
@@ -1069,10 +865,24 @@
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The target lands above Reference B's flat 59 but well short of Reference C's vivid 98. It nails the contrarian thesis and farmer framing, with a genuinely sharp image in &quot;You stop paying for the bridge and just walk across the river.&quot; The Empathy Engine moment about the ops manager waking &quot;in a cold sweat at three in the morning&quot; earns real points. But the prose stays explanatory where C is visceral — no lines hit like &quot;donations to the cloud providers&quot; — and the binary choice feels rehearsed rather than lethal. Solid, on-brand, undermuscled.</p>
+          <p><p>The target lands above Reference B's flat 59 but well short of Reference C's vivid 98. It nails the contrarian thesis and farmer framing, with a genuinely sharp image in &quot;You stop paying for the bridge and just walk across the river.&quot; The Empathy Engine moment about the ops manager waking &quot;in a cold sweat at three in the morning&quot; earns real points. But the prose stays explanatory where C is visceral — no lines hit like &quot;donations to the cloud providers&quot; — and the binary choice feels rehearsed rather than lethal. Solid, on-brand, undermuscled.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Article Preview</h4>
-    <div class="article-preview"><div class="article-headline">Claude Code Tool Calls Eliminate Middleware Bloat</div><div class="article-section"><p class="article-section-body">Most AI coding assistants just help you write boilerplate faster. They do not change the fundamental architecture of how a company generates revenue. Claude Code just shipped native tool calls that allow command line agents to interact with any database directly. The internet is celebrating faster unit tests and cleaner refactoring. That is a tragic waste of leverage. We are looking at a structural shift in software communication, and most people are using it to format text files instead of building revenue engines.</p></div><div class="article-section"><div class="article-section-title">The Middleware Tax Is Dead</div><p class="article-section-body">Software teams spend an absurd amount of time building glue code. You hire brilliant engineers to write authentication wrappers and format payloads. The lead developer stares at a screen full of rate limit handlers and feels a deep sense of futility because none of this logic actually moves the business forward. They are just plumbing pipes for data that should already be flowing. It is exhausting work that drains morale and delays actual product releases. The opportunity cost is massive.</p><p>This new command line capability changes the physics of integration. An AI agent can now execute shell commands to hit a server or query a file system natively. You do not need a custom microservice to translate a webhook into a database insert. The agent reads the documentation and writes the temporary script on the fly. It tests the endpoint and adjusts the parameters until the data flows correctly.</p><p>We are watching the middleware layer evaporate in real time. Companies built entire valuations on connecting one platform to another. Those valuations are about to collapse. When an agent can navigate an external interface directly from a terminal prompt, the value of prebuilt connectors drops to zero. You stop paying for the bridge and just walk across the river.</p></div><div class="article-section"><div class="article-section-title">Wiring Data Triggers Directly To Action</div><p class="article-section-body">This shifts the entire paradigm of automated lead generation. We talk constantly about using data triggers to find immediate demand. You want to monitor public filings or track commercial building permits to find companies ready to buy. The historical bottleneck was always the integration plumbing. You had the data but lacked the automated hands to process it at scale. Building those connectors took months of expensive engineering time.</p><p>Think about the sales operations manager who wakes up in a cold sweat at three in the morning. A critical third party integration just failed and the lead routing system dumped five hundred hot prospects into a dead inbox. That manager feels a sickening drop in their stomach because they know the revenue attribution will be a mess and the sales team will blame operations for the lost quarter. The psychological toll of maintaining fragile automation is rarely discussed in executive meetings.</p><p>Command line agents eliminate that specific nightmare. You give the agent access to the permit database interface and your internal system. You tell it to check for new commercial filings every hour and create opportunity records. If the external system throws a timeout error, the agent reads the error log and adjusts its retry logic autonomously. It does not wait for a human to debug the workflow chain.<br></p></div><div class="article-section"><div class="article-section-title">The Binary Choice For Technical Leaders</div><p class="article-section-body">You now face a very stark decision regarding your engineering resources. You can keep paying your team to maintain fragile integration layers and debug failing connections. You can keep playing the hunter mindset where your engineers actively chase down every broken link and manually patch the gaps. This approach guarantees burnout and ensures your most expensive talent spends their days doing digital janitorial work. Your competitors are not doing this. They are looking for leverage.</p><p>Or you can adopt the farmer mindset. You plant the agent in your infrastructure and give it the necessary credentials. You define the boundaries and let it cultivate the data ecosystem. The agent handles the messy reality of external systems while your human engineers focus on core product differentiation. You build the soil and let the automation grow the crop. This is how you scale without scaling headcount.</p><p>The companies that win the next decade will not have the most custom integrations. They will have the most autonomous agents navigating standard interfaces. Stop building glue code and start deploying agents that can use the tools you already pay for. The leverage is sitting right there in your terminal waiting for a prompt.<br></p></div></div></div>
+    <div class="article-preview"><div class="article-headline">Claude Code Tool Calls Eliminate Middleware Bloat</div><div class="article-section"><p class="article-section-body"><p>Most AI coding assistants just help you write boilerplate faster. They do not change the fundamental architecture of how a company generates revenue. Claude Code just shipped native tool calls that allow command line agents to interact with any database directly. The internet is celebrating faster unit tests and cleaner refactoring. That is a tragic waste of leverage. We are looking at a structural shift in software communication, and most people are using it to format text files instead of building revenue engines.</p></p></div><div class="article-section"><div class="article-section-title">The Middleware Tax Is Dead</div><p class="article-section-body"><p>Software teams spend an absurd amount of time building glue code. You hire brilliant engineers to write authentication wrappers and format payloads. The lead developer stares at a screen full of rate limit handlers and feels a deep sense of futility because none of this logic actually moves the business forward. They are just plumbing pipes for data that should already be flowing. It is exhausting work that drains morale and delays actual product releases. The opportunity cost is massive.</p>
+<p>This new command line capability changes the physics of integration. An AI agent can now execute shell commands to hit a server or query a file system natively. You do not need a custom microservice to translate a webhook into a database insert. The agent reads the documentation and writes the temporary script on the fly. It tests the endpoint and adjusts the parameters until the data flows correctly.</p>
+<p>We are watching the middleware layer evaporate in real time. Companies built entire valuations on connecting one platform to another. Those valuations are about to collapse. When an agent can navigate an external interface directly from a terminal prompt, the value of prebuilt connectors drops to zero. You stop paying for the bridge and just walk across the river.</p></p></div><div class="article-section"><div class="article-section-title">Wiring Data Triggers Directly To Action</div><p class="article-section-body"><p>This shifts the entire paradigm of automated lead generation. We talk constantly about using data triggers to find immediate demand. You want to monitor public filings or track commercial building permits to find companies ready to buy. The historical bottleneck was always the integration plumbing. You had the data but lacked the automated hands to process it at scale. Building those connectors took months of expensive engineering time.</p>
+<p>Think about the sales operations manager who wakes up in a cold sweat at three in the morning. A critical third party integration just failed and the lead routing system dumped five hundred hot prospects into a dead inbox. That manager feels a sickening drop in their stomach because they know the revenue attribution will be a mess and the sales team will blame operations for the lost quarter. The psychological toll of maintaining fragile automation is rarely discussed in executive meetings.</p>
+<p>Command line agents eliminate that specific nightmare. You give the agent access to the permit database interface and your internal system. You tell it to check for new commercial filings every hour and create opportunity records. If the external system throws a timeout error, the agent reads the error log and adjusts its retry logic autonomously. It does not wait for a human to debug the workflow chain.</p>
+<p>Automation combined with perfect timing equals sales. The agent acts as an infinite leverage mechanism because it treats every external system as a native function. Serendipity becomes a pure math problem when your system can instantly query and act on thousands of data points without human intervention.</p></p></div><div class="article-section"><div class="article-section-title">The Binary Choice For Technical Leaders</div><p class="article-section-body"><p>You now face a very stark decision regarding your engineering resources. You can keep paying your team to maintain fragile integration layers and debug failing connections. You can keep playing the hunter mindset where your engineers actively chase down every broken link and manually patch the gaps. This approach guarantees burnout and ensures your most expensive talent spends their days doing digital janitorial work. Your competitors are not doing this. They are looking for leverage.</p>
+<p>Or you can adopt the farmer mindset. You plant the agent in your infrastructure and give it the necessary credentials. You define the boundaries and let it cultivate the data ecosystem. The agent handles the messy reality of external systems while your human engineers focus on core product differentiation. You build the soil and let the automation grow the crop. This is how you scale without scaling headcount.</p>
+<p>The companies that win the next decade will not have the most custom integrations. They will have the most autonomous agents navigating standard interfaces. Stop building glue code and start deploying agents that can use the tools you already pay for. The leverage is sitting right there in your terminal waiting for a prompt.</p>
+<p>Jonathan Green</p>
+<p>PS</p>
+<ul>
+<li>Scroll to the top.</li>
+<li>Click on Subscribe to newsletter.</li>
+<li>Follow Jonathan Green to never miss a post.</li>
+</ul></p></div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>Claude Code Tool Calls Eliminate Middleware Bloat
@@ -1155,7 +965,7 @@ Learn how to use AI to slash your company's overhead in my profile.
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The target lands at 90 because it delivers a polished, fully sectioned sales page with hero, problem/promise contrast, pricing tiers, P.S., guarantee badge, sticky mobile CTA, and a live countdown — close to Reference C's structural completeness. The voice is on-brand with vivid pain hooks like &quot;copy-paste prison&quot; and a concrete value anchor (&quot;$23,528 worth of automation training, tools, and support for just $1,497&quot;). It trails C because it leans on generic stacks instead of specific testimonials and proof, the countdown is decorative rather than wired to a real deadline, and a few sections (Warning, P.S.) repeat earlier beats rather than escalating, keeping it just shy of C's 99.</p>
+          <p><p>The target lands at 90 because it delivers a polished, fully sectioned sales page with hero, problem/promise contrast, pricing tiers, P.S., guarantee badge, sticky mobile CTA, and a live countdown — close to Reference C's structural completeness. The voice is on-brand with vivid pain hooks like &quot;copy-paste prison&quot; and a concrete value anchor (&quot;$23,528 worth of automation training, tools, and support for just $1,497&quot;). It trails C because it leans on generic stacks instead of specific testimonials and proof, the countdown is decorative rather than wired to a real deadline, and a few sections (Warning, P.S.) repeat earlier beats rather than escalating, keeping it just shy of C's 99.</p></p>
         </div><div class="screenshot-section">
           <h4 style="color: var(--purple-mid); margin: 16px 0 8px;">Desktop Rendering</h4>
           <div class="screenshot-grid">
@@ -2128,7 +1938,7 @@ Learn how to use AI to slash your company's overhead in my profile.
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The target sits firmly between Reference B (85) and Reference C (96) because it adopts C's split interfaces (FailedInvoice, EventCounts, WebhookEventData) and uses true constant-time comparison via &quot;timingSafeEqual(expectedBuffer, actualBuffer)&quot;, but stops short of C's full unknown[] input typing and isWebhookEvent type guard. Inline structural validation throwing &quot;Malformed event structure&quot; is solid, yet small smells remain: the unused status variable in subscription_updated, and invoice_failed coercing a missing attempt_count to 0 instead of treating it as malformed. Compared most closely to C, it matches security rigor but trails on input-boundary typing and field-level strictness, landing at 89.</p>
+          <p><p>The target sits firmly between Reference B (85) and Reference C (96) because it adopts C's split interfaces (FailedInvoice, EventCounts, WebhookEventData) and uses true constant-time comparison via &quot;timingSafeEqual(expectedBuffer, actualBuffer)&quot;, but stops short of C's full unknown[] input typing and isWebhookEvent type guard. Inline structural validation throwing &quot;Malformed event structure&quot; is solid, yet small smells remain: the unused status variable in subscription_updated, and invoice_failed coercing a missing attempt_count to 0 instead of treating it as malformed. Compared most closely to C, it matches security rigor but trails on input-boundary typing and field-level strictness, landing at 89.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Code Analysis</h4>
       <div class="callout-box info">
@@ -2400,7 +2210,7 @@ export function processWebhookEvents(
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET lands at 72 because it cleanly executes the core &quot;messy middle becomes an asset&quot; frame with a crisp reframe — &quot;This isn't about what AI can do. It's about who can finally use it.&quot; — but it stays abstract where Reference C earns its 97 through visceral specificity (847 pages, 14 seconds, $3k saved, a bakery owner crying). Compared to Reference B's 59, the TARGET is tighter and lands the pivot faster, with a more textured PS (&quot;the kids negotiate who gets the last mango&quot;). It lacks a concrete numbered case study, so it clears B comfortably but cannot reach C's proof-driven punch.</p>
+          <p><p>The TARGET lands at 72 because it cleanly executes the core &quot;messy middle becomes an asset&quot; frame with a crisp reframe — &quot;This isn't about what AI can do. It's about who can finally use it.&quot; — but it stays abstract where Reference C earns its 97 through visceral specificity (847 pages, 14 seconds, $3k saved, a bakery owner crying). Compared to Reference B's 59, the TARGET is tighter and lands the pivot faster, with a more textured PS (&quot;the kids negotiate who gets the last mango&quot;). It lacks a concrete numbered case study, so it clears B comfortably but cannot reach C's proof-driven punch.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Email Preview</h4>
     <div class="email-preview"><div class="email-subject"><strong>Subject:</strong> Your messy Google Docs just became valuable</div><div class="email-preview-text"><strong>Preview:</strong> A new AI update changes everything for small business owners who hate organizing files.</div><div class="email-body">Tech news usually puts me to sleep... but a new AI model just dropped that processes one million tokens at once.</p><p>That is roughly ten full books in a single prompt.</p><p>The tech bros are losing their minds over the raw math — they are missing the point.</p><p>This isn't about what AI can do.</p><p>It's about who can finally use it.</p><p>For the last two years, getting good answers meant feeding the machine perfectly structured data.</p><p>You had to organize your business first... which small business owners simply don't have time for.</p><p>Now you can skip the cleanup.</p><p>Imagine you have a chaotic folder of client onboarding notes, half-written SOPs, and random PDFs from three years ago.</p><p>Before, that mess was a liability.</p><p>Today, you just drag and drop the entire chaotic folder into the prompt.</p><p>You ask it to write a new onboarding sequence based on everything you've ever done.</p><p>And it actually works.</p><p>The MESSY middle of your business just became your biggest asset.</p><p>You don't need to hire a consultant to organize your digital life anymore.</p><p>You just feed the machine your beautiful, chaotic REALITY.</p><p>What is the one messy folder on your computer you would love to dump into an AI today?</p><p>Hit reply and tell me about it.</p><p>I read every single one.</div><div class="email-signature">Jonathan Green</div><div class="email-ps">PS. The power just went out again while I was writing this, so I'm finishing it on my phone while the kids negotiate who gets the last mango.</div></div></div>
@@ -2460,12 +2270,12 @@ PS. The power just went out again while I was writing this, so I'm finishing it 
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>This target lands at 90 because it matches Reference C's structural completeness while adding sharper editorial judgment. It separates genuine insight from hype, flagging that &quot;the hard part—iteratively testing and building the vision-based clicking tool—was done off-camera&quot; and that the agent &quot;doesn't actually 'understand' the context of the sites it visits.&quot; Specific numbers ($1,300 spend, missing coffee table, Imgur fallback) ground the summary in observed detail rather than abstraction. It edges past Reference B's 81 with crisper caveats and a more honest &quot;Bottom Line,&quot; but falls short of C's 99 because the technical-details section is slightly looser and the parallel headers/bullets aren't quite as scannable.</p>
+          <p><p>This target lands at 90 because it matches Reference C's structural completeness while adding sharper editorial judgment. It separates genuine insight from hype, flagging that &quot;the hard part—iteratively testing and building the vision-based clicking tool—was done off-camera&quot; and that the agent &quot;doesn't actually 'understand' the context of the sites it visits.&quot; Specific numbers ($1,300 spend, missing coffee table, Imgur fallback) ground the summary in observed detail rather than abstraction. It edges past Reference B's 81 with crisper caveats and a more honest &quot;Bottom Line,&quot; but falls short of C's 99 because the technical-details section is slightly looser and the parallel headers/bullets aren't quite as scannable.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Summary Breakdown</h4>
       <div class="callout-box info">
         <div class="callout-label">TLDR</div>
-        <p>The creator tests a parallel browser automation setup using Claude and the Chrome DevTools Protocol (CDP) across three tasks: Amazon shopping, CAPTCHA solving, and Reddit posting. While parallel execution and CAPTCHA solving worked well, the Reddit task required manual human intervention, proving this setup is still highly experimental and requires babysitting.</p>
+        <p><p>The creator tests a parallel browser automation setup using Claude and the Chrome DevTools Protocol (CDP) across three tasks: Amazon shopping, CAPTCHA solving, and Reddit posting. While parallel execution and CAPTCHA solving worked well, the Reddit task required manual human intervention, proving this setup is still highly experimental and requires babysitting.</p></p>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -2509,16 +2319,22 @@ Watch this if you're building CDP-based browser agents and want to see how paral
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The target lands at 90 because it executes nearly every move Reference C makes — cutting throat-clearing, fixing typos, taming the all-caps &quot;WIDENING,&quot; and stripping the hedging conclusion — while preserving voice with confident phrasing like &quot;It will turn that gap into a canyon.&quot; Compared to Reference C (96), it keeps slightly more connective tissue (&quot;too,&quot; &quot;actually,&quot; &quot;exact same&quot;) and a marginally softer opener that retains &quot;Everyone's talking about,&quot; where C deletes the throat-clearing more aggressively. The changelog is specific and honest about trade-offs (e.g., keeping &quot;3x&quot; as business shorthand), placing it well above B's 74 but just shy of C's surgical compression.</p>
+          <p><p>The target lands at 90 because it executes nearly every move Reference C makes — cutting throat-clearing, fixing typos, taming the all-caps &quot;WIDENING,&quot; and stripping the hedging conclusion — while preserving voice with confident phrasing like &quot;It will turn that gap into a canyon.&quot; Compared to Reference C (96), it keeps slightly more connective tissue (&quot;too,&quot; &quot;actually,&quot; &quot;exact same&quot;) and a marginally softer opener that retains &quot;Everyone's talking about,&quot; where C deletes the throat-clearing more aggressively. The changelog is specific and honest about trade-offs (e.g., keeping &quot;3x&quot; as business shorthand), placing it well above B's 74 but just shy of C's surgical compression.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Editing Analysis</h4>
     <div class="edited-text-box">
       <div class="callout-label">EDITED TEXT</div>
-      <div class="edited-text">Most people are getting AI completely wrong. Everyone's talking about how it's going to replace developers, writers, and other jobs, but that's not what I'm seeing in my business.</p><p>What I'm actually seeing is that AI makes good people better and bad people worse. Good writers use it to produce 3x more content that's just as good. Bad writers use it to produce 3x more garbage. Same thing with code. My best developers use AI as a copilot and ship features way faster. My worst developers use it as a crutch and still ship bugs—just different bugs.</p><p>The real disruption isn't replacement; it's amplification. If you were a 7 out of 10 marketer before AI, now you're operating at a 9. If you were a 3, AI bumps you to maybe a 4 on a good day. The gap between good and bad is actually widening, not shrinking.</p><p>This has massive implications for hiring, too. Why would you hire a mediocre person with AI tools when you could hire an excellent person with the exact same tools? The leverage multiplier is completely different. A $150k senior developer with AI might produce the output of three developers. An $80k junior with AI produces... slightly better junior output.</p><p>The people who should be most worried aren't those afraid of being replaced. It's those who think AI will close the skill gap between them and their more talented colleagues. It won't. It will turn that gap into a canyon.</p><p>If you're running a business, you need to look past the media narrative of &quot;AI replaces jobs.&quot; The real question is: does AI amplify your existing team's strengths, or does it just make their weaknesses more productive? Those are two very different outcomes.</p><p><em>*</em></p><p>###</div>
+      <div class="edited-text"><p>Most people are getting AI completely wrong. Everyone's talking about how it's going to replace developers, writers, and other jobs, but that's not what I'm seeing in my business.</p>
+<p>What I'm actually seeing is that AI makes good people better and bad people worse. Good writers use it to produce 3x more content that's just as good. Bad writers use it to produce 3x more garbage. Same thing with code. My best developers use AI as a copilot and ship features way faster. My worst developers use it as a crutch and still ship bugs—just different bugs.</p>
+<p>The real disruption isn't replacement; it's amplification. If you were a 7 out of 10 marketer before AI, now you're operating at a 9. If you were a 3, AI bumps you to maybe a 4 on a good day. The gap between good and bad is actually widening, not shrinking.</p>
+<p>This has massive implications for hiring, too. Why would you hire a mediocre person with AI tools when you could hire an excellent person with the exact same tools? The leverage multiplier is completely different. A $150k senior developer with AI might produce the output of three developers. An $80k junior with AI produces... slightly better junior output.</p>
+<p>The people who should be most worried aren't those afraid of being replaced. It's those who think AI will close the skill gap between them and their more talented colleagues. It won't. It will turn that gap into a canyon.</p>
+<p>If you're running a business, you need to look past the media narrative of &quot;AI replaces jobs.&quot; The real question is: does AI amplify your existing team's strengths, or does it just make their weaknesses more productive? Those are two very different outcomes.</p>
+<p><em>*</em></p></div>
     </div>
       <div class="callout-box changelog">
         <div class="callout-label">CHANGELOG (7 changes)</div>
-        <ul class="changelog-list"><li>**Cut throat-clearing and filler:** Removed conversational fluff like &quot;So I've been thinking about this alot lately,&quot; &quot;Like,&quot;, &quot;Seriously,&quot; and &quot;Here's what nobody is talking about though&quot; to get straight to your points.</li><li>**Fixed typos and grammar:** Corrected &quot;alot,&quot; &quot;thats,&quot; &quot;its&quot; (to it's), and changed &quot;A $80k&quot; to &quot;An $80k.&quot;</li><li>**Tightened the examples:** Streamlined the writer and developer comparisons in paragraph two to remove repetitive phrasing while keeping your punchy contrast.</li><li>**Removed all-caps:** Changed &quot;WIDENING&quot; to standard text with proper comma placement. The argument is strong enough to carry the emphasis without shouting.</li><li>**Smoothed the metaphor:** Changed &quot;make that gap a canyon&quot; to &quot;turn that gap into a canyon&quot; for more natural phrasing while keeping your excellent imagery.</li><li>**Strengthened the conclusion:** Stripped the hesitant phrasing (&quot;I don't have all the answers here but I think&quot;) from the final paragraph so you end on a much more confident, authoritative note.</li><li>**Improved number formatting:** Changed &quot;3 developers&quot; to &quot;three developers&quot; to align with standard style conventions, while keeping &quot;3x&quot; as it's common business shorthand.</li></ul>
+        <ul class="changelog-list"><li><strong>Cut throat-clearing and filler:</strong> Removed conversational fluff like &quot;So I've been thinking about this alot lately,&quot; &quot;Like,&quot;, &quot;Seriously,&quot; and &quot;Here's what nobody is talking about though&quot; to get straight to your points.</li><li><strong>Fixed typos and grammar:</strong> Corrected &quot;alot,&quot; &quot;thats,&quot; &quot;its&quot; (to it's), and changed &quot;A $80k&quot; to &quot;An $80k.&quot;</li><li><strong>Tightened the examples:</strong> Streamlined the writer and developer comparisons in paragraph two to remove repetitive phrasing while keeping your punchy contrast.</li><li><strong>Removed all-caps:</strong> Changed &quot;WIDENING&quot; to standard text with proper comma placement. The argument is strong enough to carry the emphasis without shouting.</li><li><strong>Smoothed the metaphor:</strong> Changed &quot;make that gap a canyon&quot; to &quot;turn that gap into a canyon&quot; for more natural phrasing while keeping your excellent imagery.</li><li><strong>Strengthened the conclusion:</strong> Stripped the hesitant phrasing (&quot;I don't have all the answers here but I think&quot;) from the final paragraph so you end on a much more confident, authoritative note.</li><li><strong>Improved number formatting:</strong> Changed &quot;3 developers&quot; to &quot;three developers&quot; to align with standard style conventions, while keeping &quot;3x&quot; as it's common business shorthand.</li></ul>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -2554,7 +2370,7 @@ If you're running a business, you need to look past the media narrative of &quot
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The target sits just below Reference C because it matches C's &quot;show the gap, not the service&quot; thesis with equally concrete, non-obvious tactics, but trims to 5 ideas instead of 6 and leans slightly more formulaic in structure. Standouts like &quot;I mystery-shopped your business on Tuesday&quot; and the &quot;Dumb Bot Bounty&quot; deliver the same prototype-on-arrival proof C uses, anchoring price against a $45k salary and weaponizing LLM context against legacy decision trees. Tradeoff Profiles and contractor delegation add operational realism C lacks. Falls short of 97 because the prose is tighter and less mentor-voiced, with fewer crisp tactical aphorisms like C's &quot;glue between other software.&quot;</p>
+          <p><p>The target sits just below Reference C because it matches C's &quot;show the gap, not the service&quot; thesis with equally concrete, non-obvious tactics, but trims to 5 ideas instead of 6 and leans slightly more formulaic in structure. Standouts like &quot;I mystery-shopped your business on Tuesday&quot; and the &quot;Dumb Bot Bounty&quot; deliver the same prototype-on-arrival proof C uses, anchoring price against a $45k salary and weaponizing LLM context against legacy decision trees. Tradeoff Profiles and contractor delegation add operational realism C lacks. Falls short of 97 because the prose is tighter and less mentor-voiced, with fewer crisp tactical aphorisms like C's &quot;glue between other software.&quot;</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">5 Strategies</h4>
     <div class="strategy-grid">
@@ -2562,35 +2378,70 @@ If you're running a business, you need to look past the media narrative of &quot
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Mystery Shopper&quot; Teardown Outreach</div>
-          <p class="strategy-preview">Most SMBs don’t know their lead follow-up or customer service is broken because the founder isn't on the front lines. You will prove it to them by becoming their customer.  *   **What exactly to do:**...</p>
+          <div class="strategy-preview"><p>Most SMBs don’t know their lead follow-up or customer service is broken because the founder isn't on the front lines. You will prove it to them by becoming their customer.</p>
+<ul>
+<li><strong>What exactly to do:</strong> Identify 10 high-ticket local or niche SMBs (e.g., high-end landscaping, boutique wealth management, specialized B2B manufacturers). Have your contractor act as a lead: fill out their website form, call their main line, and ask a complex question via their website chat. Record the response time and the quality of the reply. Then, build a working n8n/Make workflow and a Custom GPT that solves their exact failure point. Send the founder a 3-minute Loom video: <em>&quot;I mystery-shopped your business on Tuesday. It took 14 hours to get a reply, and it didn't answer my question about pricing. I built this AI agent this morning that captures the lead, qualifies them, and replies in 30 seconds. Here is a live demo of it working. Want me to plug it into your actual CRM?&quot;</em></li>
+<li><strong>Expected time investment:</strong> 3-4 hours per week (delegate the mystery shopping and initial workflow building to your contractor).</li>
+<li><strong>Expected timeline to first client:</strong> 2 to 4 weeks.</li>
+<li><strong>Why this works specifically for AI consulting:</strong> AI is abstract until it’s applied to a specific pain point. By showing a working prototype using <em>their actual business context</em>, you bypass the &quot;education&quot; phase of the sale. You aren't selling &quot;AI&quot;; you are selling &quot;the fix to the 14-hour response time I just proved you have.&quot;</li>
+<li><strong>Tradeoff Profile:</strong> High effort per lead, but extremely high conversion rate. Quick win.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">The Industry-Specific Software &quot;Trojan Horse&quot; Partnerships</div>
-          <p class="strategy-preview">SMBs with 10-50 employees usually rely on heavy, industry-specific software (e.g., ServiceTitan for HVAC, Clio for law firms, Procore for construction, Practice Ignition for accounting). The agencies ...</p>
+          <div class="strategy-preview"><p>SMBs with 10-50 employees usually rely on heavy, industry-specific software (e.g., ServiceTitan for HVAC, Clio for law firms, Procore for construction, Practice Ignition for accounting). The agencies that implement this software have the clients' trust, but they rarely build custom AI/automation bridges between that software and the rest of the client's stack.</p>
+<ul>
+<li><strong>What exactly to do:</strong> Pick <em>one</em> niche software (e.g., Clio for mid-sized law firms). Find 15 boutique implementation consultants or RevOps agencies for that software on LinkedIn (look for agencies with 3-10 employees). Message the founder: <em>&quot;I build custom n8n/Make automations specifically for [Software] users. I know your clients constantly ask for custom integrations between [Software] and their marketing/tools, which eats up your team's billable hours. I'd love to be your white-label automation partner. You sell the integration as a value-add, I build it, we split the margin.&quot;</em> Offer to build one internal automation for <em>their</em> agency for free to prove your competence.</li>
+<li><strong>Expected time investment:</strong> 2 hours per week (researching partners and sending highly personalized outreach).</li>
+<li><strong>Expected timeline to first client:</strong> 2 to 3 months (requires building the relationship and waiting for their next client implementation).</li>
+<li><strong>Why this works specifically for AI consulting:</strong> SMBs trust their software implementers. If the Clio consultant says, &quot;You need to talk to my AI automation guy to connect Clio to your email marketing,&quot; the sale is 80% done. It also solves the &quot;they don't know they need it&quot; problem because the partner already knows where the client's manual data-entry bottlenecks are.</li>
+<li><strong>Tradeoff Profile:</strong> Low weekly time investment, highly scalable, but a long-term play. Requires sharing margins (usually 15-20%) with the partner.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Hiring Signal&quot; Sniper Campaign</div>
-          <p class="strategy-preview">When a 20-person company is hiring for manual, repetitive roles, they are actively feeling the pain of un-automated workflows and have already allocated budget to solve it.  *   **What exactly to do:*...</p>
+          <div class="strategy-preview"><p>When a 20-person company is hiring for manual, repetitive roles, they are actively feeling the pain of un-automated workflows and have already allocated budget to solve it.</p>
+<ul>
+<li><strong>What exactly to do:</strong> Have your contractor monitor job boards (Indeed, LinkedIn, specialized niche boards) for SMBs hiring for &quot;Data Entry Clerk,&quot; &quot;Lead Qualification Specialist,&quot; &quot;Billing Coordinator,&quot; or &quot;Tier 1 Customer Support.&quot; When you find a match, find the Founder or VP of Operations on LinkedIn. Send this exact message: <em>&quot;Saw you're hiring a Data Entry Clerk at $45k/yr + benefits. Before you commit to a 3-month hiring and training cycle, I build AI agents that process invoices/documents automatically. It costs a one-time $3,500 setup and $500/mo, handles 80% of the volume, and never calls in sick. Open to a 10-minute demo of an agent doing the exact job description you posted?&quot;</em></li>
+<li><strong>Expected time investment:</strong> 2 hours per week (contractor builds the lead list and queues the messages; you handle the replies and demos).</li>
+<li><strong>Expected timeline to first client:</strong> 3 to 5 weeks.</li>
+<li><strong>Why this works specifically for AI consulting:</strong> You are anchoring your price against a human salary, making your $3k-$4k/month retainer look like a massive bargain. It targets companies at the exact moment they have budget allocated for operational efficiency.</li>
+<li><strong>Tradeoff Profile:</strong> Very cheap, highly targeted, and a quick win. However, it requires constant monitoring of job boards and you will face objections from HR/Hiring managers who just want to fill their req. Target Founders/COOs instead.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">The Live &quot;Workflow Roast&quot; at Niche Masterminds</div>
-          <p class="strategy-preview">SMB founders in the 10-50 employee range hang out in peer groups (EO, Vistage, YPO, or industry-specific masterminds). They don't want to listen to a pitch deck about AI; they want to see how it appli...</p>
+          <div class="strategy-preview"><p>SMB founders in the 10-50 employee range hang out in peer groups (EO, Vistage, YPO, or industry-specific masterminds). They don't want to listen to a pitch deck about AI; they want to see how it applies to their messy reality.</p>
+<ul>
+<li><strong>What exactly to do:</strong> Identify local or virtual chapters of these masterminds. Contact the chapter president and offer to provide a 20-minute &quot;Live Workflow Roast&quot; for their next meeting, completely free, with no pitch at the end. During the meeting, ask 3 volunteers to describe their most annoying, time-consuming weekly manual process. Open your screen, share a Miro board or a live n8n canvas, and architect the AI/automation solution <em>live on the spot</em>. Explain the logic, the tools you'd use, and the exact hours it will save. At the end, say: <em>&quot;I've mapped out these three solutions. If anyone wants me to actually build and deploy them, my calendar link is in the chat. Otherwise, feel free to hand these maps to your internal IT team.&quot;</em></li>
+<li><strong>Expected time investment:</strong> 4-6 hours per event (prep, attending, and follow-up). Aim for 1 event per month.</li>
+<li><strong>Expected timeline to first client:</strong> 1 to 2 weeks post-event.</li>
+<li><strong>Why this works specifically for AI consulting:</strong> AI consulting requires deep trust because you are touching core business operations. Doing a live &quot;roast&quot; proves your expertise in real-time, stripping away the &quot;snake oil&quot; vibe many founders associate with AI. It shifts you from a &quot;vendor&quot; to an &quot;expert peer.&quot;</li>
+<li><strong>Tradeoff Profile:</strong> High effort per event, requires public speaking skills, and geographically limited if done in person. However, it yields the highest quality leads and highest closing rates.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Dumb Bot&quot; Bounty</div>
-          <p class="strategy-preview">Almost every 10-50 employee company has installed a rule-based, decision-tree chatbot on their website (Intercom, Drift, standard Chatra) that frustrates users with &quot;I didn't understand that, please t...</p>
+          <div class="strategy-preview"><p>Almost every 10-50 employee company has installed a rule-based, decision-tree chatbot on their website (Intercom, Drift, standard Chatra) that frustrates users with &quot;I didn't understand that, please type 1 for Sales, 2 for Support.&quot;</p>
+<ul>
+<li><strong>What exactly to do:</strong> Use a tool like BuiltWith or manually browse 50 target company websites to find those using legacy, rule-based chat widgets. Intentionally break the bot by asking a nuanced, multi-part question (e.g., &quot;Do you offer volume discounts for enterprise clients if we sign a 2-year contract, and what is your SLA for onboarding?&quot;). Take a screenshot of the bot failing or looping. Build a Custom GPT, ingest their public website PDFs/pricing pages, and prompt it to act as their specific sales engineer. Record a 60-second screen capture of your Custom GPT answering the exact question their bot failed to answer. Email the CEO/CMO: <em>&quot;Your website bot just lost a potential enterprise lead because it couldn't answer a multi-part pricing question. I built a custom AI trained on your actual pricing pages that answers it perfectly in 3 seconds. See attached video. I can swap this into your site by Friday.&quot;</em></li>
+<li><strong>Expected time investment:</strong> 3 hours per week (contractor identifies the sites and breaks the bots; you build the Custom GPTs and record the videos).</li>
+<li><strong>Expected timeline to first client:</strong> 2 to 4 weeks.</li>
+<li><strong>Why this works specifically for AI consulting:</strong> This directly weaponizes the specific capability of LLMs (contextual understanding) against the specific limitation of older tech (rigid decision trees). It’s a highly visual, undeniable demonstration of ROI that a non-technical founder can instantly understand.</li>
+<li><strong>Tradeoff Profile:</strong> Medium effort, highly scalable. The tradeoff is that swapping out a chatbot might only be a $1,500 project, so you must use it strictly as a &quot;foot in the door&quot; to upsell the $3k/mo comprehensive workflow retainer once you are in.</li>
+</ul></div>
         </div>
       </div></div></div>
         <details class="output-details">
@@ -2650,16 +2501,18 @@ Almost every 10-50 employee company has installed a rule-based, decision-tree ch
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET matches Reference C's 94 because it executes the same rigorous decay math without rounding shortcuts while adding genuine analytical extensions: a full month-by-month bank balance table for each option, an LTV:CAC ratio computed for all three plans, and a sensitivity check noting that &quot;even if churn only drops to 6%, Plan A's Month 8 MRR would be $105,026 — still well above the $85K threshold.&quot; The recommendation is decisive and quantified ($369,295 advantage, 2.58x per-customer value), and the closing risk-mitigation tip on pairing the price hike with a value-add edges out C's purely numerical close.</p>
+          <p><p>The TARGET matches Reference C's 94 because it executes the same rigorous decay math without rounding shortcuts while adding genuine analytical extensions: a full month-by-month bank balance table for each option, an LTV:CAC ratio computed for all three plans, and a sensitivity check noting that &quot;even if churn only drops to 6%, Plan A's Month 8 MRR would be $105,026 — still well above the $85K threshold.&quot; The recommendation is decisive and quantified ($369,295 advantage, 2.58x per-customer value), and the closing risk-mitigation tip on pairing the price hike with a value-add edges out C's purely numerical close.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Analysis Highlights</h4>
       <div class="callout-box info">
         <div class="callout-label">KEY FINDINGS</div>
-        <ul class="feature-list"><li>Recommendation: PLAN A</li></ul>
+        <ul class="feature-list"><li><p>Recommendation: PLAN A</p></li></ul>
       </div>
       <div class="callout-box section">
         <div class="callout-label">OPTIONS ANALYZED</div>
-        <ul class="feature-list"><li>Plan B, the 20% customer gain (480 new customers) requires acquisition spend: 480 × $180 = **$86,400 upfront CAC**, reducing the starting bank balance. Plans Current and A involve no new acquisition spend (only price/churn changes to the existing base).</li><li>OPTION 1: CURRENT PLAN ($49/month, 8% churn)</li><li>OPTION 2: PLAN A ($79/month, 5% churn, −15% customers)</li><li>OPTION 3: PLAN B ($39/month, 8% churn, +20% customers)</li><li>Plan A | Plan B |</li></ul>
+        <ul class="feature-list"><li>Plan B, the 20% customer gain (480 new customers) requires acquisition spend: 480 × $180 = <strong>$86,400 upfront CAC</strong>, reducing the starting bank balance. Plans Current and A involve no new acquisition spend (only price/churn changes to the existing base).</li><li>OPTION 1: CURRENT PLAN ($49/month, 8% churn)</li><li>OPTION 2: PLAN A ($79/month, 5% churn, −15% customers)</li><li>OPTION 3: PLAN B ($39/month, 8% churn, +20% customers)</li><li>PLAN A
+
+<strong>Plan A is the clear winner.</strong> Here is the rigorous case:</li></ul>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -2914,7 +2767,7 @@ The primary risk of Plan A is that churn doesn't actually drop to 5%. A sensitiv
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET lands at 78 because it sits squarely between Reference A (74) and Reference B (82), sharing A's bare-number style for items like &quot;$2.5 million&quot; and &quot;18,400&quot; while edging upward thanks to a single contextual upgrade: it identifies item 2 as &quot;Principal Engineer Tomás Salazar&quot; rather than just the name, matching B and C on that one line. Everything else is stripped to raw figures with no parenthetical context, peer-reviewed qualifier, or account descriptor, so it cannot reach B's consistent mid-tier polish. Closest to Reference A in texture, slightly richer in one slot — 78 is the honest midpoint.</p>
+          <p><p>The TARGET lands at 78 because it sits squarely between Reference A (74) and Reference B (82), sharing A's bare-number style for items like &quot;$2.5 million&quot; and &quot;18,400&quot; while edging upward thanks to a single contextual upgrade: it identifies item 2 as &quot;Principal Engineer Tomás Salazar&quot; rather than just the name, matching B and C on that one line. Everything else is stripped to raw figures with no parenthetical context, peer-reviewed qualifier, or account descriptor, so it cannot reach B's consistent mid-tier polish. Closest to Reference A in texture, slightly richer in one slot — 78 is the honest midpoint.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Answers (10 questions)</h4>
     <div class="answers-grid">

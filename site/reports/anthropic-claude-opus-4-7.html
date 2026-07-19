@@ -32,6 +32,14 @@
     --border: #E2E8F0;
     --font-display: 'Bangers', cursive;
     --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Type scale (report breakouts) — keep the page to a few sizes */
+    --fs-label: 0.72rem;
+    --fs-small: 0.8rem;
+    --fs-body: 0.9rem;
+    --fs-title: 1rem;
+    --fs-lead: 1.2rem;
+    --text-body: #334155;
+    --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -175,309 +183,97 @@
   .footer-copy { font-size: 0.75rem; opacity: 0.4; }
 
     
-  /* Breakout sections */
-  .breakout-section {
-    margin: 16px 0;
-  }
+  /* ===== Breakout design system: one type scale + shared primitives across all 10 categories ===== */
+  .breakout-section { margin: 18px 0; }
   .breakout-title {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--purple-mid);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    color: var(--magenta); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;
   }
 
-  /* Platform cards grid (social media) */
-  .platform-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 16px;
+  /* Shared card shell */
+  .platform-card, .email-preview, .article-preview, .edited-text-box, .strategy-card, .answer-card, .code-display {
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
   }
-  .platform-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
+
+  /* Shared reading text (one size, readable color, everywhere) */
+  .platform-body, .callout-box, .email-body, .article-section-body, .edited-text, .strategy-preview, .answer-text, .feature-list li, .changelog-list li {
+    font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.6; color: var(--text-body);
   }
-  .platform-header {
-    background: var(--purple-dark);
-    color: white;
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .platform-body strong, .callout-box strong, .article-section-body strong, .answer-text strong, .feature-list li strong, .strategy-preview strong, .email-body strong { color: var(--text-primary); font-weight: 700; }
+  .article-section-body p, .strategy-preview p, .edited-text p, .email-body p { margin-bottom: 8px; }
+  .article-section-body ul, .strategy-preview ul, .callout-box ul { margin: 6px 0 6px 18px; }
+  .article-section-body p:last-child, .strategy-preview p:last-child { margin-bottom: 0; }
+
+  /* Shared content title */
+  .article-section-title, .strategy-title {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-title);
+    color: var(--text-primary); margin-bottom: 5px; line-height: 1.35;
   }
-  .platform-icon {
-    font-size: 1rem;
-    width: 24px;
-    text-align: center;
+
+  /* Shared small uppercase label/pill */
+  .callout-label, .code-lang-tag, .platform-header {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    letter-spacing: 0.07em; text-transform: uppercase;
   }
-  .platform-body {
-    padding: 12px;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--text-primary);
-    max-height: 200px;
-    overflow-y: auto;
+
+  /* Shared numbered marker */
+  .strategy-num, .answer-num {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-lead);
+    color: var(--purple-mid); line-height: 1.2; text-align: center;
   }
+
+  /* Social platform cards */
+  .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .platform-header { background: var(--purple-dark); color: white; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
+  .platform-icon { font-size: var(--fs-body); width: 22px; text-align: center; }
+  .platform-body { padding: 12px; max-height: 220px; overflow-y: auto; }
 
   /* Callout boxes */
-  .callout-box {
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin: 10px 0;
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-  .callout-box.info {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-  }
-  .callout-box.creative {
-    background: #faf5ff;
-    border: 1px solid #e9d5ff;
-  }
-  .callout-box.changelog {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-  }
-  .callout-box.section {
-    background: #f8fafc;
-    border: 1px solid var(--border);
-  }
-  .callout-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--purple-mid);
-    margin-bottom: 6px;
-  }
+  .callout-box { border-radius: var(--radius); padding: 14px 16px; margin: 10px 0; }
+  .callout-box.info { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .callout-box.creative { background: #faf5ff; border: 1px solid #e9d5ff; }
+  .callout-box.changelog { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .callout-box.section { background: var(--bg-light); border: 1px solid var(--border); }
+  .callout-label { display: inline-block; color: var(--purple-mid); margin-bottom: 8px; }
 
-  /* Feature list */
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .feature-list li {
-    padding: 3px 0 3px 20px;
-    position: relative;
-    font-size: 0.85rem;
-  }
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--green);
-    font-weight: 700;
-  }
+  /* Check list */
+  .feature-list { list-style: none; padding: 0; margin: 0; }
+  .feature-list li { padding: 4px 0 4px 22px; position: relative; }
+  .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
-  /* Email preview */
-  .email-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 0.9rem;
-  }
-  .email-subject {
-    background: #f1f5f9;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-  .email-preview-text {
-    padding: 8px 16px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
-    font-style: italic;
-  }
-  .email-body {
-    padding: 16px;
-    line-height: 1.7;
-  }
-  .email-body p { margin-bottom: 12px; }
-  .email-signature {
-    padding: 8px 16px;
-    color: var(--text-secondary);
-    font-weight: 600;
-  }
-  .email-ps {
-    padding: 12px 16px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-style: italic;
-    font-size: 0.88rem;
-  }
+  /* Email */
+  .email-subject { background: var(--bg-gray); padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: var(--fs-title); color: var(--text-primary); }
+  .email-preview-text { padding: 8px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: var(--fs-small); font-style: italic; }
+  .email-body { padding: 16px; }
+  .email-signature { padding: 10px 16px; color: var(--text-primary); font-weight: 600; font-size: var(--fs-body); }
+  .email-ps { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--text-secondary); font-style: italic; font-size: var(--fs-small); }
 
-  /* Code display */
-  .code-display {
-    background: #1e293b;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 8px 0;
-  }
-  .code-lang-tag {
-    background: var(--blue);
-    color: white;
-    padding: 4px 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    margin: 8px 0 0 8px;
-    border-radius: 4px;
-  }
-  .code-display pre {
-    padding: 16px;
-    color: #e2e8f0;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.78rem;
-    line-height: 1.6;
-    overflow-x: auto;
-    max-height: 400px;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+  /* Code */
+  .code-lang-tag { background: var(--blue); color: white; padding: 4px 12px; display: inline-block; margin: 8px 0 0 8px; border-radius: 6px; }
+  .code-display { background: #1e293b; margin: 8px 0; }
+  .code-display pre { padding: 16px; color: #e2e8f0; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: var(--fs-small); line-height: 1.6; overflow-x: auto; max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; }
 
-  /* Article preview */
-  .article-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .article-headline {
-    padding: 16px 20px;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--purple-dark);
-    border-bottom: 2px solid var(--magenta);
-    line-height: 1.3;
-  }
-  .article-section {
-    padding: 12px 20px;
-    border-bottom: 1px solid var(--border);
-  }
+  /* Article */
+  .article-headline { padding: 16px 20px; font-size: var(--fs-lead); font-weight: 700; color: var(--purple-dark); border-bottom: 2px solid var(--magenta); line-height: 1.3; }
+  .article-section { padding: 14px 20px; border-bottom: 1px solid var(--border); }
   .article-section:last-child { border-bottom: none; }
-  .article-section-title {
-    font-weight: 700;
-    color: var(--purple-mid);
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-  }
-  .article-section-body {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
 
-  /* Edited text box */
-  .edited-text-box {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-  .edited-text {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--text-primary);
-  }
-  .edited-text p { margin-bottom: 10px; }
-  .changelog-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .changelog-list li {
-    padding: 4px 0 4px 20px;
-    position: relative;
-    font-size: 0.83rem;
-    line-height: 1.5;
-  }
-  .changelog-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-    font-weight: 700;
-  }
+  /* Editing */
+  .edited-text-box { padding: 16px; margin-bottom: 12px; }
+  .changelog-list { list-style: none; padding: 0; margin: 0; }
+  .changelog-list li { padding: 4px 0 4px 22px; position: relative; }
+  .changelog-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 
-  /* Strategy cards */
-  .strategy-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .strategy-card {
-    display: flex;
-    gap: 14px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
-    align-items: flex-start;
-  }
-  .strategy-num {
-    font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--purple-mid);
-    min-width: 32px;
-    text-align: center;
-    line-height: 1;
-  }
-  .strategy-title {
-    font-weight: 700;
-    font-size: 0.92rem;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-  .strategy-preview {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-    margin: 0;
-  }
+  /* Strategy (brainstorming) */
+  .strategy-grid { display: flex; flex-direction: column; gap: 10px; }
+  .strategy-card { display: flex; gap: 14px; padding: 14px; align-items: flex-start; }
+  .strategy-num { min-width: 30px; }
 
-  /* Answers grid (long context) */
-  .answers-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-  .answer-card {
-    display: flex;
-    gap: 10px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    align-items: center;
-  }
-  .answer-num {
-    font-weight: 800;
-    color: var(--purple-mid);
-    font-size: 1.1rem;
-    min-width: 24px;
-  }
-  .answer-text {
-    font-size: 0.88rem;
-    color: var(--text-primary);
-  }
+  /* Answers (long context) */
+  .answers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .answer-card { display: flex; gap: 12px; padding: 12px 14px; align-items: flex-start; }
+  .answer-num { min-width: 22px; }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .platform-grid { grid-template-columns: 1fr; }
     .answers-grid { grid-template-columns: 1fr; }
@@ -1056,7 +852,22 @@
           <span class="detail-badge" style="background: #10b981">Adherence: 100.0</span>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Article Preview</h4>
-    <div class="article-preview"><div class="article-headline">Claude Code Ships Tool Calls That Kill Your Stack</div><div class="article-section"><p class="article-section-body">Your engineering team spent eighteen months building a custom middleware layer to connect your AI to your database. Anthropic just made that work obsolete with a command line flag. This is not a feature release. This is a shift in who gets to build AI products and how fast they ship.</p></div><div class="article-section"><div class="article-section-title">The Plumbing Just Got Deleted</div><p class="article-section-body">For the last two years, every serious AI application has been ninety percent plumbing and ten percent intelligence. Connect the LLM to the database. Wire up the API. Parse the response. Handle the errors. Build a webhook. Deploy a server. Most of the engineering hours on any AI project were spent moving data from point A to point B so the model could actually think about it.</p><p>Claude Code now handles that plumbing natively through tool calls that hit MCP servers, databases, and file systems directly from the terminal. Drop in a config. Point it at your Postgres instance. Give it access to your Stripe API. It now has hands.</p><p>The developers who built careers on being the glue between AI and infrastructure just watched their moat evaporate. I have seen this movie before. It played in 2010 when cloud killed the sysadmin premium. It played again in 2015 when Stripe killed the payment gateway consultant. The pattern repeats because the economics are brutal and obvious. Whoever compresses the distance between intent and execution wins the decade.</p></div><div class="article-section"><div class="article-section-title">Why Your Senior Engineers Are Quietly Panicking</div><p class="article-section-body">Here is what no one says out loud at the standup. Your senior engineer who has been building your internal AI tools knows exactly what this release means for their leverage. They watched a junior developer on their team spin up a working agent that queries production data, pulls from the CRM, and writes back to Notion in forty minutes. Something that would have taken their team a full sprint six months ago.</p><p>That senior engineer is not scared of losing their job tomorrow. They are scared of the slow creep. The uncomfortable realization that the skill they spent five years sharpening is now a command line flag. That feeling sits in the chest like a low-grade fever. It shows up as resistance in meetings. It shows up as a sudden interest in arguing about edge cases and security posture. It shows up as long memos about why this new approach will not scale.</p><p>I am not saying they are wrong about every concern. I am saying the concerns are emotional armor first and technical analysis second. The leader who understands this dynamic will not bulldoze through it. They will redirect it. The engineer who built the old plumbing is the exact person who understands where the new plumbing will break. Give them ownership of the migration and you keep a ten year veteran. Ignore them and you lose the institutional memory that prevents the data leak in month three.</p></div><div class="article-section"><div class="article-section-title">The Binary Choice On Your Desk Monday Morning</div><p class="article-section-body">Every founder and CTO reading this has the same decision in front of them. You can either treat this release as a curiosity, something the devs might play with in a hack day, or you can treat it as the new baseline for how your company builds. There is no middle lane.</p><p>The companies that treat it as a curiosity will keep paying six figure salaries for engineers to write wrappers around APIs that Claude now calls natively. They will keep commissioning six month internal tool projects that deliver what a two person team could ship in a weekend using native tool calls. They will keep losing bids to leaner competitors and blaming the market.</p><p>The companies that treat it as the new baseline will do something uncomfortable first. They will audit every AI project in progress and kill the ones that are now redundant. They will rewrite job descriptions. They will stop hiring AI engineers and start hiring AI operators, people who know what to build more than they know how to build it. The bottleneck moves from coding to judgment. From syntax to strategy.<br></p></div></div></div>
+    <div class="article-preview"><div class="article-headline">Claude Code Ships Tool Calls That Kill Your Stack</div><div class="article-section"><p class="article-section-body"><p>Your engineering team spent eighteen months building a custom middleware layer to connect your AI to your database. Anthropic just made that work obsolete with a command line flag. This is not a feature release. This is a shift in who gets to build AI products and how fast they ship.</p></p></div><div class="article-section"><div class="article-section-title">The Plumbing Just Got Deleted</div><p class="article-section-body"><p>For the last two years, every serious AI application has been ninety percent plumbing and ten percent intelligence. Connect the LLM to the database. Wire up the API. Parse the response. Handle the errors. Build a webhook. Deploy a server. Most of the engineering hours on any AI project were spent moving data from point A to point B so the model could actually think about it.</p>
+<p>Claude Code now handles that plumbing natively through tool calls that hit MCP servers, databases, and file systems directly from the terminal. Drop in a config. Point it at your Postgres instance. Give it access to your Stripe API. It now has hands.</p>
+<p>The developers who built careers on being the glue between AI and infrastructure just watched their moat evaporate. I have seen this movie before. It played in 2010 when cloud killed the sysadmin premium. It played again in 2015 when Stripe killed the payment gateway consultant. The pattern repeats because the economics are brutal and obvious. Whoever compresses the distance between intent and execution wins the decade.</p></p></div><div class="article-section"><div class="article-section-title">Why Your Senior Engineers Are Quietly Panicking</div><p class="article-section-body"><p>Here is what no one says out loud at the standup. Your senior engineer who has been building your internal AI tools knows exactly what this release means for their leverage. They watched a junior developer on their team spin up a working agent that queries production data, pulls from the CRM, and writes back to Notion in forty minutes. Something that would have taken their team a full sprint six months ago.</p>
+<p>That senior engineer is not scared of losing their job tomorrow. They are scared of the slow creep. The uncomfortable realization that the skill they spent five years sharpening is now a command line flag. That feeling sits in the chest like a low-grade fever. It shows up as resistance in meetings. It shows up as a sudden interest in arguing about edge cases and security posture. It shows up as long memos about why this new approach will not scale.</p>
+<p>I am not saying they are wrong about every concern. I am saying the concerns are emotional armor first and technical analysis second. The leader who understands this dynamic will not bulldoze through it. They will redirect it. The engineer who built the old plumbing is the exact person who understands where the new plumbing will break. Give them ownership of the migration and you keep a ten year veteran. Ignore them and you lose the institutional memory that prevents the data leak in month three.</p></p></div><div class="article-section"><div class="article-section-title">The Binary Choice On Your Desk Monday Morning</div><p class="article-section-body"><p>Every founder and CTO reading this has the same decision in front of them. You can either treat this release as a curiosity, something the devs might play with in a hack day, or you can treat it as the new baseline for how your company builds. There is no middle lane.</p>
+<p>The companies that treat it as a curiosity will keep paying six figure salaries for engineers to write wrappers around APIs that Claude now calls natively. They will keep commissioning six month internal tool projects that deliver what a two person team could ship in a weekend using native tool calls. They will keep losing bids to leaner competitors and blaming the market.</p>
+<p>The companies that treat it as the new baseline will do something uncomfortable first. They will audit every AI project in progress and kill the ones that are now redundant. They will rewrite job descriptions. They will stop hiring AI engineers and start hiring AI operators, people who know what to build more than they know how to build it. The bottleneck moves from coding to judgment. From syntax to strategy.</p>
+<p>This is the Farmer playbook applied to engineering. Stop hunting for the next complicated build. Plant the seeds that compound. The teams that ship value fastest will not be the ones with the most engineers. They will be the ones who asked the right question before opening the terminal.</p>
+<p>Monday morning, pull up your project roadmap. Find the three initiatives that just got cheaper by ninety percent. Then find the one that just got impossible to justify. Kill that one first.</p>
+<p>Jonathan Green</p>
+<p>PS</p>
+<ul>
+<li>Scroll to the top.</li>
+<li>Click on Subscribe to newsletter.</li>
+<li>Follow Jonathan Green to never miss a post.</li>
+</ul></p></div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>Claude Code Ships Tool Calls That Kill Your Stack
@@ -2270,23 +2081,54 @@ PS - Writing this during a power outage, second one this week. The rooster next 
     <h4 class="breakout-title">Summary Breakdown</h4>
       <div class="callout-box info">
         <div class="callout-label">TLDR</div>
-        <p>Creator tests four browser automation tasks using Claude Code + Chrome DevTools Protocol (CDP) skills: parallel Amazon shopping, CAPTCHA solving, temp-mail Reddit account creation, and posting a meme. Mostly works but slowly, with rough edges. Worth watching only if you're actively building browser automation agents — otherwise it's a loose demo reel with no deep technical instruction.</p>
+        <p><p>Creator tests four browser automation tasks using Claude Code + Chrome DevTools Protocol (CDP) skills: parallel Amazon shopping, CAPTCHA solving, temp-mail Reddit account creation, and posting a meme. Mostly works but slowly, with rough edges. Worth watching only if you're actively building browser automation agents — otherwise it's a loose demo reel with no deep technical instruction.</p></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">2. WHAT WAS DEMONSTRATED</div>
-        <p><li><strong>Parallel Amazon shopping pipeline</strong> — ✅ Worked. Spawned ~4-7 sub-agents in parallel browser tabs to search for chair, table, couch, curtains in Scandinavian style under $3000. Came in at ~$1,300.</li><br><li><strong>Nano Banana visualization of found items in existing room</strong> — ⚠️ Partially worked. Generated an updated room image but the table didn't match what was actually found.</li><br><li><strong>CAPTCHA solving (Google reCAPTCHA demo page)</strong> — ✅ Worked. Used a pre-built &quot;capture&quot; skill with CDP frame introspection + high-res screenshots + coordinate clicking. Failed first attempt (traffic lights), succeeded on retry (buses).</li><br><li><strong>Temp mail → Reddit account creation</strong> — ✅ Worked, surprisingly easily. Used tempmail.lol + old.reddit.com. No email confirmation was required, no blocking encountered.</li><br><li><strong>Post AI-generated meme to r/ProgrammerHumor</strong> — ⚠️ Partially worked after significant hand-holding. Required: uploading to Imgur (Reddit rejected direct image), solving another CAPTCHA mid-flow, and the creator manually intervening to tell it to re-read subreddit rules (no AI-generated content allowed — which it then ignored by just changing the title).</li></p>
+        <p><ul>
+<li><strong>Parallel Amazon shopping pipeline</strong> — ✅ Worked. Spawned ~4-7 sub-agents in parallel browser tabs to search for chair, table, couch, curtains in Scandinavian style under $3000. Came in at ~$1,300.</li>
+<li><strong>Nano Banana visualization of found items in existing room</strong> — ⚠️ Partially worked. Generated an updated room image but the table didn't match what was actually found.</li>
+<li><strong>CAPTCHA solving (Google reCAPTCHA demo page)</strong> — ✅ Worked. Used a pre-built &quot;capture&quot; skill with CDP frame introspection + high-res screenshots + coordinate clicking. Failed first attempt (traffic lights), succeeded on retry (buses).</li>
+<li><strong>Temp mail → Reddit account creation</strong> — ✅ Worked, surprisingly easily. Used tempmail.lol + old.reddit.com. No email confirmation was required, no blocking encountered.</li>
+<li><strong>Post AI-generated meme to r/ProgrammerHumor</strong> — ⚠️ Partially worked after significant hand-holding. Required: uploading to Imgur (Reddit rejected direct image), solving another CAPTCHA mid-flow, and the creator manually intervening to tell it to re-read subreddit rules (no AI-generated content allowed — which it then ignored by just changing the title).</li>
+</ul></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">3. KEY TECHNICAL DETAILS</div>
-        <p><li><strong>Claude Code</strong> with custom &quot;skills&quot; (Markdown-based skill definitions)</li><br><li><strong>Chrome DevTools Protocol (CDP)</strong> via remote debugging mode for browser control</li><br><li><strong>JavaScript-based CLI tool</strong> driving the browser</li><br><li><strong>Skills referenced</strong>: Amazon skill, capture (CAPTCHA) skill</li><br><li><strong>Nano Banana</strong> (image generation) via <strong>fal.ai</strong></li><br><li><strong>Sites used</strong>: amazon.com, tempmail.lol, old.reddit.com, Google reCAPTCHA demo, Imgur, r/ProgrammerHumor</li></p>
+        <p><ul>
+<li><strong>Claude Code</strong> with custom &quot;skills&quot; (Markdown-based skill definitions)</li>
+<li><strong>Chrome DevTools Protocol (CDP)</strong> via remote debugging mode for browser control</li>
+<li><strong>JavaScript-based CLI tool</strong> driving the browser</li>
+<li><strong>Skills referenced</strong>: Amazon skill, capture (CAPTCHA) skill</li>
+<li><strong>Nano Banana</strong> (image generation) via <strong>fal.ai</strong></li>
+<li><strong>Sites used</strong>: amazon.com, tempmail.lol, old.reddit.com, Google reCAPTCHA demo, Imgur, r/ProgrammerHumor</li>
+<li>Approach: sub-agents spawned per tab for parallelism</li>
+</ul></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">4. WHAT'S ACTUALLY NEW OR INTERESTING</div>
-        <p><li><strong>The parallel sub-agent pattern</strong> is the one genuinely useful takeaway — running one sub-agent per browser tab dramatically cuts time on multi-item search tasks. Creator says he figured this out &quot;over the weekend.&quot;</li><br><li><strong>Skill-building-as-you-go loop</strong>: Let Claude fail repeatedly on a task, then crystallize the working solution into a reusable skill (e.g., the CAPTCHA solver). This is a sensible pattern, though not novel.</li><br><li>Everything else (CDP browser control, using temp mail, CAPTCHA solving via coordinate clicking) is already well-known in the automation/scraping community.</li></p>
+        <p><ul>
+<li><strong>The parallel sub-agent pattern</strong> is the one genuinely useful takeaway — running one sub-agent per browser tab dramatically cuts time on multi-item search tasks. Creator says he figured this out &quot;over the weekend.&quot;</li>
+<li><strong>Skill-building-as-you-go loop</strong>: Let Claude fail repeatedly on a task, then crystallize the working solution into a reusable skill (e.g., the CAPTCHA solver). This is a sensible pattern, though not novel.</li>
+<li>Everything else (CDP browser control, using temp mail, CAPTCHA solving via coordinate clicking) is already well-known in the automation/scraping community.</li>
+</ul></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">5. LIMITATIONS &AMP; CAVEATS</div>
-        <p><li><strong>Visualization accuracy is poor</strong> — Nano Banana didn't faithfully render the actual items purchased.</li><br><li><strong>Reddit flow required human intervention</strong> — creator had to manually tell the agent to read subreddit rules. In the end, it violated the &quot;no AI-generated content&quot; rule by just changing the title.</li><br><li><strong>Slow</strong>: The Reddit task took a lot of back-and-forth. Creator openly admits &quot;very slow&quot; and &quot;not very efficient&quot; on first run.</li><br><li><strong>No recording of the CAPTCHA skill being built</strong> — the most technically interesting part (how Claude iteratively figured out the solver) was not captured.</li><br><li><strong>Ethical/ToS issues not addressed</strong>: Automating Reddit account creation with temp mail, bypassing CAPTCHAs, and posting AI content to subreddits that ban it all violate platform terms. Creator doesn't mention this.</li><br><li><strong>No code shown in depth</strong> — skills are referenced but not walked through.</li></p>
+        <p><ul>
+<li><strong>Visualization accuracy is poor</strong> — Nano Banana didn't faithfully render the actual items purchased.</li>
+<li><strong>Reddit flow required human intervention</strong> — creator had to manually tell the agent to read subreddit rules. In the end, it violated the &quot;no AI-generated content&quot; rule by just changing the title.</li>
+<li><strong>Slow</strong>: The Reddit task took a lot of back-and-forth. Creator openly admits &quot;very slow&quot; and &quot;not very efficient&quot; on first run.</li>
+<li><strong>No recording of the CAPTCHA skill being built</strong> — the most technically interesting part (how Claude iteratively figured out the solver) was not captured.</li>
+<li><strong>Ethical/ToS issues not addressed</strong>: Automating Reddit account creation with temp mail, bypassing CAPTCHAs, and posting AI content to subreddits that ban it all violate platform terms. Creator doesn't mention this.</li>
+<li><strong>No code shown in depth</strong> — skills are referenced but not walked through.</li>
+<li><strong>Reddit not blocking temp mail</strong> may just be luck/timing; not a reliable finding.</li>
+<li>The video also ends with a <strong>$5,000 DGX Spark giveaway plug</strong>.</li>
+</ul></p>
+      </div>
+      <div class="callout-box section">
+        <div class="callout-label">6. BOTTOM LINE</div>
+        <p><p>Watch if you're specifically building Claude Code + CDP browser agents and want ideas on parallel sub-agents and iterative skill-building. Skip if you want a tutorial, technical depth, or results you could trust in production — this is an exploratory demo, not a guide.</p></p>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -2343,7 +2185,14 @@ Watch if you're specifically building Claude Code + CDP browser agents and want 
     <h4 class="breakout-title">Editing Analysis</h4>
     <div class="edited-text-box">
       <div class="callout-label">EDITED TEXT</div>
-      <div class="edited-text">Here's the edited version:</p><p>---</p><p>I've been thinking about this a lot lately, and I think most people are getting AI completely wrong. Everyone's talking about how AI is going to replace developers and writers and all these jobs — but that's not what I'm seeing in my business.</p><p>What I'm actually seeing is that AI makes good people better and bad people worse. The people who were already good writers use AI to produce 3x more content that's just as good. The people who were bad writers use AI to produce 3x more garbage. Same with code. My best developers use AI as a copilot and ship features faster. My worst developers use it as a crutch and still ship bugs — just different bugs now.</p><p>Here's what nobody is talking about: the real disruption isn't replacement, it's amplification. If you were a 7/10 marketer before AI, now you're operating at a 9. If you were a 3/10, AI bumps you to a 4 on a good day. The gap between good and bad is actually <em>widening</em>, not shrinking.</p><p>This has massive implications for hiring. Why would you hire a mediocre person with AI tools when you could hire an excellent person with the same AI tools? The leverage multiplier is completely different. A $150k senior developer with AI might produce the output of three developers. An $80k junior with AI produces... slightly better junior output.</p><p>The people who should be most worried aren't the ones who think they'll be replaced by AI. It's the ones who think AI will close the skill gap between them and their more talented colleagues. It won't. It will turn that gap into a canyon.</p><p>I don't have all the answers, but if you're running a business, you need to think about this differently than the media narrative of &quot;AI replaces jobs.&quot; The real question is: does AI amplify your team's strengths, or does it just make their weaknesses more productive? Those are very different outcomes.</p><p>---</p><p>**</div>
+      <div class="edited-text"><p>Here's the edited version:</p>
+<p>I've been thinking about this a lot lately, and I think most people are getting AI completely wrong. Everyone's talking about how AI is going to replace developers and writers and all these jobs — but that's not what I'm seeing in my business.</p>
+<p>What I'm actually seeing is that AI makes good people better and bad people worse. The people who were already good writers use AI to produce 3x more content that's just as good. The people who were bad writers use AI to produce 3x more garbage. Same with code. My best developers use AI as a copilot and ship features faster. My worst developers use it as a crutch and still ship bugs — just different bugs now.</p>
+<p>Here's what nobody is talking about: the real disruption isn't replacement, it's amplification. If you were a 7/10 marketer before AI, now you're operating at a 9. If you were a 3/10, AI bumps you to a 4 on a good day. The gap between good and bad is actually <em>widening</em>, not shrinking.</p>
+<p>This has massive implications for hiring. Why would you hire a mediocre person with AI tools when you could hire an excellent person with the same AI tools? The leverage multiplier is completely different. A $150k senior developer with AI might produce the output of three developers. An $80k junior with AI produces... slightly better junior output.</p>
+<p>The people who should be most worried aren't the ones who think they'll be replaced by AI. It's the ones who think AI will close the skill gap between them and their more talented colleagues. It won't. It will turn that gap into a canyon.</p>
+<p>I don't have all the answers, but if you're running a business, you need to think about this differently than the media narrative of &quot;AI replaces jobs.&quot; The real question is: does AI amplify your team's strengths, or does it just make their weaknesses more productive? Those are very different outcomes.</p>
+<p>**</p></div>
     </div>
       <div class="callout-box changelog">
         <div class="callout-label">CHANGELOG (9 changes)</div>
@@ -2392,49 +2241,79 @@ I don't have all the answers, but if you're running a business, you need to thin
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Automation Audit&quot; as a Paid Trojan Horse</div>
-          <p class="strategy-preview">**What to do:** Productize a $500-$1,500 &quot;AI Automation Audit&quot; — a 2-week engagement where you map a company's workflows, identify 5-10 automation opportunities, and deliver a prioritized roadmap with...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Productize a $500-$1,500 &quot;AI Automation Audit&quot; — a 2-week engagement where you map a company's workflows, identify 5-10 automation opportunities, and deliver a prioritized roadmap with ROI estimates. Pitch it as a standalone deliverable, not a sales call. Create a simple Notion or PDF template this week. List it on your LinkedIn, your website, and mention it in every podcast/newsletter appearance. Target: 3-4 audits per month.</p>
+<p><strong>Time:</strong> 5-8 hours per audit, plus ~2 hours/week marketing it.</p>
+<p><strong>Timeline to first client:</strong> 30-60 days. Audits convert to retainers at roughly 30-50% in this model because you've already done the hard work of scoping.</p>
+<p><strong>Why it works for AI specifically:</strong> Your core problem is that prospects don't know what they need. A free discovery call asks them to imagine the value; a paid audit <em>shows</em> them. Also, paying $1K pre-qualifies them as serious, and the audit itself is the proof-of-expertise that closes the deal. Other consulting verticals have overused this — AI hasn't.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">Co-Market with a Complementary Agency (Revenue Share)</div>
-          <p class="strategy-preview">**What to do:** Identify 5-10 agencies serving your exact ICP that *don't* do AI — fractional CFO firms, bookkeeping firms, HR consultancies, operational consulting boutiques, MSPs. Offer them 10-15% ...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Identify 5-10 agencies serving your exact ICP that <em>don't</em> do AI — fractional CFO firms, bookkeeping firms, HR consultancies, operational consulting boutiques, MSPs. Offer them 10-15% of first-year revenue for any client they refer who signs. Set up a 30-min call this week with one contact and propose a joint &quot;Operational AI Readiness&quot; webinar for their client list.</p>
+<p><strong>Time:</strong> 3-4 hours/week prospecting partners, plus webinar prep.</p>
+<p><strong>Timeline to first client:</strong> 45-90 days for the first one; then compounds.</p>
+<p><strong>Why it works for AI:</strong> These firms are getting asked about AI constantly by their clients and have no good answer. You become their answer. Unlike generic referral programs, the joint webinar gives them a reason to promote you <em>now</em> rather than &quot;when it comes up.&quot; MSPs are especially underrated — they have deep trust with 10-50 employee companies.</p>
+<p><strong>Tradeoff:</strong> Slower than direct outreach, but these relationships compound. One good partner can send you 2-3 clients/year forever.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Public Build&quot; Play — Weekly Automation Teardowns</div>
-          <p class="strategy-preview">**What to do:** Pick one common small-business workflow per week (e.g., &quot;How a 30-person law firm can auto-process intake forms&quot;) and build the actual automation publicly. Post a 5-8 minute Loom on Li...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Pick one common small-business workflow per week (e.g., &quot;How a 30-person law firm can auto-process intake forms&quot;) and build the actual automation publicly. Post a 5-8 minute Loom on LinkedIn + YouTube showing the n8n/Make workflow end-to-end, with the real dollar savings math. Offer the template free in exchange for an email. You should have 4 of these published within 30 days.</p>
+<p><strong>Time:</strong> 6-8 hours/week (build + record + post).</p>
+<p><strong>Timeline to first client:</strong> 60-90 days. Expect clients to say &quot;I saw the invoice processing one — can you build that for us?&quot;</p>
+<p><strong>Why it works for AI:</strong> You're selling something invisible. Video removes that. Most AI consultants post opinions (&quot;AI will change X&quot;); almost nobody shows the actual build. The template giveaway also builds a list of self-selected warm leads who already understand what you do.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">Targeted Vertical Dominance via Niche Podcasts</div>
-          <p class="strategy-preview">**What to do:** Pick ONE vertical where you have a case study (e.g., &quot;AI automation for insurance brokerages&quot; or &quot;for property management firms&quot;). Find 15-20 niche podcasts in that vertical — they're ...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Pick ONE vertical where you have a case study (e.g., &quot;AI automation for insurance brokerages&quot; or &quot;for property management firms&quot;). Find 15-20 niche podcasts in that vertical — they're almost always under-booked and eager for guests. Pitch yourself with a specific case study angle, not &quot;AI expert.&quot; Aim for 2 recordings per month.</p>
+<p><strong>Time:</strong> 4 hours/week (pitching + recording + repurposing).</p>
+<p><strong>Timeline to first client:</strong> 60-120 days. First appearances rarely convert, but by podcast 4-5 you become &quot;the AI person for [vertical].&quot;</p>
+<p><strong>Why it works for AI:</strong> Horizontal AI consultants are a dime a dozen. &quot;The AI automation guy for independent insurance agencies&quot; is a category of one. Niche vertical podcasts have tiny but extremely qualified audiences — 200 listeners who are all your ICP is better than 20,000 randos.</p>
+<p><strong>Tradeoff:</strong> Requires committing to a vertical, which feels scary when you only have 3 clients. But picking one doesn't mean refusing others.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Failed Automation Rescue&quot; Angle</div>
-          <p class="strategy-preview">**What to do:** Many small businesses bought Zapier/Make subscriptions or hired a cheap Fiverr contractor to build automations that now kinda-sorta work. Create a LinkedIn + outbound angle specificall...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Many small businesses bought Zapier/Make subscriptions or hired a cheap Fiverr contractor to build automations that now kinda-sorta work. Create a LinkedIn + outbound angle specifically targeting this: &quot;I fix broken AI automations.&quot; Offer a flat $750 &quot;rescue diagnostic.&quot; Search LinkedIn for people who posted about automation 6-18 months ago and DM them asking how it's going.</p>
+<p><strong>Time:</strong> 3 hours/week outreach.</p>
+<p><strong>Timeline to first client:</strong> 14-45 days. This is your fastest channel.</p>
+<p><strong>Why it works for AI:</strong> The 2023-2024 AI/automation hype wave means there's now a wave of half-working implementations. These prospects are already sold on the value — they just need someone competent. You skip the entire &quot;why should we care about AI&quot; conversation. Also, once you fix it, you're positioned as the ongoing operator.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">6</div>
         <div class="strategy-content">
           <div class="strategy-title">Host a Small In-Person Roundtable (Local Play)</div>
-          <p class="strategy-preview">**What to do:** Invite 8-10 non-competing business owners in your city (10-50 employees) to a private 2-hour &quot;AI Roundtable&quot; over lunch or dinner. You don't pitch — you facilitate a conversation about...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Invite 8-10 non-competing business owners in your city (10-50 employees) to a private 2-hour &quot;AI Roundtable&quot; over lunch or dinner. You don't pitch — you facilitate a conversation about what they're each trying with AI, and share what you see working. Pay for the venue/food ($500-$1,000). Do one every 6-8 weeks.</p>
+<p><strong>Time:</strong> 10-12 hours for the first one (guest list, logistics), then 5-6 hours for each subsequent.</p>
+<p><strong>Timeline to first client:</strong> 30-60 days. Expect 1-2 of the 10 attendees to become clients within a quarter.</p>
+<p><strong>Why it works for AI:</strong> Small business owners are <em>desperate</em> to talk to peers about AI without sounding dumb. There's no non-awkward venue for this. By hosting, you become the trusted authority without selling. The exclusivity (invite-only, small group) creates urgency and status. This scales poorly but converts beautifully — perfect when you only need 5 more clients.</p>
+<p><strong>Tradeoff:</strong> Location-dependent. If you're in a tiny market, skip this.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">7</div>
         <div class="strategy-content">
           <div class="strategy-title">Tool-Vendor Co-Marketing (Experimental)</div>
-          <p class="strategy-preview">**What to do:** Reach out to partner/solutions teams at n8n, Make, Zapier, or specific vertical tools (e.g., Clio for law, BuilderTrend for construction). Offer to be listed as a certified implementat...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Reach out to partner/solutions teams at n8n, Make, Zapier, or specific vertical tools (e.g., Clio for law, BuilderTrend for construction). Offer to be listed as a certified implementation partner and co-create a case study. Start with n8n — they have a smaller partner ecosystem and are hungrier than Zapier.</p>
+<p><strong>Time:</strong> 2-3 hours/week for 4-6 weeks to set up, then minimal.</p>
+<p><strong>Timeline to first client:</strong> 90-180 days. Slow burn.</p>
+<p><strong>Why it works for AI:</strong> These tools have massive top-of-funnel and very few qualified implementation partners for the SMB segment. Enterprise partners ignore 30-person companies. You fill a real gap. Inbound leads from vendor directories tend to be pre-qualified and already sold on the tool — you just need to close on you.</p>
+<p><strong>Tradeoff:</strong> Most experimental idea on this list. Could produce nothing for months, or become your #1 channel. Worth the 15 hours to set up.</p>
+<h4>My honest ranking for your situation:</h4>
+<p><strong>Start this week:</strong> #1 (Audit) + #5 (Rescue). These have the fastest paths to revenue and directly address your &quot;maxed out in 6 months&quot; timeline.</p>
+<p><strong>Start this month:</strong> #3 (Public build). Compounds over time and makes every other channel work better.</p>
+<p><strong>Start within 60 days:</strong> #2 (Partnerships) and #6 (Roundtable) if you're in a viable market.</p>
+<p><strong>Don't do all 7.</strong> Pick 3. At your capacity, running 7 channels poorly is worse than running 3 well.</p></div>
         </div>
       </div></div></div>
         <details class="output-details">
@@ -2552,7 +2431,7 @@ I don't have all the answers, but if you're running a business, you need to thin
     <h4 class="breakout-title">Analysis Highlights</h4>
       <div class="callout-box info">
         <div class="callout-label">KEY FINDINGS</div>
-        <ul class="feature-list"><li>Customer LTV: $49</li><li>Launch MRR: $161,160</li><li>Recommendation: <strong>Option A ($79/month)</strong></li></ul>
+        <ul class="feature-list"><li><p>Customer LTV: $49</p></li><li><p>Launch MRR: $161,160</p></li><li><p>Recommendation: <strong>Option A ($79/month)</strong></p></li></ul>
       </div>
       <div class="callout-box section">
         <div class="callout-label">OPTIONS ANALYZED</div>

@@ -32,6 +32,14 @@
     --border: #E2E8F0;
     --font-display: 'Bangers', cursive;
     --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Type scale (report breakouts) — keep the page to a few sizes */
+    --fs-label: 0.72rem;
+    --fs-small: 0.8rem;
+    --fs-body: 0.9rem;
+    --fs-title: 1rem;
+    --fs-lead: 1.2rem;
+    --text-body: #334155;
+    --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -175,309 +183,97 @@
   .footer-copy { font-size: 0.75rem; opacity: 0.4; }
 
     
-  /* Breakout sections */
-  .breakout-section {
-    margin: 16px 0;
-  }
+  /* ===== Breakout design system: one type scale + shared primitives across all 10 categories ===== */
+  .breakout-section { margin: 18px 0; }
   .breakout-title {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--purple-mid);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    color: var(--magenta); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;
   }
 
-  /* Platform cards grid (social media) */
-  .platform-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 16px;
+  /* Shared card shell */
+  .platform-card, .email-preview, .article-preview, .edited-text-box, .strategy-card, .answer-card, .code-display {
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
   }
-  .platform-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
+
+  /* Shared reading text (one size, readable color, everywhere) */
+  .platform-body, .callout-box, .email-body, .article-section-body, .edited-text, .strategy-preview, .answer-text, .feature-list li, .changelog-list li {
+    font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.6; color: var(--text-body);
   }
-  .platform-header {
-    background: var(--purple-dark);
-    color: white;
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .platform-body strong, .callout-box strong, .article-section-body strong, .answer-text strong, .feature-list li strong, .strategy-preview strong, .email-body strong { color: var(--text-primary); font-weight: 700; }
+  .article-section-body p, .strategy-preview p, .edited-text p, .email-body p { margin-bottom: 8px; }
+  .article-section-body ul, .strategy-preview ul, .callout-box ul { margin: 6px 0 6px 18px; }
+  .article-section-body p:last-child, .strategy-preview p:last-child { margin-bottom: 0; }
+
+  /* Shared content title */
+  .article-section-title, .strategy-title {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-title);
+    color: var(--text-primary); margin-bottom: 5px; line-height: 1.35;
   }
-  .platform-icon {
-    font-size: 1rem;
-    width: 24px;
-    text-align: center;
+
+  /* Shared small uppercase label/pill */
+  .callout-label, .code-lang-tag, .platform-header {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    letter-spacing: 0.07em; text-transform: uppercase;
   }
-  .platform-body {
-    padding: 12px;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--text-primary);
-    max-height: 200px;
-    overflow-y: auto;
+
+  /* Shared numbered marker */
+  .strategy-num, .answer-num {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-lead);
+    color: var(--purple-mid); line-height: 1.2; text-align: center;
   }
+
+  /* Social platform cards */
+  .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .platform-header { background: var(--purple-dark); color: white; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
+  .platform-icon { font-size: var(--fs-body); width: 22px; text-align: center; }
+  .platform-body { padding: 12px; max-height: 220px; overflow-y: auto; }
 
   /* Callout boxes */
-  .callout-box {
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin: 10px 0;
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-  .callout-box.info {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-  }
-  .callout-box.creative {
-    background: #faf5ff;
-    border: 1px solid #e9d5ff;
-  }
-  .callout-box.changelog {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-  }
-  .callout-box.section {
-    background: #f8fafc;
-    border: 1px solid var(--border);
-  }
-  .callout-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--purple-mid);
-    margin-bottom: 6px;
-  }
+  .callout-box { border-radius: var(--radius); padding: 14px 16px; margin: 10px 0; }
+  .callout-box.info { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .callout-box.creative { background: #faf5ff; border: 1px solid #e9d5ff; }
+  .callout-box.changelog { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .callout-box.section { background: var(--bg-light); border: 1px solid var(--border); }
+  .callout-label { display: inline-block; color: var(--purple-mid); margin-bottom: 8px; }
 
-  /* Feature list */
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .feature-list li {
-    padding: 3px 0 3px 20px;
-    position: relative;
-    font-size: 0.85rem;
-  }
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--green);
-    font-weight: 700;
-  }
+  /* Check list */
+  .feature-list { list-style: none; padding: 0; margin: 0; }
+  .feature-list li { padding: 4px 0 4px 22px; position: relative; }
+  .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
-  /* Email preview */
-  .email-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 0.9rem;
-  }
-  .email-subject {
-    background: #f1f5f9;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-  .email-preview-text {
-    padding: 8px 16px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
-    font-style: italic;
-  }
-  .email-body {
-    padding: 16px;
-    line-height: 1.7;
-  }
-  .email-body p { margin-bottom: 12px; }
-  .email-signature {
-    padding: 8px 16px;
-    color: var(--text-secondary);
-    font-weight: 600;
-  }
-  .email-ps {
-    padding: 12px 16px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-style: italic;
-    font-size: 0.88rem;
-  }
+  /* Email */
+  .email-subject { background: var(--bg-gray); padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: var(--fs-title); color: var(--text-primary); }
+  .email-preview-text { padding: 8px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: var(--fs-small); font-style: italic; }
+  .email-body { padding: 16px; }
+  .email-signature { padding: 10px 16px; color: var(--text-primary); font-weight: 600; font-size: var(--fs-body); }
+  .email-ps { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--text-secondary); font-style: italic; font-size: var(--fs-small); }
 
-  /* Code display */
-  .code-display {
-    background: #1e293b;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 8px 0;
-  }
-  .code-lang-tag {
-    background: var(--blue);
-    color: white;
-    padding: 4px 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    margin: 8px 0 0 8px;
-    border-radius: 4px;
-  }
-  .code-display pre {
-    padding: 16px;
-    color: #e2e8f0;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.78rem;
-    line-height: 1.6;
-    overflow-x: auto;
-    max-height: 400px;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+  /* Code */
+  .code-lang-tag { background: var(--blue); color: white; padding: 4px 12px; display: inline-block; margin: 8px 0 0 8px; border-radius: 6px; }
+  .code-display { background: #1e293b; margin: 8px 0; }
+  .code-display pre { padding: 16px; color: #e2e8f0; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: var(--fs-small); line-height: 1.6; overflow-x: auto; max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; }
 
-  /* Article preview */
-  .article-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .article-headline {
-    padding: 16px 20px;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--purple-dark);
-    border-bottom: 2px solid var(--magenta);
-    line-height: 1.3;
-  }
-  .article-section {
-    padding: 12px 20px;
-    border-bottom: 1px solid var(--border);
-  }
+  /* Article */
+  .article-headline { padding: 16px 20px; font-size: var(--fs-lead); font-weight: 700; color: var(--purple-dark); border-bottom: 2px solid var(--magenta); line-height: 1.3; }
+  .article-section { padding: 14px 20px; border-bottom: 1px solid var(--border); }
   .article-section:last-child { border-bottom: none; }
-  .article-section-title {
-    font-weight: 700;
-    color: var(--purple-mid);
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-  }
-  .article-section-body {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
 
-  /* Edited text box */
-  .edited-text-box {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-  .edited-text {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--text-primary);
-  }
-  .edited-text p { margin-bottom: 10px; }
-  .changelog-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .changelog-list li {
-    padding: 4px 0 4px 20px;
-    position: relative;
-    font-size: 0.83rem;
-    line-height: 1.5;
-  }
-  .changelog-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-    font-weight: 700;
-  }
+  /* Editing */
+  .edited-text-box { padding: 16px; margin-bottom: 12px; }
+  .changelog-list { list-style: none; padding: 0; margin: 0; }
+  .changelog-list li { padding: 4px 0 4px 22px; position: relative; }
+  .changelog-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 
-  /* Strategy cards */
-  .strategy-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .strategy-card {
-    display: flex;
-    gap: 14px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
-    align-items: flex-start;
-  }
-  .strategy-num {
-    font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--purple-mid);
-    min-width: 32px;
-    text-align: center;
-    line-height: 1;
-  }
-  .strategy-title {
-    font-weight: 700;
-    font-size: 0.92rem;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-  .strategy-preview {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-    margin: 0;
-  }
+  /* Strategy (brainstorming) */
+  .strategy-grid { display: flex; flex-direction: column; gap: 10px; }
+  .strategy-card { display: flex; gap: 14px; padding: 14px; align-items: flex-start; }
+  .strategy-num { min-width: 30px; }
 
-  /* Answers grid (long context) */
-  .answers-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-  .answer-card {
-    display: flex;
-    gap: 10px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    align-items: center;
-  }
-  .answer-num {
-    font-weight: 800;
-    color: var(--purple-mid);
-    font-size: 1.1rem;
-    min-width: 24px;
-  }
-  .answer-text {
-    font-size: 0.88rem;
-    color: var(--text-primary);
-  }
+  /* Answers (long context) */
+  .answers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .answer-card { display: flex; gap: 12px; padding: 12px 14px; align-items: flex-start; }
+  .answer-num { min-width: 22px; }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .platform-grid { grid-template-columns: 1fr; }
     .answers-grid { grid-template-columns: 1fr; }
@@ -988,7 +784,7 @@
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET lands at 62 because it conveys the news clearly and platform-appropriately but rarely escalates beyond competent summary. Lines like &quot;Building real AI apps just got a whole lot easier. No more endless workarounds. And that isn't nothing&quot; land softly rather than punching, and the personal anchors (&quot;after the kids went to bed&quot;, &quot;once the power stabilizes here on the island&quot;) feel grafted on instead of driving meaning. It mirrors Reference B's mid-tier explainer voice but lacks B's tighter &quot;from a chatbot into a DOER&quot; framing, falling just short of the 68 anchor.</p>
+          <p><p>The TARGET lands at 62 because it conveys the news clearly and platform-appropriately but rarely escalates beyond competent summary. Lines like &quot;Building real AI apps just got a whole lot easier. No more endless workarounds. And that isn't nothing&quot; land softly rather than punching, and the personal anchors (&quot;after the kids went to bed&quot;, &quot;once the power stabilizes here on the island&quot;) feel grafted on instead of driving meaning. It mirrors Reference B's mid-tier explainer voice but lacks B's tighter &quot;from a chatbot into a DOER&quot; framing, falling just short of the 68 anchor.</p></p>
         </div><div class="breakout-section"><h4 class="breakout-title">Platform Posts</h4><div class="platform-grid">
       <div class="platform-card">
         <div class="platform-header">
@@ -1061,10 +857,23 @@
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The target lands at 42 because it executes the structural skeleton — three H3 headers, binary choice framing, empathy gap between developer and stakeholder — but drains every drop of voice from the prose. Sentences march in uniform medium length with no fragments, no jabs, no contrarian bite. Lines like &quot;The focus stays on what the agent can do instead of what the business gains&quot; read as bloodless analyst commentary rather than Jonathan's voice. It clears Reference A's basic competence on architecture but falls well short of B's sharper diagnostic specificity, leaving it stranded between the two anchors.</p>
+          <p><p>The target lands at 42 because it executes the structural skeleton — three H3 headers, binary choice framing, empathy gap between developer and stakeholder — but drains every drop of voice from the prose. Sentences march in uniform medium length with no fragments, no jabs, no contrarian bite. Lines like &quot;The focus stays on what the agent can do instead of what the business gains&quot; read as bloodless analyst commentary rather than Jonathan's voice. It clears Reference A's basic competence on architecture but falls well short of B's sharper diagnostic specificity, leaving it stranded between the two anchors.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Article Preview</h4>
-    <div class="article-preview"><div class="article-headline">Run Revenue Tests On Claude Tool Calls</div><div class="article-section"><p class="article-section-body">Claude Code tool calls give agents the ability to reach databases and external systems directly through the command line. This opens technical possibilities for connecting multiple data sources without extra wrappers. Yet the excitement around these connections rarely translates into lower customer acquisition costs or faster sales cycles. The focus stays on what the agent can do instead of what the business gains.</p></div><div class="article-section"><div class="article-section-title">The Initial Technical Appeal</div><p class="article-section-body">The new capability allows an agent to execute queries against internal records or pull from public data feeds in a single workflow. Setup involves defining the permissions once and then letting the agent handle repeated access. Some connections complete in under an hour while others require adjustments for security protocols and rate limits. The process creates an appearance of speed because developers avoid building custom middleware for each system. Many teams begin with simple queries and gradually expand to more complex interactions involving file system modifications or multi API orchestrations.</p><p>That appearance misleads when the focus moves beyond initial setup. Agents begin to generate outputs based on the data they retrieve. Inconsistent data fields across sources produce mismatched results that require rules for reconciliation. The rules themselves add layers of logic that need testing and updates whenever source schemas change. Teams discover that maintaining these connections demands more attention than the command line interface initially suggests.</p><p>One integration leads to the next as new use cases emerge from the expanded access. Each addition multiplies the variables in the overall system. The original goal of building AI applications shifts toward managing a growing set of operational details. Time spent on these details accumulates without any automatic link to revenue producing activities. Agents that interact with both internal and external sources create additional complexity around data privacy and compliance requirements. Each connection point carries its own set of regulations that affect how information can be used in downstream decisions. These considerations extend the timeline for moving any agent from test to production. The shift toward command line control also changes the skill sets needed on the team. Developers who previously focused on application logic now invest time in understanding system architectures and access controls across multiple platforms. This redistribution of effort means less focus on the business logic that directly supports sales processes.</p></div><div class="article-section"><div class="article-section-title">The Human Dynamics At Play</div><p class="article-section-body">A developer setting up these tool connections experiences immediate feedback from each successful execution. The terminal responses provide tangible signs that progress is happening. That sense of momentum keeps attention on the technical layer. Business stakeholders see the same outputs during demonstrations and experience a separate internal response. They recognize the sophistication but feel uncertainty about whether the agent outputs will feed into actual opportunity identification.</p><p>This difference in experience shows up in planning sessions. Technical discussions center on expanding functionality and adding more database access points. Business reviews keep circling back to questions about pipeline influence and time to value. The developer feels validated by the expanding agent capabilities. The leader senses that the investment in development hours continues without corresponding movement in key performance indicators. Without shared metrics the conversations drift toward feature lists and away from outcome definitions.</p><p>Over repeated cycles the skepticism on the business side grows. Each new demo adds to the list of features while the underlying data on lead quality and conversion stays consistent with prior periods. The internal calculation for each stakeholder diverges further. One side tracks code completeness and the other tracks financial metrics that show no acceleration. The gap widens as more time passes without clear evidence of improved outcomes. This separation of concerns creates ongoing misalignment in how success gets defined across the organization.</p></div><div class="article-section"><div class="article-section-title">The Binary Outcome That Follows</div><p class="article-section-body">Organizations reach a point where the choice becomes unavoidable. One path requires that every agent capability demonstrate a direct connection to reduced costs or increased revenue within a short validation window. Tests include baseline comparisons against existing processes and clear thresholds for continuation. Capabilities that meet those thresholds receive additional resources. Those that fall short receive none regardless of their technical interest. Validation windows typically last two to four weeks with specific data collected on usage and results.</p><p>The alternative path treats the command line access as an end in itself. Development resources flow toward whatever systems become available next. Agents gain broader reach across file systems and APIs but the outputs require manual intervention to produce useful intelligence. The volume of unvalidated experiments increases over time. This pattern repeats across multiple initiatives until the total effort required to sustain the agents exceeds the value they deliver. Maintenance of the agent then becomes an ongoing commitment that competes with other priorities for attention.</p><p>The difference between these paths appears in quarterly results. Teams that apply revenue tests early avoid diverting attention from high impact activities like refining data triggers for immediate demand. Teams that skip the tests accumulate technical complexity that slows responses to real opportunities. The decision rests on whether the organization measures new AI features by their effect on the bottom line or by the range of actions they enable. The organizations that choose the measurement path build a repeatable process for evaluating future tool releases in the same manner.<br></p></div></div></div>
+    <div class="article-preview"><div class="article-headline">Run Revenue Tests On Claude Tool Calls</div><div class="article-section"><p class="article-section-body"><p>Claude Code tool calls give agents the ability to reach databases and external systems directly through the command line. This opens technical possibilities for connecting multiple data sources without extra wrappers. Yet the excitement around these connections rarely translates into lower customer acquisition costs or faster sales cycles. The focus stays on what the agent can do instead of what the business gains.</p></p></div><div class="article-section"><div class="article-section-title">The Initial Technical Appeal</div><p class="article-section-body"><p>The new capability allows an agent to execute queries against internal records or pull from public data feeds in a single workflow. Setup involves defining the permissions once and then letting the agent handle repeated access. Some connections complete in under an hour while others require adjustments for security protocols and rate limits. The process creates an appearance of speed because developers avoid building custom middleware for each system. Many teams begin with simple queries and gradually expand to more complex interactions involving file system modifications or multi API orchestrations.</p>
+<p>That appearance misleads when the focus moves beyond initial setup. Agents begin to generate outputs based on the data they retrieve. Inconsistent data fields across sources produce mismatched results that require rules for reconciliation. The rules themselves add layers of logic that need testing and updates whenever source schemas change. Teams discover that maintaining these connections demands more attention than the command line interface initially suggests.</p>
+<p>One integration leads to the next as new use cases emerge from the expanded access. Each addition multiplies the variables in the overall system. The original goal of building AI applications shifts toward managing a growing set of operational details. Time spent on these details accumulates without any automatic link to revenue producing activities. Agents that interact with both internal and external sources create additional complexity around data privacy and compliance requirements. Each connection point carries its own set of regulations that affect how information can be used in downstream decisions. These considerations extend the timeline for moving any agent from test to production. The shift toward command line control also changes the skill sets needed on the team. Developers who previously focused on application logic now invest time in understanding system architectures and access controls across multiple platforms. This redistribution of effort means less focus on the business logic that directly supports sales processes.</p></p></div><div class="article-section"><div class="article-section-title">The Human Dynamics At Play</div><p class="article-section-body"><p>A developer setting up these tool connections experiences immediate feedback from each successful execution. The terminal responses provide tangible signs that progress is happening. That sense of momentum keeps attention on the technical layer. Business stakeholders see the same outputs during demonstrations and experience a separate internal response. They recognize the sophistication but feel uncertainty about whether the agent outputs will feed into actual opportunity identification.</p>
+<p>This difference in experience shows up in planning sessions. Technical discussions center on expanding functionality and adding more database access points. Business reviews keep circling back to questions about pipeline influence and time to value. The developer feels validated by the expanding agent capabilities. The leader senses that the investment in development hours continues without corresponding movement in key performance indicators. Without shared metrics the conversations drift toward feature lists and away from outcome definitions.</p>
+<p>Over repeated cycles the skepticism on the business side grows. Each new demo adds to the list of features while the underlying data on lead quality and conversion stays consistent with prior periods. The internal calculation for each stakeholder diverges further. One side tracks code completeness and the other tracks financial metrics that show no acceleration. The gap widens as more time passes without clear evidence of improved outcomes. This separation of concerns creates ongoing misalignment in how success gets defined across the organization.</p></p></div><div class="article-section"><div class="article-section-title">The Binary Outcome That Follows</div><p class="article-section-body"><p>Organizations reach a point where the choice becomes unavoidable. One path requires that every agent capability demonstrate a direct connection to reduced costs or increased revenue within a short validation window. Tests include baseline comparisons against existing processes and clear thresholds for continuation. Capabilities that meet those thresholds receive additional resources. Those that fall short receive none regardless of their technical interest. Validation windows typically last two to four weeks with specific data collected on usage and results.</p>
+<p>The alternative path treats the command line access as an end in itself. Development resources flow toward whatever systems become available next. Agents gain broader reach across file systems and APIs but the outputs require manual intervention to produce useful intelligence. The volume of unvalidated experiments increases over time. This pattern repeats across multiple initiatives until the total effort required to sustain the agents exceeds the value they deliver. Maintenance of the agent then becomes an ongoing commitment that competes with other priorities for attention.</p>
+<p>The difference between these paths appears in quarterly results. Teams that apply revenue tests early avoid diverting attention from high impact activities like refining data triggers for immediate demand. Teams that skip the tests accumulate technical complexity that slows responses to real opportunities. The decision rests on whether the organization measures new AI features by their effect on the bottom line or by the range of actions they enable. The organizations that choose the measurement path build a repeatable process for evaluating future tool releases in the same manner.</p>
+<p>Jonathan Green</p>
+<p>PS</p>
+<ul>
+<li>Scroll to the top.</li>
+<li>Click on Subscribe to newsletter.</li>
+<li>Follow Jonathan Green to never miss a post.</li>
+</ul></p></div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>Run Revenue Tests On Claude Tool Calls
@@ -1127,7 +936,7 @@ Learn how to use AI to slash your company's overhead in my profile.</pre></div>
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The target terminates mid-sentence at &quot;Trigger → Action&lt;|eos|&gt;&quot; — truncated before pricing, offer, guarantee, testimonials, modules, and final CTA. The portion delivered is genuinely strong: Tailwind + Alpine sticky nav, progress bar, countdown scaffolding, hero badge pill, three-card backdrop-blur cost grid — visually competitive with Reference C's 99. But a sales page missing its offer and CTA fails its core job, dragging it below Reference B (69), which has full funnel coverage. I sided with the 58/62 cluster (median 62) and discarded the 72 vote as overweighting visual polish while ignoring the missing conversion machinery. 65 was defensible but slightly lenient given how much funnel is absent.</p>
+          <p><p>The target terminates mid-sentence at &quot;Trigger → Action&lt;|eos|&gt;&quot; — truncated before pricing, offer, guarantee, testimonials, modules, and final CTA. The portion delivered is genuinely strong: Tailwind + Alpine sticky nav, progress bar, countdown scaffolding, hero badge pill, three-card backdrop-blur cost grid — visually competitive with Reference C's 99. But a sales page missing its offer and CTA fails its core job, dragging it below Reference B (69), which has full funnel coverage. I sided with the 58/62 cluster (median 62) and discarded the 72 vote as overweighting visual polish while ignoring the missing conversion machinery. 65 was defensible but slightly lenient given how much funnel is absent.</p></p>
         </div><div class="screenshot-section">
           <h4 style="color: var(--purple-mid); margin: 16px 0 8px;">Desktop Rendering</h4>
           <div class="screenshot-grid">
@@ -1605,7 +1414,7 @@ Learn how to use AI to slash your company's overhead in my profile.</pre></div>
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET earns 87 because it sits just above Reference B (85) but well shy of Reference C (96). It introduces clean named interfaces like FailedInvoice and EventCounts, and guards optional payloads with explicit checks such as `&quot;if (typeof attemptCount === 'number')&quot;`, matching C's defensiveness. However, the signature comparison uses a plain `expectedSignature !== event.signature`, missing the timing-safe equality that B attempts and C implies, leaving a subtle security gap. It also lacks a dedicated type guard like C's `isWebhookEvent`, instead inlining a long boolean. Solid, idiomatic, slightly under C's polish.</p>
+          <p><p>The TARGET earns 87 because it sits just above Reference B (85) but well shy of Reference C (96). It introduces clean named interfaces like FailedInvoice and EventCounts, and guards optional payloads with explicit checks such as `&quot;if (typeof attemptCount === 'number')&quot;`, matching C's defensiveness. However, the signature comparison uses a plain `expectedSignature !== event.signature`, missing the timing-safe equality that B attempts and C implies, leaving a subtle security gap. It also lacks a dedicated type guard like C's `isWebhookEvent`, instead inlining a long boolean. Solid, idiomatic, slightly under C's polish.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Code Analysis</h4>
       <div class="callout-box info">
@@ -1835,7 +1644,7 @@ export function processWebhookEvents(
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET earns 70 because it sits clearly above Reference B's mid-range execution but lacks Reference C's specificity and emotional payoff. The thesis is sharp and reframes the news cleanly: &quot;Your existing documents finally work as data instead of dead weight.&quot; That single line carries more weight than most of B. However, the piece relies on hypotheticals rather than C's concrete bakery story with dollar figures, tears, and the goat-in-a-junkyard image. Pacing is competent but flat, with paragraph blocks instead of B and C's punchier line breaks. The PS lands with charm, the CTA is clean, but the missing proof keeps it from breaking 80.</p>
+          <p><p>The TARGET earns 70 because it sits clearly above Reference B's mid-range execution but lacks Reference C's specificity and emotional payoff. The thesis is sharp and reframes the news cleanly: &quot;Your existing documents finally work as data instead of dead weight.&quot; That single line carries more weight than most of B. However, the piece relies on hypotheticals rather than C's concrete bakery story with dollar figures, tears, and the goat-in-a-junkyard image. Pacing is competent but flat, with paragraph blocks instead of B and C's punchier line breaks. The PS lands with charm, the CTA is clean, but the missing proof keeps it from breaking 80.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Email Preview</h4>
     <div class="email-preview"><div class="email-subject"><strong>Subject:</strong> Your unorganized files just got useful</div><div class="email-preview-text"><strong>Preview:</strong> The million token model isn't really about bigger numbers. It's about who finally gets to pull value from the mess they already have.</div><div class="email-body">I saw the announcement about the new model that can handle a million tokens at once. Ten books in one go. Most coverage focused on the technical jump.</p><p>I kept thinking about the small business owner with five years of client notes, half-finished SOPs, and random PDFs sitting in different folders. The stuff you mean to organize when you get a spare weekend that never comes.</p><p>Here's what changes. Instead of hiring someone to clean it up first, you can now load the whole pile into one prompt. Ask a direct question like which service requests have come up most often from your longest clients. The model can scan everything you already created and surface the patterns.</p><p>You don't need a dedicated ops person or a perfectly maintained company wiki anymore. Your existing documents finally work as data instead of dead weight.</p><p>The barrier used to be organization. Now it's mostly just deciding what you actually want to know.</p><p>Hit reply and describe the messiest pile of documents or notes in your business right now.</div><div class="email-signature">Jonathan Green</div><div class="email-ps">PS: The roosters started up at 4:17 this morning and one of them sounds personally offended by the sunrise. Island alarm clocks never miss.</div></div></div>
@@ -1869,12 +1678,12 @@ PS: The roosters started up at 4:17 this morning and one of them sounds personal
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET lands at 84 because it matches Reference B's structural completeness while adding sharper concrete detail, but stops short of Reference C's polish. It quantifies results Reference B only gestures at — noting items &quot;totaling ~$1,300&quot; against the $3,000 budget — and correctly captures the table failure, the surprise account creation without email confirmation, and the manual title correction on r/programmerhumor. The bottom line, &quot;more of a live experiment with visible friction,&quot; is honest and useful. Compared to Reference B (81), it is slightly more specific and better organized; it lacks Reference C's crisp status icons and explicit production-readiness framing, keeping it just above mid-range.</p>
+          <p><p>The TARGET lands at 84 because it matches Reference B's structural completeness while adding sharper concrete detail, but stops short of Reference C's polish. It quantifies results Reference B only gestures at — noting items &quot;totaling ~$1,300&quot; against the $3,000 budget — and correctly captures the table failure, the surprise account creation without email confirmation, and the manual title correction on r/programmerhumor. The bottom line, &quot;more of a live experiment with visible friction,&quot; is honest and useful. Compared to Reference B (81), it is slightly more specific and better organized; it lacks Reference C's crisp status icons and explicit production-readiness framing, keeping it just above mid-range.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Summary Breakdown</h4>
       <div class="callout-box info">
         <div class="callout-label">TLDR</div>
-        <p>The video shows a setup using Claude AI with custom skills and Chrome Dev Protocol (CDP) to run parallel browser agents across multiple tabs. The creator tests an Amazon product search + room visualization pipeline, realtime captcha solving, and temp-mail Reddit account creation + meme posting. It's worth watching if you want to see parallel agent orchestration in action, but the demonstration is messy and uneven.</p>
+        <p><p>The video shows a setup using Claude AI with custom skills and Chrome Dev Protocol (CDP) to run parallel browser agents across multiple tabs. The creator tests an Amazon product search + room visualization pipeline, realtime captcha solving, and temp-mail Reddit account creation + meme posting. It's worth watching if you want to see parallel agent orchestration in action, but the demonstration is messy and uneven.</p></p>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -1919,12 +1728,18 @@ Watch this if you're already building or testing Claude-based browser agents and
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET lands at 88 because it executes the same tightening moves as Reference C — fixing typos, cutting &quot;Seriously,&quot; collapsing &quot;Here's what nobody is talking about&quot; — while preserving voice and argument structure cleanly. Lines like &quot;It'll turn that gap into a canyon&quot; and &quot;This changes hiring&quot; show real editorial judgment, trading filler for punch. Compared to Reference C (96), the TARGET keeps the weaker &quot;I've been thinking about this a lot lately&quot; opener that C surgically removed, and its changelog is thinner and less specific about word-count reduction. It clearly outclasses Reference B (74), whose edit retains more hedging and choppier transitions, but stops short of C's directness.</p>
+          <p><p>The TARGET lands at 88 because it executes the same tightening moves as Reference C — fixing typos, cutting &quot;Seriously,&quot; collapsing &quot;Here's what nobody is talking about&quot; — while preserving voice and argument structure cleanly. Lines like &quot;It'll turn that gap into a canyon&quot; and &quot;This changes hiring&quot; show real editorial judgment, trading filler for punch. Compared to Reference C (96), the TARGET keeps the weaker &quot;I've been thinking about this a lot lately&quot; opener that C surgically removed, and its changelog is thinner and less specific about word-count reduction. It clearly outclasses Reference B (74), whose edit retains more hedging and choppier transitions, but stops short of C's directness.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Editing Analysis</h4>
     <div class="edited-text-box">
       <div class="callout-label">EDITED TEXT</div>
-      <div class="edited-text">I've been thinking about this a lot lately, and I think most people are getting AI completely wrong. Everyone's talking about how AI is going to replace developers and writers, but that's not what I'm seeing in my business.</p><p>What I'm actually seeing is that AI makes good people better and bad people worse. The people who were already good at writing use AI to produce 3x more content that's just as good. Bad writers produce 3x more garbage. Same with code. My best developers use AI as a copilot and ship features way faster. My worst ones use it as a crutch and still ship bugs—just different bugs now.</p><p>The real disruption isn't replacement. It's amplification. If you were a 7 out of 10 marketer before AI, now you're operating at a 9. If you were a 3 out of 10, AI bumps you to maybe a 4 on a good day. The gap between good and bad is widening, not shrinking.</p><p>This changes hiring. Why bring on a mediocre person with AI tools when you could hire an excellent one with the same tools? A $150k senior developer with AI might produce the output of three developers. An $80k junior with AI produces slightly better junior output.</p><p>The people who should be most worried aren't the ones who think they'll be replaced by AI. It's the ones who think AI will close the skill gap with their more talented colleagues. It won't. It'll turn that gap into a canyon.</p><p>If you're running a business, stop listening to the media narrative that &quot;AI replaces jobs.&quot; The real question is whether AI amplifies your team's strengths or just makes their weaknesses more productive. Those are very different outcomes.</p><p>**</div>
+      <div class="edited-text"><p>I've been thinking about this a lot lately, and I think most people are getting AI completely wrong. Everyone's talking about how AI is going to replace developers and writers, but that's not what I'm seeing in my business.</p>
+<p>What I'm actually seeing is that AI makes good people better and bad people worse. The people who were already good at writing use AI to produce 3x more content that's just as good. Bad writers produce 3x more garbage. Same with code. My best developers use AI as a copilot and ship features way faster. My worst ones use it as a crutch and still ship bugs—just different bugs now.</p>
+<p>The real disruption isn't replacement. It's amplification. If you were a 7 out of 10 marketer before AI, now you're operating at a 9. If you were a 3 out of 10, AI bumps you to maybe a 4 on a good day. The gap between good and bad is widening, not shrinking.</p>
+<p>This changes hiring. Why bring on a mediocre person with AI tools when you could hire an excellent one with the same tools? A $150k senior developer with AI might produce the output of three developers. An $80k junior with AI produces slightly better junior output.</p>
+<p>The people who should be most worried aren't the ones who think they'll be replaced by AI. It's the ones who think AI will close the skill gap with their more talented colleagues. It won't. It'll turn that gap into a canyon.</p>
+<p>If you're running a business, stop listening to the media narrative that &quot;AI replaces jobs.&quot; The real question is whether AI amplifies your team's strengths or just makes their weaknesses more productive. Those are very different outcomes.</p>
+<p>**</p></div>
     </div>
       <div class="callout-box changelog">
         <div class="callout-label">CHANGELOG (5 changes)</div>
@@ -1959,7 +1774,7 @@ If you're running a business, stop listening to the media narrative that &quot;A
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The target lands at 85 because it consistently delivers the &quot;hidden need&quot; framing Reference C nails, with concrete vertical examples, named tools (n8n, Make, custom GPTs), specific revenue-share splits (&quot;split any resulting implementation 15/85&quot;), and triggered timing plays like the Indeed hiring search reframing AI as an alternative to a $4k/month hire. Tactics are crisp and executable, with realistic 4-7 week timelines and right-sized weekly hours. It edges past Reference B's solid mid-tier work but lacks C's sharper psychological framing, named-dollar tradeoffs, and the punchy &quot;Trojan Horse&quot; voice — competent and specific without being memorable.</p>
+          <p><p>The target lands at 85 because it consistently delivers the &quot;hidden need&quot; framing Reference C nails, with concrete vertical examples, named tools (n8n, Make, custom GPTs), specific revenue-share splits (&quot;split any resulting implementation 15/85&quot;), and triggered timing plays like the Indeed hiring search reframing AI as an alternative to a $4k/month hire. Tactics are crisp and executable, with realistic 4-7 week timelines and right-sized weekly hours. It edges past Reference B's solid mid-tier work but lacks C's sharper psychological framing, named-dollar tradeoffs, and the punchy &quot;Trojan Horse&quot; voice — competent and specific without being memorable.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">7 Strategies</h4>
     <div class="strategy-grid">
@@ -1967,49 +1782,49 @@ If you're running a business, stop listening to the media narrative that &quot;A
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">Accountant/Bookkeeper Partnership Pipeline</div>
-          <p class="strategy-preview">This week, use Google and local directories to build a list of 25 independent accountants or bookkeepers who serve 10-50 employee businesses in your area. Send a short, personalized email or LinkedIn ...</p>
+          <div class="strategy-preview"><p>This week, use Google and local directories to build a list of 25 independent accountants or bookkeepers who serve 10-50 employee businesses in your area. Send a short, personalized email or LinkedIn message: &quot;I've been helping clients cut invoice and expense categorization time by 70% using n8n. If any of your clients mention manual data work, I'd run a free 20-minute workflow review and split any resulting implementation 15/85 with you.&quot; Follow up once by phone after 10 days with a one-page example of a common client process.<br><strong>Time investment:</strong> 3-4 hours per week (mostly initial list building and 5-7 messages daily).<br><strong>Timeline to first client:</strong> 4-7 weeks.<br><strong>Why it works for AI consulting:</strong> Accountants see the exact repetitive tasks (data entry, reconciliation) that custom GPTs and Make automations fix, but they don't sell the solution. You become their trusted add-on rather than competing for the relationship.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">Hiring Trigger Outreach</div>
-          <p class="strategy-preview">Each week, search Indeed for new &quot;administrative assistant,&quot; &quot;customer support,&quot; or &quot;sales coordinator&quot; postings from companies that list 10-50 employees or &quot;small team&quot; in the description. For 8-10 r...</p>
+          <div class="strategy-preview"><p>Each week, search Indeed for new &quot;administrative assistant,&quot; &quot;customer support,&quot; or &quot;sales coordinator&quot; postings from companies that list 10-50 employees or &quot;small team&quot; in the description. For 8-10 relevant postings, visit the company's site, find the owner or operations manager via their &quot;About&quot; page or contact form, and send: &quot;I saw the posting for [role]. Instead of adding headcount for follow-up and scheduling, a few similar businesses are using a custom AI workflow that handles 60% of it. Would you want a 3-minute Loom showing what the output could look like for your exact process before you interview?&quot;<br><strong>Time investment:</strong> 2 hours per week.<br><strong>Timeline to first client:</strong> 6-9 weeks.<br><strong>Why it works for AI consulting:</strong> This hits businesses at the exact moment they're about to spend $4k+/month on a new hire. It reframes AI automation as an alternative to headcount rather than an abstract &quot;better way,&quot; which makes the unknown need concrete and urgent.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">Trade Association Workshop Series</div>
-          <p class="strategy-preview">Identify two vertical trade groups (examples: your state's retail association or professional services network) and email their events coordinator this week: &quot;I'd like to run a 45-minute private sessi...</p>
+          <div class="strategy-preview"><p>Identify two vertical trade groups (examples: your state's retail association or professional services network) and email their events coordinator this week: &quot;I'd like to run a 45-minute private session for members on the three highest-ROI automations in [niche]—lead response, document intake, and internal approvals—using tools that require no new software. No pitch, just a working example of each.&quot; Offer to do it for free in exchange for member contact details afterward for a single targeted follow-up email.<br><strong>Time investment:</strong> 2-3 hours per week (one-time deck creation is front-loaded).<br><strong>Timeline to first client:</strong> 5-8 weeks.<br><strong>Why it works for AI consulting:</strong> Trade associations give you direct access to business owners who already trust the group and are more open to vertical-specific examples. The &quot;no pitch&quot; format lowers defenses for a solution they haven't considered.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">Adjacent Provider Co-Branded Kit</div>
-          <p class="strategy-preview">Find five local or regional firms that install or support QuickBooks, CRM systems, or basic website hosting for small businesses. Propose a simple collaboration: you create a 4-page PDF (&quot;The 3 Automa...</p>
+          <div class="strategy-preview"><p>Find five local or regional firms that install or support QuickBooks, CRM systems, or basic website hosting for small businesses. Propose a simple collaboration: you create a 4-page PDF (&quot;The 3 Automations Most [Their Clients] Should Run First&quot;) that they can email to their client list. They get co-branding and a referral fee if anyone implements. You deliver the document once and let them handle distribution.<br><strong>Time investment:</strong> 3 hours in week one, then 1 hour per week for follow-up calls.<br><strong>Timeline to first client:</strong> 3-6 weeks.<br><strong>Why it works for AI consulting:</strong> These providers already have recurring access to the client's tech stack and pain points. The kit positions you as the &quot;make it actually work&quot; layer on top of tools the client already pays for.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">Similar-Business Pilot Offer</div>
-          <p class="strategy-preview">From each current client's website or public mentions, identify 3-4 businesses that look structurally similar (same employee count, industry, or visible processes like high lead volume or repetitive a...</p>
+          <div class="strategy-preview"><p>From each current client's website or public mentions, identify 3-4 businesses that look structurally similar (same employee count, industry, or visible processes like high lead volume or repetitive admin). Send a short note: &quot;I helped [Client Name] automate their [specific workflow]. If you're dealing with the same issue, I'd run a no-risk 10-day pilot on one process using your actual data so you can see the output before any commitment.&quot; Limit to one pilot per week.<br><strong>Time investment:</strong> 2 hours per week (research plus delivery).<br><strong>Timeline to first client:</strong> 4-6 weeks.<br><strong>Why it works for AI consulting:</strong> For a service people don't know they need, a short pilot removes the risk and education gap simultaneously. Seeing their own data processed creates immediate, undeniable value without requiring them to understand the tools first.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">6</div>
         <div class="strategy-content">
           <div class="strategy-title">Local Operations Roundtable</div>
-          <p class="strategy-preview">Book a free or low-cost room at a coworking space or library this week for a 90-minute session titled &quot;Operations Roundtable: What's Eating Your Team's Time?&quot; Invite 10-12 local business owners throug...</p>
+          <div class="strategy-preview"><p>Book a free or low-cost room at a coworking space or library this week for a 90-minute session titled &quot;Operations Roundtable: What's Eating Your Team's Time?&quot; Invite 10-12 local business owners through direct emails (found via chamber directories or Google Business listings) or by personally visiting 3-4 businesses. Run it as a facilitated discussion where owners share one process, then you map a quick AI automation live on a whiteboard or shared doc. Collect contact info for one follow-up offer only.<br><strong>Time investment:</strong> 4 hours per event (plan on running one every 4-6 weeks).<br><strong>Timeline to first client:</strong> 2-5 weeks.<br><strong>Why it works for AI consulting:</strong> In-person demos of n8n or Make on actual attendee problems turns abstract AI into something they can see in their own operations. Local business owners discuss real constraints with each other, making your solution feel practical rather than futuristic.</p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">7</div>
         <div class="strategy-content">
           <div class="strategy-title">Partnership with Niche Newsletter Publishers</div>
-          <p class="strategy-preview">Find 3-4 small, paid or free newsletters that go to owners of 10-50 employee businesses in specific verticals (examples: industry-specific ones in manufacturing, professional services, or e-commerce)....</p>
+          <div class="strategy-preview"><p>Find 3-4 small, paid or free newsletters that go to owners of 10-50 employee businesses in specific verticals (examples: industry-specific ones in manufacturing, professional services, or e-commerce). This week, reach out offering to write one guest section (400-600 words) on &quot;One Automation That Pays for Itself in 30 Days.&quot; Include a single non-salesy call-to-action at the end for a free workflow audit.<br><strong>Time investment:</strong> 2 hours per week (writing plus relationship management).<br><strong>Timeline to first client:</strong> 4-8 weeks.<br><strong>Why it works for AI consulting:</strong> These newsletters already have the exact audience and permission. A practical, process-focused article educates without selling, while the audit offer surfaces people who are ready to move from awareness to implementation.</p></div>
         </div>
       </div></div></div>
         <details class="output-details">
@@ -2066,16 +1881,16 @@ Find 3-4 small, paid or free newsletters that go to owners of 10-50 employee bus
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The target nails the arithmetic across all three plans with clean formulas like &quot;MRR_t = 161,160 x (0.95)^t&quot; and arrives at the correct recommendation, but the analysis stops well short of the rigor that distinguishes Reference C. It never computes LTV/CAC ratios, omits the $86,400 CAC outlay implied by Plan B's 480 new customers, and skips a month-by-month cash runway projection — the very synthesis that makes the 8-month sustainability question answerable. The closing comparison is accurate but thin, sitting noticeably above Reference B's messy scratchwork yet clearly below C's polished decision memo.</p>
+          <p><p>The target nails the arithmetic across all three plans with clean formulas like &quot;MRR_t = 161,160 x (0.95)^t&quot; and arrives at the correct recommendation, but the analysis stops well short of the rigor that distinguishes Reference C. It never computes LTV/CAC ratios, omits the $86,400 CAC outlay implied by Plan B's 480 new customers, and skips a month-by-month cash runway projection — the very synthesis that makes the 8-month sustainability question answerable. The closing comparison is accurate but thin, sitting noticeably above Reference B's messy scratchwork yet clearly below C's polished decision memo.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Analysis Highlights</h4>
       <div class="callout-box info">
         <div class="callout-label">KEY FINDINGS</div>
-        <ul class="feature-list"><li>Customer LTV: $487.5</li><li>Launch MRR: $2,400</li><li>Recommendation: **</li></ul>
+        <ul class="feature-list"><li><p>Customer LTV: $487.5</p></li><li><p>Launch MRR: $2,400</p></li><li><p>Recommendation: **</p></li></ul>
       </div>
       <div class="callout-box section">
         <div class="callout-label">OPTIONS ANALYZED</div>
-        <ul class="feature-list"><li>Plan Analysis**</li><li>Plan A Analysis**</li><li>Plan B Analysis**</li><li>Plan A (price increase to $79/month) is the best option.</li><li>Plan B (LTV 487.5) and the current plan (LTV 612.5). With only 5% monthly churn, MRR declines slowly: it remains above the 85,000 burn rate through at least month 12 (87,084.42) and only crosses below around month 12.4. This maximizes the duration of positive net cash flow, allowing the 400K runway to grow rather than deplete.</li></ul>
+        <ul class="feature-list"><li>Plan Analysis</li><li>Plan A Analysis</li><li>Plan B Analysis</li><li>Plan A (price increase to $79/month) is the best option.</li><li>Plan B (LTV 487.5) and the current plan (LTV 612.5). With only 5% monthly churn, MRR declines slowly: it remains above the 85,000 burn rate through at least month 12 (87,084.42) and only crosses below around month 12.4. This maximizes the duration of positive net cash flow, allowing the 400K runway to grow rather than deplete.</li></ul>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -2141,7 +1956,7 @@ All options satisfy the immediate cash-flow-positive requirement (MRR &gt; 85K a
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET lands at 76 because every numeric answer is correct, but the qualitative texture is sparser than the mid-range anchor. It echoes Reference A's bare format on most lines yet adds one modest enrichment with &quot;$2.5 million over budget&quot;, which nudges it slightly above A's 74 by hinting at the cost-overrun context Reference B captures more cleanly as &quot;$2.5 million (20.2% over budget)&quot;. Missing are B's title attribution (&quot;Principal Engineer Tomás Salazar&quot;) and the precise 20.2% figure, so it cannot reach 82. It is closest to Reference A, just marginally richer.</p>
+          <p><p>The TARGET lands at 76 because every numeric answer is correct, but the qualitative texture is sparser than the mid-range anchor. It echoes Reference A's bare format on most lines yet adds one modest enrichment with &quot;$2.5 million over budget&quot;, which nudges it slightly above A's 74 by hinting at the cost-overrun context Reference B captures more cleanly as &quot;$2.5 million (20.2% over budget)&quot;. Missing are B's title attribution (&quot;Principal Engineer Tomás Salazar&quot;) and the precise 20.2% figure, so it cannot reach 82. It is closest to Reference A, just marginally richer.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Answers (10 questions)</h4>
     <div class="answers-grid">

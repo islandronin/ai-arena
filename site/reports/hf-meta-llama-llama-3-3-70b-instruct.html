@@ -32,6 +32,14 @@
     --border: #E2E8F0;
     --font-display: 'Bangers', cursive;
     --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Type scale (report breakouts) — keep the page to a few sizes */
+    --fs-label: 0.72rem;
+    --fs-small: 0.8rem;
+    --fs-body: 0.9rem;
+    --fs-title: 1rem;
+    --fs-lead: 1.2rem;
+    --text-body: #334155;
+    --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -175,309 +183,97 @@
   .footer-copy { font-size: 0.75rem; opacity: 0.4; }
 
     
-  /* Breakout sections */
-  .breakout-section {
-    margin: 16px 0;
-  }
+  /* ===== Breakout design system: one type scale + shared primitives across all 10 categories ===== */
+  .breakout-section { margin: 18px 0; }
   .breakout-title {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--purple-mid);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    color: var(--magenta); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;
   }
 
-  /* Platform cards grid (social media) */
-  .platform-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 16px;
+  /* Shared card shell */
+  .platform-card, .email-preview, .article-preview, .edited-text-box, .strategy-card, .answer-card, .code-display {
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
   }
-  .platform-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
+
+  /* Shared reading text (one size, readable color, everywhere) */
+  .platform-body, .callout-box, .email-body, .article-section-body, .edited-text, .strategy-preview, .answer-text, .feature-list li, .changelog-list li {
+    font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.6; color: var(--text-body);
   }
-  .platform-header {
-    background: var(--purple-dark);
-    color: white;
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .platform-body strong, .callout-box strong, .article-section-body strong, .answer-text strong, .feature-list li strong, .strategy-preview strong, .email-body strong { color: var(--text-primary); font-weight: 700; }
+  .article-section-body p, .strategy-preview p, .edited-text p, .email-body p { margin-bottom: 8px; }
+  .article-section-body ul, .strategy-preview ul, .callout-box ul { margin: 6px 0 6px 18px; }
+  .article-section-body p:last-child, .strategy-preview p:last-child { margin-bottom: 0; }
+
+  /* Shared content title */
+  .article-section-title, .strategy-title {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-title);
+    color: var(--text-primary); margin-bottom: 5px; line-height: 1.35;
   }
-  .platform-icon {
-    font-size: 1rem;
-    width: 24px;
-    text-align: center;
+
+  /* Shared small uppercase label/pill */
+  .callout-label, .code-lang-tag, .platform-header {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    letter-spacing: 0.07em; text-transform: uppercase;
   }
-  .platform-body {
-    padding: 12px;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--text-primary);
-    max-height: 200px;
-    overflow-y: auto;
+
+  /* Shared numbered marker */
+  .strategy-num, .answer-num {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-lead);
+    color: var(--purple-mid); line-height: 1.2; text-align: center;
   }
+
+  /* Social platform cards */
+  .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .platform-header { background: var(--purple-dark); color: white; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
+  .platform-icon { font-size: var(--fs-body); width: 22px; text-align: center; }
+  .platform-body { padding: 12px; max-height: 220px; overflow-y: auto; }
 
   /* Callout boxes */
-  .callout-box {
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin: 10px 0;
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-  .callout-box.info {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-  }
-  .callout-box.creative {
-    background: #faf5ff;
-    border: 1px solid #e9d5ff;
-  }
-  .callout-box.changelog {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-  }
-  .callout-box.section {
-    background: #f8fafc;
-    border: 1px solid var(--border);
-  }
-  .callout-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--purple-mid);
-    margin-bottom: 6px;
-  }
+  .callout-box { border-radius: var(--radius); padding: 14px 16px; margin: 10px 0; }
+  .callout-box.info { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .callout-box.creative { background: #faf5ff; border: 1px solid #e9d5ff; }
+  .callout-box.changelog { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .callout-box.section { background: var(--bg-light); border: 1px solid var(--border); }
+  .callout-label { display: inline-block; color: var(--purple-mid); margin-bottom: 8px; }
 
-  /* Feature list */
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .feature-list li {
-    padding: 3px 0 3px 20px;
-    position: relative;
-    font-size: 0.85rem;
-  }
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--green);
-    font-weight: 700;
-  }
+  /* Check list */
+  .feature-list { list-style: none; padding: 0; margin: 0; }
+  .feature-list li { padding: 4px 0 4px 22px; position: relative; }
+  .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
-  /* Email preview */
-  .email-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 0.9rem;
-  }
-  .email-subject {
-    background: #f1f5f9;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-  .email-preview-text {
-    padding: 8px 16px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
-    font-style: italic;
-  }
-  .email-body {
-    padding: 16px;
-    line-height: 1.7;
-  }
-  .email-body p { margin-bottom: 12px; }
-  .email-signature {
-    padding: 8px 16px;
-    color: var(--text-secondary);
-    font-weight: 600;
-  }
-  .email-ps {
-    padding: 12px 16px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-style: italic;
-    font-size: 0.88rem;
-  }
+  /* Email */
+  .email-subject { background: var(--bg-gray); padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: var(--fs-title); color: var(--text-primary); }
+  .email-preview-text { padding: 8px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: var(--fs-small); font-style: italic; }
+  .email-body { padding: 16px; }
+  .email-signature { padding: 10px 16px; color: var(--text-primary); font-weight: 600; font-size: var(--fs-body); }
+  .email-ps { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--text-secondary); font-style: italic; font-size: var(--fs-small); }
 
-  /* Code display */
-  .code-display {
-    background: #1e293b;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 8px 0;
-  }
-  .code-lang-tag {
-    background: var(--blue);
-    color: white;
-    padding: 4px 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    margin: 8px 0 0 8px;
-    border-radius: 4px;
-  }
-  .code-display pre {
-    padding: 16px;
-    color: #e2e8f0;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.78rem;
-    line-height: 1.6;
-    overflow-x: auto;
-    max-height: 400px;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+  /* Code */
+  .code-lang-tag { background: var(--blue); color: white; padding: 4px 12px; display: inline-block; margin: 8px 0 0 8px; border-radius: 6px; }
+  .code-display { background: #1e293b; margin: 8px 0; }
+  .code-display pre { padding: 16px; color: #e2e8f0; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: var(--fs-small); line-height: 1.6; overflow-x: auto; max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; }
 
-  /* Article preview */
-  .article-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .article-headline {
-    padding: 16px 20px;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--purple-dark);
-    border-bottom: 2px solid var(--magenta);
-    line-height: 1.3;
-  }
-  .article-section {
-    padding: 12px 20px;
-    border-bottom: 1px solid var(--border);
-  }
+  /* Article */
+  .article-headline { padding: 16px 20px; font-size: var(--fs-lead); font-weight: 700; color: var(--purple-dark); border-bottom: 2px solid var(--magenta); line-height: 1.3; }
+  .article-section { padding: 14px 20px; border-bottom: 1px solid var(--border); }
   .article-section:last-child { border-bottom: none; }
-  .article-section-title {
-    font-weight: 700;
-    color: var(--purple-mid);
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-  }
-  .article-section-body {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
 
-  /* Edited text box */
-  .edited-text-box {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-  .edited-text {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--text-primary);
-  }
-  .edited-text p { margin-bottom: 10px; }
-  .changelog-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .changelog-list li {
-    padding: 4px 0 4px 20px;
-    position: relative;
-    font-size: 0.83rem;
-    line-height: 1.5;
-  }
-  .changelog-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-    font-weight: 700;
-  }
+  /* Editing */
+  .edited-text-box { padding: 16px; margin-bottom: 12px; }
+  .changelog-list { list-style: none; padding: 0; margin: 0; }
+  .changelog-list li { padding: 4px 0 4px 22px; position: relative; }
+  .changelog-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 
-  /* Strategy cards */
-  .strategy-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .strategy-card {
-    display: flex;
-    gap: 14px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
-    align-items: flex-start;
-  }
-  .strategy-num {
-    font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--purple-mid);
-    min-width: 32px;
-    text-align: center;
-    line-height: 1;
-  }
-  .strategy-title {
-    font-weight: 700;
-    font-size: 0.92rem;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-  .strategy-preview {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-    margin: 0;
-  }
+  /* Strategy (brainstorming) */
+  .strategy-grid { display: flex; flex-direction: column; gap: 10px; }
+  .strategy-card { display: flex; gap: 14px; padding: 14px; align-items: flex-start; }
+  .strategy-num { min-width: 30px; }
 
-  /* Answers grid (long context) */
-  .answers-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-  .answer-card {
-    display: flex;
-    gap: 10px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    align-items: center;
-  }
-  .answer-num {
-    font-weight: 800;
-    color: var(--purple-mid);
-    font-size: 1.1rem;
-    min-width: 24px;
-  }
-  .answer-text {
-    font-size: 0.88rem;
-    color: var(--text-primary);
-  }
+  /* Answers (long context) */
+  .answers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .answer-card { display: flex; gap: 12px; padding: 12px 14px; align-items: flex-start; }
+  .answer-num { min-width: 22px; }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .platform-grid { grid-template-columns: 1fr; }
     .answers-grid { grid-template-columns: 1fr; }
@@ -988,7 +784,7 @@
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>TARGET is generic and vague throughout, with weak filler like &quot;What does this mean for developers? More flexibility, more possibilities&quot; and a Facebook post that just asks &quot;What do you think this means for the future of AI app development?&quot; — no specific stakes, no voice, no concrete framing. It is clearly weaker than Reference B (68), which at least delivers a clear &quot;talker vs doer&quot; hook and a usable CTA. It sits above Reference A (42) because TARGET still names the platforms (MCP, databases, file systems) and is grammatically clean. The 72 vote misread the sameness across channels as competence; I discarded it. I agreed with the cluster at 51-55, which correctly read TARGET as low-mid filler.</p>
+          <p><p>TARGET is generic and vague throughout, with weak filler like &quot;What does this mean for developers? More flexibility, more possibilities&quot; and a Facebook post that just asks &quot;What do you think this means for the future of AI app development?&quot; — no specific stakes, no voice, no concrete framing. It is clearly weaker than Reference B (68), which at least delivers a clear &quot;talker vs doer&quot; hook and a usable CTA. It sits above Reference A (42) because TARGET still names the platforms (MCP, databases, file systems) and is grammatically clean. The 72 vote misread the sameness across channels as competence; I discarded it. I agreed with the cluster at 51-55, which correctly read TARGET as low-mid filler.</p></p>
         </div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -1016,10 +812,17 @@ AI REVOLUTION&quot;,
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>TARGET sits clearly below Reference A (19). It has the three-header skeleton and signature block, but the prose is comma-spliced filler with zero contrarian mechanism, no dollar figures, no Empathy Engine, and no varied rhythm. Lines like &quot;the choice, is clear, adapt, or become obsolete, learn, or be left behind, evolve, or be replaced&quot; repeat empty parallelism without meaning. The phrase &quot;it is complex, it is nuanced, and it is multifaceted&quot; appears verbatim twice. I agreed with the 16, 14, and 12 votes (cluster around 14) and discarded the 22 and 25 as too generous — those raters appear to have rewarded structure while ignoring that the body is vacuous. Genuine boundary ambiguity at the sub-A floor, not a misread.</p>
+          <p><p>TARGET sits clearly below Reference A (19). It has the three-header skeleton and signature block, but the prose is comma-spliced filler with zero contrarian mechanism, no dollar figures, no Empathy Engine, and no varied rhythm. Lines like &quot;the choice, is clear, adapt, or become obsolete, learn, or be left behind, evolve, or be replaced&quot; repeat empty parallelism without meaning. The phrase &quot;it is complex, it is nuanced, and it is multifaceted&quot; appears verbatim twice. I agreed with the 16, 14, and 12 votes (cluster around 14) and discarded the 22 and 25 as too generous — those raters appear to have rewarded structure while ignoring that the body is vacuous. Genuine boundary ambiguity at the sub-A floor, not a misread.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Article Preview</h4>
-    <div class="article-preview"><div class="article-headline">Code Shift</div><div class="article-section"><p class="article-section-body">Developers are about to experience a seismic shift in how they build AI apps, one that will leave many scrambling to adapt, because Claude Code just shipped tool calls that let AI agents use any API from the command line, which is a big deal, a really big deal, it changes everything.</p></div><div class="article-section"><div class="article-section-title">New World Order</div><p class="article-section-body">This change is not just about a new feature or a slight improvement, it is a fundamental shift in how AI apps are built, and it will have far-reaching consequences, for developers, for companies, and for the entire industry, because now AI agents can access MCP servers, databases, file systems, and more, all from the command line, which means they can automate tasks, fetch data, and perform actions, without the need for complex integrations or cumbersome workflows, and this will save time, reduce costs, and increase productivity, but it will also require developers to rethink their approach, to adapt to a new paradigm, one that is more efficient, more effective, and more powerful, and those who fail to adapt, will be left behind, struggling to keep up, with a technology that is moving at an incredible pace, and showing no signs of slowing down, so the question is, are you ready, are you prepared, to take advantage of this new world order, or will you be stuck, in the old way, of doing things, and if so, what will happen, to your career, to your company, and to your future, because the answer, is not a simple one, it is complex, it is nuanced, and it is multifaceted, but one thing, is certain, the future, of AI app development, has arrived, and it is here, to stay.</p></div><div class="article-section"><div class="article-section-title">Human Cost</div><p class="article-section-body">The human cost, of not adapting, to this new world order, will be significant, because developers, who fail, to learn, to adapt, and to evolve, will be left, with a skill set, that is no longer relevant, and a career, that is no longer viable, and this will lead, to frustration, to anxiety, and to fear, because the thought, of being replaced, by a machine, or by a newer, younger, and more skilled developer, is a daunting one, and it will keep, many developers, up at night, wondering, what they can do, to stay ahead, to stay relevant, and to stay employed, but the answer, is not a simple one, it is complex, it is nuanced, and it is multifaceted, because it requires, a willingness, to learn, to adapt, and to evolve, and it requires, a commitment, to staying ahead, of the curve, and to being, a lifelong learner, and this is not, an easy thing, to do, because it requires, discipline, dedication, and hard work, but the reward, is worth it, because the developers, who adapt, who evolve, and who thrive, will be the ones, who shape, the future, of AI app development, and who reap, the benefits, of this new world order.</p></div><div class="article-section"><div class="article-section-title">Binary Choice</div><p class="article-section-body">So the choice, is clear, adapt, or become obsolete, learn, or be left behind, evolve, or be replaced, and this is not, a decision, that can be taken lightly, because it will have, far-reaching consequences, for your career, for your company, and for your future, but the good news, is that you have, the power, to choose, to decide, what you want, to do, and how you want, to proceed, and this is a powerful thing, because it means, that you are, in control, of your destiny, and that you have, the ability, to shape, your future, and to create, the life, you want, so what will you do, will you adapt, will you learn, will you evolve, or will you become, a relic, of the past, the choice, is yours, and yours alone, and the consequences, will be yours, to bear.</p><p>Jonathan Green</p><p>PS<br><li>Scroll to the top.</li></p></div></div></div>
+    <div class="article-preview"><div class="article-headline">Code Shift</div><div class="article-section"><p class="article-section-body"><p>Developers are about to experience a seismic shift in how they build AI apps, one that will leave many scrambling to adapt, because Claude Code just shipped tool calls that let AI agents use any API from the command line, which is a big deal, a really big deal, it changes everything.</p></p></div><div class="article-section"><div class="article-section-title">New World Order</div><p class="article-section-body"><p>This change is not just about a new feature or a slight improvement, it is a fundamental shift in how AI apps are built, and it will have far-reaching consequences, for developers, for companies, and for the entire industry, because now AI agents can access MCP servers, databases, file systems, and more, all from the command line, which means they can automate tasks, fetch data, and perform actions, without the need for complex integrations or cumbersome workflows, and this will save time, reduce costs, and increase productivity, but it will also require developers to rethink their approach, to adapt to a new paradigm, one that is more efficient, more effective, and more powerful, and those who fail to adapt, will be left behind, struggling to keep up, with a technology that is moving at an incredible pace, and showing no signs of slowing down, so the question is, are you ready, are you prepared, to take advantage of this new world order, or will you be stuck, in the old way, of doing things, and if so, what will happen, to your career, to your company, and to your future, because the answer, is not a simple one, it is complex, it is nuanced, and it is multifaceted, but one thing, is certain, the future, of AI app development, has arrived, and it is here, to stay.</p></p></div><div class="article-section"><div class="article-section-title">Human Cost</div><p class="article-section-body"><p>The human cost, of not adapting, to this new world order, will be significant, because developers, who fail, to learn, to adapt, and to evolve, will be left, with a skill set, that is no longer relevant, and a career, that is no longer viable, and this will lead, to frustration, to anxiety, and to fear, because the thought, of being replaced, by a machine, or by a newer, younger, and more skilled developer, is a daunting one, and it will keep, many developers, up at night, wondering, what they can do, to stay ahead, to stay relevant, and to stay employed, but the answer, is not a simple one, it is complex, it is nuanced, and it is multifaceted, because it requires, a willingness, to learn, to adapt, and to evolve, and it requires, a commitment, to staying ahead, of the curve, and to being, a lifelong learner, and this is not, an easy thing, to do, because it requires, discipline, dedication, and hard work, but the reward, is worth it, because the developers, who adapt, who evolve, and who thrive, will be the ones, who shape, the future, of AI app development, and who reap, the benefits, of this new world order.</p></p></div><div class="article-section"><div class="article-section-title">Binary Choice</div><p class="article-section-body"><p>So the choice, is clear, adapt, or become obsolete, learn, or be left behind, evolve, or be replaced, and this is not, a decision, that can be taken lightly, because it will have, far-reaching consequences, for your career, for your company, and for your future, but the good news, is that you have, the power, to choose, to decide, what you want, to do, and how you want, to proceed, and this is a powerful thing, because it means, that you are, in control, of your destiny, and that you have, the ability, to shape, your future, and to create, the life, you want, so what will you do, will you adapt, will you learn, will you evolve, or will you become, a relic, of the past, the choice, is yours, and yours alone, and the consequences, will be yours, to bear.</p>
+<p>Jonathan Green</p>
+<p>PS</p>
+<ul>
+<li>Scroll to the top.</li>
+<li>Click on Subscribe to newsletter.</li>
+<li>Follow Jonathan Green to never miss a post.</li>
+</ul></p></div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>Code Shift
@@ -1049,7 +852,7 @@ PS
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>TARGET is byte-identical to REFERENCE B, the locked MID anchor for html-salespage at 69. Same DOCTYPE, same CSS classes, same opening &quot;Attention Small Business Owners, Entrepreneurs &amp; Consultants Who Are Drowning in Manual Tasks...&quot; and the same Bootstrap link. Scoring an anchor against itself must return the anchor's locked value, so 69 is the only defensible answer. I agreed with panel votes 75 and 83 in spirit (closest to 69, recognizing it as competent mid-tier) and the 69 vote outright; I discarded the two 26 votes — they collapsed TARGET to the LOW anchor despite identical structure, sectioning, and a working CTA button.</p>
+          <p><p>TARGET is byte-identical to REFERENCE B, the locked MID anchor for html-salespage at 69. Same DOCTYPE, same CSS classes, same opening &quot;Attention Small Business Owners, Entrepreneurs &amp; Consultants Who Are Drowning in Manual Tasks...&quot; and the same Bootstrap link. Scoring an anchor against itself must return the anchor's locked value, so 69 is the only defensible answer. I agreed with panel votes 75 and 83 in spirit (closest to 69, recognizing it as competent mid-tier) and the 69 vote outright; I discarded the two 26 votes — they collapsed TARGET to the LOW anchor despite identical structure, sectioning, and a working CTA button.</p></p>
         </div><div class="screenshot-section">
           <h4 style="color: var(--purple-mid); margin: 16px 0 8px;">Desktop Rendering</h4>
           <div class="screenshot-grid">
@@ -1589,7 +1392,7 @@ PS: I'm writing this from my backyard, where a rooster just decided to join me -
     <h4 class="breakout-title">Summary Breakdown</h4>
       <div class="callout-box info">
         <div class="callout-label">TLDR</div>
-        <p>This video demonstrates the capabilities of a browser automation system using Cloud Code and Claude AI. The creator tests parallel browser automation, capture solving, and creating a Reddit account using a temporary email address. While the demo shows promise, it is slow and requires manual intervention at times. The video is worth watching for those interested in browser automation and AI, but it may not be engaging for a general audience.</p>
+        <p><p>This video demonstrates the capabilities of a browser automation system using Cloud Code and Claude AI. The creator tests parallel browser automation, capture solving, and creating a Reddit account using a temporary email address. While the demo shows promise, it is slow and requires manual intervention at times. The video is worth watching for those interested in browser automation and AI, but it may not be engaging for a general audience.</p></p>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -1630,7 +1433,7 @@ PS: I'm writing this from my backyard, where a rooster just decided to join me -
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>TARGET sits clearly above Reference B (74) but well below Reference C (96). It fixes &quot;alot&quot; and most grammar, smooths flow, and tightens phrasing while preserving voice — e.g., &quot;It won't – it will make that gap a canyon.&quot; However, the changelist is generic (&quot;Removed redundant phrases and words for conciseness,&quot; &quot;Made minor adjustments to sentence wording&quot;) with no specific before/after pairs, and the edit retains hedges like &quot;I don't have all the answers.&quot; That places it just above B. I agreed with the 78/81/82 cluster and discarded 70 and 68 as misreading the target as B-tier; the edit is demonstrably cleaner than B. Genuine boundary ambiguity between 76–82.</p>
+          <p><p>TARGET sits clearly above Reference B (74) but well below Reference C (96). It fixes &quot;alot&quot; and most grammar, smooths flow, and tightens phrasing while preserving voice — e.g., &quot;It won't – it will make that gap a canyon.&quot; However, the changelist is generic (&quot;Removed redundant phrases and words for conciseness,&quot; &quot;Made minor adjustments to sentence wording&quot;) with no specific before/after pairs, and the edit retains hedges like &quot;I don't have all the answers.&quot; That places it just above B. I agreed with the 78/81/82 cluster and discarded 70 and 68 as misreading the target as B-tier; the edit is demonstrably cleaner than B. Genuine boundary ambiguity between 76–82.</p></p>
         </div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -1669,49 +1472,85 @@ I don't have all the answers, but I think business owners need to rethink the co
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">Partner with Accounting and Bookkeeping Firms to Offer Automation Workshops</div>
-          <p class="strategy-preview">* What: Reach out to 5 local accounting and bookkeeping firms per week, offering to host a free workshop on &quot;Automating Financial Processes with AI&quot; for their clients. Prepare a 1-hour presentation sh...</p>
+          <div class="strategy-preview"><ul>
+<li>What: Reach out to 5 local accounting and bookkeeping firms per week, offering to host a free workshop on &quot;Automating Financial Processes with AI&quot; for their clients. Prepare a 1-hour presentation showcasing the benefits of AI automation in finance, and offer a free consultation to attendees.</li>
+<li>Time investment: 5 hours/week (researching firms, reaching out, preparing presentation)</li>
+<li>Timeline to first client: 6-8 weeks</li>
+<li>Why it works: Accounting and bookkeeping firms often have a network of small business clients who could benefit from AI automation. By offering a valuable workshop, you establish yourself as an expert and build relationships with potential clients.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">Create a &quot;Before/After&quot; Case Study Video Series</div>
-          <p class="strategy-preview">* What: Develop a series of 5-7 short videos (2-3 minutes each) showcasing the before/after benefits of AI automation for small businesses. Use real-life examples from your existing clients, and share...</p>
+          <div class="strategy-preview"><ul>
+<li>What: Develop a series of 5-7 short videos (2-3 minutes each) showcasing the before/after benefits of AI automation for small businesses. Use real-life examples from your existing clients, and share the videos on your website, YouTube, and social media channels.</li>
+<li>Time investment: 10 hours/week (planning, filming, editing)</li>
+<li>Timeline to first client: 12-16 weeks</li>
+<li>Why it works: Visual storytelling helps potential clients understand the tangible benefits of AI automation, making it more relatable and desirable. This content can be shared across multiple channels, increasing its reach.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">Host a &quot;Process Automation Challenge&quot; Webinar Series</div>
-          <p class="strategy-preview">* What: Design a 4-part webinar series where you challenge attendees to identify and automate a specific business process using AI tools. Provide guidance, templates, and support throughout the series...</p>
+          <div class="strategy-preview"><ul>
+<li>What: Design a 4-part webinar series where you challenge attendees to identify and automate a specific business process using AI tools. Provide guidance, templates, and support throughout the series, and offer a free consultation to attendees who complete the challenge.</li>
+<li>Time investment: 10 hours/week (planning, preparing webinars, supporting attendees)</li>
+<li>Timeline to first client: 10-14 weeks</li>
+<li>Why it works: This interactive approach helps potential clients experience the benefits of AI automation firsthand, building trust and establishing your expertise.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">Develop a &quot;AI Automation Maturity Assessment&quot; Tool</div>
-          <p class="strategy-preview">* What: Create a free, online assessment tool that helps small businesses evaluate their current automation maturity level. The tool should provide a personalized report with recommendations for impro...</p>
+          <div class="strategy-preview"><ul>
+<li>What: Create a free, online assessment tool that helps small businesses evaluate their current automation maturity level. The tool should provide a personalized report with recommendations for improvement, and offer a free consultation to discuss the results.</li>
+<li>Time investment: 15 hours/week (developing the tool, testing)</li>
+<li>Timeline to first client: 14-18 weeks</li>
+<li>Why it works: This tool provides value to potential clients, helping them understand their automation gaps and opportunities. It also positions you as a trusted advisor, making it more likely they'll consider your services.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">Collaborate with Industry-Specific Associations and Trade Organizations</div>
-          <p class="strategy-preview">* What: Research and reach out to 3-5 industry-specific associations and trade organizations per week, offering to speak at their events or contribute to their publications on topics related to AI aut...</p>
+          <div class="strategy-preview"><ul>
+<li>What: Research and reach out to 3-5 industry-specific associations and trade organizations per week, offering to speak at their events or contribute to their publications on topics related to AI automation.</li>
+<li>Time investment: 5 hours/week (researching organizations, reaching out)</li>
+<li>Timeline to first client: 8-12 weeks</li>
+<li>Why it works: These organizations often have a targeted audience of small businesses that could benefit from AI automation. By establishing yourself as a thought leader within these industries, you increase your visibility and credibility.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">6</div>
         <div class="strategy-content">
           <div class="strategy-title">Offer a &quot;AI Automation Audit&quot; for Free</div>
-          <p class="strategy-preview">* What: Offer a free, 1-hour audit to small businesses, where you review their current processes and identify opportunities for AI automation. Provide a personalized report with recommendations, and d...</p>
+          <div class="strategy-preview"><ul>
+<li>What: Offer a free, 1-hour audit to small businesses, where you review their current processes and identify opportunities for AI automation. Provide a personalized report with recommendations, and discuss potential next steps.</li>
+<li>Time investment: 5 hours/week (conducting audits, preparing reports)</li>
+<li>Timeline to first client: 6-10 weeks</li>
+<li>Why it works: This free audit provides value to potential clients, helping them understand the potential benefits of AI automation. It also allows you to showcase your expertise and build relationships with potential clients.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">7</div>
         <div class="strategy-content">
           <div class="strategy-title">Create a &quot;AI Automation Success Story&quot; Podcast</div>
-          <p class="strategy-preview">* What: Launch a podcast where you interview small business owners who have successfully implemented AI automation, discussing their challenges, solutions, and results. Share the podcast on your websi...</p>
+          <div class="strategy-preview"><ul>
+<li>What: Launch a podcast where you interview small business owners who have successfully implemented AI automation, discussing their challenges, solutions, and results. Share the podcast on your website, Apple Podcasts, and Spotify.</li>
+<li>Time investment: 10 hours/week (planning, recording, editing)</li>
+<li>Timeline to first client: 12-16 weeks</li>
+<li>Why it works: This podcast provides social proof, showcasing the real-life benefits of AI automation for small businesses. It also establishes you as a thought leader and expert in the field, increasing your credibility and attractiveness to potential clients.</li>
+</ul>
+<p>These ideas leverage your expertise in AI consulting and focus on providing value to potential clients, rather than just promoting your services. By investing time and effort into these initiatives, you can generate new client leads and grow your business without hiring a sales team.</p></div>
         </div>
       </div></div></div>
         <details class="output-details">
@@ -1765,11 +1604,11 @@ These ideas leverage your expertise in AI consulting and focus on providing valu
     <h4 class="breakout-title">Analysis Highlights</h4>
       <div class="callout-box info">
         <div class="callout-label">KEY FINDINGS</div>
-        <ul class="feature-list"><li>Customer LTV: $79</li><li>Launch MRR: $,</li><li>Recommendation: Based on the analysis, <strong>Proposed Plan A</strong> is the best option. Here's why:</li></ul>
+        <ul class="feature-list"><li><p>Customer LTV: $79</p></li><li><p>Recommendation: Based on the analysis, <strong>Proposed Plan A</strong> is the best option. Here's why:</p></li></ul>
       </div>
       <div class="callout-box section">
         <div class="callout-label">OPTIONS ANALYZED</div>
-        <ul class="feature-list"><li>Plan Analysis</li><li>Plan A Analysis</li><li>Plan A.</li><li>Plan B Analysis</li><li>Plan B.</li></ul>
+        <ul class="feature-list"><li>Plan Analysis</li><li>Plan A Analysis</li><li>Plan B Analysis</li><li>Plan A is the best option. Here's why:</li><li>Plan A offers a significantly higher LTV ($1,580) compared to both the current plan ($612.50) and Plan B ($487.50), indicating each customer is more valuable in the long run.</li></ul>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>

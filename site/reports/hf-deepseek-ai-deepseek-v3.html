@@ -32,6 +32,14 @@
     --border: #E2E8F0;
     --font-display: 'Bangers', cursive;
     --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Type scale (report breakouts) — keep the page to a few sizes */
+    --fs-label: 0.72rem;
+    --fs-small: 0.8rem;
+    --fs-body: 0.9rem;
+    --fs-title: 1rem;
+    --fs-lead: 1.2rem;
+    --text-body: #334155;
+    --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -175,309 +183,97 @@
   .footer-copy { font-size: 0.75rem; opacity: 0.4; }
 
     
-  /* Breakout sections */
-  .breakout-section {
-    margin: 16px 0;
-  }
+  /* ===== Breakout design system: one type scale + shared primitives across all 10 categories ===== */
+  .breakout-section { margin: 18px 0; }
   .breakout-title {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--purple-mid);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    color: var(--magenta); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;
   }
 
-  /* Platform cards grid (social media) */
-  .platform-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 16px;
+  /* Shared card shell */
+  .platform-card, .email-preview, .article-preview, .edited-text-box, .strategy-card, .answer-card, .code-display {
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
   }
-  .platform-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
+
+  /* Shared reading text (one size, readable color, everywhere) */
+  .platform-body, .callout-box, .email-body, .article-section-body, .edited-text, .strategy-preview, .answer-text, .feature-list li, .changelog-list li {
+    font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.6; color: var(--text-body);
   }
-  .platform-header {
-    background: var(--purple-dark);
-    color: white;
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .platform-body strong, .callout-box strong, .article-section-body strong, .answer-text strong, .feature-list li strong, .strategy-preview strong, .email-body strong { color: var(--text-primary); font-weight: 700; }
+  .article-section-body p, .strategy-preview p, .edited-text p, .email-body p { margin-bottom: 8px; }
+  .article-section-body ul, .strategy-preview ul, .callout-box ul { margin: 6px 0 6px 18px; }
+  .article-section-body p:last-child, .strategy-preview p:last-child { margin-bottom: 0; }
+
+  /* Shared content title */
+  .article-section-title, .strategy-title {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-title);
+    color: var(--text-primary); margin-bottom: 5px; line-height: 1.35;
   }
-  .platform-icon {
-    font-size: 1rem;
-    width: 24px;
-    text-align: center;
+
+  /* Shared small uppercase label/pill */
+  .callout-label, .code-lang-tag, .platform-header {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    letter-spacing: 0.07em; text-transform: uppercase;
   }
-  .platform-body {
-    padding: 12px;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--text-primary);
-    max-height: 200px;
-    overflow-y: auto;
+
+  /* Shared numbered marker */
+  .strategy-num, .answer-num {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-lead);
+    color: var(--purple-mid); line-height: 1.2; text-align: center;
   }
+
+  /* Social platform cards */
+  .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .platform-header { background: var(--purple-dark); color: white; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
+  .platform-icon { font-size: var(--fs-body); width: 22px; text-align: center; }
+  .platform-body { padding: 12px; max-height: 220px; overflow-y: auto; }
 
   /* Callout boxes */
-  .callout-box {
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin: 10px 0;
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-  .callout-box.info {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-  }
-  .callout-box.creative {
-    background: #faf5ff;
-    border: 1px solid #e9d5ff;
-  }
-  .callout-box.changelog {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-  }
-  .callout-box.section {
-    background: #f8fafc;
-    border: 1px solid var(--border);
-  }
-  .callout-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--purple-mid);
-    margin-bottom: 6px;
-  }
+  .callout-box { border-radius: var(--radius); padding: 14px 16px; margin: 10px 0; }
+  .callout-box.info { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .callout-box.creative { background: #faf5ff; border: 1px solid #e9d5ff; }
+  .callout-box.changelog { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .callout-box.section { background: var(--bg-light); border: 1px solid var(--border); }
+  .callout-label { display: inline-block; color: var(--purple-mid); margin-bottom: 8px; }
 
-  /* Feature list */
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .feature-list li {
-    padding: 3px 0 3px 20px;
-    position: relative;
-    font-size: 0.85rem;
-  }
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--green);
-    font-weight: 700;
-  }
+  /* Check list */
+  .feature-list { list-style: none; padding: 0; margin: 0; }
+  .feature-list li { padding: 4px 0 4px 22px; position: relative; }
+  .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
-  /* Email preview */
-  .email-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 0.9rem;
-  }
-  .email-subject {
-    background: #f1f5f9;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-  .email-preview-text {
-    padding: 8px 16px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
-    font-style: italic;
-  }
-  .email-body {
-    padding: 16px;
-    line-height: 1.7;
-  }
-  .email-body p { margin-bottom: 12px; }
-  .email-signature {
-    padding: 8px 16px;
-    color: var(--text-secondary);
-    font-weight: 600;
-  }
-  .email-ps {
-    padding: 12px 16px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-style: italic;
-    font-size: 0.88rem;
-  }
+  /* Email */
+  .email-subject { background: var(--bg-gray); padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: var(--fs-title); color: var(--text-primary); }
+  .email-preview-text { padding: 8px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: var(--fs-small); font-style: italic; }
+  .email-body { padding: 16px; }
+  .email-signature { padding: 10px 16px; color: var(--text-primary); font-weight: 600; font-size: var(--fs-body); }
+  .email-ps { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--text-secondary); font-style: italic; font-size: var(--fs-small); }
 
-  /* Code display */
-  .code-display {
-    background: #1e293b;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 8px 0;
-  }
-  .code-lang-tag {
-    background: var(--blue);
-    color: white;
-    padding: 4px 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    margin: 8px 0 0 8px;
-    border-radius: 4px;
-  }
-  .code-display pre {
-    padding: 16px;
-    color: #e2e8f0;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.78rem;
-    line-height: 1.6;
-    overflow-x: auto;
-    max-height: 400px;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+  /* Code */
+  .code-lang-tag { background: var(--blue); color: white; padding: 4px 12px; display: inline-block; margin: 8px 0 0 8px; border-radius: 6px; }
+  .code-display { background: #1e293b; margin: 8px 0; }
+  .code-display pre { padding: 16px; color: #e2e8f0; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: var(--fs-small); line-height: 1.6; overflow-x: auto; max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; }
 
-  /* Article preview */
-  .article-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .article-headline {
-    padding: 16px 20px;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--purple-dark);
-    border-bottom: 2px solid var(--magenta);
-    line-height: 1.3;
-  }
-  .article-section {
-    padding: 12px 20px;
-    border-bottom: 1px solid var(--border);
-  }
+  /* Article */
+  .article-headline { padding: 16px 20px; font-size: var(--fs-lead); font-weight: 700; color: var(--purple-dark); border-bottom: 2px solid var(--magenta); line-height: 1.3; }
+  .article-section { padding: 14px 20px; border-bottom: 1px solid var(--border); }
   .article-section:last-child { border-bottom: none; }
-  .article-section-title {
-    font-weight: 700;
-    color: var(--purple-mid);
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-  }
-  .article-section-body {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
 
-  /* Edited text box */
-  .edited-text-box {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-  .edited-text {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--text-primary);
-  }
-  .edited-text p { margin-bottom: 10px; }
-  .changelog-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .changelog-list li {
-    padding: 4px 0 4px 20px;
-    position: relative;
-    font-size: 0.83rem;
-    line-height: 1.5;
-  }
-  .changelog-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-    font-weight: 700;
-  }
+  /* Editing */
+  .edited-text-box { padding: 16px; margin-bottom: 12px; }
+  .changelog-list { list-style: none; padding: 0; margin: 0; }
+  .changelog-list li { padding: 4px 0 4px 22px; position: relative; }
+  .changelog-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 
-  /* Strategy cards */
-  .strategy-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .strategy-card {
-    display: flex;
-    gap: 14px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
-    align-items: flex-start;
-  }
-  .strategy-num {
-    font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--purple-mid);
-    min-width: 32px;
-    text-align: center;
-    line-height: 1;
-  }
-  .strategy-title {
-    font-weight: 700;
-    font-size: 0.92rem;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-  .strategy-preview {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-    margin: 0;
-  }
+  /* Strategy (brainstorming) */
+  .strategy-grid { display: flex; flex-direction: column; gap: 10px; }
+  .strategy-card { display: flex; gap: 14px; padding: 14px; align-items: flex-start; }
+  .strategy-num { min-width: 30px; }
 
-  /* Answers grid (long context) */
-  .answers-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-  .answer-card {
-    display: flex;
-    gap: 10px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    align-items: center;
-  }
-  .answer-num {
-    font-weight: 800;
-    color: var(--purple-mid);
-    font-size: 1.1rem;
-    min-width: 24px;
-  }
-  .answer-text {
-    font-size: 0.88rem;
-    color: var(--text-primary);
-  }
+  /* Answers (long context) */
+  .answers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .answer-card { display: flex; gap: 12px; padding: 12px 14px; align-items: flex-start; }
+  .answer-num { min-width: 22px; }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .platform-grid { grid-template-columns: 1fr; }
     .answers-grid { grid-template-columns: 1fr; }
@@ -1057,10 +853,20 @@
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET sits cleanly between Reference B (59) and Reference C (98), but well below C. It hits structural requirements — three H3 headers, binary choice, empathy-engine attempts (&quot;The internal feeling for your security team shifts from monitoring user activity to monitoring AI activity&quot;) — but leans on cliche (&quot;With great power comes great operational risk&quot;) and missing apostrophes (&quot;isnt&quot;, &quot;Codes&quot;) betray sloppy proofreading. Voice is competent but generic, lacking C's vivid imagery. The 49 vote over-penalized; the consensus 72/72/76/77 cluster correctly identifies a solid mid-upper submission. I rule with the four-vote majority and discard the outlier 49.</p>
+          <p><p>The TARGET sits cleanly between Reference B (59) and Reference C (98), but well below C. It hits structural requirements — three H3 headers, binary choice, empathy-engine attempts (&quot;The internal feeling for your security team shifts from monitoring user activity to monitoring AI activity&quot;) — but leans on cliche (&quot;With great power comes great operational risk&quot;) and missing apostrophes (&quot;isnt&quot;, &quot;Codes&quot;) betray sloppy proofreading. Voice is competent but generic, lacking C's vivid imagery. The 49 vote over-penalized; the consensus 72/72/76/77 cluster correctly identifies a solid mid-upper submission. I rule with the four-vote majority and discard the outlier 49.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Article Preview</h4>
-    <div class="article-preview"><div class="article-headline">AI agents just got real. Claude Code now executes commands directly on your machine, accessing APIs, databases, and file systems from the CLI. The hype cycle is over. The execution cycle begins. Developers building AI apps now face a binary choice: automate workflows that deliver immediate ROI or build another useless chatbot that costs more than it earns. This isnt about features. Its about a fundamental shift from conversational AI to operational AI.</div><div class="article-section"></div><div class="article-section"><div class="article-section-title">The End Of The Chatbot Illusion</div><p class="article-section-body">For years, AI app development was constrained by a single, frustrating limitation. Agents could talk. They could reason. But they couldnt act. They were consultants locked in a glass box, pointing at levers they couldnt pull. This created a dangerous disconnect between intelligence and execution. Youd build a sophisticated model that could analyze customer data, identify churn risk, and recommend a win-back campaign. And then it would hand you a PDF. Youd have to manually execute its brilliant plan. The cognitive load shifted back to the human, erasing the efficiency you paid for. Claude Codes tool calls obliterate this barrier. The agent is no longer a consultant. It becomes an operator.</p><p>The developer experience changes overnight. You are no longer building a thing that talks. You are building a thing that does. The ROI calculation shifts from engagement metrics to operational savings. Does this agent save engineering hours? Does it automate a high-cost, low-value manual process? Does it prevent human error in a critical workflow? If the answer is no, you are building a cost center. The internal feeling for the user shifts from frustration at a half-baked tool to trust in a reliable system. They arent chatting. They are commanding.</p></div><div class="article-section"><div class="article-section-title">The Developer Responsibility Shift</div><p class="article-section-body">With great power comes great operational risk. Giving an AI agent the ability to execute commands on your machine isnt a feature toggle. Its a fundamental recalibration of trust and security. The developer mindset must shift from app builder to system architect. You are no longer just responsible for the code your agent writes. You are responsible for every API call it makes, every file it touches, every database query it executes. This is a massive leap in accountability.</p><p>The counter-party here isnt the end-user. Its your entire infrastructure. A poorly designed agent with tool call access isnt a buggy app. It is a potential security incident waiting to happen. It could accidentally wipe a production database, spam your CRM with test data, or leak sensitive files. The internal feeling for your security team shifts from monitoring user activity to monitoring AI activity. They need to trust that your agent operates within guardrails so strict they feel almost paranoid. This isnt about making AI smarter. Its about making AI safer and more reliable than a human executing the same task.</p></div><div class="article-section"><div class="article-section-title">The Binary Build Decision</div><p class="article-section-body">The landscape is now brutally simple. You can use Claude Codes tool calls to build agents that automate high-ROI, repetitive, error-prone workflows. Think agents that auto-remediate cloud infrastructure issues, process and file financial reports, or manage customer onboarding sequences by interacting directly with your tech stack. These agents pay for themselves in weeks by replacing manual labor. Or, you can use this power to build yet another conversational interface to a database that nobody asked for, creating a more expensive and complicated way to do something a simple SQL query already did perfectly.</p><p>This is the new litmus test for any AI project. Does it leverage this new capability to create tangible, measurable efficiency? Does it turn a cost center into a profit center? If not, you are investing in a demo, not a product. The internal feeling for the executive signing the check shifts from curiosity about AI potential to scrutiny of AI performance. They will demand a clear line from your agents actions to the companys bottom line. The era of building AI because we can is over. The era of building AI because we must begins now.</p><p>Jonathan Green<br></p></div></div></div>
+    <div class="article-preview"><div class="article-headline">AI agents just got real. Claude Code now executes commands directly on your machine, accessing APIs, databases, and file systems from the CLI. The hype cycle is over. The execution cycle begins. Developers building AI apps now face a binary choice: automate workflows that deliver immediate ROI or build another useless chatbot that costs more than it earns. This isnt about features. Its about a fundamental shift from conversational AI to operational AI.</div><div class="article-section"></div><div class="article-section"><div class="article-section-title">The End Of The Chatbot Illusion</div><p class="article-section-body"><p>For years, AI app development was constrained by a single, frustrating limitation. Agents could talk. They could reason. But they couldnt act. They were consultants locked in a glass box, pointing at levers they couldnt pull. This created a dangerous disconnect between intelligence and execution. Youd build a sophisticated model that could analyze customer data, identify churn risk, and recommend a win-back campaign. And then it would hand you a PDF. Youd have to manually execute its brilliant plan. The cognitive load shifted back to the human, erasing the efficiency you paid for. Claude Codes tool calls obliterate this barrier. The agent is no longer a consultant. It becomes an operator.</p>
+<p>The developer experience changes overnight. You are no longer building a thing that talks. You are building a thing that does. The ROI calculation shifts from engagement metrics to operational savings. Does this agent save engineering hours? Does it automate a high-cost, low-value manual process? Does it prevent human error in a critical workflow? If the answer is no, you are building a cost center. The internal feeling for the user shifts from frustration at a half-baked tool to trust in a reliable system. They arent chatting. They are commanding.</p></p></div><div class="article-section"><div class="article-section-title">The Developer Responsibility Shift</div><p class="article-section-body"><p>With great power comes great operational risk. Giving an AI agent the ability to execute commands on your machine isnt a feature toggle. Its a fundamental recalibration of trust and security. The developer mindset must shift from app builder to system architect. You are no longer just responsible for the code your agent writes. You are responsible for every API call it makes, every file it touches, every database query it executes. This is a massive leap in accountability.</p>
+<p>The counter-party here isnt the end-user. Its your entire infrastructure. A poorly designed agent with tool call access isnt a buggy app. It is a potential security incident waiting to happen. It could accidentally wipe a production database, spam your CRM with test data, or leak sensitive files. The internal feeling for your security team shifts from monitoring user activity to monitoring AI activity. They need to trust that your agent operates within guardrails so strict they feel almost paranoid. This isnt about making AI smarter. Its about making AI safer and more reliable than a human executing the same task.</p></p></div><div class="article-section"><div class="article-section-title">The Binary Build Decision</div><p class="article-section-body"><p>The landscape is now brutally simple. You can use Claude Codes tool calls to build agents that automate high-ROI, repetitive, error-prone workflows. Think agents that auto-remediate cloud infrastructure issues, process and file financial reports, or manage customer onboarding sequences by interacting directly with your tech stack. These agents pay for themselves in weeks by replacing manual labor. Or, you can use this power to build yet another conversational interface to a database that nobody asked for, creating a more expensive and complicated way to do something a simple SQL query already did perfectly.</p>
+<p>This is the new litmus test for any AI project. Does it leverage this new capability to create tangible, measurable efficiency? Does it turn a cost center into a profit center? If not, you are investing in a demo, not a product. The internal feeling for the executive signing the check shifts from curiosity about AI potential to scrutiny of AI performance. They will demand a clear line from your agents actions to the companys bottom line. The era of building AI because we can is over. The era of building AI because we must begins now.</p>
+<p>Jonathan Green</p>
+<p>PS</p>
+<ul>
+<li>Scroll to the top.</li>
+<li>Click on Subscribe to newsletter.</li>
+<li>Follow Jonathan Green to never miss a post.</li>
+</ul></p></div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>AI agents just got real. Claude Code now executes commands directly on your machine, accessing APIs, databases, and file systems from the CLI. The hype cycle is over. The execution cycle begins. Developers building AI apps now face a binary choice: automate workflows that deliver immediate ROI or build another useless chatbot that costs more than it earns. This isnt about features. Its about a fundamental shift from conversational AI to operational AI.
@@ -1117,7 +923,7 @@ Learn how to use AI to slash your company's overhead in my profile.
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET sits clearly between Reference B (69) and Reference C (99), but well short of C. It has a proper sectioned layout, gradient hero, Google Fonts, two-column problem grid, card-based Option 1/2, and a working vanilla-JS sticky CTA (&quot;Ready to escape copy-paste prison?&quot;). However, it loads Alpine.js and htmx but never uses them, omits C's countdown timer, scroll progress indicator, and guarantee badge, truncates the testimonials section, and contains a CSS typo: &quot;border-color: var(--urgent-oravy)&quot;. The 95 and 97 votes overrate by ignoring these gaps; I discard them. I agree with the 82/83/89 cluster — 85 splits the consensus, reflecting genuine mid-high quality with documented shortfalls.</p>
+          <p><p>The TARGET sits clearly between Reference B (69) and Reference C (99), but well short of C. It has a proper sectioned layout, gradient hero, Google Fonts, two-column problem grid, card-based Option 1/2, and a working vanilla-JS sticky CTA (&quot;Ready to escape copy-paste prison?&quot;). However, it loads Alpine.js and htmx but never uses them, omits C's countdown timer, scroll progress indicator, and guarantee badge, truncates the testimonials section, and contains a CSS typo: &quot;border-color: var(--urgent-oravy)&quot;. The 95 and 97 votes overrate by ignoring these gaps; I discard them. I agree with the 82/83/89 cluster — 85 splits the consensus, reflecting genuine mid-high quality with documented shortfalls.</p></p>
         </div><div class="screenshot-section">
           <h4 style="color: var(--purple-mid); margin: 16px 0 8px;">Desktop Rendering</h4>
           <div class="screenshot-grid">
@@ -2071,7 +1877,7 @@ export function processWebhookEvents(events: WebhookEvent[], webhookSecret: stri
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The TARGET sits clearly between Reference B (59) and Reference C (97), but well below C's vivid specificity. It hits the core beats — pain, mechanism, reframe, CTA, PS — with one concrete proof point: &quot;You've got 200 client contracts in a folder. You want to find every auto-renewal clause.&quot; That example is functional but generic compared to C's bakery-with-tears story. The PS is short and on-voice. I agreed with the three 72/78 panelists who placed it just above mid; I discarded the 48 (under-credits the working CTA and PS) and the 78s skewed slightly high given the thin proof and absence of dollar figures or transformation stakes.<br>DONE</p>
+          <p><p>The TARGET sits clearly between Reference B (59) and Reference C (97), but well below C's vivid specificity. It hits the core beats — pain, mechanism, reframe, CTA, PS — with one concrete proof point: &quot;You've got 200 client contracts in a folder. You want to find every auto-renewal clause.&quot; That example is functional but generic compared to C's bakery-with-tears story. The PS is short and on-voice. I agreed with the three 72/78 panelists who placed it just above mid; I discarded the 48 (under-credits the working CTA and PS) and the 78s skewed slightly high given the thin proof and absence of dollar figures or transformation stakes.<br>DONE</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Email Preview</h4>
     <div class="email-preview"><div class="email-subject"><strong>Subject:</strong> Your messy Google Docs just became an asset</div><div class="email-preview-text"><strong>Preview:</strong> This isn't about AI getting smarter. It's about you getting more powerful.</div><div class="email-body">Ever feel like your business is drowning in unorganized files?</p><p>Scattered client notes... random PDFs... old SOPs nobody can find.</p><p>That mess just became your secret weapon.</p><p>A new AI model launched this week. It can process a million tokens at once – like dumping ten books into one prompt.</p><p>Everyone’s hyped about the tech. I’m hyped about what it means for you.</p><p>Small business owners couldn’t afford consultants to organize chaos. Now you just upload everything. Ask questions. Get answers.</p><p>Real example: You’ve got 200 client contracts in a folder. You want to find every auto-renewal clause. Old way: hours of searching. New way: “Show me every auto-renewal clause in these contracts.” Done.</p><p>Your disorganized Google Docs? Now an asset. Not a liability.</p><p>This shifts who wins. Not the big companies with IT departments. You.</p><p>Reply and tell me – what’s the one messy file you’d love to turn into answers?</div><div class="email-signature">Jonathan Green</div><div class="email-ps">PS: My daughter just drew on my passport with a purple crayon. Island life... still more predictable than AI.</div></div></div>
@@ -2116,23 +1922,46 @@ PS: My daughter just drew on my passport with a purple crayon. Island life... st
     <h4 class="breakout-title">Summary Breakdown</h4>
       <div class="callout-box info">
         <div class="callout-label">TLDR</div>
-        <p>This video demonstrates Merlin AI testing parallel browser automation using Claude Code with multiple agents running simultaneously on Amazon product searches, CAPTCHA solving, and Reddit account creation via temp mail. While the parallel execution shows potential for efficiency gains, the processes are often slow, error-prone, and require manual intervention. Only watch if you're interested in experimental browser automation workflows and don't mind unpolished demos.</p>
+        <p><p>This video demonstrates Merlin AI testing parallel browser automation using Claude Code with multiple agents running simultaneously on Amazon product searches, CAPTCHA solving, and Reddit account creation via temp mail. While the parallel execution shows potential for efficiency gains, the processes are often slow, error-prone, and require manual intervention. Only watch if you're interested in experimental browser automation workflows and don't mind unpolished demos.</p></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">WHAT WAS DEMONSTRATED</div>
-        <p><li><strong>Parallel Amazon product search</strong>: Worked. Used multiple browser tabs with sub-agents to find Scandinavian-style furniture items (chair, table, couch, curtains) under a $3k budget. Ended with a visualization of items placed in a room (table placement was inaccurate).</li><br><li><strong>CAPTCHA solving tool</strong>: Partially worked. A pre-built &quot;capture solver&quot; skill (created in prior testing) solved some CAPTCHA challenges (traffic lights, buses) but failed on first attempt for buses.</li><br><li><strong>Temp mail Reddit account creation</strong>: Partially worked. Created a temp email, generated a meme with AI, and navigated Reddit's account signup (no email confirmation required). Hit issues with subreddit rules (title rejection, CAPTCHA) and required manual intervention to proceed.</li></p><p>---</p>
+        <p><ul>
+<li><strong>Parallel Amazon product search</strong>: Worked. Used multiple browser tabs with sub-agents to find Scandinavian-style furniture items (chair, table, couch, curtains) under a $3k budget. Ended with a visualization of items placed in a room (table placement was inaccurate).</li>
+<li><strong>CAPTCHA solving tool</strong>: Partially worked. A pre-built &quot;capture solver&quot; skill (created in prior testing) solved some CAPTCHA challenges (traffic lights, buses) but failed on first attempt for buses.</li>
+<li><strong>Temp mail Reddit account creation</strong>: Partially worked. Created a temp email, generated a meme with AI, and navigated Reddit's account signup (no email confirmation required). Hit issues with subreddit rules (title rejection, CAPTCHA) and required manual intervention to proceed.</li>
+</ul></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">KEY TECHNICAL DETAILS</div>
-        <p><li><strong>Tools/Frameworks</strong>: Claude Code, Chrome Developer Protocol (CDP), remote debugging in Chrome</li><br><li><strong>Skills mentioned</strong>: &quot;Amazon&quot; (for product search), &quot;capture&quot; (CAPTCHA solver)</li><br><li><strong>APIs/Services</strong>: FAL AI (visualization), Nano Banana (image generation), Imgur (image upload), tempmail.lol (temporary email)</li><br><li><strong>Parallel execution</strong>: Multiple browser tabs controlled by sub-agents simultaneously</li><br><li><strong>Reference</strong>: &quot;skills MD story&quot; (no URL provided)</li><br></p>
+        <p><ul>
+<li><strong>Tools/Frameworks</strong>: Claude Code, Chrome Developer Protocol (CDP), remote debugging in Chrome</li>
+<li><strong>Skills mentioned</strong>: &quot;Amazon&quot; (for product search), &quot;capture&quot; (CAPTCHA solver)</li>
+<li><strong>APIs/Services</strong>: FAL AI (visualization), Nano Banana (image generation), Imgur (image upload), tempmail.lol (temporary email)</li>
+<li><strong>Parallel execution</strong>: Multiple browser tabs controlled by sub-agents simultaneously</li>
+<li><strong>Reference</strong>: &quot;skills MD story&quot; (no URL provided)</li>
+</ul></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">WHAT'S ACTUALLY NEW OR INTERESTING</div>
-        <p><li><strong>Parallel browser agents</strong>: Running multiple sub-agents in separate browser tabs concurrently is presented as a novel efficiency improvement over sequential automation (though parallel browser automation itself is not new).</li><br><li><strong>CAPTCHA tool-building</strong>: The idea of having the AI build a reusable CAPTCHA-solving tool (via &quot;capture&quot; skill) after initial testing is a practical approach to automation.</li><br><li><strong>Temp mail + Reddit workflow</strong>: Full automation of account creation and posting (despite hiccups) demonstrates potential for multi-step web tasks.</li></p><p>---</p>
+        <p><ul>
+<li><strong>Parallel browser agents</strong>: Running multiple sub-agents in separate browser tabs concurrently is presented as a novel efficiency improvement over sequential automation (though parallel browser automation itself is not new).</li>
+<li><strong>CAPTCHA tool-building</strong>: The idea of having the AI build a reusable CAPTCHA-solving tool (via &quot;capture&quot; skill) after initial testing is a practical approach to automation.</li>
+<li><strong>Temp mail + Reddit workflow</strong>: Full automation of account creation and posting (despite hiccups) demonstrates potential for multi-step web tasks.</li>
+</ul></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">LIMITATIONS &AMP; CAVEATS</div>
-        <p><li><strong>Unreliable execution</strong>: CAPTCHA solver failed on first attempt; Amazon visualization inaccurately placed the table; Reddit automation required manual title correction.</li><br><li><strong>Performance</strong>: Processes are slow and resource-intensive (many browser tabs open, back-and-forth operations).</li><br><li><strong>Production readiness</strong>: No error handling, no robustness testing (e.g., rate limits, IP blocking, and temp mail reliability are unaddressed).</li><br><li><strong>Tool dependency</strong>: Relies on specific setups (Claude Code + CDP) and pre-built skills—not generic or plug-and-play.</li></p><p>---</p>
+        <p><ul>
+<li><strong>Unreliable execution</strong>: CAPTCHA solver failed on first attempt; Amazon visualization inaccurately placed the table; Reddit automation required manual title correction.</li>
+<li><strong>Performance</strong>: Processes are slow and resource-intensive (many browser tabs open, back-and-forth operations).</li>
+<li><strong>Production readiness</strong>: No error handling, no robustness testing (e.g., rate limits, IP blocking, and temp mail reliability are unaddressed).</li>
+<li><strong>Tool dependency</strong>: Relies on specific setups (Claude Code + CDP) and pre-built skills—not generic or plug-and-play.</li>
+</ul></p>
+      </div>
+      <div class="callout-box section">
+        <div class="callout-label">BOTTOM LINE</div>
+        <p><p>Only watch if you're experimenting with AI-driven browser automation and want to see parallel execution in action—but expect unrefined workflows, partial successes, and no production-ready code. Not useful for learning established best practices or reliable implementations.</p></p>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -2184,7 +2013,13 @@ Only watch if you're experimenting with AI-driven browser automation and want to
     <h4 class="breakout-title">Editing Analysis</h4>
     <div class="edited-text-box">
       <div class="callout-label">EDITED TEXT</div>
-      <div class="edited-text">I've been thinking a lot lately about how most people are getting AI completely wrong. Everyone's talking about how AI will replace developers and writers, but that's not what I'm seeing in my business.</p><p>What I actually see is that AI makes good people better and bad people worse. The people who were already good writers use AI to produce three times as much content at the same quality. The people who were bad writers use AI to create three times as much garbage. Same thing with code: my best developers use AI as a copilot and ship features way faster. My worst developers use it as a crutch and ship just as many bugs—just different ones.</p><p>Here's what nobody's talking about: the real disruption isn't replacement—it's amplification. If you were a 7 out of 10 marketer before AI, now you're operating at a 9. If you were a 3 out of 10, AI bumps you to maybe a 4 on a good day. The gap between good and bad is actually widening, not shrinking.</p><p>This has massive implications for hiring. Why would you hire a mediocre person with AI tools when you could hire an excellent person with the same tools? The leverage multiplier is completely different. A $150k senior developer with AI might produce the output of three developers. A $80k junior developer with AI produces... slightly better junior output.</p><p>The people who should be most worried aren't the ones afraid of being replaced by AI. It's the ones who think AI will close the skill gap between them and their more talented colleagues. It won't. It'll make that gap a canyon.</p><p>I don't have all the answers, but if you're running a business, you need to think about this differently than the media narrative of &quot;AI replaces jobs.&quot; The real question is: does AI amplify your team's strengths, or just make their weaknesses more productive? Those are very different outcomes.</p><p>---<br>**</div>
+      <div class="edited-text"><p>I've been thinking a lot lately about how most people are getting AI completely wrong. Everyone's talking about how AI will replace developers and writers, but that's not what I'm seeing in my business.</p>
+<p>What I actually see is that AI makes good people better and bad people worse. The people who were already good writers use AI to produce three times as much content at the same quality. The people who were bad writers use AI to create three times as much garbage. Same thing with code: my best developers use AI as a copilot and ship features way faster. My worst developers use it as a crutch and ship just as many bugs—just different ones.</p>
+<p>Here's what nobody's talking about: the real disruption isn't replacement—it's amplification. If you were a 7 out of 10 marketer before AI, now you're operating at a 9. If you were a 3 out of 10, AI bumps you to maybe a 4 on a good day. The gap between good and bad is actually widening, not shrinking.</p>
+<p>This has massive implications for hiring. Why would you hire a mediocre person with AI tools when you could hire an excellent person with the same tools? The leverage multiplier is completely different. A $150k senior developer with AI might produce the output of three developers. A $80k junior developer with AI produces... slightly better junior output.</p>
+<p>The people who should be most worried aren't the ones afraid of being replaced by AI. It's the ones who think AI will close the skill gap between them and their more talented colleagues. It won't. It'll make that gap a canyon.</p>
+<p>I don't have all the answers, but if you're running a business, you need to think about this differently than the media narrative of &quot;AI replaces jobs.&quot; The real question is: does AI amplify your team's strengths, or just make their weaknesses more productive? Those are very different outcomes.</p>
+<p>**</p></div>
     </div>
       <div class="callout-box changelog">
         <div class="callout-label">CHANGELOG (6 changes)</div>
@@ -2221,7 +2056,7 @@ I don't have all the answers, but if you're running a business, you need to thin
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>The target sits clearly above Reference B (74) and below Reference C (97). It delivers seven specific, industry-anchored tactics with concrete numbers, and idea #7's reframe — &quot;Before you invest $45k+/year in salary, would you be open to seeing if a one-time $10k-$15k automation could handle 80% of that role's manual work?&quot; — matches C's caliber. Idea #1 cleverly uses the consultant's own tools as the lead magnet. However, it lacks C's unifying &quot;hidden need&quot; thesis and tradeoff sections, and a few framings (#4, #5) feel template-generic. I sided with the 82/84/79 consensus cluster, discarded the 73 (undervalued #1's meta-framing and #7's pitch) and the 90 (ignored the missing thesis layer).</p>
+          <p><p>The target sits clearly above Reference B (74) and below Reference C (97). It delivers seven specific, industry-anchored tactics with concrete numbers, and idea #7's reframe — &quot;Before you invest $45k+/year in salary, would you be open to seeing if a one-time $10k-$15k automation could handle 80% of that role's manual work?&quot; — matches C's caliber. Idea #1 cleverly uses the consultant's own tools as the lead magnet. However, it lacks C's unifying &quot;hidden need&quot; thesis and tradeoff sections, and a few framings (#4, #5) feel template-generic. I sided with the 82/84/79 consensus cluster, discarded the 73 (undervalued #1's meta-framing and #7's pitch) and the 90 (ignored the missing thesis layer).</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">7 Strategies</h4>
     <div class="strategy-grid">
@@ -2229,49 +2064,84 @@ I don't have all the answers, but if you're running a business, you need to thin
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Productized Audit&quot; Lead Magnet</div>
-          <p class="strategy-preview">**What to do:** Create a high-value, &quot;self-serve&quot; lead magnet. Build a simple Typeform or Google Form that asks 5-7 questions about a company's sales, customer service, or operations. When they submit...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Create a high-value, &quot;self-serve&quot; lead magnet. Build a simple Typeform or Google Form that asks 5-7 questions about a company's sales, customer service, or operations. When they submit it, they instantly receive a personalized, one-page PDF report (generated using a tool like `n8n` or `Make`). The report estimates the hours/money they're wasting on manual tasks and lists 2-3 specific AI automations (using your tools) that could solve it. The final line: &quot;Ready to build this? Book a 15-minute call to discuss.&quot;</p>
+<ul>
+<li><strong>Time Investment:</strong> 4 hours to build the system (one-time), then 1 hour/week to monitor leads and follow up.</li>
+<li><strong>Timeline:</strong> First qualified lead within 2-3 weeks of promoting it.</li>
+<li><strong>Why it works for AI:</strong> This <em>is</em> your service. It demonstrates your expertise by diagnosing a problem and prescribing a solution instantly. It qualifies leads for you (only those with real pain points will bother) and frames you as a consultant, not just a vendor.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Automation Spotlight&quot; Webinar Series</div>
-          <p class="strategy-preview">**What to do:** Don't host a generic &quot;Intro to AI&quot; webinar. Host a 20-minute, ultra-specific webinar called &quot;How [Industry] Automates [Specific Task].&quot; For example: &quot;How Local HVAC Companies Automate ...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Don't host a generic &quot;Intro to AI&quot; webinar. Host a 20-minute, ultra-specific webinar called &quot;How [Industry] Automates [Specific Task].&quot; For example: &quot;How Local HVAC Companies Automate Their Customer Onboarding&quot; or &quot;How Law Firms Automate Document Intake.&quot; Use a concrete, anonymized case study from a past client. Show the <em>before</em> (spreadsheet/chaos) and <em>after</em> (n8n workflow dashboard) with real numbers. End with a clear offer for a paid audit.</p>
+<ul>
+<li><strong>Time Investment:</strong> 3-4 hours to create/practice the presentation (one-time per industry), 1.5 hours to host it weekly.</li>
+<li><strong>Timeline:</strong> First client from this channel within 4-6 weeks (need time to promote each webinar).</li>
+<li><strong>Why it works for AI:</strong> It targets a specific industry's specific pain point, making the abstract concept of &quot;AI&quot; tangible and urgent. It showcases your ability to deliver results in their exact world.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Growth-Company&quot; Outbound Sequence</div>
-          <p class="strategy-preview">**What to do:** Identify 20-30 local businesses (10-50 employees) that just received funding, won an award, or were featured in a &quot; fastest-growing&quot; list. These companies have money, ambition, and are...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Identify 20-30 local businesses (10-50 employees) that just received funding, won an award, or were featured in a &quot; fastest-growing&quot; list. These companies have money, ambition, and are actively trying to scale. Use a tool like Apollo.io or Lusha to find the CEO/COO. Send a personalized 4-email sequence over 2 weeks. The hook: &quot;Congrats on [achievement]. As you scale, you'll likely hit operational bottlenecks. I help companies like yours automate [specific task relevant to their industry]. Here's a 2-minute case study. Open to a 10-minute chat next week?&quot;</p>
+<ul>
+<li><strong>Time Investment:</strong> 2-3 hours/week to research targets and manage the sequence.</li>
+<li><strong>Timeline:</strong> 2-3 months to land the first client (this is a numbers game with a high-ticket service).</li>
+<li><strong>Why it works for AI:</strong> Companies in growth mode are actively looking for leverage. Your service isn't a cost; it's an investment in their scalability. Targeting them post-funding means they have the budget.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Trade Publication&quot; Guest Post</div>
-          <p class="strategy-preview">**What to do:** Identify 2-3 niche trade publications or popular blogs for your target industries (e.g., *RetailWire* for retailers, *Accounting Today* for accountants). Pitch them an article titled &quot;...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Identify 2-3 niche trade publications or popular blogs for your target industries (e.g., <em>RetailWire</em> for retailers, <em>Accounting Today</em> for accountants). Pitch them an article titled &quot;3 Operational Myths Preventing Your [Industry] Business from Scaling&quot; or &quot;The #1 Automation Every [Job Title] Needs.&quot; The article is practical, myth-busting, and subtly highlights the ROI of automation. Your bio: &quot;[Your Name] helps [industries] implement profit-boosting automations. Get his free Automation Audit at [yourwebsite.com].&quot;</p>
+<ul>
+<li><strong>Time Investment:</strong> 2-3 hours to write a high-quality article (one-time per publication), 1 hour/week for outreach.</li>
+<li><strong>Timeline:</strong> 2-4 months to get published and see leads trickle in (this builds evergreen authority).</li>
+<li><strong>Why it works for AI:</strong> It positions you as an authoritative voice <em>within a specific industry's trusted resource</em>, not the noisy &quot;AI guru&quot; on LinkedIn. This is top-of-funnel education for an audience that doesn't know they need you.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Embedded Consultant&quot; Partnership</div>
-          <p class="strategy-preview">**What to do:** Reach out to 5-10 established B2B service providers who serve your ideal clients but don't compete with you. Think: fractional CFOs, boutique marketing agencies, HR consultants, or bus...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Reach out to 5-10 established B2B service providers who serve your ideal clients but don't compete with you. Think: fractional CFOs, boutique marketing agencies, HR consultants, or business coaches. Propose a partnership: &quot;Your clients hire you for strategy. I am your 'execution arm' for automation. I'll offer your clients a 20% discounted audit, and I'll pay you a 15% referral fee on any project that closes.&quot; This makes you a value-add for <em>their</em> offering.</p>
+<ul>
+<li><strong>Time Investment:</strong> 2 hours/week for research and outreach.</li>
+<li><strong>Timeline:</strong> 3-6 months to formalize 1-2 partnerships and get the first referral.</li>
+<li><strong>Why it works for AI:</strong> These partners see the operational inefficiencies in their clients' businesses but lack the technical skills to fix them. You become their solution, giving them a new revenue stream while delivering more value to their clients.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">6</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Product-Led&quot; Referral Engine</div>
-          <p class="strategy-preview">**What to do:** Turn your existing clients into a proactive referral source. Instead of just asking &quot;Do you know anyone?,&quot; create a system. Build a simple, automated workflow for them: &quot;Love the work ...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> Turn your existing clients into a proactive referral source. Instead of just asking &quot;Do you know anyone?,&quot; create a system. Build a simple, automated workflow for them: &quot;Love the work we did on automating your invoicing? Share this link with a colleague. It automatically generates a custom audit for <em>their</em> business and gives them a 10% discount. You'll get a $500 credit on your next invoice if they sign.&quot;</p>
+<ul>
+<li><strong>Time Investment:</strong> 2-3 hours to build the automated referral workflow.</li>
+<li><strong>Timeline:</strong> First referral could come in a few weeks if you have strong client relationships.</li>
+<li><strong>Why it works for AI:</strong> Your happy clients are your best salespeople because they've experienced the transformation. Automating the referral process (using the very tools you sell) makes it effortless for them and feels novel and impressive.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">7</div>
         <div class="strategy-content">
           <div class="strategy-title">The &quot;Reverse Engineering&quot; Cold Outreach</div>
-          <p class="strategy-preview">**What to do:** This is for businesses you *know* have a problem. Find companies that are hiring for a role that is essentially a human doing an automatable task (e.g., &quot;Data Entry Clerk,&quot; &quot;Customer S...</p>
+          <div class="strategy-preview"><p><strong>What to do:</strong> This is for businesses you <em>know</em> have a problem. Find companies that are hiring for a role that is essentially a human doing an automatable task (e.g., &quot;Data Entry Clerk,&quot; &quot;Customer Service Email Responder&quot;). Use a tool like Hunter.io to find the hiring manager. Your email: &quot;I saw you're hiring for a [Job Title]. Before you invest $45k+/year in salary, would you be open to seeing if a one-time $10k-$15k automation could handle 80% of that role's manual work? I've built these for companies like [Client Name].&quot;</p>
+<ul>
+<li><strong>Time Investment:</strong> 1-2 hours/week to scan job boards and send 10-15 highly targeted emails.</li>
+<li><strong>Timeline:</strong> 1-2 months for a first client (this is a powerful, ROI-driven pitch).</li>
+<li><strong>Why it works for AI:</strong> This directly reframes your cost from an expense into a massive cost-savings tool. You're not selling &quot;AI&quot;; you're selling a way to avoid a recurring salary, which is an incredibly compelling financial argument.</li>
+</ul></div>
         </div>
       </div></div></div>
         <details class="output-details">
@@ -2330,16 +2200,16 @@ I don't have all the answers, but if you're running a business, you need to thin
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>TARGET nails Current and Plan A math (matching Reference C exactly), formats cleanly, computes LTV/CAC, and lands the correct Plan A recommendation. But it makes a propagating arithmetic slip on Plan B Month 3 (&quot;$87,562.24&quot; vs correct $87,462.24, miscarried through months 4-12) and misses the durability crossover — its summary table claims &quot;Cash-flow positive: Month 0&quot; for all three plans, ignoring that Current and B drop below the $85K burn at month ~4 while only A holds ~12.5 months. That gap is exactly what separates B (74) from C (94). I sided with the 79/77 cluster (median region) — slightly above Reference B because structure is tighter — and discarded the 60 (too harsh; target clearly outperforms Reference A's 58) and the 83/85 (too generous given the propagating Plan B error and missing crossover analysis).</p>
+          <p><p>TARGET nails Current and Plan A math (matching Reference C exactly), formats cleanly, computes LTV/CAC, and lands the correct Plan A recommendation. But it makes a propagating arithmetic slip on Plan B Month 3 (&quot;$87,562.24&quot; vs correct $87,462.24, miscarried through months 4-12) and misses the durability crossover — its summary table claims &quot;Cash-flow positive: Month 0&quot; for all three plans, ignoring that Current and B drop below the $85K burn at month ~4 while only A holds ~12.5 months. That gap is exactly what separates B (74) from C (94). I sided with the 79/77 cluster (median region) — slightly above Reference B because structure is tighter — and discarded the 60 (too harsh; target clearly outperforms Reference A's 58) and the 83/85 (too generous given the propagating Plan B error and missing crossover analysis).</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Analysis Highlights</h4>
       <div class="callout-box info">
         <div class="callout-label">KEY FINDINGS</div>
-        <ul class="feature-list"><li>Customer LTV: $612.50</li><li>Launch MRR: $0</li><li>Recommendation: All options are immediately cash-flow positive (MRR &gt; burn at launch). However, we should consider long-term sustainability and profitability.</li></ul>
+        <ul class="feature-list"><li><p>Customer LTV: $612.50</p></li><li><p>Launch MRR: $0</p></li><li><p>Recommendation: All options are immediately cash-flow positive (MRR &gt; burn at launch). However, we should consider long-term sustainability and profitability.</p></li></ul>
       </div>
       <div class="callout-box section">
         <div class="callout-label">OPTIONS ANALYZED</div>
-        <ul class="feature-list"><li>Plan A, and Proposed Plan B.</li><li>Plan A ($79/month, 15% customer loss at launch, churn drops to 5%)</li><li>Plan B ($39/month, 20% customer gain at launch, churn stays at 8%)</li><li>Plan B)</li><li>Plan B: At launch, we acquire 480 customers at cost $86400, so cash decreases by 86400 to $313,600.</li></ul>
+        <ul class="feature-list"><li>Plan A, and Proposed Plan B.</li><li>Plan A ($79/month, 15% customer loss at launch, churn drops to 5%)</li><li>Plan B ($39/month, 20% customer gain at launch, churn stays at 8%)</li><li>Plan B: At launch, we acquire 480 customers at cost $86400, so cash decreases by 86400 to $313,600.</li><li>Plan B, the one-time CAC reduced cash initially.</li></ul>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>

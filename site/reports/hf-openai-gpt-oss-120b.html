@@ -32,6 +32,14 @@
     --border: #E2E8F0;
     --font-display: 'Bangers', cursive;
     --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Type scale (report breakouts) — keep the page to a few sizes */
+    --fs-label: 0.72rem;
+    --fs-small: 0.8rem;
+    --fs-body: 0.9rem;
+    --fs-title: 1rem;
+    --fs-lead: 1.2rem;
+    --text-body: #334155;
+    --radius: 10px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -175,309 +183,97 @@
   .footer-copy { font-size: 0.75rem; opacity: 0.4; }
 
     
-  /* Breakout sections */
-  .breakout-section {
-    margin: 16px 0;
-  }
+  /* ===== Breakout design system: one type scale + shared primitives across all 10 categories ===== */
+  .breakout-section { margin: 18px 0; }
   .breakout-title {
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--purple-mid);
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    color: var(--magenta); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em;
   }
 
-  /* Platform cards grid (social media) */
-  .platform-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-bottom: 16px;
+  /* Shared card shell */
+  .platform-card, .email-preview, .article-preview, .edited-text-box, .strategy-card, .answer-card, .code-display {
+    background: var(--bg-white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
   }
-  .platform-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
+
+  /* Shared reading text (one size, readable color, everywhere) */
+  .platform-body, .callout-box, .email-body, .article-section-body, .edited-text, .strategy-preview, .answer-text, .feature-list li, .changelog-list li {
+    font-family: var(--font-body); font-size: var(--fs-body); line-height: 1.6; color: var(--text-body);
   }
-  .platform-header {
-    background: var(--purple-dark);
-    color: white;
-    padding: 8px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  .platform-body strong, .callout-box strong, .article-section-body strong, .answer-text strong, .feature-list li strong, .strategy-preview strong, .email-body strong { color: var(--text-primary); font-weight: 700; }
+  .article-section-body p, .strategy-preview p, .edited-text p, .email-body p { margin-bottom: 8px; }
+  .article-section-body ul, .strategy-preview ul, .callout-box ul { margin: 6px 0 6px 18px; }
+  .article-section-body p:last-child, .strategy-preview p:last-child { margin-bottom: 0; }
+
+  /* Shared content title */
+  .article-section-title, .strategy-title {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-title);
+    color: var(--text-primary); margin-bottom: 5px; line-height: 1.35;
   }
-  .platform-icon {
-    font-size: 1rem;
-    width: 24px;
-    text-align: center;
+
+  /* Shared small uppercase label/pill */
+  .callout-label, .code-lang-tag, .platform-header {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-label);
+    letter-spacing: 0.07em; text-transform: uppercase;
   }
-  .platform-body {
-    padding: 12px;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: var(--text-primary);
-    max-height: 200px;
-    overflow-y: auto;
+
+  /* Shared numbered marker */
+  .strategy-num, .answer-num {
+    font-family: var(--font-body); font-weight: 700; font-size: var(--fs-lead);
+    color: var(--purple-mid); line-height: 1.2; text-align: center;
   }
+
+  /* Social platform cards */
+  .platform-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
+  .platform-header { background: var(--purple-dark); color: white; padding: 9px 12px; display: flex; align-items: center; gap: 8px; }
+  .platform-icon { font-size: var(--fs-body); width: 22px; text-align: center; }
+  .platform-body { padding: 12px; max-height: 220px; overflow-y: auto; }
 
   /* Callout boxes */
-  .callout-box {
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin: 10px 0;
-    font-size: 0.88rem;
-    line-height: 1.6;
-  }
-  .callout-box.info {
-    background: #eff6ff;
-    border: 1px solid #bfdbfe;
-  }
-  .callout-box.creative {
-    background: #faf5ff;
-    border: 1px solid #e9d5ff;
-  }
-  .callout-box.changelog {
-    background: #f0fdf4;
-    border: 1px solid #bbf7d0;
-  }
-  .callout-box.section {
-    background: #f8fafc;
-    border: 1px solid var(--border);
-  }
-  .callout-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--purple-mid);
-    margin-bottom: 6px;
-  }
+  .callout-box { border-radius: var(--radius); padding: 14px 16px; margin: 10px 0; }
+  .callout-box.info { background: #eff6ff; border: 1px solid #bfdbfe; }
+  .callout-box.creative { background: #faf5ff; border: 1px solid #e9d5ff; }
+  .callout-box.changelog { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .callout-box.section { background: var(--bg-light); border: 1px solid var(--border); }
+  .callout-label { display: inline-block; color: var(--purple-mid); margin-bottom: 8px; }
 
-  /* Feature list */
-  .feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .feature-list li {
-    padding: 3px 0 3px 20px;
-    position: relative;
-    font-size: 0.85rem;
-  }
-  .feature-list li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--green);
-    font-weight: 700;
-  }
+  /* Check list */
+  .feature-list { list-style: none; padding: 0; margin: 0; }
+  .feature-list li { padding: 4px 0 4px 22px; position: relative; }
+  .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
 
-  /* Email preview */
-  .email-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    font-size: 0.9rem;
-  }
-  .email-subject {
-    background: #f1f5f9;
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
-    font-size: 0.95rem;
-  }
-  .email-preview-text {
-    padding: 8px 16px;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border);
-    font-size: 0.85rem;
-    font-style: italic;
-  }
-  .email-body {
-    padding: 16px;
-    line-height: 1.7;
-  }
-  .email-body p { margin-bottom: 12px; }
-  .email-signature {
-    padding: 8px 16px;
-    color: var(--text-secondary);
-    font-weight: 600;
-  }
-  .email-ps {
-    padding: 12px 16px;
-    border-top: 1px solid var(--border);
-    color: var(--text-secondary);
-    font-style: italic;
-    font-size: 0.88rem;
-  }
+  /* Email */
+  .email-subject { background: var(--bg-gray); padding: 12px 16px; border-bottom: 1px solid var(--border); font-weight: 600; font-size: var(--fs-title); color: var(--text-primary); }
+  .email-preview-text { padding: 8px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: var(--fs-small); font-style: italic; }
+  .email-body { padding: 16px; }
+  .email-signature { padding: 10px 16px; color: var(--text-primary); font-weight: 600; font-size: var(--fs-body); }
+  .email-ps { padding: 12px 16px; border-top: 1px solid var(--border); color: var(--text-secondary); font-style: italic; font-size: var(--fs-small); }
 
-  /* Code display */
-  .code-display {
-    background: #1e293b;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 8px 0;
-  }
-  .code-lang-tag {
-    background: var(--blue);
-    color: white;
-    padding: 4px 12px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    margin: 8px 0 0 8px;
-    border-radius: 4px;
-  }
-  .code-display pre {
-    padding: 16px;
-    color: #e2e8f0;
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
-    font-size: 0.78rem;
-    line-height: 1.6;
-    overflow-x: auto;
-    max-height: 400px;
-    overflow-y: auto;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-  }
+  /* Code */
+  .code-lang-tag { background: var(--blue); color: white; padding: 4px 12px; display: inline-block; margin: 8px 0 0 8px; border-radius: 6px; }
+  .code-display { background: #1e293b; margin: 8px 0; }
+  .code-display pre { padding: 16px; color: #e2e8f0; font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: var(--fs-small); line-height: 1.6; overflow-x: auto; max-height: 400px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; }
 
-  /* Article preview */
-  .article-preview {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .article-headline {
-    padding: 16px 20px;
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: var(--purple-dark);
-    border-bottom: 2px solid var(--magenta);
-    line-height: 1.3;
-  }
-  .article-section {
-    padding: 12px 20px;
-    border-bottom: 1px solid var(--border);
-  }
+  /* Article */
+  .article-headline { padding: 16px 20px; font-size: var(--fs-lead); font-weight: 700; color: var(--purple-dark); border-bottom: 2px solid var(--magenta); line-height: 1.3; }
+  .article-section { padding: 14px 20px; border-bottom: 1px solid var(--border); }
   .article-section:last-child { border-bottom: none; }
-  .article-section-title {
-    font-weight: 700;
-    color: var(--purple-mid);
-    font-size: 0.95rem;
-    margin-bottom: 4px;
-  }
-  .article-section-body {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-    line-height: 1.5;
-  }
 
-  /* Edited text box */
-  .edited-text-box {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-  .edited-text {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--text-primary);
-  }
-  .edited-text p { margin-bottom: 10px; }
-  .changelog-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .changelog-list li {
-    padding: 4px 0 4px 20px;
-    position: relative;
-    font-size: 0.83rem;
-    line-height: 1.5;
-  }
-  .changelog-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--orange);
-    font-weight: 700;
-  }
+  /* Editing */
+  .edited-text-box { padding: 16px; margin-bottom: 12px; }
+  .changelog-list { list-style: none; padding: 0; margin: 0; }
+  .changelog-list li { padding: 4px 0 4px 22px; position: relative; }
+  .changelog-list li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 
-  /* Strategy cards */
-  .strategy-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .strategy-card {
-    display: flex;
-    gap: 14px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 14px;
-    align-items: flex-start;
-  }
-  .strategy-num {
-    font-family: var(--font-body);
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: var(--purple-mid);
-    min-width: 32px;
-    text-align: center;
-    line-height: 1;
-  }
-  .strategy-title {
-    font-weight: 700;
-    font-size: 0.92rem;
-    color: var(--text-primary);
-    margin-bottom: 4px;
-  }
-  .strategy-preview {
-    font-size: 0.82rem;
-    color: var(--text-secondary);
-    line-height: 1.4;
-    margin: 0;
-  }
+  /* Strategy (brainstorming) */
+  .strategy-grid { display: flex; flex-direction: column; gap: 10px; }
+  .strategy-card { display: flex; gap: 14px; padding: 14px; align-items: flex-start; }
+  .strategy-num { min-width: 30px; }
 
-  /* Answers grid (long context) */
-  .answers-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-  }
-  .answer-card {
-    display: flex;
-    gap: 10px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 10px 14px;
-    align-items: center;
-  }
-  .answer-num {
-    font-weight: 800;
-    color: var(--purple-mid);
-    font-size: 1.1rem;
-    min-width: 24px;
-  }
-  .answer-text {
-    font-size: 0.88rem;
-    color: var(--text-primary);
-  }
+  /* Answers (long context) */
+  .answers-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .answer-card { display: flex; gap: 12px; padding: 12px 14px; align-items: flex-start; }
+  .answer-num { min-width: 22px; }
 
-  /* Responsive */
   @media (max-width: 768px) {
     .platform-grid { grid-template-columns: 1fr; }
     .answers-grid { grid-template-columns: 1fr; }
@@ -1057,10 +853,17 @@
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>TARGET commits multiple kill-list violations: banned hype word in thumbnail (&quot;HEADLINE_TEXT_2: UNLOCKED POWER&quot;), quotation marks in body (&quot;one command line to rule them all&quot;), and metadata leakage in the feed post (&quot;Knowledge cutoff: 2024-06 / Current date: 2026-04-07&quot;). Article body runs well under the 700-word floor, voice is generic (&quot;The path forward demands ruthless analysis&quot;), and sentence-length variation is flat. Structure exists but execution fails. I agreed with the 22/16/12 cluster and discarded 38 and 32 as too generous given the hard-constraint failures.</p>
+          <p><p>TARGET commits multiple kill-list violations: banned hype word in thumbnail (&quot;HEADLINE_TEXT_2: UNLOCKED POWER&quot;), quotation marks in body (&quot;one command line to rule them all&quot;), and metadata leakage in the feed post (&quot;Knowledge cutoff: 2024-06 / Current date: 2026-04-07&quot;). Article body runs well under the 700-word floor, voice is generic (&quot;The path forward demands ruthless analysis&quot;), and sentence-length variation is flat. Structure exists but execution fails. I agreed with the 22/16/12 cluster and discarded 38 and 32 as too generous given the hard-constraint failures.</p></p>
         </div><div class="breakout-section">
     <h4 class="breakout-title">Article Preview</h4>
-    <div class="article-preview"><div class="article-headline">Deploy AI Agents to Run Any API and Cut Development Time</div><div class="article-section"><p class="article-section-body">Your AI agents just got a free pass to any backend.  <br>Developers hear that and feel a surge of excitement that quickly turns to anxiety.  <br>The promise of “one command line to rule them all” sounds like a shortcut, but shortcuts often hide hidden tolls.</p></div><div class="article-section"><div class="article-section-title">The Hype That Misses the Point</div><p class="article-section-body">The announcement reads like a headline from a tech press release, yet the reality is far more modest.  <br>Claude Code now lets an agent invoke any API, query a database, or manipulate a file system from a terminal prompt.  <br>That sounds like magic, but magic rarely survives the scrutiny of a profit‑and‑loss statement.  <br>When a product manager sees this feature, the first thought is how quickly the team can ship a demo.  <br>Later that evening the same manager worries about support tickets, security reviews, and the cost of maintaining a sprawling integration layer.  <br>The excitement is a flash of dopamine, the worry is a knot of dread.  </p></div><div class="article-section"><div class="article-section-title">The Hidden Cost of Unchecked Integration</div><p class="article-section-body">Developers love tools that remove friction, yet they also hate surprises that surface weeks after launch.  <br>An unrestricted agent can, for example, write to a log file that a compliance auditor later flags as a violation.  <br>The engineer who built the integration feels a creeping sense of vulnerability, knowing that a single malformed prompt could corrupt a production table.  <br>That feeling is not abstract; it translates into hours of debugging, extra testing cycles, and a growing backlog of edge‑case tickets.  <br>If the organization does not embed strict policy checks, the AI becomes a wildcard that erodes trust between the data team and the product team.  <br>The cost is not measured in servers or API calls, it is measured in the mental load on staff who must constantly monitor for unintended side effects.  </p></div><div class="article-section"><div class="article-section-title">Choose Efficiency or Waste</div><p class="article-section-body">The decision point is simple.  <br>Either adopt the tool with a disciplined framework that limits scope, logs every call, and enforces role‑based permissions, or reject it and stick with purpose‑built integrations that are slower to code but safer to run.  <br>If the organization invests in governance, the ROI can be positive: fewer manual scripts, faster prototype cycles, and a clearer audit trail.  <br>If it ignores governance, the tool becomes a drain, consuming developer time and exposing the firm to compliance risk.  <br>The binary choice is clear: treat the new capability as a controlled lever that amplifies existing processes, or let it become a free‑wheeling experiment that erodes efficiency.  <br>The path forward demands ruthless analysis, not blind enthusiasm.  </p></div></div></div>
+    <div class="article-preview"><div class="article-headline">Deploy AI Agents to Run Any API and Cut Development Time</div><div class="article-section"><p class="article-section-body"><p>Your AI agents just got a free pass to any backend.<br>Developers hear that and feel a surge of excitement that quickly turns to anxiety.<br>The promise of “one command line to rule them all” sounds like a shortcut, but shortcuts often hide hidden tolls.</p></p></div><div class="article-section"><div class="article-section-title">The Hype That Misses the Point</div><p class="article-section-body"><p>The announcement reads like a headline from a tech press release, yet the reality is far more modest.<br>Claude Code now lets an agent invoke any API, query a database, or manipulate a file system from a terminal prompt.<br>That sounds like magic, but magic rarely survives the scrutiny of a profit‑and‑loss statement.<br>When a product manager sees this feature, the first thought is how quickly the team can ship a demo.<br>Later that evening the same manager worries about support tickets, security reviews, and the cost of maintaining a sprawling integration layer.<br>The excitement is a flash of dopamine, the worry is a knot of dread.<br>What most announcements ignore is the incremental maintenance burden that comes with granting an AI agent unrestricted access to critical services.</p></p></div><div class="article-section"><div class="article-section-title">The Hidden Cost of Unchecked Integration</div><p class="article-section-body"><p>Developers love tools that remove friction, yet they also hate surprises that surface weeks after launch.<br>An unrestricted agent can, for example, write to a log file that a compliance auditor later flags as a violation.<br>The engineer who built the integration feels a creeping sense of vulnerability, knowing that a single malformed prompt could corrupt a production table.<br>That feeling is not abstract; it translates into hours of debugging, extra testing cycles, and a growing backlog of edge‑case tickets.<br>If the organization does not embed strict policy checks, the AI becomes a wildcard that erodes trust between the data team and the product team.<br>The cost is not measured in servers or API calls, it is measured in the mental load on staff who must constantly monitor for unintended side effects.<br>When the pressure builds, talent attrition rises, and the promised speed advantage evaporates.</p></p></div><div class="article-section"><div class="article-section-title">Choose Efficiency or Waste</div><p class="article-section-body"><p>The decision point is simple.<br>Either adopt the tool with a disciplined framework that limits scope, logs every call, and enforces role‑based permissions, or reject it and stick with purpose‑built integrations that are slower to code but safer to run.<br>If the organization invests in governance, the ROI can be positive: fewer manual scripts, faster prototype cycles, and a clearer audit trail.<br>If it ignores governance, the tool becomes a drain, consuming developer time and exposing the firm to compliance risk.<br>The binary choice is clear: treat the new capability as a controlled lever that amplifies existing processes, or let it become a free‑wheeling experiment that erodes efficiency.<br>The path forward demands ruthless analysis, not blind enthusiasm.</p>
+<p>Jonathan Green</p>
+<p>PS</p>
+<ul>
+<li>Scroll to the top.</li>
+<li>Click on Subscribe to newsletter.</li>
+<li>Follow Jonathan Green to never miss a post.</li>
+</ul></p></div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>Deploy AI Agents to Run Any API and Cut Development Time  
@@ -2002,8 +1805,10 @@ export function processWebhookEvents(
         </div>
         <div class="quality-judgment">
           <div class="judgment-tag">QUALITY ASSESSMENT</div>
-          <p>TARGET sits between Reference B (59) and a notch above. It hits the core mechanism (&quot;The 'messy middle' becomes an ASSET, not a liability&quot;) and gives a concrete boutique-web-shop example with a specific prompt. But the prose is generic and stiff: &quot;Enjoy the island breeze&quot; lands as cliche, and the PS lacks the specific, lived-in detail of B's three &quot;Important&quot; folders or C's rooster imitating a notification. No dollar figures, no emotional payoff. I agreed with the 64/64 votes; discarded the 48s as too harsh given clear mechanism delivery, and the 70 as too generous given the flat voice.</p>
-        </div>
+          <p><p>TARGET sits between Reference B (59) and a notch above. It hits the core mechanism (&quot;The 'messy middle' becomes an ASSET, not a liability&quot;) and gives a concrete boutique-web-shop example with a specific prompt. But the prose is generic and stiff: &quot;Enjoy the island breeze&quot; lands as cliche, and the PS lacks the specific, lived-in detail of B's three &quot;Important&quot; folders or C's rooster imitating a notification. No dollar figures, no emotional payoff. I agreed with the 64/64 votes; discarded the 48s as too harsh given clear mechanism delivery, and the 70 as too generous given the flat voice.</p></p>
+        </div><div class="breakout-section">
+    <h4 class="breakout-title">Email Preview</h4>
+    <div class="email-preview"><div class="email-subject"><strong>Subject:</strong> One Million Tokens, One Business Breakthrough</div><div class="email-preview-text"><strong>Preview:</strong> Why the new AI size matters more for you than the tech hype.</div><div class="email-body">I just saw a model that can swallow a <strong>MILLION</strong> tokens in a single prompt… that’s roughly ten full books stacked on a kitchen table.  </p><p>Most folks get excited about the raw number. I get excited about who finally gets to use that power.  </p><p>If you’ve ever tried to make sense of a chaotic Google Drive—client contracts, SOP PDFs, stray meeting notes—you know the feeling: you’re drowning in a sea of “stuff.” You either hire a pricey consultant to fish out the gems, or you settle for guesswork.</p><p>Imagine this: you run a boutique web design shop. Over the past year you’ve accumulated 200 client briefs, 150 invoices, a handful of style guides, and a mountain of Slack transcripts. All of that lives in different folders, formats, and even a few handwritten PDFs.  </p><p>Now you paste the entire mess into one prompt and ask, “Give me a summary of each client’s renewal date, the top three recurring issues, and a quick win for each account.” The AI reads every document, cross‑references dates, and spits out a tidy spreadsheet—no manual sorting, no extra hours, no consultant fee. The “messy middle” becomes an <strong>ASSET</strong>, not a liability.</p><p>That’s the shift. It’s not about the AI doing more tricks; it’s about giving you, the small‑business owner, the same data‑superpowers the big guys have always hoarded.</p><p>If you’ve got a stack of files you’ve been ignoring because “it’s too much work,” hit reply and tell me what chaos you’d dump into this new beast. I’ll share a quick framework to turn that dump into immediate, actionable insight.</p><p>Enjoy the island breeze,</div><div class="email-signature">Jonathan Green</div><div class="email-ps">**P.S.** The rooster on my porch started its sunrise chorus at 5 am today, right as the kids were building a sandcastle that collapsed—again. It’s a reminder that even the most chaotic mornings can produce something solid.</div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
           <div class="output-box"><div class="output-label">MODEL OUTPUT</div><pre>**Subject:** One Million Tokens, One Business Breakthrough  
@@ -2041,19 +1846,28 @@ Jonathan Green
     <h4 class="breakout-title">Summary Breakdown</h4>
       <div class="callout-box section">
         <div class="callout-label">WHAT WAS DEMONSTRATED</div>
-        <p>| Demonstration | Goal | Outcome |<br>|---------------|------|---------|<br>| <strong>Parallel Amazon shopping pipeline</strong> – four sub‑agents each open a Chrome tab, search for Scandinavian‑style chair, table, couch, curtains, stay under a $3 k budget, then combine results into a visualisation. | Show that multiple agents can run simultaneously and finish faster than a sequential run. | <strong>Worked</strong> – two agents finished early, all items were found, total cost $1.3 k. Visualization generated (some items mis‑identified, e.g., table). |<br>| <strong>Capture‑solver skill</strong> – high‑res screenshot + coordinate clicking to solve a demo capture (traffic‑light → bus) on a Google “ReCAPTCHA‑style” page. | Prove that a tool can be auto‑generated by Claude to solve click‑based challenges quickly. | <strong>Mostly worked</strong> – solved traffic‑light capture on first try, bus capture needed a retry but succeeded. |<br>| <strong>Temp‑mail Reddit account + meme posting</strong> – create a disposable email at `tempmail.lol`, register on old.reddit.com, generate a meme image via “Nano Banana”, upload via “FAL AI”, satisfy subreddit rules, and submit. | Test whether the automation can handle account creation and posting, including rule‑checking. | <strong>Partial success</strong> – account created (Reddit didn’t require email verification), meme uploaded, but title violated subreddit rules and required manual prompting; overall posting succeeded after several back‑and‑forth steps. |<br>| <strong>Skill‑reuse / learning loop</strong> – after the first run, the creator notes that the next execution would be much faster if the newly built skills are saved. | Highlight the “learn‑once, run‑many” potential. | <strong>Conceptual</strong> – not demonstrated live, but mentioned as future improvement. |</p>
+        <p><p>| Demonstration | Goal | Outcome |<br>|---------------|------|---------|<br>| <strong>Parallel Amazon shopping pipeline</strong> – four sub‑agents each open a Chrome tab, search for Scandinavian‑style chair, table, couch, curtains, stay under a $3 k budget, then combine results into a visualisation. | Show that multiple agents can run simultaneously and finish faster than a sequential run. | <strong>Worked</strong> – two agents finished early, all items were found, total cost $1.3 k. Visualization generated (some items mis‑identified, e.g., table). |<br>| <strong>Capture‑solver skill</strong> – high‑res screenshot + coordinate clicking to solve a demo capture (traffic‑light → bus) on a Google “ReCAPTCHA‑style” page. | Prove that a tool can be auto‑generated by Claude to solve click‑based challenges quickly. | <strong>Mostly worked</strong> – solved traffic‑light capture on first try, bus capture needed a retry but succeeded. |<br>| <strong>Temp‑mail Reddit account + meme posting</strong> – create a disposable email at `tempmail.lol`, register on old.reddit.com, generate a meme image via “Nano Banana”, upload via “FAL AI”, satisfy subreddit rules, and submit. | Test whether the automation can handle account creation and posting, including rule‑checking. | <strong>Partial success</strong> – account created (Reddit didn’t require email verification), meme uploaded, but title violated subreddit rules and required manual prompting; overall posting succeeded after several back‑and‑forth steps. |<br>| <strong>Skill‑reuse / learning loop</strong> – after the first run, the creator notes that the next execution would be much faster if the newly built skills are saved. | Highlight the “learn‑once, run‑many” potential. | <strong>Conceptual</strong> – not demonstrated live, but mentioned as future improvement. |</p></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">KEY TECHNICAL DETAILS</div>
-        <p>| Component | Details |<br>|-----------|---------|<br>| <strong>cloud‑code CLI</strong> | Custom wrapper that launches Chrome with `--remote-debugging-port`, talks to CDP (JavaScript commands) to drive pages. |<br>| <strong>Skills</strong> | JSON‑like “agents” stored in Claude’s skill store: &lt;br&gt;• <strong>Amazon skill</strong> – navigates Amazon, extracts price, respects budget. &lt;br&gt;• <strong>Capture skill</strong> – takes high‑res screenshots, does coordinate clicks. &lt;br&gt;• <strong>Capture solver</strong> – auto‑generated script for a specific capture challenge. |<br>| <strong>Parallel agents</strong> | Spawned 4‑6 Chrome tabs, each controlled by its own sub‑agent. Coordination done via Claude prompts (“run these in parallel”). |<br>| <strong>Visualization</strong> | Uses <strong>FAL AI</strong> + <strong>Nano Banana</strong> to render the final room image with selected furniture. |</p>
+        <p><p>| Component | Details |<br>|-----------|---------|<br>| <strong>cloud‑code CLI</strong> | Custom wrapper that launches Chrome with `--remote-debugging-port`, talks to CDP (JavaScript commands) to drive pages. |<br>| <strong>Skills</strong> | JSON‑like “agents” stored in Claude’s skill store: &lt;br&gt;• <strong>Amazon skill</strong> – navigates Amazon, extracts price, respects budget. &lt;br&gt;• <strong>Capture skill</strong> – takes high‑res screenshots, does coordinate clicks. &lt;br&gt;• <strong>Capture solver</strong> – auto‑generated script for a specific capture challenge. |<br>| <strong>Parallel agents</strong> | Spawned 4‑6 Chrome tabs, each controlled by its own sub‑agent. Coordination done via Claude prompts (“run these in parallel”). |<br>| <strong>Visualization</strong> | Uses <strong>FAL AI</strong> + <strong>Nano Banana</strong> to render the final room image with selected furniture. |<br>| <strong>Temp mail</strong> | `tempmail.lol` used to obtain a disposable address via UI automation. |<br>| <strong>Reddit automation</strong> | Old Reddit UI, fields filled via CDP, meme image URL inserted, subreddit rules read automatically. |<br>| <strong>Image generation</strong> | “Nano Banana” (presumably a text‑to‑image model) creates meme PNG on‑the‑fly. |<br>| <strong>Capture demo page</strong> | Google “ReCAPTCHA‑style” demo (traffic‑light → bus) used for testing the capture skill. |<br>| <strong>Languages / versions</strong> | Not explicitly stated; assumes Claude (likely Claude 3.5) and Chrome (latest stable). No explicit library versions. |</p></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">WHAT’S ACTUALLY NEW OR INTERESTING</div>
-        <p>| New/Interesting | Why it matters |<br>|-----------------|----------------|<br>| <strong>Parallel sub‑agents in a browser</strong> | Most AI‑driven automation demos run a single tab; running several tabs concurrently cuts wall‑clock time dramatically. |<br>| <strong>On‑the‑fly generation of a “capture solver”</strong> | Demonstrates Claude’s ability to synthesize a custom script (high‑res screenshot + coordinate click) for a specific CAPTCHA‑like task. |<br>| <strong>End‑to‑end flow from shopping → visualisation</strong> | Shows a full pipeline that could be repurposed for interior‑design recommendation bots. |<br>| <strong>Temp‑mail Reddit posting</strong> | Proves that automated account creation is still possible on old.reddit.com (no email verification), but also reveals rule‑checking friction. |</p>
+        <p><p>| New/Interesting | Why it matters |<br>|-----------------|----------------|<br>| <strong>Parallel sub‑agents in a browser</strong> | Most AI‑driven automation demos run a single tab; running several tabs concurrently cuts wall‑clock time dramatically. |<br>| <strong>On‑the‑fly generation of a “capture solver”</strong> | Demonstrates Claude’s ability to synthesize a custom script (high‑res screenshot + coordinate click) for a specific CAPTCHA‑like task. |<br>| <strong>End‑to‑end flow from shopping → visualisation</strong> | Shows a full pipeline that could be repurposed for interior‑design recommendation bots. |<br>| <strong>Temp‑mail Reddit posting</strong> | Proves that automated account creation is still possible on old.reddit.com (no email verification), but also reveals rule‑checking friction. |</p>
+<p><em>Most of the underlying tech (CDP automation, AI‑generated prompts) is already known; the novelty is in stitching them together and the parallel‑agent orchestration.</em></p></p>
       </div>
       <div class="callout-box section">
         <div class="callout-label">LIMITATIONS &AMP; CAVEATS</div>
-        <p>* <strong>Stability:</strong> The capture solver sometimes needs a retry; the Reddit posting required manual nudges to satisfy subreddit title rules.  <br>* <strong>Speed:</strong> While parallel tabs speed up the Amazon search, the Reddit flow was “very slow” with many back‑and‑forth steps.  <br>* <strong>Scalability:</strong> Demonstrated with ≤ 6 tabs; no evidence of resource management or error handling for larger fleets.  <br>* <strong>Reliance on UI quirks:</strong> Reddit’s lack of email verification is a happy accident; newer Reddit UI may block temp‑mail registrations.  <br>* <strong>Skill persistence:</strong> The “learn‑once, run‑many” claim isn’t shown; you’d need to manually save and reload generated skills.  <br>* <strong>No code snippets:</strong> The video doesn’t expose the actual CLI commands or skill JSON, making replication harder.  </p>
+        <p><ul>
+<li><strong>Stability:</strong> The capture solver sometimes needs a retry; the Reddit posting required manual nudges to satisfy subreddit title rules.</li>
+<li><strong>Speed:</strong> While parallel tabs speed up the Amazon search, the Reddit flow was “very slow” with many back‑and‑forth steps.</li>
+<li><strong>Scalability:</strong> Demonstrated with ≤ 6 tabs; no evidence of resource management or error handling for larger fleets.</li>
+<li><strong>Reliance on UI quirks:</strong> Reddit’s lack of email verification is a happy accident; newer Reddit UI may block temp‑mail registrations.</li>
+<li><strong>Skill persistence:</strong> The “learn‑once, run‑many” claim isn’t shown; you’d need to manually save and reload generated skills.</li>
+<li><strong>No code snippets:</strong> The video doesn’t expose the actual CLI commands or skill JSON, making replication harder.</li>
+<li><strong>Security/ethics:</strong> Automating account creation and posting could violate platform TOS; the demo skirts around that but warns it’s a side‑project.</li>
+</ul></p>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -2126,7 +1940,14 @@ If you’re already experimenting with Claude‑driven agents and want a proof�
     <h4 class="breakout-title">Editing Analysis</h4>
     <div class="edited-text-box">
       <div class="callout-label">EDITED TEXT</div>
-      <div class="edited-text"><strong>Edited Text</strong></p><p>I’ve been thinking about this a lot lately, and I think most people are getting AI completely wrong. Everyone talks about AI replacing developers, writers, and other jobs, but that’s not what I see in my business.</p><p>What I’m seeing is that AI makes good people better and bad people worse. The writers who were already strong now use AI to produce three times as much quality content. The weaker writers use the same tools to churn out three times as much junk. The same pattern holds for code: my top developers treat AI as a copilot and ship features faster, while my weaker developers lean on it as a crutch and still ship bugs—just different ones.</p><p>The real disruption isn’t replacement; it’s amplification. A marketer who was a 7/10 before AI now operates at a 9. A 3/10 marketer might only inch up to a 4 on a good day. The gap between the good and the bad is widening, not shrinking.</p><p>That has huge hiring implications. Why hire a mediocre person with AI tools when you can hire an excellent one with the same tools? A $150 k senior developer equipped with AI can produce the output of three average developers. An $80 k junior with the same tools only marginally improves junior‑level output.</p><p>The people who should worry aren’t those fearing replacement; they’re the ones who believe AI will level the playing field. It won’t—it will turn the skill gap into a canyon.</p><p>I don’t have all the answers, but if you run a business you need to look past the media narrative of “AI replaces jobs.” The real question is whether AI amplifies your team’s strengths or simply makes their weaknesses more productive. Those are very different outcomes.</p><p>---</p><p>**</div>
+      <div class="edited-text"><p><strong>Edited Text</strong></p>
+<p>I’ve been thinking about this a lot lately, and I think most people are getting AI completely wrong. Everyone talks about AI replacing developers, writers, and other jobs, but that’s not what I see in my business.</p>
+<p>What I’m seeing is that AI makes good people better and bad people worse. The writers who were already strong now use AI to produce three times as much quality content. The weaker writers use the same tools to churn out three times as much junk. The same pattern holds for code: my top developers treat AI as a copilot and ship features faster, while my weaker developers lean on it as a crutch and still ship bugs—just different ones.</p>
+<p>The real disruption isn’t replacement; it’s amplification. A marketer who was a 7/10 before AI now operates at a 9. A 3/10 marketer might only inch up to a 4 on a good day. The gap between the good and the bad is widening, not shrinking.</p>
+<p>That has huge hiring implications. Why hire a mediocre person with AI tools when you can hire an excellent one with the same tools? A $150 k senior developer equipped with AI can produce the output of three average developers. An $80 k junior with the same tools only marginally improves junior‑level output.</p>
+<p>The people who should worry aren’t those fearing replacement; they’re the ones who believe AI will level the playing field. It won’t—it will turn the skill gap into a canyon.</p>
+<p>I don’t have all the answers, but if you run a business you need to look past the media narrative of “AI replaces jobs.” The real question is whether AI amplifies your team’s strengths or simply makes their weaknesses more productive. Those are very different outcomes.</p>
+<p>**</p></div>
     </div>
       <div class="callout-box changelog">
         <div class="callout-label">CHANGELOG (8 changes)</div>
@@ -2173,266 +1994,322 @@ I don’t have all the answers, but if you run a business you need to look past 
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">Identify one local or online association whose members are small‑business owners who *already* talk about efficiency (e.g., a regional Chamber of Commerce, a Real‑Estate Agents’ Network, or a Boutique Retailers’ Guild).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">Write a 30‑minute slide deck that:</div>
-          <p class="strategy-preview">* Shows a single, relatable workflow (e.g., “turn an email lead into a calendar invite + follow‑up sequence”).      * Demonstrates the **before/after ROI** (hours saved, cost per lead).      * Ends wi...</p>
+          <div class="strategy-preview"><ul>
+<li>Shows a single, relatable workflow (e.g., “turn an email lead into a calendar invite + follow‑up sequence”).</li>
+<li>Demonstrates the <strong>before/after ROI</strong> (hours saved, cost per lead).</li>
+<li>Ends with a <strong>live 10‑minute “audit”</strong> of a volunteer’s current workflow.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">Email the association’s program manager (2‑3 × personalised messages) offering to deliver a free, exclusive webinar for their members, promising 2‑5 actionable automation ideas per attendee.</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">Set up a simple registration landing page (Google Forms + Calendly) that captures name, email, role, and a single “pain point” field.</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">Promote the event only through the association’s newsletter and Slack/Discord channel (no paid ads).</div>
-          <p class="strategy-preview">**Weekly time** – 3 h to prep the deck &amp; outreach (Week 1); 1 h per week to answer registration questions and rehearse. After the webinar, spend **2 h** on follow‑up: send personalized audit summaries...</p>
+          <div class="strategy-preview"><p><strong>Weekly time</strong> – 3 h to prep the deck &amp; outreach (Week 1); 1 h per week to answer registration questions and rehearse. After the webinar, spend <strong>2 h</strong> on follow‑up: send personalized audit summaries and a 30‑minute strategy call link to the 5–10 most promising attendees.</p>
+<p><strong>Timeline to first client</strong> – <strong>4–6 weeks</strong>:<br><em>Week 1–2</em> – secure partnership, launch registration.<br><em>Week 3</em> – run the webinar (30 min live + 10 min audit).<br><em>Week 4</em> – follow‑up calls → close the first contract.</p>
+<p><strong>Why it works for AI consulting</strong> – Small businesses rarely know they need AI, but they <strong>recognise a broken workflow</strong>. By giving them a <em>tangible, free audit</em> inside a trusted community, you turn a vague curiosity into a concrete, quantified problem that only an AI‑automation specialist can solve.</p>
+<p><strong>Trade‑off</strong> – Low cash cost, but requires <strong>relationship‑building</strong> with an association (1‑2 weeks of outreach). Great for a “quick win” that also builds a pipeline of warm leads for the next 6 months.</p>
+<h4>2️⃣  Mini‑Case‑Study Video + Interactive ROI Calculator</h4>
+<p><strong>What you do (start this week)</strong></p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">Pick your best‑performing client (e.g., the one who saved 12 h/week on invoice processing).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">Script a 2‑minute “before‑after” video:</div>
-          <p class="strategy-preview">* 10 s of the manual process (screen‑record a typical Excel sheet).      * 10 s of the automated flow (n8n/Make screenshot).      * Show the **$X saved per month** and a quick client quote....</p>
+          <div class="strategy-preview"><ul>
+<li>10 s of the manual process (screen‑record a typical Excel sheet).</li>
+<li>10 s of the automated flow (n8n/Make screenshot).</li>
+<li>Show the <strong>$X saved per month</strong> and a quick client quote.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">Record with your phone + a free screen‑capture tool (Loom). Add captions (free Kapwing).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">Upload to Vimeo (private) and embed on a single‑page landing site.</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">Below the video, embed a Google‑Sheet‑based ROI calculator (user enters # of invoices/week, average processing time, hourly rate; sheet returns “hours saved” and “monthly dollar impact”).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">6</div>
         <div class="strategy-content">
           <div class="strategy-title">Drive traffic only by sending the link to targeted outbound email sequences (see Idea 3 for the list).</div>
-          <p class="strategy-preview">**Weekly time** – 6 h upfront (script, record, edit, build calculator). After launch, **1 h/week** to tweak copy and respond to inbound queries.    **Timeline to first client** – **3–5 weeks**:  ...</p>
+          <div class="strategy-preview"><p><strong>Weekly time</strong> – 6 h upfront (script, record, edit, build calculator). After launch, <strong>1 h/week</strong> to tweak copy and respond to inbound queries.</p>
+<p><strong>Timeline to first client</strong> – <strong>3–5 weeks</strong>:<br><em>Week 1</em> – create video &amp; calculator.<br><em>Week 2–3</em> – email 30‑40 prospects (see Idea 3).<br><em>Week 4</em> – inbound demos → close a contract.</p>
+<p><strong>Why it works for AI consulting</strong> – The <strong>visual “before/after” + instant ROI number</strong> makes an abstract AI service <em>tangible</em> and <em>self‑service</em>. Decision‑makers can see the exact cash impact <strong>without a sales call</strong>, which lowers the barrier for a service they didn’t know they needed.</p>
+<p><strong>Trade‑off</strong> – Requires a good case study (you have one). Once built, it becomes a <strong>passive asset</strong> that continues to generate leads.</p>
+<h4>3️⃣  “Prompt‑Library Lead Magnet” + Warm‑Email Nurture</h4>
+<p><strong>What you do (start this week)</strong></p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">Create 10 ready‑to‑use GPT prompts that solve common SMB tasks (lead‑follow‑up email, FAQ bot answer, expense‑classification, meeting‑note summariser, etc.).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">Write a one‑page PDF titled “10 AI Prompts Every Small Business Can Deploy Today – No Coding Required” and host it on a simple Webflow/Lander page.</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">Gate the PDF with an email capture form (Name, Company, Role, Biggest workflow pain).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">Use a free prospect‑list source (e.g., Crunchbase “Small Business” filter, or a purchased list of 500‑company email addresses from a niche directory).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">Send a 2‑step cold‑email sequence:</div>
-          <p class="strategy-preview">* Email 1 – “I thought you might like these 10 prompts” + link to download.      * Email 2 (3 days later) – “How did the prompts work for you? Here’s a 15‑minute AI‑automation health‑check if you want...</p>
+          <div class="strategy-preview"><ul>
+<li>Email 1 – “I thought you might like these 10 prompts” + link to download.</li>
+<li>Email 2 (3 days later) – “How did the prompts work for you? Here’s a 15‑minute AI‑automation health‑check if you want to go deeper.”</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">6</div>
         <div class="strategy-content">
           <div class="strategy-title">When a prospect replies or clicks the health‑check link, schedule a 15‑minute discovery call (Calendly).</div>
-          <p class="strategy-preview">**Weekly time** – 8 h to write prompts + design PDF + set up landing page (Week 1). Then **1‑2 h/week** to run the email sequence (using Mailshake or Lemlist) and respond to replies.    **Timeline to ...</p>
+          <div class="strategy-preview"><p><strong>Weekly time</strong> – 8 h to write prompts + design PDF + set up landing page (Week 1). Then <strong>1‑2 h/week</strong> to run the email sequence (using Mailshake or Lemlist) and respond to replies.</p>
+<p><strong>Timeline to first client</strong> – <strong>2–3 weeks</strong>:<br><em>Week 1</em> – create lead magnet &amp; list.<br><em>Week 2</em> – send first batch of 50 emails.<br><em>Week 3</em> – 2–3 discovery calls → close the first client.</p>
+<p><strong>Why it works for AI consulting</strong> – Small business owners love <strong>immediate, free tools</strong> they can copy‑paste. By giving them a usable prompt, you prove you can <strong>deliver value instantly</strong>, and the follow‑up health‑check naturally leads to a deeper, paid implementation.</p>
+<p><strong>Trade‑off</strong> – Low monetary cost, but <strong>list quality matters</strong>; you may need to purchase a niche list to stay within compliance. Great for a fast, repeatable pipeline.</p>
+<h4>4️⃣  Co‑Marketing Integration Bundle with a Low‑Code Platform</h4>
+<p><strong>What you do (start this week)</strong></p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">Choose a platform you already use (e.g., Make.com or n8n).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">Identify one complementary SaaS that serves SMBs but lacks AI‑powered steps (e.g., a CRM like HubSpot Free, an invoicing tool like Zoho Invoice, or a booking system like Calendly).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">Draft a “AI‑Boosted Integration Blueprint” (2‑page PDF) that shows:</div>
-          <p class="strategy-preview">* How to connect the SaaS to Make.      * Where a GPT‑based step can auto‑write follow‑up emails, summarize notes, or classify tickets....</p>
+          <div class="strategy-preview"><ul>
+<li>How to connect the SaaS to Make.</li>
+<li>Where a GPT‑based step can auto‑write follow‑up emails, summarize notes, or classify tickets.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">Pitch the SaaS partner’s partner‑program manager (or community manager) with a revenue‑share proposal: you’ll build the AI step, they’ll promote the bundle to their SMB customers, and you split the first‑month fee.</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">Co‑publish the blueprint on both partner sites, add a “Get a free 30‑min AI integration demo” CTA, and cross‑post in each community’s forum.</div>
-          <p class="strategy-preview">**Weekly time** – 4 h to create the blueprint and outreach (Week 1). After the partnership is live, **1 h/week** to handle demo calls and refine the bundle.    **Timeline to first client** – **6–8 wee...</p>
+          <div class="strategy-preview"><p><strong>Weekly time</strong> – 4 h to create the blueprint and outreach (Week 1). After the partnership is live, <strong>1 h/week</strong> to handle demo calls and refine the bundle.</p>
+<p><strong>Timeline to first client</strong> – <strong>6–8 weeks</strong>:<br><em>Weeks 1–2</em> – identify partner, send proposal, negotiate.<br><em>Weeks 3–4</em> – publish bundle, start inbound demos.<br><em>Weeks 5–6</em> – close first contract.</p>
+<p><strong>Why it works for AI consulting</strong> – SMB SaaS users <strong>already trust the platform</strong>; they’re looking for “add‑ons” that solve pain points. By bundling your AI step directly inside a platform they already pay for, you bypass the “I don’t know AI” barrier and become the <strong>natural next‑step</strong>.</p>
+<p><strong>Trade‑off</strong> – Slightly longer lead time (partner negotiations) but creates a <strong>steady, referral‑type stream</strong> that can scale without ads.</p>
+<h4>5️⃣  Local (or Virtual) “AI‑Automation Sprint” Hackathon</h4>
+<p><strong>What you do (start this week)</strong></p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">Reserve a co‑working space for a half‑day (or set up a Zoom breakout room for a virtual version).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">Invite 20‑30 local SMB owners (via your Chamber, Meetup.com, or a niche Facebook group) to bring a single workflow problem they want solved.</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">Charge a $50 registration fee (covers coffee, snacks, or a Zoom gift card).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">Prepare a template automation flow in Make/n8n that you’ll customize live (e.g., “turn inbound email → GPT‑summarise → Slack notification”).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">During the sprint, you (and the contractor) build a quick proof‑of‑concept for each participant’s problem.</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">6</div>
         <div class="strategy-content">
           <div class="strategy-title">At the end, hand each participant a one‑page “Next‑Steps Quote” that outlines a 4‑week implementation and the expected ROI.</div>
-          <p class="strategy-preview">**Weekly time** – 8 h in Week 1 for venue, promotion, and template prep. Event day: **6 h** (setup + facilitation). Post‑event: **2 h/week** for follow‑up calls.    **Timeline to first client** – **5–...</p>
+          <div class="strategy-preview"><p><strong>Weekly time</strong> – 8 h in Week 1 for venue, promotion, and template prep. Event day: <strong>6 h</strong> (setup + facilitation). Post‑event: <strong>2 h/week</strong> for follow‑up calls.</p>
+<p><strong>Timeline to first client</strong> – <strong>5–7 weeks</strong>:<br><em>Week 1–2</em> – plan &amp; promote.<br><em>Week 3</em> – event day.<br><em>Week 4–5</em> – follow‑up → close 2‑3 contracts from the most promising participants.</p>
+<p><strong>Why it works for AI consulting</strong> – The hackathon <strong>creates an experiential “aha moment.”</strong> Participants walk away with a <strong>working prototype</strong> that proves AI can solve a real problem in minutes, turning curiosity into a paying project.</p>
+<p><strong>Trade‑off</strong> – Requires a <strong>one‑off logistical effort</strong> and modest upfront cost (venue, refreshments). The payoff is high because each attendee is a qualified lead who has already invested time and money.</p>
+<h4>6️⃣  Targeted Direct‑Mail QR‑Code Card</h4>
+<p><strong>What you do (start this week)</strong></p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">Choose a hyper‑specific niche where automation is visibly painful (e.g., independent law firms, mid‑size dental practices, or local manufacturers).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">Purchase a list of 300 decision‑makers (office manager or practice manager) from a data provider (e.g., Uplead).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">Design a 1‑½ × 2‑inch postcard:</div>
-          <p class="strategy-preview">* Front – bold headline: “Cut 5 h/week from your invoice workflow with AI.”      * Back – QR code that links to a **30‑second interactive demo** (a short video + a “Enter your monthly invoice volume →...</p>
+          <div class="strategy-preview"><ul>
+<li>Front – bold headline: “Cut 5 h/week from your invoice workflow with AI.”</li>
+<li>Back – QR code that links to a <strong>30‑second interactive demo</strong> (a short video + a “Enter your monthly invoice volume → see your AI savings” calculator).</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">Print 300 cards (≈$0.75 each on a short‑run service).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">Mail the cards with a hand‑written “John, I think this could help your practice” note (personalization boosts response).</div>
-          <p class="strategy-preview">**Weekly time** – 2 h to write copy &amp; design. 2 h to order print &amp; upload list. 1 h/week to monitor QR‑code analytics and send follow‑up emails to anyone who scans.    **Timeline to first client** – *...</p>
+          <div class="strategy-preview"><p><strong>Weekly time</strong> – 2 h to write copy &amp; design. 2 h to order print &amp; upload list. 1 h/week to monitor QR‑code analytics and send follow‑up emails to anyone who scans.</p>
+<p><strong>Timeline to first client</strong> – <strong>3–4 weeks</strong>:<br><em>Week 1</em> – design &amp; order.<br><em>Week 2</em> – cards arrive, start mailing.<br><em>Week 3</em> – QR scans → schedule discovery calls.<br><em>Week 4</em> – close first contract.</p>
+<p><strong>Why it works for AI consulting</strong> – Physical mail <strong>breaks through the digital noise</strong> and forces a pause. The QR code directly shows a <strong>tangible ROI demo</strong>, making the abstract AI service concrete for a decision‑maker who may never have considered it.</p>
+<p><strong>Trade‑off</strong> – Small monetary outlay ($225 for 300 cards + list). It’s a <strong>one‑off campaign</strong> with a measurable response rate (typically 2‑5 % scan, 10‑15 % of scans book a call).</p>
+<h4>7️⃣  Guest Appearances on Niche SMB Podcasts</h4>
+<p><strong>What you do (start this week)</strong></p></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">1</div>
         <div class="strategy-content">
           <div class="strategy-title">Compile a list of 15 podcasts that target SMB owners (e.g., “The Small Business Blueprint,” “Entrepreneurial Thought Leaders,” “Retail Tech Talk”).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">2</div>
         <div class="strategy-content">
           <div class="strategy-title">Draft a 30‑second pitch email:</div>
-          <p class="strategy-preview">* Offer a **“3‑minute AI automation tip”** (e.g., “How a 2‑line Make.com workflow can auto‑reply to every new lead”).      * Include a **one‑page “Episode Outline”** with bullet points and a short bio...</p>
+          <div class="strategy-preview"><ul>
+<li>Offer a <strong>“3‑minute AI automation tip”</strong> (e.g., “How a 2‑line Make.com workflow can auto‑reply to every new lead”).</li>
+<li>Include a <strong>one‑page “Episode Outline”</strong> with bullet points and a short bio.</li>
+</ul></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">3</div>
         <div class="strategy-content">
           <div class="strategy-title">Send personalized pitches (2‑3 × per day).</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">4</div>
         <div class="strategy-content">
           <div class="strategy-title">Record the episode (usually 30 min) and include a CTA: “Listeners can claim a free 20‑minute AI workflow audit by clicking the link in the show notes.”</div>
-          <p class="strategy-preview">...</p>
+          <div class="strategy-preview"></div>
         </div>
       </div>
       <div class="strategy-card">
         <div class="strategy-num">5</div>
         <div class="strategy-content">
           <div class="strategy-title">After the episode airs, track the link clicks and schedule the audit calls.</div>
-          <p class="strategy-preview">**Weekly time** – 2 h to research &amp; craft pitches (Week 1). 1 h per episode for recording &amp; follow‑up (Weeks 2‑6). 1 h/week to handle audit calls.    **Timeline to first client** – **4–6 weeks**:  ...</p>
+          <div class="strategy-preview"><p><strong>Weekly time</strong> – 2 h to research &amp; craft pitches (Week 1). 1 h per episode for recording &amp; follow‑up (Weeks 2‑6). 1 h/week to handle audit calls.</p>
+<p><strong>Timeline to first client</strong> – <strong>4–6 weeks</strong>:<br><em>Weeks 1–2</em> – secure first guest spot.<br><em>Week 3</em> – episode airs, link clicks start.<br><em>Weeks 4–5</em> – audit calls → close a client.</p>
+<p><strong>Why it works for AI consulting</strong> – Podcast listeners <strong>trust the host</strong> and are actively seeking practical advice. By delivering a <strong>tiny, actionable AI tip</strong> and then offering a free audit, you turn a passive audience into warm leads who already view you as an authority.</p>
+<p><strong>Trade‑off</strong> – Pitching can be a numbers‑game (you may need to reach out to 30–40 shows before landing one). Once you have a few episodes, the <strong>passive exposure</strong> continues to generate inbound requests at virtually no ongoing cost.</p>
+<h4>Quick‑Start Checklist (pick 2–3 to launch this month)</h4>
+<p>| Action | Deadline | Resources Needed |<br>|--------|----------|-------------------|<br>| Build the <strong>case‑study video + ROI calculator</strong> | End of Week 2 | Phone, free video editor, Google Sheet |<br>| Write <strong>10 GPT prompts + PDF lead magnet</strong> | End of Week 2 | Notion/Word, PDF converter |<br>| Identify &amp; email <strong>association</strong> for audit webinar | End of Week 1 | Association directory, email template |<br>| Order <strong>direct‑mail QR cards</strong> | End of Week 3 | Design tool, printer, mailing list |<br>| Draft <strong>podcast pitch</strong> &amp; send first batch | End of Week 1 | Podcast list, email tool |</p>
+<p>Starting with any <strong>two</strong> of these (e.g., the webinar + lead‑magnet) will give you <strong>both a quick‑win pipeline</strong> (within 4‑5 weeks) and a <strong>passive asset</strong> that continues to bring in qualified prospects for the next six months, moving you toward that target of <strong>8 paying clients</strong> without hiring salespeople. Good luck!</p></div>
         </div>
       </div></div></div>
         <details class="output-details">
@@ -2645,11 +2522,11 @@ Starting with any **two** of these (e.g., the webinar + lead‑magnet) will give
     <h4 class="breakout-title">Analysis Highlights</h4>
       <div class="callout-box info">
         <div class="callout-label">KEY FINDINGS</div>
-        <ul class="feature-list"><li>Customer LTV: $49</li><li>Launch MRR: $1</li><li>Recommendation: Plan A is best: higher ARPU, lower churn, higher LTV, MRR stays above burn for at least 12 months, cash balance grows. Also LTV higher than CAC? CAC is $180. LTV &gt; CAC for all plans, but Plan A has best LTV/CAC ratio (1580/180=8.78). Plan B LTV/CAC ratio = 487.5/180=2.71, less attractive.</li></ul>
+        <ul class="feature-list"><li><p>Customer LTV: $49</p></li><li><p>Launch MRR: $1</p></li><li><p>Recommendation: Plan A is best: higher ARPU, lower churn, higher LTV, MRR stays above burn for at least 12 months, cash balance grows. Also LTV higher than CAC? CAC is $180. LTV &gt; CAC for all plans, but Plan A has best LTV/CAC ratio (1580/180=8.78). Plan B LTV/CAC ratio = 487.5/180=2.71, less attractive.</p></li></ul>
       </div>
       <div class="callout-box section">
         <div class="callout-label">OPTIONS ANALYZED</div>
-        <ul class="feature-list"><li>Plan A, Plan B.</li><li>Plan A: price $79, but 15% customer loss at launch: customers = 2400 * (1 - 0.15) = 2400 * 0.85 = 2040. MRR = 79*2040 = 79*2000 + 79*40 = 158,000 + 3,160 = 161,160.</li><li>Plan B: price $39, 20% customer gain at launch: customers = 2400 * (1 + 0.20) = 2400 * 1.20 = 2880. MRR = 39*2880 = 39*2000 + 39*800 + 39*80 = 78,000 + 31,200 + 3,120 = 112,320.</li><li>Plan A: ARPU 79, churn 0.05 =&gt; LTV = 79 / 0.05 = 1580.</li><li>Plan B: ARPU 39, churn 0.08 =&gt; LTV = 39 / 0.08 = 487.5.</li></ul>
+        <ul class="feature-list"><li>Plan A, Plan B.</li><li>Plan A: price $79, but 15% customer loss at launch: customers = 2400 <em> (1 - 0.15) = 2400 </em> 0.85 = 2040. MRR = 79<em>2040 = 79</em>2000 + 79*40 = 158,000 + 3,160 = 161,160.</li><li>Plan B: price $39, 20% customer gain at launch: customers = 2400 <em> (1 + 0.20) = 2400 </em> 1.20 = 2880. MRR = 39<em>2880 = 39</em>2000 + 39<em>800 + 39</em>80 = 78,000 + 31,200 + 3,120 = 112,320.</li><li>Plan A: ARPU 79, churn 0.05 =&gt; LTV = 79 / 0.05 = 1580.</li><li>Plan B: ARPU 39, churn 0.08 =&gt; LTV = 39 / 0.08 = 487.5.</li></ul>
       </div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
@@ -2890,43 +2767,43 @@ Let's prepare final response.</pre></div>
     <div class="answers-grid">
         <div class="answer-card">
           <span class="answer-num">1</span>
-          <span class="answer-text">**94.7%**  </span>
+          <span class="answer-text"><strong>94.7%</strong></span>
         </div>
         <div class="answer-card">
           <span class="answer-num">2</span>
-          <span class="answer-text">**Tomás Salazar**  </span>
+          <span class="answer-text"><strong>Tomás Salazar</strong></span>
         </div>
         <div class="answer-card">
           <span class="answer-num">3</span>
-          <span class="answer-text">**$2.5 million**  </span>
+          <span class="answer-text"><strong>$2.5 million</strong></span>
         </div>
         <div class="answer-card">
           <span class="answer-num">4</span>
-          <span class="answer-text">**7** peer‑reviewed papers  </span>
+          <span class="answer-text"><strong>7</strong> peer‑reviewed papers</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">5</span>
-          <span class="answer-text">**$145,600** average engagement value  </span>
+          <span class="answer-text"><strong>$145,600</strong> average engagement value</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">6</span>
-          <span class="answer-text">**31.4%** of revenue denominated in non‑USD currencies  </span>
+          <span class="answer-text"><strong>31.4%</strong> of revenue denominated in non‑USD currencies</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">7</span>
-          <span class="answer-text">**Ingrid Solheim** (Chief People Officer)  </span>
+          <span class="answer-text"><strong>Ingrid Solheim</strong> (Chief People Officer)</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">8</span>
-          <span class="answer-text">**$18.5 million** total budget for Project Meridian (FY2025‑FY2026)  </span>
+          <span class="answer-text"><strong>$18.5 million</strong> total budget for Project Meridian (FY2025‑FY2026)</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">9</span>
-          <span class="answer-text">**18,400** active enterprise accounts in Q3  </span>
+          <span class="answer-text"><strong>18,400</strong> active enterprise accounts in Q3</span>
         </div>
         <div class="answer-card">
           <span class="answer-num">10</span>
-          <span class="answer-text">**$45 million** estimated cost to remediate technical debt</span>
+          <span class="answer-text"><strong>$45 million</strong> estimated cost to remediate technical debt</span>
         </div></div></div>
         <details class="output-details">
           <summary>View Raw Output</summary>
