@@ -61,7 +61,13 @@ for (const f of reports) {
     console.warn(`  WARN canonical mismatch in ${f}\n       is: ${m[1]}\n       expected: ${expected}`);
     bad++;
   }
+  // Every report must link back to the leaderboard and out to the main site, as plain <a href>.
+  // Relative hrefs (e.g. "leaderboard.html") resolved under /reports/ and 404'd - hence absolute.
+  if (!html.includes('href="/ai-arena/"')) { console.warn(`  WARN no /ai-arena/ back-link: ${f}`); bad++; }
+  if (!html.includes('href="https://servenomaster.com/"')) { console.warn(`  WARN no link to main site: ${f}`); bad++; }
 }
+const indexHtml = readFileSync(join(SITE, 'index.html'), 'utf8');
+if (!indexHtml.includes('href="https://servenomaster.com/"')) { console.warn('  WARN index.html has no link to main site'); bad++; }
 if (bad) {
   console.error(`\n${bad} report page(s) have a wrong or missing canonical.`);
   process.exit(1);
