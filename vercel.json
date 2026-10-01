@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": null,
+  "buildCommand": "node tools/build-sitemap.mjs",
   "outputDirectory": "site",
   "framework": null,
   "rewrites": [

@@ -1,1 +1,3 @@
 .vercel
+# generated at deploy time by tools/build-sitemap.mjs
+site/sitemap.xml
